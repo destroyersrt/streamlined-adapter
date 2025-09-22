@@ -1,0 +1,8 @@
+{"timestamp": "2025-09-21T22:58:43.018813", "event_type": "system", "agent_id": "sarcastic_agent", "data": {"agent_id": "sarcastic_agent"}, "session_id": "sarcastic_agent_1758509923_f22b33bd"}
+{"timestamp": "2025-09-21T22:58:43.064133", "event_type": "system", "agent_id": "sarcastic_agent", "data": {"agent_id": "sarcastic_agent", "port": 6002, "host": "0.0.0.0"}, "session_id": "sarcastic_agent_1758509923_f22b33bd"}
+{"timestamp": "2025-09-21T23:02:54.940197", "event_type": "system", "agent_id": "sarcastic_agent", "data": {"agent_id": "sarcastic_agent"}, "session_id": "sarcastic_agent_1758509923_f22b33bd"}
+{"timestamp": "2025-09-21T23:02:54.941512", "event_type": "system", "agent_id": "sarcastic_agent", "data": {"agent_id": "sarcastic_agent"}, "session_id": "sarcastic_agent_1758509923_f22b33bd"}
+{"timestamp": "2025-09-21T23:03:45.818928", "event_type": "system", "agent_id": "sarcastic_agent", "data": {"agent_id": "sarcastic_agent"}, "session_id": "sarcastic_agent_1758510225_825d672e"}
+{"timestamp": "2025-09-21T23:03:45.861923", "event_type": "system", "agent_id": "sarcastic_agent", "data": {"agent_id": "sarcastic_agent", "port": 6002, "host": "0.0.0.0"}, "session_id": "sarcastic_agent_1758510225_825d672e"}
+{"timestamp": "2025-09-21T23:06:43.419073", "event_type": "message", "agent_id": "sarcastic_agent", "data": {"conversation_id": "test3", "message_type": "text", "target_agent": "sarcastic_agent"}, "session_id": "sarcastic_agent_1758510225_825d672e"}
+{"timestamp": "2025-09-21T23:06:43.419551", "event_type": "performance", "agent_id": "sarcastic_agent", "data": {"duration_seconds": 0.000491, "operation": "message_handling"}, "session_id": "sarcastic_agent_1758510225_825d672e"}

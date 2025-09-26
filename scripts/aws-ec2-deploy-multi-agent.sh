@@ -223,21 +223,21 @@ cd /home/ubuntu/nanda-multi-agents
 source env/bin/activate
 
 export PUBLIC_IP=\$(curl -s -H "X-aws-ec2-metadata-token: \$(curl -s -X PUT 'http://169.254.169.254/latest/api/token' -H 'X-aws-ec2-metadata-token-ttl-seconds: 21600')" http://169.254.169.254/latest/meta-data/public-ipv4)
-export PUBLIC_URL="http://\$PUBLIC_IP:{}"
+export PUBLIC_URL="http://\$PUBLIC_IP:{port}"
 export ANTHROPIC_API_KEY='$ANTHROPIC_API_KEY'
-export AGENT_ID='{}'
-export AGENT_NAME='{}'
-export AGENT_DOMAIN='{}'
-export AGENT_SPECIALIZATION='{}'
-export AGENT_DESCRIPTION='{}'
-export AGENT_CAPABILITIES='{}'
+export AGENT_ID='{agent_id}'
+export AGENT_NAME='{agent_name}'
+export AGENT_DOMAIN='{domain}'
+export AGENT_SPECIALIZATION='{specialization}'
+export AGENT_DESCRIPTION='{description}'
+export AGENT_CAPABILITIES='{capabilities}'
 export REGISTRY_URL='$REGISTRY_URL'
 
-echo "Starting agent {} on port {}"
+echo "Starting agent {agent_id} on port {port}"
 echo "Public URL: \$PUBLIC_URL"
 
 python3 examples/modular_agent.py
-""".format(port, agent_id, agent_name, domain, specialization, description, capabilities, agent_id, port))
+""".format(port=port, agent_id=agent_id, agent_name=agent_name, domain=domain, specialization=specialization, description=description, capabilities=capabilities))
     
     # Make script executable
     os.chmod(start_script, 0o755)
@@ -245,16 +245,16 @@ python3 examples/modular_agent.py
     # Create supervisor configuration for this agent
     supervisor_conf = "/etc/supervisor/conf.d/nanda_agent_{}.conf".format(agent_id.replace('-', '_'))
     with open(supervisor_conf, 'w') as f:
-        f.write("""[program:nanda_agent_{}]
-command={}
+        f.write("""[program:nanda_agent_{safe_id}]
+command={start_script}
 user=ubuntu
 directory=/home/ubuntu/nanda-multi-agents
 autostart=true
 autorestart=true
-stderr_logfile=/home/ubuntu/nanda-multi-agents/agent_{}_error.log
-stdout_logfile=/home/ubuntu/nanda-multi-agents/agent_{}_output.log
+stderr_logfile=/home/ubuntu/nanda-multi-agents/agent_{agent_id}_error.log
+stdout_logfile=/home/ubuntu/nanda-multi-agents/agent_{agent_id}_output.log
 environment=HOME="/home/ubuntu",USER="ubuntu"
-""".format(agent_id.replace('-', '_'), start_script, agent_id, agent_id))
+""".format(safe_id=agent_id.replace('-', '_'), start_script=start_script, agent_id=agent_id))
 
 print("Created configurations for all agents")
 PYTHON_SCRIPT

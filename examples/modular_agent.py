@@ -96,16 +96,8 @@ def create_llm_agent_logic(config: Dict[str, Any]):
             print(f"❌ Failed to initialize Anthropic: {e}")
             anthropic_client = None
     
-    # Prepare system prompt
-    expertise_list = ", ".join(config["expertise"])
-    expertise_details = "\n".join([f"- {expertise}" for expertise in config["expertise"]])
-    
-    system_prompt = config["system_prompt"].format(
-        agent_name=config["agent_name"],
-        personality=config["personality"],
-        expertise_list=expertise_list,
-        expertise_details=expertise_details
-    )
+    # Prepare system prompt (already formatted in get_agent_config)
+    system_prompt = config["system_prompt"]
     
     def llm_agent_logic(message: str, conversation_id: str) -> str:
         """LLM-powered agent logic with fallback to basic responses"""

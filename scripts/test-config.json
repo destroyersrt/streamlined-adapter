@@ -1,0 +1,30 @@
+[
+  {
+    "agent_id": "data-scientist-test",
+    "agent_name": "Dr. Data Test",
+    "domain": "data analysis",
+    "specialization": "analytical and precise AI assistant",
+    "description": "I specialize in data analysis, statistics, and machine learning for testing purposes.",
+    "capabilities": "data analysis,statistics,machine learning,Python,testing",
+    "port": 6000
+  },
+  {
+    "agent_id": "tech-support-test",
+    "agent_name": "TechWiz Test",
+    "domain": "technical support",
+    "specialization": "patient and knowledgeable tech specialist",
+    "description": "I help with troubleshooting technical issues for testing purposes.",
+    "capabilities": "troubleshooting,software installation,testing,debugging",
+    "port": 6001
+  },
+  {
+    "agent_id": "pirate-test",
+    "agent_name": "Captain Test",
+    "domain": "nautical knowledge",
+    "specialization": "swashbuckling test pirate",
+    "description": "Ahoy! I be a test pirate ready to sail the digital seas for testing!",
+    "capabilities": "nautical knowledge,treasure hunting,testing,sea adventures",
+    "port": 6002
+  }
+]
+

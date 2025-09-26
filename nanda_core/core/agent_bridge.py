@@ -91,10 +91,11 @@ class SimpleAgentBridge(A2AServer):
             
             # Check if this is a reply (don't respond to replies to avoid infinite loops)
             if message_content.startswith("Response to "):
-                logger.info(f"🔄 [{self.agent_id}] Received reply from {from_agent}, ending conversation")
+                logger.info(f"🔄 [{self.agent_id}] Received reply from {from_agent}, displaying to user")
+                # Display the reply to user but don't respond back to avoid loops
                 return self._create_response(
                     msg, conversation_id, 
-                    f"[Conversation ended - received reply from {from_agent}]"
+                    f"[{from_agent}] {message_content[len('Response to ' + self.agent_id + ': '):]}"
                 )
             
             # Process the message through our agent logic

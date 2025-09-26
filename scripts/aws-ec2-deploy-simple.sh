@@ -138,16 +138,21 @@ sudo -u ubuntu bash -c "source env/bin/activate && pip install --upgrade pip && 
 # Configure the modular agent with all environment variables
 sudo -u ubuntu sed -i "s/PORT = 6000/PORT = $PORT/" examples/modular_agent.py
 
-# Get public IP and construct URL for registration
-PUBLIC_IP=\$(curl -s http://169.254.169.254/latest/meta-data/public-ipv4)
+# Get public IP with retry logic
+for i in {1..10}; do
+    PUBLIC_IP=\$(curl -s --max-time 5 http://169.254.169.254/latest/meta-data/public-ipv4)
+    if [ ! -z "\$PUBLIC_IP" ]; then
+        break
+    fi
+    echo "Attempt \$i: Waiting for public IP..."
+    sleep 2
+done
 echo "Retrieved public IP: \$PUBLIC_IP"
 
-# Start the agent with full configuration including dynamically constructed public URL
+# Start the agent with full configuration
 echo "Starting NANDA agent with configuration..."
+echo "Public URL will be: http://\$PUBLIC_IP:$PORT"
 sudo -u ubuntu bash -c "cd /home/ubuntu/nanda-agent-$AGENT_ID && source env/bin/activate && \\
-    export PUBLIC_IP=\\\$(curl -s http://169.254.169.254/latest/meta-data/public-ipv4) && \\
-    export PUBLIC_URL=\\\"http://\\\$PUBLIC_IP:$PORT\\\" && \\
-    echo \\\"Public URL for registration: \\\$PUBLIC_URL\\\" && \\
     ANTHROPIC_API_KEY='$ANTHROPIC_API_KEY' \\
     AGENT_ID='$AGENT_ID' \\
     AGENT_NAME='$AGENT_NAME' \\
@@ -156,11 +161,11 @@ sudo -u ubuntu bash -c "cd /home/ubuntu/nanda-agent-$AGENT_ID && source env/bin/
     AGENT_DESCRIPTION='$DESCRIPTION' \\
     AGENT_CAPABILITIES='$CAPABILITIES' \\
     REGISTRY_URL='$REGISTRY_URL' \\
-    PUBLIC_URL=\\\$PUBLIC_URL \\
+    PUBLIC_URL='http://\$PUBLIC_IP:$PORT' \\
     nohup python3 examples/modular_agent.py > agent.log 2>&1 &"
 
 echo "=== NANDA Agent Setup Complete: $AGENT_ID ==="
-echo "Agent URL: http://\$(curl -s http://169.254.169.254/latest/meta-data/public-ipv4):$PORT/a2a"
+echo "Agent URL: http://\$PUBLIC_IP:$PORT/a2a"
 EOF
 
 # Launch EC2 instance

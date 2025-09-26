@@ -146,7 +146,7 @@ EOF
 # Add agent-specific script generation to user data
 if [ "$AGENT_TYPE" = "helpful" ]; then
     cat >> user_data_${AGENT_ID}.sh << 'EOF'
-sudo -u ec2-user cat > agent_script.py << 'AGENT_EOF'
+sudo -u ubuntu cat > agent_script.py << 'AGENT_EOF'
 #!/usr/bin/env python3
 import os
 import sys
@@ -170,7 +170,7 @@ AGENT_EOF
 EOF
 elif [ "$AGENT_TYPE" = "pirate" ]; then
     cat >> user_data_${AGENT_ID}.sh << 'EOF'
-sudo -u ec2-user cat > agent_script.py << 'AGENT_EOF'
+sudo -u ubuntu cat > agent_script.py << 'AGENT_EOF'
 #!/usr/bin/env python3
 import os
 import sys
@@ -194,7 +194,7 @@ AGENT_EOF
 EOF
 elif [ "$AGENT_TYPE" = "echo" ]; then
     cat >> user_data_${AGENT_ID}.sh << 'EOF'
-sudo -u ec2-user cat > agent_script.py << 'AGENT_EOF'
+sudo -u ubuntu cat > agent_script.py << 'AGENT_EOF'
 #!/usr/bin/env python3
 import os
 import sys
@@ -218,7 +218,7 @@ AGENT_EOF
 EOF
 elif [ "$AGENT_TYPE" = "analyst" ]; then
     cat >> user_data_${AGENT_ID}.sh << 'EOF'
-sudo -u ec2-user cat > agent_script.py << 'AGENT_EOF'
+sudo -u ubuntu cat > agent_script.py << 'AGENT_EOF'
 #!/usr/bin/env python3
 import os
 import sys

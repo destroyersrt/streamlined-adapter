@@ -271,9 +271,7 @@ print("Created configurations for all agents")
 EOF
 
 # Set environment variables and run the generator script
-export ANTHROPIC_API_KEY='$ANTHROPIC_API_KEY'
-export REGISTRY_URL='$REGISTRY_URL'
-python3 /tmp/generate_agents.py
+ANTHROPIC_API_KEY='$ANTHROPIC_API_KEY' REGISTRY_URL='$REGISTRY_URL' python3 /tmp/generate_agents.py
 
 # Change ownership of all agent scripts to ubuntu
 chown ubuntu:ubuntu /home/ubuntu/start_agent_*.sh

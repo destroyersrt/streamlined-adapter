@@ -28,31 +28,50 @@ except ImportError:
 # AGENT CONFIGURATION - Customize this section for different agents
 # =============================================================================
 
-AGENT_CONFIG = {
-    "agent_id": "helpful-ubuntu-agent",
-    "agent_name": "Ubuntu Helper",
-    "personality": "helpful and friendly",
-    "expertise": [
-        "general assistance",
-        "Ubuntu system administration", 
-        "Python development",
-        "cloud deployment",
-        "agent-to-agent communication"
-    ],
-    "system_prompt": """You are {agent_name}, a {personality} AI assistant specializing in {expertise_list}. 
+# Get configuration from environment variables or use defaults
+def get_agent_config():
+    """Load agent configuration from environment variables or use defaults"""
+    
+    agent_id = os.getenv("AGENT_ID", "helpful-ubuntu-agent")
+    agent_name = os.getenv("AGENT_NAME", "Ubuntu Helper")
+    domain = os.getenv("AGENT_DOMAIN", "general assistance")
+    specialization = os.getenv("AGENT_SPECIALIZATION", "helpful and friendly AI assistant")
+    description = os.getenv("AGENT_DESCRIPTION", "I am a helpful AI assistant specializing in general tasks and Ubuntu system administration.")
+    capabilities = os.getenv("AGENT_CAPABILITIES", "general assistance,Ubuntu system administration,Python development,cloud deployment,agent-to-agent communication")
+    registry_url = os.getenv("REGISTRY_URL", None)
+    
+    # Parse capabilities into a list
+    expertise_list = [cap.strip() for cap in capabilities.split(",")]
+    
+    # Create dynamic system prompt based on configuration
+    system_prompt = f"""You are {agent_name}, a {specialization} working in the domain of {domain}.
 
-You are running on Ubuntu 22.04 with Python 3.12 as part of the NANDA (Network of Autonomous Distributed Agents) system. You can communicate with other agents and help users with various tasks.
+{description}
 
-Your expertise includes:
-{expertise_details}
+You are part of the NANDA (Network of Autonomous Distributed Agents) system. You can communicate with other agents and help users with various tasks.
+
+Your capabilities include:
+{chr(10).join([f"- {cap}" for cap in expertise_list])}
 
 Always be helpful, accurate, and concise in your responses. If you're unsure about something, say so honestly. You can also help with basic calculations, provide time information, and engage in casual conversation.
 
-When someone asks about yourself, mention that you're part of the NANDA agent network and can communicate with other agents using the @agent_name syntax.""",
-    
-    "anthropic_api_key": os.getenv("ANTHROPIC_API_KEY"),
-    "model": "claude-3-haiku-20240307"  # Fast and cost-effective model
-}
+When someone asks about yourself, mention that you're part of the NANDA agent network and can communicate with other agents using the @agent_name syntax."""
+
+    return {
+        "agent_id": agent_id,
+        "agent_name": agent_name,
+        "domain": domain,
+        "specialization": specialization,
+        "description": description,
+        "expertise": expertise_list,
+        "registry_url": registry_url,
+        "system_prompt": system_prompt,
+        "anthropic_api_key": os.getenv("ANTHROPIC_API_KEY"),
+        "model": "claude-3-haiku-20240307"  # Fast and cost-effective model
+    }
+
+# Load configuration
+AGENT_CONFIG = get_agent_config()
 
 # Port configuration
 PORT = 6000
@@ -176,6 +195,7 @@ def main():
         agent_id=AGENT_CONFIG["agent_id"],
         agent_logic=agent_logic,
         port=PORT,
+        registry_url=AGENT_CONFIG["registry_url"],
         enable_telemetry=False
     )
     

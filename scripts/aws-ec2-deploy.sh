@@ -113,7 +113,7 @@ date
 # Update system and install Python
 echo "Installing system dependencies..."
 apt-get update -y
-apt-get install -y python3.11 python3.11-venv python3.11-pip git curl
+apt-get install -y python3 python3-venv python3-pip git curl
 
 # Create project directory
 cd /home/ubuntu
@@ -127,7 +127,7 @@ sudo -u ubuntu git clone https://github.com/destroyersrt/streamlined-adapter.git
 
 # Create virtual environment and install dependencies
 echo "Setting up Python environment..."
-sudo -u ubuntu python3.11 -m venv env
+sudo -u ubuntu python3 -m venv env
 source env/bin/activate
 
 # Install core dependencies

@@ -85,6 +85,14 @@ class SimpleAgentBridge(A2AServer):
             
             print(f"📨 [{self.agent_id}] ← [{from_agent}]: {message_content}")
             
+            # Check if this is a reply (don't respond to replies to avoid infinite loops)
+            if message_content.startswith("Response to "):
+                print(f"🔄 [{self.agent_id}] Received reply from {from_agent}, ending conversation")
+                return self._create_response(
+                    msg, conversation_id, 
+                    f"[Conversation ended - received reply from {from_agent}]"
+                )
+            
             # Process the message through our agent logic
             if self.telemetry:
                 self.telemetry.log_message_received(self.agent_id, conversation_id)

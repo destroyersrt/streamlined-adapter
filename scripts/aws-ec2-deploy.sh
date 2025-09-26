@@ -42,7 +42,7 @@ INSTANCE_TYPE=${6:-t3.micro}
 # Configuration
 SECURITY_GROUP_NAME="nanda-streamlined-agents"
 KEY_NAME="nanda-agent-key"
-AMI_ID="ami-0c02fb55956c7d316"  # Amazon Linux 2023 in us-east-1
+AMI_ID="ami-0c94855ba95b798c7"  # Amazon Linux 2023 in us-east-1
 
 echo "Configuration:"
 echo "  Agent Type: $AGENT_TYPE"
@@ -112,8 +112,8 @@ date
 
 # Update system and install Python
 echo "Installing system dependencies..."
-yum update -y
-yum install -y python3.11 python3.11-pip git
+dnf update -y
+dnf install -y python3.11 python3.11-pip git
 
 # Create project directory
 cd /home/ec2-user

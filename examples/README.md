@@ -42,7 +42,7 @@ Ready-to-use agent configurations for different personalities:
 ```python
 from agent_configs import create_data_scientist_agent, PIRATE_CONFIG
 from modular_agent import create_agent_logic
-from streamlined_adapter import NANDA
+from nanda_core.core.adapter import NANDA
 
 # Quick creation
 agent = create_data_scientist_agent(port=6001)

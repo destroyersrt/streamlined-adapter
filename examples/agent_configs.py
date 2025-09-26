@@ -147,7 +147,7 @@ CHEF_CONFIG = {
 def create_helpful_agent(port=6000):
     """Create a general helpful assistant agent"""
     from modular_agent import create_agent_logic
-    from streamlined_adapter import NANDA
+    from nanda_core.core.adapter import NANDA
     
     agent_logic = create_agent_logic(HELPFUL_ASSISTANT_CONFIG)
     return NANDA(
@@ -160,7 +160,7 @@ def create_helpful_agent(port=6000):
 def create_data_scientist_agent(port=6001):
     """Create a data science specialist agent"""
     from modular_agent import create_agent_logic  
-    from streamlined_adapter import NANDA
+    from nanda_core.core.adapter import NANDA
     
     agent_logic = create_agent_logic(DATA_SCIENTIST_CONFIG)
     return NANDA(
@@ -173,7 +173,7 @@ def create_data_scientist_agent(port=6001):
 def create_pirate_agent(port=6002):
     """Create a fun pirate-themed agent"""
     from modular_agent import create_agent_logic
-    from streamlined_adapter import NANDA
+    from nanda_core.core.adapter import NANDA
     
     agent_logic = create_agent_logic(PIRATE_CONFIG)
     return NANDA(
@@ -186,7 +186,7 @@ def create_pirate_agent(port=6002):
 def create_tech_support_agent(port=6003):
     """Create a technical support agent"""
     from modular_agent import create_agent_logic
-    from streamlined_adapter import NANDA
+    from nanda_core.core.adapter import NANDA
     
     agent_logic = create_agent_logic(TECH_SUPPORT_CONFIG)
     return NANDA(
@@ -199,7 +199,7 @@ def create_tech_support_agent(port=6003):
 def create_chef_agent(port=6004):
     """Create a culinary assistant agent"""
     from modular_agent import create_agent_logic
-    from streamlined_adapter import NANDA
+    from nanda_core.core.adapter import NANDA
     
     agent_logic = create_agent_logic(CHEF_CONFIG)
     return NANDA(

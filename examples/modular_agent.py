@@ -13,7 +13,7 @@ from datetime import datetime
 # Add the parent directory to the path to allow importing streamlined_adapter
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from streamlined_adapter import NANDA
+from nanda_core.core.adapter import NANDA
 
 # =============================================================================
 # AGENT CONFIGURATION - Customize this section for different agents

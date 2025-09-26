@@ -42,7 +42,7 @@ INSTANCE_TYPE=${6:-t3.micro}
 # Configuration
 SECURITY_GROUP_NAME="nanda-streamlined-agents"
 KEY_NAME="nanda-agent-key"
-AMI_ID="ami-0c94855ba95b798c7"  # Amazon Linux 2023 in us-east-1
+AMI_ID="ami-0866a3c8686eaeeba"  # Ubuntu 22.04 LTS in us-east-1
 
 echo "Configuration:"
 echo "  Agent Type: $AGENT_TYPE"
@@ -112,22 +112,22 @@ date
 
 # Update system and install Python
 echo "Installing system dependencies..."
-dnf update -y
-dnf install -y python3.11 python3.11-pip git
+apt-get update -y
+apt-get install -y python3.11 python3.11-venv python3.11-pip git curl
 
 # Create project directory
-cd /home/ec2-user
+cd /home/ubuntu
 PROJECT_DIR="nanda-agent-$AGENT_ID"
-sudo -u ec2-user mkdir -p \$PROJECT_DIR
+sudo -u ubuntu mkdir -p \$PROJECT_DIR
 cd \$PROJECT_DIR
 
 # Clone streamlined adapter
 echo "Cloning NANDA Streamlined Adapter..."
-sudo -u ec2-user git clone https://github.com/destroyersrt/streamlined-adapter.git .
+sudo -u ubuntu git clone https://github.com/destroyersrt/streamlined-adapter.git .
 
 # Create virtual environment and install dependencies
 echo "Setting up Python environment..."
-sudo -u ec2-user python3.11 -m venv env
+sudo -u ubuntu python3.11 -m venv env
 source env/bin/activate
 
 # Install core dependencies
@@ -264,7 +264,7 @@ chmod +x agent_script.py
 
 # Start the agent
 echo "Starting NANDA agent..."
-sudo -u ec2-user nohup python3 agent_script.py > agent.log 2>&1 &
+sudo -u ubuntu nohup python3 agent_script.py > agent.log 2>&1 &
 
 echo "=== NANDA Agent Setup Complete: $AGENT_ID ==="
 echo "Agent is running on port $PORT"
@@ -319,10 +319,10 @@ echo "  -H \"Content-Type: application/json\" \\"
 echo "  -d '{\"content\":{\"text\":\"hello\",\"type\":\"text\"},\"role\":\"user\",\"conversation_id\":\"test123\"}'"
 echo ""
 echo "🔐 SSH Access:"
-echo "ssh -i ${KEY_NAME}.pem ec2-user@$PUBLIC_IP"
+echo "ssh -i ${KEY_NAME}.pem ubuntu@$PUBLIC_IP"
 echo ""
 echo "📋 View agent logs:"
-echo "ssh -i ${KEY_NAME}.pem ec2-user@$PUBLIC_IP 'cat nanda-agent-$AGENT_ID/agent.log'"
+echo "ssh -i ${KEY_NAME}.pem ubuntu@$PUBLIC_IP 'cat nanda-agent-$AGENT_ID/agent.log'"
 echo ""
 echo "🛑 To terminate instance:"
 echo "aws ec2 terminate-instances --region $REGION --instance-ids $INSTANCE_ID"

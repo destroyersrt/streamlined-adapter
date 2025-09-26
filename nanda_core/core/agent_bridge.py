@@ -7,9 +7,13 @@ Clean, simple bridge focused on agent-to-agent communication.
 
 import os
 import uuid
+import logging
 import requests
 from typing import Callable, Optional, Dict, Any
 from python_a2a import A2AServer, A2AClient, Message, TextContent, MessageRole, Metadata
+
+# Configure logger to capture conversation logs
+logger = logging.getLogger(__name__)
 
 
 class SimpleAgentBridge(A2AServer):
@@ -43,7 +47,7 @@ class SimpleAgentBridge(A2AServer):
         if user_text.startswith("FROM:") and "TO:" in user_text and "MESSAGE:" in user_text:
             return self._handle_incoming_agent_message(user_text, msg, conversation_id)
         
-        print(f"📨 [{self.agent_id}] Received: {user_text}")
+        logger.info(f"📨 [{self.agent_id}] Received: {user_text}")
         
         # Handle different message types
         try:
@@ -83,11 +87,11 @@ class SimpleAgentBridge(A2AServer):
                 elif line.startswith("MESSAGE:"):
                     message_content = line[8:].strip()
             
-            print(f"📨 [{self.agent_id}] ← [{from_agent}]: {message_content}")
+            logger.info(f"📨 [{self.agent_id}] ← [{from_agent}]: {message_content}")
             
             # Check if this is a reply (don't respond to replies to avoid infinite loops)
             if message_content.startswith("Response to "):
-                print(f"🔄 [{self.agent_id}] Received reply from {from_agent}, ending conversation")
+                logger.info(f"🔄 [{self.agent_id}] Received reply from {from_agent}, ending conversation")
                 return self._create_response(
                     msg, conversation_id, 
                     f"[Conversation ended - received reply from {from_agent}]"
@@ -106,7 +110,7 @@ class SimpleAgentBridge(A2AServer):
             )
             
         except Exception as e:
-            print(f"❌ [{self.agent_id}] Error processing incoming agent message: {e}")
+            logger.error(f"❌ [{self.agent_id}] Error processing incoming agent message: {e}")
             return self._create_response(
                 msg, conversation_id,
                 f"Error processing message from agent: {str(e)}"
@@ -124,7 +128,7 @@ class SimpleAgentBridge(A2AServer):
         target_agent = parts[0][1:]  # Remove @
         message_text = parts[1]
         
-        print(f"🔄 [{self.agent_id}] Sending to {target_agent}: {message_text}")
+        logger.info(f"🔄 [{self.agent_id}] Sending to {target_agent}: {message_text}")
         
         # Look up target agent and send message
         result = self._send_to_agent(target_agent, message_text, conversation_id)
@@ -171,7 +175,7 @@ class SimpleAgentBridge(A2AServer):
             if not agent_url.endswith('/a2a'):
                 agent_url = f"{agent_url}/a2a"
             
-            print(f"📤 [{self.agent_id}] → [{target_agent_id}]: {message_text}")
+            logger.info(f"📤 [{self.agent_id}] → [{target_agent_id}]: {message_text}")
             
             # Create simple message with metadata
             simple_message = f"FROM: {self.agent_id}\nTO: {target_agent_id}\nMESSAGE: {message_text}"
@@ -194,7 +198,7 @@ class SimpleAgentBridge(A2AServer):
             if self.telemetry:
                 self.telemetry.log_agent_message_sent(self.agent_id, target_agent_id, conversation_id)
             
-            print(f"✅ [{self.agent_id}] Message delivered to {target_agent_id}")
+            logger.info(f"✅ [{self.agent_id}] Message delivered to {target_agent_id}")
             return f"Message sent to {target_agent_id}: {message_text}"
             
         except Exception as e:
@@ -210,10 +214,10 @@ class SimpleAgentBridge(A2AServer):
                 if response.status_code == 200:
                     data = response.json()
                     agent_url = data.get("agent_url")
-                    print(f"🌐 Found {agent_id} in registry: {agent_url}")
+                    logger.info(f"🌐 Found {agent_id} in registry: {agent_url}")
                     return agent_url
             except Exception as e:
-                print(f"🌐 Registry lookup failed: {e}")
+                logger.warning(f"🌐 Registry lookup failed: {e}")
         
         # Fallback to local discovery (for testing)
         local_agents = {
@@ -227,7 +231,7 @@ class SimpleAgentBridge(A2AServer):
         }
         
         if agent_id in local_agents:
-            print(f"🏠 Found {agent_id} locally: {local_agents[agent_id]}")
+            logger.info(f"🏠 Found {agent_id} locally: {local_agents[agent_id]}")
             return local_agents[agent_id]
         
         return None

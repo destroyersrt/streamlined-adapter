@@ -139,45 +139,29 @@ if [ "$AGENT_TYPE" = "analyst" ]; then
     pip install langchain-core langchain-anthropic
 fi
 
-# Generate agent script
-echo "Generating agent script..."
-EOF
+# Use modular agent system - much simpler!
+echo "Using modular agent system..."
 
-# Add agent-specific script generation to user data
-if [ "$AGENT_TYPE" = "helpful" ]; then
-    cat >> user_data_${AGENT_ID}.sh << 'EOF'
-sudo -u ubuntu cat > agent_script.py << 'AGENT_EOF'
-#!/usr/bin/env python3
-import os
-import sys
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from nanda_core.core.adapter import NANDA, helpful_agent
+# Simply use the modular_agent.py with environment configuration
+cat >> user_data_${AGENT_ID}.sh << EOF
+# Configure the modular agent
+echo "Configuring modular agent..."
+cd \$PROJECT_DIR
 
-def main():
-    print("🤖 Starting NANDA Agent: AGENT_ID_PLACEHOLDER")
-    nanda = NANDA(
-        agent_id="AGENT_ID_PLACEHOLDER",
-        agent_logic=helpful_agent,
-        port=PORT_PLACEHOLDER,
-        enable_telemetry=False
-    )
-    print("🚀 Agent URL: http://$(curl -s http://169.254.169.254/latest/meta-data/public-ipv4):PORT_PLACEHOLDER/a2a")
-    nanda.start()
+# Set environment variables for the agent
+export ANTHROPIC_API_KEY="$ANTHROPIC_API_KEY"
+export AGENT_ID="$AGENT_ID"
+export AGENT_PORT="$PORT"
 
-if __name__ == "__main__":
-    main()
-AGENT_EOF
-EOF
-elif [ "$AGENT_TYPE" = "pirate" ]; then
-    cat >> user_data_${AGENT_ID}.sh << 'EOF'
-sudo -u ubuntu cat > agent_script.py << 'AGENT_EOF'
-#!/usr/bin/env python3
-import os
-import sys
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from nanda_core.core.adapter import NANDA, pirate_agent
+# Customize the modular agent for this deployment
+sed -i "s/PORT = 6000/PORT = $PORT/" examples/modular_agent.py
+sed -i "s/helpful-ubuntu-agent/$AGENT_ID/" examples/modular_agent.py
 
-def main():
+# Start the agent
+echo "Starting NANDA agent..."
+sudo -u ubuntu nohup python3 examples/modular_agent.py > agent.log 2>&1 &
+
+echo "=== NANDA Agent Setup Complete: $AGENT_ID ==="
     print("🤖 Starting NANDA Agent: AGENT_ID_PLACEHOLDER")
     nanda = NANDA(
         agent_id="AGENT_ID_PLACEHOLDER",

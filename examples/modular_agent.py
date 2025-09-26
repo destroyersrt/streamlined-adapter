@@ -8,6 +8,7 @@ Simply update the AGENT_CONFIG section to create different agent personalities.
 import os
 import sys
 import time
+import uuid
 from datetime import datetime
 from typing import Dict, List, Any
 
@@ -32,7 +33,14 @@ except ImportError:
 def get_agent_config():
     """Load agent configuration from environment variables or use defaults"""
     
-    agent_id = os.getenv("AGENT_ID", "helpful-ubuntu-agent")
+    # Generate agent_id with hex suffix for uniqueness
+    base_agent_id = os.getenv("AGENT_ID", "helpful-ubuntu-agent")
+    if not base_agent_id.endswith('-') and '-' not in base_agent_id.split('-')[-1]:
+        # Add 6-character hex suffix if not already present
+        hex_suffix = uuid.uuid4().hex[:6]
+        agent_id = f"{base_agent_id}-{hex_suffix}"
+    else:
+        agent_id = base_agent_id
     agent_name = os.getenv("AGENT_NAME", "Ubuntu Helper")
     domain = os.getenv("AGENT_DOMAIN", "general assistance")
     specialization = os.getenv("AGENT_SPECIALIZATION", "helpful and friendly AI assistant")

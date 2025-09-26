@@ -138,13 +138,18 @@ sudo -u ubuntu bash -c "source env/bin/activate && pip install --upgrade pip && 
 # Configure the modular agent with all environment variables
 sudo -u ubuntu sed -i "s/PORT = 6000/PORT = $PORT/" examples/modular_agent.py
 
-# Get public IP with retries
-echo "Getting public IP address..."
-for attempt in {1..10}; do
-    PUBLIC_IP=\$(curl -s --connect-timeout 5 --max-time 10 http://169.254.169.254/latest/meta-data/public-ipv4)
-    if [ -n "\$PUBLIC_IP" ] && [[ \$PUBLIC_IP =~ ^[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+\$ ]]; then
-        echo "Retrieved public IP: \$PUBLIC_IP"
-        break
+# Get public IP using IMDSv2 (AWS metadata service v2)
+echo "Getting public IP address using IMDSv2..."
+for attempt in {1..5}; do
+    # Get token for IMDSv2
+    TOKEN=\$(curl -s -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600" --connect-timeout 5 --max-time 10)
+    if [ -n "\$TOKEN" ]; then
+        # Use token to get public IP
+        PUBLIC_IP=\$(curl -s -H "X-aws-ec2-metadata-token: \$TOKEN" --connect-timeout 5 --max-time 10 http://169.254.169.254/latest/meta-data/public-ipv4)
+        if [ -n "\$PUBLIC_IP" ] && [[ \$PUBLIC_IP =~ ^[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+\$ ]]; then
+            echo "Retrieved public IP: \$PUBLIC_IP"
+            break
+        fi
     fi
     echo "Attempt \$attempt failed, retrying..."
     sleep 3

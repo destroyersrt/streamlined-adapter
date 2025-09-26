@@ -161,7 +161,7 @@ sudo -u ubuntu bash -c "cd /home/ubuntu/nanda-agent-$AGENT_ID && source env/bin/
     AGENT_DESCRIPTION='$DESCRIPTION' \\
     AGENT_CAPABILITIES='$CAPABILITIES' \\
     REGISTRY_URL='$REGISTRY_URL' \\
-    PUBLIC_URL='http://\$PUBLIC_IP:$PORT' \\
+    PUBLIC_URL='http://'\$PUBLIC_IP':$PORT' \\
     nohup python3 examples/modular_agent.py > agent.log 2>&1 &"
 
 echo "=== NANDA Agent Setup Complete: $AGENT_ID ==="

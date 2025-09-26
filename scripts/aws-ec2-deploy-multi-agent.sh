@@ -177,9 +177,20 @@ cd nanda-multi-agents
 sudo -u ubuntu python3 -m venv env
 sudo -u ubuntu bash -c "source env/bin/activate && pip install --upgrade pip && pip install -e . && pip install anthropic"
 
-# Get public IP for URL construction
-PUBLIC_IP=\$(curl -s http://169.254.169.254/latest/meta-data/public-ipv4)
-echo "Retrieved public IP: \$PUBLIC_IP"
+# Get public IP using IMDSv2 (AWS metadata service v2)
+echo "Getting public IP address using IMDSv2..."
+for attempt in {1..5}; do
+    TOKEN=\$(curl -s -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600" --connect-timeout 5 --max-time 10)
+    if [ -n "\$TOKEN" ]; then
+        PUBLIC_IP=\$(curl -s -H "X-aws-ec2-metadata-token: \$TOKEN" --connect-timeout 5 --max-time 10 http://169.254.169.254/latest/meta-data/public-ipv4)
+        if [ -n "\$PUBLIC_IP" ] && [[ \$PUBLIC_IP =~ ^[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+\$ ]]; then
+            echo "Retrieved public IP: \$PUBLIC_IP"
+            break
+        fi
+    fi
+    echo "Attempt \$attempt failed, retrying..."
+    sleep 3
+done
 
 # Parse agent configuration and create individual agent scripts
 echo '$AGENTS_JSON' > /tmp/agents_config.json
@@ -205,45 +216,45 @@ for agent in agents:
     port = agent['port']
     
     # Create individual start script for this agent
-    start_script = f"/home/ubuntu/start_agent_{agent_id.replace('-', '_')}.sh"
+    start_script = "/home/ubuntu/start_agent_{}.sh".format(agent_id.replace('-', '_'))
     with open(start_script, 'w') as f:
-        f.write(f"""#!/bin/bash
+        f.write("""#!/bin/bash
 cd /home/ubuntu/nanda-multi-agents
 source env/bin/activate
 
-export PUBLIC_IP=\$(curl -s http://169.254.169.254/latest/meta-data/public-ipv4)
-export PUBLIC_URL="http://\$PUBLIC_IP:{port}"
+export PUBLIC_IP=\$(curl -s -H "X-aws-ec2-metadata-token: \$(curl -s -X PUT 'http://169.254.169.254/latest/api/token' -H 'X-aws-ec2-metadata-token-ttl-seconds: 21600')" http://169.254.169.254/latest/meta-data/public-ipv4)
+export PUBLIC_URL="http://\$PUBLIC_IP:{}"
 export ANTHROPIC_API_KEY='$ANTHROPIC_API_KEY'
-export AGENT_ID='{agent_id}'
-export AGENT_NAME='{agent_name}'
-export AGENT_DOMAIN='{domain}'
-export AGENT_SPECIALIZATION='{specialization}'
-export AGENT_DESCRIPTION='{description}'
-export AGENT_CAPABILITIES='{capabilities}'
+export AGENT_ID='{}'
+export AGENT_NAME='{}'
+export AGENT_DOMAIN='{}'
+export AGENT_SPECIALIZATION='{}'
+export AGENT_DESCRIPTION='{}'
+export AGENT_CAPABILITIES='{}'
 export REGISTRY_URL='$REGISTRY_URL'
 
-echo "Starting agent {agent_id} on port {port}"
+echo "Starting agent {} on port {}"
 echo "Public URL: \$PUBLIC_URL"
 
 python3 examples/modular_agent.py
-""")
+""".format(port, agent_id, agent_name, domain, specialization, description, capabilities, agent_id, port))
     
     # Make script executable
     os.chmod(start_script, 0o755)
     
     # Create supervisor configuration for this agent
-    supervisor_conf = f"/etc/supervisor/conf.d/nanda_agent_{agent_id.replace('-', '_')}.conf"
+    supervisor_conf = "/etc/supervisor/conf.d/nanda_agent_{}.conf".format(agent_id.replace('-', '_'))
     with open(supervisor_conf, 'w') as f:
-        f.write(f"""[program:nanda_agent_{agent_id.replace('-', '_')}]
-command={start_script}
+        f.write("""[program:nanda_agent_{}]
+command={}
 user=ubuntu
 directory=/home/ubuntu/nanda-multi-agents
 autostart=true
 autorestart=true
-stderr_logfile=/home/ubuntu/nanda-multi-agents/agent_{agent_id}_error.log
-stdout_logfile=/home/ubuntu/nanda-multi-agents/agent_{agent_id}_output.log
+stderr_logfile=/home/ubuntu/nanda-multi-agents/agent_{}_error.log
+stdout_logfile=/home/ubuntu/nanda-multi-agents/agent_{}_output.log
 environment=HOME="/home/ubuntu",USER="ubuntu"
-""")
+""".format(agent_id.replace('-', '_'), start_script, agent_id, agent_id))
 
 print("Created configurations for all agents")
 PYTHON_SCRIPT
@@ -275,8 +286,8 @@ with open('/tmp/agents_config.json', 'r') as f:
 
 print("\\n=== Agent URLs ===")
 for agent in agents:
-    public_ip = "\$(curl -s http://169.254.169.254/latest/meta-data/public-ipv4)"
-    print(f"Agent {agent['agent_id']}: http://\$PUBLIC_IP:{agent['port']}/a2a")
+    public_ip = "\$(curl -s -H 'X-aws-ec2-metadata-token: \$(curl -s -X PUT \"http://169.254.169.254/latest/api/token\" -H \"X-aws-ec2-metadata-token-ttl-seconds: 21600\")' http://169.254.169.254/latest/meta-data/public-ipv4)"
+    print("Agent {}: http://{}:{}/a2a".format(agent['agent_id'], public_ip, agent['port']))
 PYTHON_SCRIPT
 
 EOF

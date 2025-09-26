@@ -198,8 +198,8 @@ echo '$AGENTS_JSON' > /tmp/agents_config.json
 # Create supervisor configuration directory
 mkdir -p /etc/supervisor/conf.d
 
-# Create Python script to generate agent configurations
-cat > /tmp/generate_agents.py << 'EOF'
+# Generate agent configurations and supervisor configs
+python3 << 'PYTHON_END'
 import json
 import os
 
@@ -218,33 +218,31 @@ for agent in agents:
     # Create individual start script for this agent
     start_script = f"/home/ubuntu/start_agent_{agent_id.replace('-', '_')}.sh"
     
-    script_content = f"""#!/bin/bash
+    with open(start_script, 'w') as f:
+        f.write(f"""#!/bin/bash
 cd /home/ubuntu/nanda-multi-agents
 source env/bin/activate
 
 # Get public IP using IMDSv2
-TOKEN=$(curl -s -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600")
-PUBLIC_IP=$(curl -s -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/meta-data/public-ipv4)
+TOKEN=\\$(curl -s -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600")
+PUBLIC_IP=\\$(curl -s -H "X-aws-ec2-metadata-token: \\$TOKEN" http://169.254.169.254/latest/meta-data/public-ipv4)
 
-export PUBLIC_URL="http://$PUBLIC_IP:{port}"
+export PUBLIC_URL="http://\\$PUBLIC_IP:{port}"
 export PORT="{port}"
-export ANTHROPIC_API_KEY='{os.environ.get("ANTHROPIC_API_KEY", "")}'
+export ANTHROPIC_API_KEY='$ANTHROPIC_API_KEY'
 export AGENT_ID="{agent_id}"
 export AGENT_NAME="{agent_name}"
 export AGENT_DOMAIN="{domain}"
 export AGENT_SPECIALIZATION="{specialization}"
 export AGENT_DESCRIPTION="{description}"
 export AGENT_CAPABILITIES="{capabilities}"
-export REGISTRY_URL='{os.environ.get("REGISTRY_URL", "")}'
+export REGISTRY_URL='$REGISTRY_URL'
 
 echo "Starting agent {agent_id} on port {port}"
-echo "Public URL: $PUBLIC_URL"
+echo "Public URL: \\$PUBLIC_URL"
 
 python3 examples/modular_agent.py
-"""
-    
-    with open(start_script, 'w') as f:
-        f.write(script_content)
+""")
     
     # Make script executable
     os.chmod(start_script, 0o755)
@@ -253,7 +251,8 @@ python3 examples/modular_agent.py
     safe_id = agent_id.replace('-', '_')
     supervisor_conf = f"/etc/supervisor/conf.d/nanda_agent_{safe_id}.conf"
     
-    supervisor_content = f"""[program:nanda_agent_{safe_id}]
+    with open(supervisor_conf, 'w') as f:
+        f.write(f"""[program:nanda_agent_{safe_id}]
 command={start_script}
 user=ubuntu
 directory=/home/ubuntu/nanda-multi-agents
@@ -262,16 +261,10 @@ autorestart=true
 stderr_logfile=/home/ubuntu/nanda-multi-agents/agent_{agent_id}_error.log
 stdout_logfile=/home/ubuntu/nanda-multi-agents/agent_{agent_id}_output.log
 environment=HOME="/home/ubuntu",USER="ubuntu"
-"""
-    
-    with open(supervisor_conf, 'w') as f:
-        f.write(supervisor_content)
+""")
 
 print("Created configurations for all agents")
-EOF
-
-# Set environment variables and run the generator script
-ANTHROPIC_API_KEY='$ANTHROPIC_API_KEY' REGISTRY_URL='$REGISTRY_URL' python3 /tmp/generate_agents.py
+PYTHON_END
 
 # Change ownership of all agent scripts to ubuntu
 chown ubuntu:ubuntu /home/ubuntu/start_agent_*.sh

@@ -200,16 +200,15 @@ class SimpleAgentBridge(A2AServer):
                 self.telemetry.log_agent_message_sent(self.agent_id, target_agent_id, conversation_id)
             
             # Extract the actual response content from the target agent
-            if response and hasattr(response, 'parts') and response.parts:
-                response_text = response.parts[0].text
-                # Remove the "Response to" prefix if present
-                if response_text.startswith(f"[{target_agent_id}] Response to {self.agent_id}: "):
-                    response_text = response_text[len(f"[{target_agent_id}] Response to {self.agent_id}: "):]
-                elif response_text.startswith(f"Response to {self.agent_id}: "):
-                    response_text = response_text[len(f"Response to {self.agent_id}: "):]
-                
-                logger.info(f"✅ [{self.agent_id}] Received response from {target_agent_id}")
-                return f"[{target_agent_id}] {response_text}"
+            logger.info(f"🔍 [{self.agent_id}] Response type: {type(response)}, has parts: {hasattr(response, 'parts') if response else 'None'}")
+            if response:
+                if hasattr(response, 'parts') and response.parts:
+                    response_text = response.parts[0].text
+                    logger.info(f"✅ [{self.agent_id}] Received response from {target_agent_id}: {response_text[:100]}...")
+                    return f"[{target_agent_id}] {response_text}"
+                else:
+                    logger.info(f"✅ [{self.agent_id}] Response has no parts, full response: {str(response)[:200]}...")
+                    return f"[{target_agent_id}] {str(response)}"
             else:
                 logger.info(f"✅ [{self.agent_id}] Message delivered to {target_agent_id}, no response")
                 return f"Message sent to {target_agent_id}: {message_text}"

@@ -83,8 +83,8 @@ When someone asks about yourself, mention that you're part of the NANDA agent ne
 # Load configuration
 AGENT_CONFIG = get_agent_config()
 
-# Port configuration
-PORT = 6000
+# Port configuration - use environment variable or default to 6000
+PORT = int(os.getenv("PORT", "6000"))
 
 # =============================================================================
 # LLM-POWERED AGENT LOGIC - Uses Anthropic Claude for intelligent responses

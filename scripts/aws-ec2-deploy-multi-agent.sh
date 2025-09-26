@@ -224,6 +224,7 @@ source env/bin/activate
 
 export PUBLIC_IP=\$(curl -s -H "X-aws-ec2-metadata-token: \$(curl -s -X PUT 'http://169.254.169.254/latest/api/token' -H 'X-aws-ec2-metadata-token-ttl-seconds: 21600')" http://169.254.169.254/latest/meta-data/public-ipv4)
 export PUBLIC_URL="http://\$PUBLIC_IP:{port}"
+export PORT='{port}'
 export ANTHROPIC_API_KEY='$ANTHROPIC_API_KEY'
 export AGENT_ID='{agent_id}'
 export AGENT_NAME='{agent_name}'

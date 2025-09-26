@@ -176,8 +176,11 @@ def _basic_fallback_response(message: str, config: Dict[str, Any]) -> str:
 def main():
     """Main function to start the LLM-powered modular agent"""
     print(f"🤖 Starting {AGENT_CONFIG['agent_name']}")
-    print(f"📝 Personality: {AGENT_CONFIG['personality']}")
-    print(f"🎯 Expertise: {', '.join(AGENT_CONFIG['expertise'])}")
+    print(f"📝 Specialization: {AGENT_CONFIG['specialization']}")
+    print(f"🎯 Domain: {AGENT_CONFIG['domain']}")
+    print(f"🛠️ Capabilities: {', '.join(AGENT_CONFIG['expertise'])}")
+    if AGENT_CONFIG['registry_url']:
+        print(f"🌐 Registry: {AGENT_CONFIG['registry_url']}")
     
     # Check for Anthropic API key
     if not AGENT_CONFIG.get("anthropic_api_key"):
@@ -212,14 +215,15 @@ def main():
     # Start the agent
     nanda.start()
 
-def create_custom_agent(agent_name, personality, expertise_list, port=6000, anthropic_api_key=None):
+def create_custom_agent(agent_name, specialization, domain, expertise_list, port=6000, anthropic_api_key=None, registry_url=None):
     """
     Helper function to quickly create a custom LLM-powered agent with different config
     
     Example usage:
         create_custom_agent(
             agent_name="Data Scientist", 
-            personality="analytical and precise",
+            specialization="analytical and precise AI assistant",
+            domain="data science",
             expertise_list=["data analysis", "statistics", "machine learning", "Python"],
             port=6001,
             anthropic_api_key="sk-ant-xxxxx"
@@ -229,14 +233,16 @@ def create_custom_agent(agent_name, personality, expertise_list, port=6000, anth
     custom_config.update({
         "agent_id": agent_name.lower().replace(" ", "-"),
         "agent_name": agent_name,
-        "personality": personality,
+        "specialization": specialization,
+        "domain": domain,
         "expertise": expertise_list,
+        "registry_url": registry_url,
         "anthropic_api_key": anthropic_api_key or os.getenv("ANTHROPIC_API_KEY"),
-        "system_prompt": f"""You are {agent_name}, a {personality} AI assistant specializing in {', '.join(expertise_list)}. 
+        "system_prompt": f"""You are {agent_name}, a {specialization} working in the domain of {domain}. 
 
 You are part of the NANDA (Network of Autonomous Distributed Agents) system. You can communicate with other agents and help users with various tasks.
 
-Your expertise includes:
+Your capabilities include:
 {chr(10).join([f"- {expertise}" for expertise in expertise_list])}
 
 Always be helpful, accurate, and concise in your responses. If you're unsure about something, say so honestly.
@@ -250,6 +256,7 @@ When someone asks about yourself, mention that you're part of the NANDA agent ne
         agent_id=custom_config["agent_id"],
         agent_logic=agent_logic,
         port=port,
+        registry_url=custom_config["registry_url"],
         enable_telemetry=False
     )
     

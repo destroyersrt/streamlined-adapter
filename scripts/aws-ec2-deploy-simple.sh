@@ -138,8 +138,13 @@ sudo -u ubuntu bash -c "source env/bin/activate && pip install --upgrade pip && 
 # Configure the modular agent with all environment variables
 sudo -u ubuntu sed -i "s/PORT = 6000/PORT = $PORT/" examples/modular_agent.py
 
-# Start the agent with full configuration
+# Get public IP for registration
+PUBLIC_IP=\$(curl -s http://169.254.169.254/latest/meta-data/public-ipv4)
+PUBLIC_URL="http://\$PUBLIC_IP:$PORT"
+
+# Start the agent with full configuration including public URL
 echo "Starting NANDA agent with configuration..."
+echo "Public URL for registration: \$PUBLIC_URL"
 sudo -u ubuntu bash -c "cd /home/ubuntu/nanda-agent-$AGENT_ID && source env/bin/activate && \\
     ANTHROPIC_API_KEY='$ANTHROPIC_API_KEY' \\
     AGENT_ID='$AGENT_ID' \\
@@ -149,6 +154,7 @@ sudo -u ubuntu bash -c "cd /home/ubuntu/nanda-agent-$AGENT_ID && source env/bin/
     AGENT_DESCRIPTION='$DESCRIPTION' \\
     AGENT_CAPABILITIES='$CAPABILITIES' \\
     REGISTRY_URL='$REGISTRY_URL' \\
+    PUBLIC_URL='\$PUBLIC_URL' \\
     nohup python3 examples/modular_agent.py > agent.log 2>&1 &"
 
 echo "=== NANDA Agent Setup Complete: $AGENT_ID ==="

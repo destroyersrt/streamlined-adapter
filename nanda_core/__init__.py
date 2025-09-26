@@ -3,14 +3,11 @@
 Core components for the Streamlined NANDA Adapter
 """
 
-from .core.adapter import StreamlinedAdapter
-from .core.agent_bridge import StreamlinedAgentBridge
-from .core.mcp_client import MCPClient
-from .core.registry_client import RegistryClient
+from .core.adapter import NANDA, StreamlinedAdapter
+from .core.agent_bridge import SimpleAgentBridge
 
 __all__ = [
-    "StreamlinedAdapter",
-    "StreamlinedAgentBridge",
-    "MCPClient",
-    "RegistryClient"
+    "NANDA",
+    "StreamlinedAdapter", 
+    "SimpleAgentBridge"
 ]

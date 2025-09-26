@@ -7,17 +7,17 @@ while eliminating unnecessary query preprocessing and adding intelligent agent d
 and comprehensive monitoring capabilities.
 """
 
-from .nanda_core import StreamlinedAdapter
-from .nanda_core.discovery import AgentDiscovery, AgentRanker
-from .nanda_core.telemetry import TelemetrySystem
+from .nanda_core.core.adapter import NANDA, StreamlinedAdapter
+from .nanda_core.core.adapter import echo_agent, pirate_agent, helpful_agent
 
 __version__ = "2.0.0"
 __author__ = "NANDA Team"
 __email__ = "support@nanda.ai"
 
 __all__ = [
-    "StreamlinedAdapter",
-    "AgentDiscovery",
-    "AgentRanker",
-    "TelemetrySystem"
+    "NANDA",           # Main class
+    "StreamlinedAdapter",  # Alias
+    "echo_agent",      # Example agents
+    "pirate_agent", 
+    "helpful_agent"
 ]

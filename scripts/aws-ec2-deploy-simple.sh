@@ -138,27 +138,42 @@ sudo -u ubuntu bash -c "source env/bin/activate && pip install --upgrade pip && 
 # Configure the modular agent with all environment variables
 sudo -u ubuntu sed -i "s/PORT = 6000/PORT = $PORT/" examples/modular_agent.py
 
-# Start the agent with configuration including dynamically retrieved public IP
-echo "Starting NANDA agent with configuration..."
-sudo -u ubuntu bash -c "cd /home/ubuntu/nanda-agent-$AGENT_ID && source env/bin/activate && \\
-    # Get public IP inside the execution context
-    PUBLIC_IP=\\\$(curl -s --max-time 10 http://169.254.169.254/latest/meta-data/public-ipv4) && \\
-    echo \\\"Retrieved public IP: \\\$PUBLIC_IP\\\" && \\
-    echo \\\"Public URL will be: http://\\\$PUBLIC_IP:$PORT\\\" && \\
-    ANTHROPIC_API_KEY='$ANTHROPIC_API_KEY' \\
-    AGENT_ID='$AGENT_ID' \\
-    AGENT_NAME='$AGENT_NAME' \\
-    AGENT_DOMAIN='$DOMAIN' \\
-    AGENT_SPECIALIZATION='$SPECIALIZATION' \\
-    AGENT_DESCRIPTION='$DESCRIPTION' \\
-    AGENT_CAPABILITIES='$CAPABILITIES' \\
-    REGISTRY_URL='$REGISTRY_URL' \\
-    PUBLIC_URL=\\\"http://\\\$PUBLIC_IP:$PORT\\\" \\
-    nohup python3 examples/modular_agent.py > agent.log 2>&1 &"
+# Get public IP with retries
+echo "Getting public IP address..."
+for attempt in {1..10}; do
+    PUBLIC_IP=\$(curl -s --connect-timeout 5 --max-time 10 http://169.254.169.254/latest/meta-data/public-ipv4)
+    if [ -n "\$PUBLIC_IP" ] && [[ \$PUBLIC_IP =~ ^[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+\$ ]]; then
+        echo "Retrieved public IP: \$PUBLIC_IP"
+        break
+    fi
+    echo "Attempt \$attempt failed, retrying..."
+    sleep 3
+done
+
+if [ -z "\$PUBLIC_IP" ]; then
+    echo "ERROR: Could not retrieve public IP after 10 attempts"
+    exit 1
+fi
+
+# Start the agent with all configuration
+echo "Starting NANDA agent with PUBLIC_URL: http://\$PUBLIC_IP:$PORT"
+sudo -u ubuntu bash -c "
+    cd /home/ubuntu/nanda-agent-$AGENT_ID
+    source env/bin/activate
+    export ANTHROPIC_API_KEY='$ANTHROPIC_API_KEY'
+    export AGENT_ID='$AGENT_ID'
+    export AGENT_NAME='$AGENT_NAME'
+    export AGENT_DOMAIN='$DOMAIN'
+    export AGENT_SPECIALIZATION='$SPECIALIZATION'
+    export AGENT_DESCRIPTION='$DESCRIPTION'
+    export AGENT_CAPABILITIES='$CAPABILITIES'
+    export REGISTRY_URL='$REGISTRY_URL'
+    export PUBLIC_URL='http://\$PUBLIC_IP:$PORT'
+    nohup python3 examples/modular_agent.py > agent.log 2>&1 &
+"
 
 echo "=== NANDA Agent Setup Complete: $AGENT_ID ==="
-FINAL_IP=\$(curl -s http://169.254.169.254/latest/meta-data/public-ipv4)
-echo "Agent URL: http://\$FINAL_IP:$PORT/a2a"
+echo "Agent URL: http://\$PUBLIC_IP:$PORT/a2a"
 EOF
 
 # Launch EC2 instance

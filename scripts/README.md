@@ -2,9 +2,19 @@
 
 Simple deployment scripts for NANDA agents on cloud servers.
 
-## Quick Deploy
+## Deployment Options
 
-Deploy any agent type with a single command:
+### Option 1: Complete AWS EC2 Deployment 🆕
+**Creates EC2 instance + deploys agent in one command**
+
+```bash
+bash scripts/aws-ec2-deploy.sh <AGENT_TYPE> <AGENT_ID> <ANTHROPIC_API_KEY> [PORT] [REGION] [INSTANCE_TYPE]
+```
+
+**Prerequisites:** AWS CLI configured (`aws configure`)
+
+### Option 2: Deploy to Existing Server
+**Deploy agent on existing Ubuntu/Amazon Linux server**
 
 ```bash
 bash scripts/deploy-agent.sh <AGENT_TYPE> <AGENT_ID> <ANTHROPIC_API_KEY> [PORT] [REGISTRY_URL]
@@ -12,6 +22,16 @@ bash scripts/deploy-agent.sh <AGENT_TYPE> <AGENT_ID> <ANTHROPIC_API_KEY> [PORT] 
 
 ### Examples
 
+**AWS EC2 Deployment:**
+```bash
+# Create EC2 instance + deploy helpful agent
+bash scripts/aws-ec2-deploy.sh helpful my_helper sk-ant-xxxxx
+
+# Custom region and instance type
+bash scripts/aws-ec2-deploy.sh analyst doc_analyzer sk-ant-xxxxx 6020 us-west-2 t3.small
+```
+
+**Existing Server Deployment:**
 ```bash
 # Deploy helpful agent
 bash scripts/deploy-agent.sh helpful my_helper sk-ant-xxxxx

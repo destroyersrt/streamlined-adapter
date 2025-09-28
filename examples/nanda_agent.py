@@ -41,6 +41,8 @@ def get_agent_config():
         agent_id = f"{base_agent_id}-{hex_suffix}"
     else:
         agent_id = base_agent_id
+    
+    print(f"Generated agent_id: {agent_id}")
     agent_name = os.getenv("AGENT_NAME", "Ubuntu Helper")
     domain = os.getenv("AGENT_DOMAIN", "general assistance")
     specialization = os.getenv("AGENT_SPECIALIZATION", "helpful and friendly AI assistant")

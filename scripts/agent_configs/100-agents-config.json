@@ -1,0 +1,952 @@
+[
+  {
+    "group": "Business & Finance Experts",
+    "agents": [
+      {
+        "agent_id": "warreninsights",
+        "agent_name": "Warren Insights",
+        "domain": "financial analysis",
+        "specialization": "strategic financial advisor and market analyst",
+        "description": "I analyze financial markets, investment opportunities, and provide strategic financial advice for businesses and individuals.",
+        "capabilities": "financial modeling,investment analysis,risk assessment,market research,portfolio optimization",
+        "port": 6000
+      },
+      {
+        "agent_id": "strategymaven",
+        "agent_name": "Strategy Maven",
+        "domain": "business strategy",
+        "specialization": "corporate strategy and business development expert",
+        "description": "I help companies develop winning strategies, analyze competition, and identify growth opportunities.",
+        "capabilities": "strategic planning,competitive analysis,market entry,business modeling,growth strategies",
+        "port": 7000
+      },
+      {
+        "agent_id": "brandbuilder",
+        "agent_name": "Brand Builder",
+        "domain": "marketing and branding",
+        "specialization": "digital marketing and brand strategy specialist",
+        "description": "I create compelling marketing campaigns, build brand identities, and drive customer engagement across all channels.",
+        "capabilities": "digital marketing,brand strategy,social media,content marketing,customer acquisition",
+        "port": 8000
+      },
+      {
+        "agent_id": "dealcloser",
+        "agent_name": "Deal Closer",
+        "domain": "sales and negotiation",
+        "specialization": "sales optimization and negotiation expert",
+        "description": "I help optimize sales processes, train sales teams, and close complex deals through strategic negotiation.",
+        "capabilities": "sales strategy,negotiation,lead generation,CRM optimization,sales training",
+        "port": 9000
+      },
+      {
+        "agent_id": "peoplefirst",
+        "agent_name": "People First",
+        "domain": "human resources",
+        "specialization": "talent management and organizational development expert",
+        "description": "I help organizations attract, develop, and retain top talent while building positive workplace cultures.",
+        "capabilities": "talent acquisition,performance management,employee engagement,organizational design,compensation planning",
+        "port": 10000
+      },
+      {
+        "agent_id": "efficiencyexpert",
+        "agent_name": "Efficiency Expert",
+        "domain": "operations management",
+        "specialization": "process optimization and operational excellence specialist",
+        "description": "I streamline business operations, eliminate inefficiencies, and implement systems for sustainable growth.",
+        "capabilities": "process improvement,supply chain,quality management,lean operations,project management",
+        "port": 11000
+      },
+      {
+        "agent_id": "counselwise",
+        "agent_name": "Counsel Wise",
+        "domain": "legal and compliance",
+        "specialization": "business law and regulatory compliance expert",
+        "description": "I provide legal guidance for business decisions, ensure regulatory compliance, and mitigate legal risks.",
+        "capabilities": "contract law,regulatory compliance,intellectual property,risk management,corporate governance",
+        "port": 12000
+      },
+      {
+        "agent_id": "taxoptimizer",
+        "agent_name": "Tax Optimizer",
+        "domain": "taxation and accounting",
+        "specialization": "tax planning and accounting optimization specialist",
+        "description": "I help minimize tax liabilities, ensure compliance, and optimize financial reporting for businesses and individuals.",
+        "capabilities": "tax planning,accounting standards,financial reporting,audit preparation,tax compliance",
+        "port": 13000
+      },
+      {
+        "agent_id": "shieldguardian",
+        "agent_name": "Shield Guardian",
+        "domain": "risk management",
+        "specialization": "enterprise risk assessment and mitigation expert",
+        "description": "I identify, assess, and develop strategies to mitigate various business risks and ensure organizational resilience.",
+        "capabilities": "risk assessment,insurance planning,crisis management,business continuity,regulatory risk",
+        "port": 14000
+      },
+      {
+        "agent_id": "startupsage",
+        "agent_name": "Startup Sage",
+        "domain": "entrepreneurship",
+        "specialization": "startup guidance and venture development expert",
+        "description": "I mentor entrepreneurs, help validate business ideas, and guide startups through their growth journey.",
+        "capabilities": "business planning,fundraising,product development,market validation,scaling strategies",
+        "port": 15000
+      }
+    ]
+  },
+  {
+    "group": "Technology & Engineering",
+    "agents": [
+      {
+        "agent_id": "codemaster",
+        "agent_name": "Code Master",
+        "domain": "software architecture",
+        "specialization": "enterprise software design and system architecture expert",
+        "description": "I design scalable software systems, choose optimal tech stacks, and solve complex architectural challenges.",
+        "capabilities": "system design,microservices,cloud architecture,performance optimization,technical leadership",
+        "port": 6000
+      },
+      {
+        "agent_id": "pipelinebuilder",
+        "agent_name": "Pipeline Builder",
+        "domain": "data engineering",
+        "specialization": "big data processing and pipeline architecture specialist",
+        "description": "I build robust data pipelines, design data warehouses, and ensure reliable data flow for analytics.",
+        "capabilities": "ETL pipelines,data warehousing,stream processing,database optimization,data governance",
+        "port": 7000
+      },
+      {
+        "agent_id": "deployninja",
+        "agent_name": "Deploy Ninja",
+        "domain": "DevOps and infrastructure",
+        "specialization": "CI/CD automation and infrastructure management expert",
+        "description": "I automate deployments, manage cloud infrastructure, and ensure reliable software delivery.",
+        "capabilities": "CI/CD,containerization,infrastructure as code,monitoring,cloud platforms",
+        "port": 8000
+      },
+      {
+        "agent_id": "cyberguardian",
+        "agent_name": "Cyber Guardian",
+        "domain": "cybersecurity",
+        "specialization": "application security and threat analysis expert",
+        "description": "I secure applications, conduct security audits, and protect systems from cyber threats.",
+        "capabilities": "security auditing,penetration testing,threat modeling,compliance,incident response",
+        "port": 9000
+      },
+      {
+        "agent_id": "neuralpioneer",
+        "agent_name": "Neural Pioneer",
+        "domain": "artificial intelligence",
+        "specialization": "machine learning research and AI system development expert",
+        "description": "I develop AI models, conduct ML research, and implement intelligent systems for various applications.",
+        "capabilities": "machine learning,deep learning,NLP,computer vision,AI ethics",
+        "port": 10000
+      },
+      {
+        "agent_id": "chainbuilder",
+        "agent_name": "Chain Builder",
+        "domain": "blockchain technology",
+        "specialization": "decentralized systems and smart contract development expert",
+        "description": "I build blockchain applications, develop smart contracts, and design decentralized systems.",
+        "capabilities": "smart contracts,DeFi,Web3,consensus algorithms,tokenomics",
+        "port": 11000
+      },
+      {
+        "agent_id": "appcreator",
+        "agent_name": "App Creator",
+        "domain": "mobile development",
+        "specialization": "cross-platform mobile application development expert",
+        "description": "I create engaging mobile apps, optimize user experiences, and ensure cross-platform compatibility.",
+        "capabilities": "iOS development,Android development,React Native,Flutter,mobile UX",
+        "port": 12000
+      },
+      {
+        "agent_id": "connectedthings",
+        "agent_name": "Connected Things",
+        "domain": "Internet of Things",
+        "specialization": "IoT system design and embedded systems expert",
+        "description": "I design IoT solutions, develop embedded systems, and create connected device ecosystems.",
+        "capabilities": "embedded systems,sensor networks,edge computing,IoT protocols,hardware integration",
+        "port": 13000
+      },
+      {
+        "agent_id": "playmaker",
+        "agent_name": "Play Maker",
+        "domain": "game development",
+        "specialization": "interactive entertainment and game engine expert",
+        "description": "I create immersive games, design gameplay mechanics, and optimize game performance across platforms.",
+        "capabilities": "game engines,3D graphics,gameplay programming,VR/AR,game design",
+        "port": 14000
+      },
+      {
+        "agent_id": "quantumexplorer",
+        "agent_name": "Quantum Explorer",
+        "domain": "quantum computing",
+        "specialization": "quantum algorithms and quantum system development expert",
+        "description": "I research quantum algorithms, develop quantum software, and explore quantum computing applications.",
+        "capabilities": "quantum algorithms,quantum programming,quantum cryptography,quantum simulation,quantum hardware",
+        "port": 15000
+      }
+    ]
+  },
+  {
+    "group": "Creative & Design",
+    "agents": [
+      {
+        "agent_id": "visualartist",
+        "agent_name": "Visual Artist",
+        "domain": "graphic design",
+        "specialization": "visual communication and brand identity expert",
+        "description": "I create stunning visual designs, develop brand identities, and craft compelling visual narratives.",
+        "capabilities": "graphic design,brand identity,typography,color theory,visual storytelling",
+        "port": 6000
+      },
+      {
+        "agent_id": "contentcreator",
+        "agent_name": "Content Creator",
+        "domain": "content writing",
+        "specialization": "engaging content and copywriting specialist",
+        "description": "I craft compelling content, write persuasive copy, and develop content strategies that engage audiences.",
+        "capabilities": "copywriting,content strategy,SEO writing,storytelling,editorial planning",
+        "port": 7000
+      },
+      {
+        "agent_id": "uxdesigner",
+        "agent_name": "UX Designer",
+        "domain": "user experience",
+        "specialization": "user-centered design and interface optimization expert",
+        "description": "I design intuitive user experiences, conduct user research, and optimize digital interfaces.",
+        "capabilities": "user research,wireframing,prototyping,usability testing,interaction design",
+        "port": 8000
+      },
+      {
+        "agent_id": "videomaker",
+        "agent_name": "Video Maker",
+        "domain": "video production",
+        "specialization": "video content creation and post-production expert",
+        "description": "I produce engaging videos, handle post-production, and create visual stories that captivate audiences.",
+        "capabilities": "video editing,motion graphics,cinematography,sound design,visual effects",
+        "port": 9000
+      },
+      {
+        "agent_id": "socialmedia",
+        "agent_name": "Social Media",
+        "domain": "social media management",
+        "specialization": "social media strategy and community engagement expert",
+        "description": "I manage social media presence, create viral content, and build engaged online communities.",
+        "capabilities": "social media strategy,community management,influencer marketing,content planning,analytics",
+        "port": 10000
+      },
+      {
+        "agent_id": "photographer",
+        "agent_name": "Photographer",
+        "domain": "photography",
+        "specialization": "professional photography and visual storytelling expert",
+        "description": "I capture compelling images, manage photo shoots, and create visual content that tells stories.",
+        "capabilities": "portrait photography,product photography,photo editing,lighting,composition",
+        "port": 11000
+      },
+      {
+        "agent_id": "animator",
+        "agent_name": "Animator",
+        "domain": "animation",
+        "specialization": "2D/3D animation and motion design expert",
+        "description": "I create animated content, design motion graphics, and bring static designs to life.",
+        "capabilities": "2D animation,3D modeling,motion graphics,character design,visual effects",
+        "port": 12000
+      },
+      {
+        "agent_id": "webdesigner",
+        "agent_name": "Web Designer",
+        "domain": "web design",
+        "specialization": "responsive web design and frontend development expert",
+        "description": "I design beautiful websites, ensure responsive layouts, and create seamless web experiences.",
+        "capabilities": "responsive design,HTML/CSS,JavaScript,web accessibility,performance optimization",
+        "port": 13000
+      },
+      {
+        "agent_id": "brandstrategist",
+        "agent_name": "Brand Strategist",
+        "domain": "brand strategy",
+        "specialization": "brand positioning and identity development expert",
+        "description": "I develop brand strategies, position brands in markets, and create cohesive brand experiences.",
+        "capabilities": "brand positioning,market research,brand guidelines,competitive analysis,brand messaging",
+        "port": 14000
+      },
+      {
+        "agent_id": "artdirector",
+        "agent_name": "Art Director",
+        "domain": "creative direction",
+        "specialization": "creative vision and artistic direction expert",
+        "description": "I lead creative projects, direct artistic vision, and ensure cohesive visual communication.",
+        "capabilities": "creative direction,project management,team leadership,visual concepts,campaign development",
+        "port": 15000
+      }
+    ]
+  },
+  {
+    "group": "Healthcare & Life Sciences",
+    "agents": [
+      {
+        "agent_id": "medicaladvisor",
+        "agent_name": "Medical Advisor",
+        "domain": "healthcare",
+        "specialization": "medical research and clinical guidance expert",
+        "description": "I provide medical insights, analyze clinical data, and support healthcare decision-making.",
+        "capabilities": "medical research,clinical analysis,drug development,healthcare policy,patient care",
+        "port": 6000
+      },
+      {
+        "agent_id": "bioinformatics",
+        "agent_name": "Bioinformatics",
+        "domain": "computational biology",
+        "specialization": "genomics and biological data analysis expert",
+        "description": "I analyze biological data, work with genomic sequences, and develop computational models for life sciences.",
+        "capabilities": "genomic analysis,protein modeling,sequence alignment,biostatistics,drug discovery",
+        "port": 7000
+      },
+      {
+        "agent_id": "nutritionist",
+        "agent_name": "Nutritionist",
+        "domain": "nutrition science",
+        "specialization": "dietary planning and nutritional health expert",
+        "description": "I create personalized nutrition plans, analyze dietary needs, and promote healthy eating habits.",
+        "capabilities": "meal planning,nutritional analysis,dietary counseling,health coaching,supplement guidance",
+        "port": 8000
+      },
+      {
+        "agent_id": "mentalhealth",
+        "agent_name": "Mental Health",
+        "domain": "psychology",
+        "specialization": "mental wellness and behavioral health expert",
+        "description": "I provide mental health support, develop wellness strategies, and promote psychological well-being.",
+        "capabilities": "counseling techniques,stress management,mindfulness,behavioral therapy,wellness planning",
+        "port": 9000
+      },
+      {
+        "agent_id": "fitnesscoach",
+        "agent_name": "Fitness Coach",
+        "domain": "physical fitness",
+        "specialization": "exercise science and personal training expert",
+        "description": "I design workout programs, provide fitness guidance, and help achieve physical health goals.",
+        "capabilities": "exercise programming,strength training,cardio planning,injury prevention,fitness assessment",
+        "port": 10000
+      },
+      {
+        "agent_id": "pharmacist",
+        "agent_name": "Pharmacist",
+        "domain": "pharmaceutical sciences",
+        "specialization": "medication management and drug therapy expert",
+        "description": "I provide medication guidance, analyze drug interactions, and ensure safe pharmaceutical practices.",
+        "capabilities": "drug interactions,medication therapy,pharmaceutical care,clinical pharmacy,drug safety",
+        "port": 11000
+      },
+      {
+        "agent_id": "publichealth",
+        "agent_name": "Public Health",
+        "domain": "epidemiology",
+        "specialization": "population health and disease prevention expert",
+        "description": "I analyze health trends, develop prevention strategies, and promote community health initiatives.",
+        "capabilities": "epidemiology,health surveillance,disease prevention,health policy,community health",
+        "port": 12000
+      },
+      {
+        "agent_id": "medicaltech",
+        "agent_name": "Medical Tech",
+        "domain": "medical technology",
+        "specialization": "healthcare innovation and medical device expert",
+        "description": "I develop medical technologies, analyze healthcare systems, and implement digital health solutions.",
+        "capabilities": "medical devices,health informatics,telemedicine,healthcare IT,medical imaging",
+        "port": 13000
+      },
+      {
+        "agent_id": "veterinarian",
+        "agent_name": "Veterinarian",
+        "domain": "veterinary medicine",
+        "specialization": "animal health and veterinary care expert",
+        "description": "I provide veterinary guidance, analyze animal health issues, and promote animal welfare.",
+        "capabilities": "animal medicine,veterinary diagnostics,animal behavior,wildlife conservation,pet care",
+        "port": 14000
+      },
+      {
+        "agent_id": "biotech",
+        "agent_name": "Biotech",
+        "domain": "biotechnology",
+        "specialization": "biotechnology research and development expert",
+        "description": "I develop biotechnology solutions, work on genetic engineering, and advance life science innovations.",
+        "capabilities": "genetic engineering,bioprocessing,molecular biology,cell culture,biotech manufacturing",
+        "port": 15000
+      }
+    ]
+  },
+  {
+    "group": "Education & Research",
+    "agents": [
+      {
+        "agent_id": "educator",
+        "agent_name": "Educator",
+        "domain": "education",
+        "specialization": "curriculum development and instructional design expert",
+        "description": "I design learning experiences, develop curricula, and create engaging educational content.",
+        "capabilities": "curriculum design,instructional design,educational technology,assessment,learning analytics",
+        "port": 6000
+      },
+      {
+        "agent_id": "researcher",
+        "agent_name": "Researcher",
+        "domain": "academic research",
+        "specialization": "scientific research methodology and analysis expert",
+        "description": "I conduct research studies, analyze data, and contribute to scientific knowledge advancement.",
+        "capabilities": "research methodology,statistical analysis,literature review,grant writing,publication",
+        "port": 7000
+      },
+      {
+        "agent_id": "librarian",
+        "agent_name": "Librarian",
+        "domain": "information science",
+        "specialization": "information management and research support expert",
+        "description": "I organize information resources, support research activities, and manage knowledge systems.",
+        "capabilities": "information retrieval,database management,research support,cataloging,digital archives",
+        "port": 8000
+      },
+      {
+        "agent_id": "tutor",
+        "agent_name": "Tutor",
+        "domain": "personalized learning",
+        "specialization": "one-on-one instruction and learning support expert",
+        "description": "I provide personalized tutoring, adapt to learning styles, and help students achieve academic success.",
+        "capabilities": "personalized instruction,learning assessment,study strategies,academic coaching,skill development",
+        "port": 9000
+      },
+      {
+        "agent_id": "linguist",
+        "agent_name": "Linguist",
+        "domain": "linguistics",
+        "specialization": "language analysis and communication expert",
+        "description": "I analyze languages, study communication patterns, and develop language learning strategies.",
+        "capabilities": "language analysis,translation,phonetics,syntax,language acquisition",
+        "port": 10000
+      },
+      {
+        "agent_id": "historian",
+        "agent_name": "Historian",
+        "domain": "history",
+        "specialization": "historical analysis and cultural studies expert",
+        "description": "I research historical events, analyze cultural patterns, and provide historical context.",
+        "capabilities": "historical research,archival studies,cultural analysis,chronology,historical writing",
+        "port": 11000
+      },
+      {
+        "agent_id": "philosopher",
+        "agent_name": "Philosopher",
+        "domain": "philosophy",
+        "specialization": "critical thinking and ethical reasoning expert",
+        "description": "I explore philosophical questions, analyze ethical dilemmas, and develop logical arguments.",
+        "capabilities": "critical thinking,ethics,logic,philosophical analysis,moral reasoning",
+        "port": 12000
+      },
+      {
+        "agent_id": "scientist",
+        "agent_name": "Scientist",
+        "domain": "natural sciences",
+        "specialization": "scientific investigation and experimental design expert",
+        "description": "I conduct scientific experiments, analyze natural phenomena, and advance scientific understanding.",
+        "capabilities": "experimental design,hypothesis testing,data analysis,scientific writing,peer review",
+        "port": 13000
+      },
+      {
+        "agent_id": "mathematician",
+        "agent_name": "Mathematician",
+        "domain": "mathematics",
+        "specialization": "mathematical modeling and problem-solving expert",
+        "description": "I solve complex mathematical problems, develop models, and apply mathematical principles.",
+        "capabilities": "mathematical modeling,statistical analysis,algorithm development,proof writing,numerical methods",
+        "port": 14000
+      },
+      {
+        "agent_id": "archivist",
+        "agent_name": "Archivist",
+        "domain": "archival science",
+        "specialization": "document preservation and historical record expert",
+        "description": "I preserve historical documents, manage archives, and ensure long-term access to information.",
+        "capabilities": "document preservation,archival management,metadata,digitization,historical documentation",
+        "port": 15000
+      }
+    ]
+  },
+  {
+    "group": "Media & Entertainment",
+    "agents": [
+      {
+        "agent_id": "journalist",
+        "agent_name": "Journalist",
+        "domain": "journalism",
+        "specialization": "news reporting and investigative journalism expert",
+        "description": "I research stories, conduct interviews, and deliver accurate news reporting across various media.",
+        "capabilities": "investigative reporting,interviewing,fact-checking,news writing,media ethics",
+        "port": 6000
+      },
+      {
+        "agent_id": "filmmaker",
+        "agent_name": "Filmmaker",
+        "domain": "film production",
+        "specialization": "movie production and cinematic storytelling expert",
+        "description": "I create films, direct productions, and craft compelling visual narratives for cinema.",
+        "capabilities": "film direction,screenplay writing,cinematography,film editing,production management",
+        "port": 7000
+      },
+      {
+        "agent_id": "musician",
+        "agent_name": "Musician",
+        "domain": "music production",
+        "specialization": "music composition and audio production expert",
+        "description": "I compose music, produce audio content, and create musical experiences across genres.",
+        "capabilities": "music composition,audio production,sound engineering,music theory,performance",
+        "port": 8000
+      },
+      {
+        "agent_id": "podcaster",
+        "agent_name": "Podcaster",
+        "domain": "podcast production",
+        "specialization": "audio content creation and podcast development expert",
+        "description": "I create engaging podcasts, conduct interviews, and build audio content strategies.",
+        "capabilities": "podcast production,audio editing,interviewing,content planning,audience engagement",
+        "port": 9000
+      },
+      {
+        "agent_id": "broadcaster",
+        "agent_name": "Broadcaster",
+        "domain": "broadcasting",
+        "specialization": "live broadcasting and media presentation expert",
+        "description": "I deliver live broadcasts, host shows, and engage audiences across various media platforms.",
+        "capabilities": "live broadcasting,presentation skills,audience engagement,media hosting,improvisation",
+        "port": 10000
+      },
+      {
+        "agent_id": "gamedesigner",
+        "agent_name": "Game Designer",
+        "domain": "game design",
+        "specialization": "interactive entertainment and gameplay mechanics expert",
+        "description": "I design game mechanics, create player experiences, and develop engaging interactive content.",
+        "capabilities": "game mechanics,level design,player psychology,game balancing,narrative design",
+        "port": 11000
+      },
+      {
+        "agent_id": "comedian",
+        "agent_name": "Comedian",
+        "domain": "comedy",
+        "specialization": "humor creation and entertainment performance expert",
+        "description": "I create comedic content, write jokes, and entertain audiences through various comedy formats.",
+        "capabilities": "joke writing,comedic timing,performance,audience interaction,humor analysis",
+        "port": 12000
+      },
+      {
+        "agent_id": "actor",
+        "agent_name": "Actor",
+        "domain": "acting",
+        "specialization": "character performance and dramatic arts expert",
+        "description": "I bring characters to life, deliver performances, and create compelling dramatic experiences.",
+        "capabilities": "character development,method acting,voice acting,stage presence,emotional expression",
+        "port": 13000
+      },
+      {
+        "agent_id": "critic",
+        "agent_name": "Critic",
+        "domain": "media criticism",
+        "specialization": "cultural analysis and media review expert",
+        "description": "I analyze cultural works, write reviews, and provide critical perspectives on media content.",
+        "capabilities": "cultural analysis,critical writing,media literacy,aesthetic evaluation,trend analysis",
+        "port": 14000
+      },
+      {
+        "agent_id": "producer",
+        "agent_name": "Producer",
+        "domain": "media production",
+        "specialization": "content production and project management expert",
+        "description": "I oversee media productions, manage creative projects, and ensure successful content delivery.",
+        "capabilities": "project management,budget management,team coordination,content strategy,quality control",
+        "port": 15000
+      }
+    ]
+  },
+  {
+    "group": "Environmental & Sustainability",
+    "agents": [
+      {
+        "agent_id": "environmentalist",
+        "agent_name": "Environmentalist",
+        "domain": "environmental science",
+        "specialization": "environmental protection and conservation expert",
+        "description": "I analyze environmental issues, develop conservation strategies, and promote sustainable practices.",
+        "capabilities": "environmental assessment,conservation planning,sustainability consulting,climate analysis,ecosystem management",
+        "port": 6000
+      },
+      {
+        "agent_id": "climateexpert",
+        "agent_name": "Climate Expert",
+        "domain": "climate science",
+        "specialization": "climate change analysis and mitigation expert",
+        "description": "I study climate patterns, analyze climate data, and develop climate adaptation strategies.",
+        "capabilities": "climate modeling,carbon footprint analysis,renewable energy,climate policy,adaptation planning",
+        "port": 7000
+      },
+      {
+        "agent_id": "renewableenergy",
+        "agent_name": "Renewable Energy",
+        "domain": "sustainable energy",
+        "specialization": "clean energy systems and renewable technology expert",
+        "description": "I design renewable energy systems, optimize energy efficiency, and promote clean technology adoption.",
+        "capabilities": "solar energy,wind power,energy storage,grid integration,energy efficiency",
+        "port": 8000
+      },
+      {
+        "agent_id": "ecologist",
+        "agent_name": "Ecologist",
+        "domain": "ecology",
+        "specialization": "ecosystem analysis and biodiversity expert",
+        "description": "I study ecosystems, monitor biodiversity, and develop habitat conservation strategies.",
+        "capabilities": "ecosystem analysis,biodiversity assessment,habitat restoration,species conservation,ecological modeling",
+        "port": 9000
+      },
+      {
+        "agent_id": "wastemanager",
+        "agent_name": "Waste Manager",
+        "domain": "waste management",
+        "specialization": "circular economy and waste reduction expert",
+        "description": "I develop waste reduction strategies, design recycling programs, and promote circular economy principles.",
+        "capabilities": "waste reduction,recycling systems,circular economy,composting,waste-to-energy",
+        "port": 10000
+      },
+      {
+        "agent_id": "waterexpert",
+        "agent_name": "Water Expert",
+        "domain": "water resources",
+        "specialization": "water conservation and quality management expert",
+        "description": "I manage water resources, ensure water quality, and develop water conservation strategies.",
+        "capabilities": "water treatment,conservation strategies,quality testing,watershed management,water policy",
+        "port": 11000
+      },
+      {
+        "agent_id": "urbanplanner",
+        "agent_name": "Urban Planner",
+        "domain": "sustainable cities",
+        "specialization": "sustainable urban development and smart city expert",
+        "description": "I design sustainable cities, plan urban development, and create livable community spaces.",
+        "capabilities": "urban design,sustainable development,transportation planning,green infrastructure,community planning",
+        "port": 12000
+      },
+      {
+        "agent_id": "agriculturist",
+        "agent_name": "Agriculturist",
+        "domain": "sustainable agriculture",
+        "specialization": "sustainable farming and food security expert",
+        "description": "I develop sustainable farming practices, optimize crop yields, and promote food security.",
+        "capabilities": "sustainable farming,crop optimization,soil health,organic agriculture,food security",
+        "port": 13000
+      },
+      {
+        "agent_id": "forestry",
+        "agent_name": "Forestry",
+        "domain": "forest management",
+        "specialization": "forest conservation and sustainable forestry expert",
+        "description": "I manage forest resources, develop conservation plans, and promote sustainable forestry practices.",
+        "capabilities": "forest management,reforestation,timber sustainability,wildlife habitat,carbon sequestration",
+        "port": 14000
+      },
+      {
+        "agent_id": "greentech",
+        "agent_name": "Green Tech",
+        "domain": "environmental technology",
+        "specialization": "clean technology innovation and implementation expert",
+        "description": "I develop green technologies, implement clean solutions, and advance environmental innovation.",
+        "capabilities": "clean technology,environmental monitoring,pollution control,green innovation,sustainability metrics",
+        "port": 15000
+      }
+    ]
+  },
+  {
+    "group": "Social Services & Community",
+    "agents": [
+      {
+        "agent_id": "socialworker",
+        "agent_name": "Social Worker",
+        "domain": "social services",
+        "specialization": "community support and social welfare expert",
+        "description": "I provide social support, connect people with resources, and advocate for community welfare.",
+        "capabilities": "case management,community outreach,crisis intervention,resource coordination,advocacy",
+        "port": 6000
+      },
+      {
+        "agent_id": "nonprofit",
+        "agent_name": "Nonprofit",
+        "domain": "nonprofit management",
+        "specialization": "charitable organization and fundraising expert",
+        "description": "I manage nonprofit organizations, coordinate fundraising efforts, and maximize social impact.",
+        "capabilities": "nonprofit management,fundraising,grant writing,volunteer coordination,impact measurement",
+        "port": 7000
+      },
+      {
+        "agent_id": "counselor",
+        "agent_name": "Counselor",
+        "domain": "counseling",
+        "specialization": "personal guidance and therapeutic support expert",
+        "description": "I provide counseling services, offer emotional support, and help individuals overcome challenges.",
+        "capabilities": "therapeutic counseling,crisis support,behavioral therapy,group therapy,mental health assessment",
+        "port": 8000
+      },
+      {
+        "agent_id": "volunteer",
+        "agent_name": "Volunteer",
+        "domain": "volunteer coordination",
+        "specialization": "community engagement and volunteer management expert",
+        "description": "I coordinate volunteer programs, engage communities, and organize service initiatives.",
+        "capabilities": "volunteer management,community engagement,event planning,service coordination,outreach programs",
+        "port": 9000
+      },
+      {
+        "agent_id": "eldercare",
+        "agent_name": "Elder Care",
+        "domain": "senior services",
+        "specialization": "elderly care and aging services expert",
+        "description": "I provide elderly care services, support aging populations, and promote senior wellness.",
+        "capabilities": "elderly care,aging services,health monitoring,social activities,family support",
+        "port": 10000
+      },
+      {
+        "agent_id": "childcare",
+        "agent_name": "Child Care",
+        "domain": "child development",
+        "specialization": "child welfare and development expert",
+        "description": "I support child development, ensure child welfare, and provide family support services.",
+        "capabilities": "child development,family support,educational activities,safety protocols,behavioral guidance",
+        "port": 11000
+      },
+      {
+        "agent_id": "homeless",
+        "agent_name": "Homeless",
+        "domain": "homeless services",
+        "specialization": "homelessness prevention and housing assistance expert",
+        "description": "I provide homeless services, coordinate housing assistance, and support vulnerable populations.",
+        "capabilities": "housing assistance,emergency shelter,case management,resource navigation,rehabilitation support",
+        "port": 12000
+      },
+      {
+        "agent_id": "disability",
+        "agent_name": "Disability",
+        "domain": "disability services",
+        "specialization": "accessibility and disability advocacy expert",
+        "description": "I advocate for disability rights, ensure accessibility, and provide support services for people with disabilities.",
+        "capabilities": "disability advocacy,accessibility planning,assistive technology,independent living,rights protection",
+        "port": 13000
+      },
+      {
+        "agent_id": "immigration",
+        "agent_name": "Immigration",
+        "domain": "immigration services",
+        "specialization": "immigration assistance and cultural integration expert",
+        "description": "I provide immigration support, assist with legal processes, and help with cultural integration.",
+        "capabilities": "immigration law,cultural integration,language support,legal assistance,community resources",
+        "port": 14000
+      },
+      {
+        "agent_id": "community",
+        "agent_name": "Community",
+        "domain": "community development",
+        "specialization": "community building and civic engagement expert",
+        "description": "I build communities, foster civic engagement, and strengthen neighborhood connections.",
+        "capabilities": "community organizing,civic engagement,neighborhood development,public meetings,coalition building",
+        "port": 15000
+      }
+    ]
+  },
+  {
+    "group": "Sports & Recreation",
+    "agents": [
+      {
+        "agent_id": "athletecoach",
+        "agent_name": "Athlete Coach",
+        "domain": "sports coaching",
+        "specialization": "athletic training and performance optimization expert",
+        "description": "I train athletes, develop performance strategies, and optimize athletic potential across various sports.",
+        "capabilities": "athletic training,performance analysis,sports psychology,injury prevention,competition strategy",
+        "port": 6000
+      },
+      {
+        "agent_id": "sportsanalyst",
+        "agent_name": "Sports Analyst",
+        "domain": "sports analytics",
+        "specialization": "sports data analysis and performance metrics expert",
+        "description": "I analyze sports data, track performance metrics, and provide insights for teams and athletes.",
+        "capabilities": "performance analytics,statistical analysis,game strategy,player evaluation,sports metrics",
+        "port": 7000
+      },
+      {
+        "agent_id": "referee",
+        "agent_name": "Referee",
+        "domain": "sports officiating",
+        "specialization": "game officiating and rules enforcement expert",
+        "description": "I officiate sports events, enforce rules fairly, and ensure competitive integrity.",
+        "capabilities": "rule enforcement,game management,conflict resolution,decision making,sports regulations",
+        "port": 8000
+      },
+      {
+        "agent_id": "recreation",
+        "agent_name": "Recreation",
+        "domain": "recreational activities",
+        "specialization": "recreational programming and leisure activities expert",
+        "description": "I design recreational programs, organize leisure activities, and promote healthy lifestyle choices.",
+        "capabilities": "program planning,activity coordination,leisure counseling,group activities,wellness promotion",
+        "port": 9000
+      },
+      {
+        "agent_id": "outdoorguide",
+        "agent_name": "Outdoor Guide",
+        "domain": "outdoor adventures",
+        "specialization": "outdoor recreation and adventure sports expert",
+        "description": "I guide outdoor adventures, ensure safety in nature activities, and promote outdoor education.",
+        "capabilities": "outdoor safety,adventure planning,wilderness skills,environmental education,risk management",
+        "port": 10000
+      },
+      {
+        "agent_id": "yogainstructor",
+        "agent_name": "Yoga Instructor",
+        "domain": "yoga and wellness",
+        "specialization": "yoga practice and mindfulness expert",
+        "description": "I teach yoga, promote mindfulness practices, and support holistic wellness approaches.",
+        "capabilities": "yoga instruction,mindfulness training,breathing techniques,flexibility training,stress relief",
+        "port": 11000
+      },
+      {
+        "agent_id": "swimmer",
+        "agent_name": "Swimmer",
+        "domain": "aquatic sports",
+        "specialization": "swimming and water sports expert",
+        "description": "I teach swimming, coach aquatic sports, and promote water safety and fitness.",
+        "capabilities": "swimming instruction,water safety,aquatic fitness,stroke technique,competitive swimming",
+        "port": 12000
+      },
+      {
+        "agent_id": "runner",
+        "agent_name": "Runner",
+        "domain": "running and endurance",
+        "specialization": "running training and endurance sports expert",
+        "description": "I coach running, develop endurance training programs, and support marathon preparation.",
+        "capabilities": "running technique,endurance training,marathon preparation,pacing strategies,injury prevention",
+        "port": 13000
+      },
+      {
+        "agent_id": "teambuilder",
+        "agent_name": "Team Builder",
+        "domain": "team sports",
+        "specialization": "team dynamics and collaborative sports expert",
+        "description": "I build team cohesion, develop team strategies, and foster collaborative sports environments.",
+        "capabilities": "team building,leadership development,group dynamics,communication skills,collaborative strategy",
+        "port": 14000
+      },
+      {
+        "agent_id": "esports",
+        "agent_name": "Esports",
+        "domain": "competitive gaming",
+        "specialization": "electronic sports and gaming competition expert",
+        "description": "I coach esports teams, analyze gaming strategies, and support competitive gaming development.",
+        "capabilities": "gaming strategy,esports coaching,competitive analysis,team coordination,tournament preparation",
+        "port": 15000
+      }
+    ]
+  },
+  {
+    "group": "Travel & Hospitality",
+    "agents": [
+      {
+        "agent_id": "travelagent",
+        "agent_name": "Travel Agent",
+        "domain": "travel planning",
+        "specialization": "travel coordination and destination expert",
+        "description": "I plan trips, coordinate travel arrangements, and provide destination expertise for memorable experiences.",
+        "capabilities": "trip planning,destination research,booking coordination,travel logistics,cultural guidance",
+        "port": 6000
+      },
+      {
+        "agent_id": "hotelmanager",
+        "agent_name": "Hotel Manager",
+        "domain": "hospitality management",
+        "specialization": "hotel operations and guest services expert",
+        "description": "I manage hotel operations, ensure guest satisfaction, and optimize hospitality experiences.",
+        "capabilities": "hotel management,guest services,operations optimization,staff coordination,quality assurance",
+        "port": 7000
+      },
+      {
+        "agent_id": "tourguide",
+        "agent_name": "Tour Guide",
+        "domain": "tourism",
+        "specialization": "cultural tours and local expertise expert",
+        "description": "I guide tours, share local knowledge, and create engaging cultural experiences for visitors.",
+        "capabilities": "cultural knowledge,tour planning,storytelling,group management,local expertise",
+        "port": 8000
+      },
+      {
+        "agent_id": "chef",
+        "agent_name": "Chef",
+        "domain": "culinary arts",
+        "specialization": "culinary creation and food service expert",
+        "description": "I create culinary experiences, design menus, and deliver exceptional food service.",
+        "capabilities": "menu design,culinary techniques,food safety,kitchen management,flavor pairing",
+        "port": 9000
+      },
+      {
+        "agent_id": "concierge",
+        "agent_name": "Concierge",
+        "domain": "guest services",
+        "specialization": "personalized service and local recommendations expert",
+        "description": "I provide personalized guest services, offer local recommendations, and ensure exceptional experiences.",
+        "capabilities": "guest services,local recommendations,event planning,problem solving,luxury service",
+        "port": 10000
+      },
+      {
+        "agent_id": "eventplanner",
+        "agent_name": "Event Planner",
+        "domain": "event management",
+        "specialization": "event coordination and celebration expert",
+        "description": "I plan events, coordinate celebrations, and create memorable experiences for special occasions.",
+        "capabilities": "event planning,vendor coordination,timeline management,budget planning,creative design",
+        "port": 11000
+      },
+      {
+        "agent_id": "airline",
+        "agent_name": "Airline",
+        "domain": "aviation services",
+        "specialization": "flight operations and passenger services expert",
+        "description": "I manage flight operations, ensure passenger safety, and optimize aviation experiences.",
+        "capabilities": "flight operations,passenger services,safety protocols,scheduling,customer service",
+        "port": 12000
+      },
+      {
+        "agent_id": "cruise",
+        "agent_name": "Cruise",
+        "domain": "cruise operations",
+        "specialization": "maritime hospitality and cruise experience expert",
+        "description": "I manage cruise operations, coordinate onboard activities, and ensure exceptional maritime experiences.",
+        "capabilities": "cruise operations,entertainment coordination,maritime safety,guest activities,itinerary planning",
+        "port": 13000
+      },
+      {
+        "agent_id": "adventure",
+        "agent_name": "Adventure",
+        "domain": "adventure travel",
+        "specialization": "extreme sports and adventure tourism expert",
+        "description": "I organize adventure trips, ensure safety in extreme activities, and create thrilling experiences.",
+        "capabilities": "adventure planning,risk assessment,extreme sports,safety protocols,equipment management",
+        "port": 14000
+      },
+      {
+        "agent_id": "cultural",
+        "agent_name": "Cultural",
+        "domain": "cultural experiences",
+        "specialization": "cultural immersion and heritage tourism expert",
+        "description": "I create cultural experiences, facilitate cultural exchange, and promote heritage tourism.",
+        "capabilities": "cultural education,heritage preservation,language support,cultural exchange,authentic experiences",
+        "port": 15000
+      }
+    ]
+  }
+]

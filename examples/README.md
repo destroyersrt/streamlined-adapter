@@ -4,7 +4,7 @@ Simple examples demonstrating the clean NANDA adapter functionality.
 
 ## 🔧 Modular Agent System (NEW!)
 
-### `modular_agent.py` - Customizable Agent Template
+### `nanda_agent.py` - Customizable Agent Template
 A modular template that makes it easy to create agents with different personalities and expertise by simply changing the configuration.
 
 **Key Features:**
@@ -17,7 +17,7 @@ A modular template that makes it easy to create agents with different personalit
 **Usage:**
 ```python
 # Basic usage
-python3 modular_agent.py
+python3 nanda_agent.py
 
 # Create custom agent
 from modular_agent import create_custom_agent

@@ -1,0 +1,92 @@
+[
+  {
+    "agent_id": "journalist",
+    "agent_name": "Journalist",
+    "domain": "journalism",
+    "specialization": "news reporting and investigative journalism expert",
+    "description": "I research stories, conduct interviews, and deliver accurate news reporting across various media.",
+    "capabilities": "investigative reporting,interviewing,fact-checking,news writing,media ethics",
+    "port": 6000
+  },
+  {
+    "agent_id": "filmmaker",
+    "agent_name": "Filmmaker",
+    "domain": "film production",
+    "specialization": "movie production and cinematic storytelling expert",
+    "description": "I create films, direct productions, and craft compelling visual narratives for cinema.",
+    "capabilities": "film direction,screenplay writing,cinematography,film editing,production management",
+    "port": 7000
+  },
+  {
+    "agent_id": "musician",
+    "agent_name": "Musician",
+    "domain": "music production",
+    "specialization": "music composition and audio production expert",
+    "description": "I compose music, produce audio content, and create musical experiences across genres.",
+    "capabilities": "music composition,audio production,sound engineering,music theory,performance",
+    "port": 8000
+  },
+  {
+    "agent_id": "podcaster",
+    "agent_name": "Podcaster",
+    "domain": "podcast production",
+    "specialization": "audio content creation and podcast development expert",
+    "description": "I create engaging podcasts, conduct interviews, and build audio content strategies.",
+    "capabilities": "podcast production,audio editing,interviewing,content planning,audience engagement",
+    "port": 9000
+  },
+  {
+    "agent_id": "broadcaster",
+    "agent_name": "Broadcaster",
+    "domain": "broadcasting",
+    "specialization": "live broadcasting and media presentation expert",
+    "description": "I deliver live broadcasts, host shows, and engage audiences across various media platforms.",
+    "capabilities": "live broadcasting,presentation skills,audience engagement,media hosting,improvisation",
+    "port": 10000
+  },
+  {
+    "agent_id": "gamedesigner",
+    "agent_name": "Game Designer",
+    "domain": "game design",
+    "specialization": "interactive entertainment and gameplay mechanics expert",
+    "description": "I design game mechanics, create player experiences, and develop engaging interactive content.",
+    "capabilities": "game mechanics,level design,player psychology,game balancing,narrative design",
+    "port": 11000
+  },
+  {
+    "agent_id": "comedian",
+    "agent_name": "Comedian",
+    "domain": "comedy",
+    "specialization": "humor creation and entertainment performance expert",
+    "description": "I create comedic content, write jokes, and entertain audiences through various comedy formats.",
+    "capabilities": "joke writing,comedic timing,performance,audience interaction,humor analysis",
+    "port": 12000
+  },
+  {
+    "agent_id": "actor",
+    "agent_name": "Actor",
+    "domain": "acting",
+    "specialization": "character performance and dramatic arts expert",
+    "description": "I bring characters to life, deliver performances, and create compelling dramatic experiences.",
+    "capabilities": "character development,method acting,voice acting,stage presence,emotional expression",
+    "port": 13000
+  },
+  {
+    "agent_id": "critic",
+    "agent_name": "Critic",
+    "domain": "media criticism",
+    "specialization": "cultural analysis and media review expert",
+    "description": "I analyze cultural works, write reviews, and provide critical perspectives on media content.",
+    "capabilities": "cultural analysis,critical writing,media literacy,aesthetic evaluation,trend analysis",
+    "port": 14000
+  },
+  {
+    "agent_id": "producer",
+    "agent_name": "Producer",
+    "domain": "media production",
+    "specialization": "content production and project management expert",
+    "description": "I oversee media productions, manage creative projects, and ensure successful content delivery.",
+    "capabilities": "project management,budget management,team coordination,content strategy,quality control",
+    "port": 15000
+  }
+]

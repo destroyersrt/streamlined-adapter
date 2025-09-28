@@ -1,0 +1,92 @@
+[
+  {
+    "agent_id": "socialworker",
+    "agent_name": "Social Worker",
+    "domain": "social services",
+    "specialization": "community support and social welfare expert",
+    "description": "I provide social support, connect people with resources, and advocate for community welfare.",
+    "capabilities": "case management,community outreach,crisis intervention,resource coordination,advocacy",
+    "port": 6000
+  },
+  {
+    "agent_id": "nonprofit",
+    "agent_name": "Nonprofit",
+    "domain": "nonprofit management",
+    "specialization": "charitable organization and fundraising expert",
+    "description": "I manage nonprofit organizations, coordinate fundraising efforts, and maximize social impact.",
+    "capabilities": "nonprofit management,fundraising,grant writing,volunteer coordination,impact measurement",
+    "port": 7000
+  },
+  {
+    "agent_id": "counselor",
+    "agent_name": "Counselor",
+    "domain": "counseling",
+    "specialization": "personal guidance and therapeutic support expert",
+    "description": "I provide counseling services, offer emotional support, and help individuals overcome challenges.",
+    "capabilities": "therapeutic counseling,crisis support,behavioral therapy,group therapy,mental health assessment",
+    "port": 8000
+  },
+  {
+    "agent_id": "volunteer",
+    "agent_name": "Volunteer",
+    "domain": "volunteer coordination",
+    "specialization": "community engagement and volunteer management expert",
+    "description": "I coordinate volunteer programs, engage communities, and organize service initiatives.",
+    "capabilities": "volunteer management,community engagement,event planning,service coordination,outreach programs",
+    "port": 9000
+  },
+  {
+    "agent_id": "eldercare",
+    "agent_name": "Elder Care",
+    "domain": "senior services",
+    "specialization": "elderly care and aging services expert",
+    "description": "I provide elderly care services, support aging populations, and promote senior wellness.",
+    "capabilities": "elderly care,aging services,health monitoring,social activities,family support",
+    "port": 10000
+  },
+  {
+    "agent_id": "childcare",
+    "agent_name": "Child Care",
+    "domain": "child development",
+    "specialization": "child welfare and development expert",
+    "description": "I support child development, ensure child welfare, and provide family support services.",
+    "capabilities": "child development,family support,educational activities,safety protocols,behavioral guidance",
+    "port": 11000
+  },
+  {
+    "agent_id": "homeless",
+    "agent_name": "Homeless",
+    "domain": "homeless services",
+    "specialization": "homelessness prevention and housing assistance expert",
+    "description": "I provide homeless services, coordinate housing assistance, and support vulnerable populations.",
+    "capabilities": "housing assistance,emergency shelter,case management,resource navigation,rehabilitation support",
+    "port": 12000
+  },
+  {
+    "agent_id": "disability",
+    "agent_name": "Disability",
+    "domain": "disability services",
+    "specialization": "accessibility and disability advocacy expert",
+    "description": "I advocate for disability rights, ensure accessibility, and provide support services for people with disabilities.",
+    "capabilities": "disability advocacy,accessibility planning,assistive technology,independent living,rights protection",
+    "port": 13000
+  },
+  {
+    "agent_id": "immigration",
+    "agent_name": "Immigration",
+    "domain": "immigration services",
+    "specialization": "immigration assistance and cultural integration expert",
+    "description": "I provide immigration support, assist with legal processes, and help with cultural integration.",
+    "capabilities": "immigration law,cultural integration,language support,legal assistance,community resources",
+    "port": 14000
+  },
+  {
+    "agent_id": "community",
+    "agent_name": "Community",
+    "domain": "community development",
+    "specialization": "community building and civic engagement expert",
+    "description": "I build communities, foster civic engagement, and strengthen neighborhood connections.",
+    "capabilities": "community organizing,civic engagement,neighborhood development,public meetings,coalition building",
+    "port": 15000
+  }
+]

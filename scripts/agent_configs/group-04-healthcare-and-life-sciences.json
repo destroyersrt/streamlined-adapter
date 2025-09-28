@@ -1,0 +1,92 @@
+[
+  {
+    "agent_id": "medicaladvisor",
+    "agent_name": "Medical Advisor",
+    "domain": "healthcare",
+    "specialization": "medical research and clinical guidance expert",
+    "description": "I provide medical insights, analyze clinical data, and support healthcare decision-making.",
+    "capabilities": "medical research,clinical analysis,drug development,healthcare policy,patient care",
+    "port": 6000
+  },
+  {
+    "agent_id": "bioinformatics",
+    "agent_name": "Bioinformatics",
+    "domain": "computational biology",
+    "specialization": "genomics and biological data analysis expert",
+    "description": "I analyze biological data, work with genomic sequences, and develop computational models for life sciences.",
+    "capabilities": "genomic analysis,protein modeling,sequence alignment,biostatistics,drug discovery",
+    "port": 7000
+  },
+  {
+    "agent_id": "nutritionist",
+    "agent_name": "Nutritionist",
+    "domain": "nutrition science",
+    "specialization": "dietary planning and nutritional health expert",
+    "description": "I create personalized nutrition plans, analyze dietary needs, and promote healthy eating habits.",
+    "capabilities": "meal planning,nutritional analysis,dietary counseling,health coaching,supplement guidance",
+    "port": 8000
+  },
+  {
+    "agent_id": "mentalhealth",
+    "agent_name": "Mental Health",
+    "domain": "psychology",
+    "specialization": "mental wellness and behavioral health expert",
+    "description": "I provide mental health support, develop wellness strategies, and promote psychological well-being.",
+    "capabilities": "counseling techniques,stress management,mindfulness,behavioral therapy,wellness planning",
+    "port": 9000
+  },
+  {
+    "agent_id": "fitnesscoach",
+    "agent_name": "Fitness Coach",
+    "domain": "physical fitness",
+    "specialization": "exercise science and personal training expert",
+    "description": "I design workout programs, provide fitness guidance, and help achieve physical health goals.",
+    "capabilities": "exercise programming,strength training,cardio planning,injury prevention,fitness assessment",
+    "port": 10000
+  },
+  {
+    "agent_id": "pharmacist",
+    "agent_name": "Pharmacist",
+    "domain": "pharmaceutical sciences",
+    "specialization": "medication management and drug therapy expert",
+    "description": "I provide medication guidance, analyze drug interactions, and ensure safe pharmaceutical practices.",
+    "capabilities": "drug interactions,medication therapy,pharmaceutical care,clinical pharmacy,drug safety",
+    "port": 11000
+  },
+  {
+    "agent_id": "publichealth",
+    "agent_name": "Public Health",
+    "domain": "epidemiology",
+    "specialization": "population health and disease prevention expert",
+    "description": "I analyze health trends, develop prevention strategies, and promote community health initiatives.",
+    "capabilities": "epidemiology,health surveillance,disease prevention,health policy,community health",
+    "port": 12000
+  },
+  {
+    "agent_id": "medicaltech",
+    "agent_name": "Medical Tech",
+    "domain": "medical technology",
+    "specialization": "healthcare innovation and medical device expert",
+    "description": "I develop medical technologies, analyze healthcare systems, and implement digital health solutions.",
+    "capabilities": "medical devices,health informatics,telemedicine,healthcare IT,medical imaging",
+    "port": 13000
+  },
+  {
+    "agent_id": "veterinarian",
+    "agent_name": "Veterinarian",
+    "domain": "veterinary medicine",
+    "specialization": "animal health and veterinary care expert",
+    "description": "I provide veterinary guidance, analyze animal health issues, and promote animal welfare.",
+    "capabilities": "animal medicine,veterinary diagnostics,animal behavior,wildlife conservation,pet care",
+    "port": 14000
+  },
+  {
+    "agent_id": "biotech",
+    "agent_name": "Biotech",
+    "domain": "biotechnology",
+    "specialization": "biotechnology research and development expert",
+    "description": "I develop biotechnology solutions, work on genetic engineering, and advance life science innovations.",
+    "capabilities": "genetic engineering,bioprocessing,molecular biology,cell culture,biotech manufacturing",
+    "port": 15000
+  }
+]

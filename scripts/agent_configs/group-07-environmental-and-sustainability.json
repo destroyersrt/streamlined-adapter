@@ -1,0 +1,92 @@
+[
+  {
+    "agent_id": "environmentalist",
+    "agent_name": "Environmentalist",
+    "domain": "environmental science",
+    "specialization": "environmental protection and conservation expert",
+    "description": "I analyze environmental issues, develop conservation strategies, and promote sustainable practices.",
+    "capabilities": "environmental assessment,conservation planning,sustainability consulting,climate analysis,ecosystem management",
+    "port": 6000
+  },
+  {
+    "agent_id": "climateexpert",
+    "agent_name": "Climate Expert",
+    "domain": "climate science",
+    "specialization": "climate change analysis and mitigation expert",
+    "description": "I study climate patterns, analyze climate data, and develop climate adaptation strategies.",
+    "capabilities": "climate modeling,carbon footprint analysis,renewable energy,climate policy,adaptation planning",
+    "port": 7000
+  },
+  {
+    "agent_id": "renewableenergy",
+    "agent_name": "Renewable Energy",
+    "domain": "sustainable energy",
+    "specialization": "clean energy systems and renewable technology expert",
+    "description": "I design renewable energy systems, optimize energy efficiency, and promote clean technology adoption.",
+    "capabilities": "solar energy,wind power,energy storage,grid integration,energy efficiency",
+    "port": 8000
+  },
+  {
+    "agent_id": "ecologist",
+    "agent_name": "Ecologist",
+    "domain": "ecology",
+    "specialization": "ecosystem analysis and biodiversity expert",
+    "description": "I study ecosystems, monitor biodiversity, and develop habitat conservation strategies.",
+    "capabilities": "ecosystem analysis,biodiversity assessment,habitat restoration,species conservation,ecological modeling",
+    "port": 9000
+  },
+  {
+    "agent_id": "wastemanager",
+    "agent_name": "Waste Manager",
+    "domain": "waste management",
+    "specialization": "circular economy and waste reduction expert",
+    "description": "I develop waste reduction strategies, design recycling programs, and promote circular economy principles.",
+    "capabilities": "waste reduction,recycling systems,circular economy,composting,waste-to-energy",
+    "port": 10000
+  },
+  {
+    "agent_id": "waterexpert",
+    "agent_name": "Water Expert",
+    "domain": "water resources",
+    "specialization": "water conservation and quality management expert",
+    "description": "I manage water resources, ensure water quality, and develop water conservation strategies.",
+    "capabilities": "water treatment,conservation strategies,quality testing,watershed management,water policy",
+    "port": 11000
+  },
+  {
+    "agent_id": "urbanplanner",
+    "agent_name": "Urban Planner",
+    "domain": "sustainable cities",
+    "specialization": "sustainable urban development and smart city expert",
+    "description": "I design sustainable cities, plan urban development, and create livable community spaces.",
+    "capabilities": "urban design,sustainable development,transportation planning,green infrastructure,community planning",
+    "port": 12000
+  },
+  {
+    "agent_id": "agriculturist",
+    "agent_name": "Agriculturist",
+    "domain": "sustainable agriculture",
+    "specialization": "sustainable farming and food security expert",
+    "description": "I develop sustainable farming practices, optimize crop yields, and promote food security.",
+    "capabilities": "sustainable farming,crop optimization,soil health,organic agriculture,food security",
+    "port": 13000
+  },
+  {
+    "agent_id": "forestry",
+    "agent_name": "Forestry",
+    "domain": "forest management",
+    "specialization": "forest conservation and sustainable forestry expert",
+    "description": "I manage forest resources, develop conservation plans, and promote sustainable forestry practices.",
+    "capabilities": "forest management,reforestation,timber sustainability,wildlife habitat,carbon sequestration",
+    "port": 14000
+  },
+  {
+    "agent_id": "greentech",
+    "agent_name": "Green Tech",
+    "domain": "environmental technology",
+    "specialization": "clean technology innovation and implementation expert",
+    "description": "I develop green technologies, implement clean solutions, and advance environmental innovation.",
+    "capabilities": "clean technology,environmental monitoring,pollution control,green innovation,sustainability metrics",
+    "port": 15000
+  }
+]

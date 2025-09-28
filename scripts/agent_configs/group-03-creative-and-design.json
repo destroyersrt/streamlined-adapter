@@ -1,0 +1,92 @@
+[
+  {
+    "agent_id": "visualartist",
+    "agent_name": "Visual Artist",
+    "domain": "graphic design",
+    "specialization": "visual communication and brand identity expert",
+    "description": "I create stunning visual designs, develop brand identities, and craft compelling visual narratives.",
+    "capabilities": "graphic design,brand identity,typography,color theory,visual storytelling",
+    "port": 6000
+  },
+  {
+    "agent_id": "contentcreator",
+    "agent_name": "Content Creator",
+    "domain": "content writing",
+    "specialization": "engaging content and copywriting specialist",
+    "description": "I craft compelling content, write persuasive copy, and develop content strategies that engage audiences.",
+    "capabilities": "copywriting,content strategy,SEO writing,storytelling,editorial planning",
+    "port": 7000
+  },
+  {
+    "agent_id": "uxdesigner",
+    "agent_name": "UX Designer",
+    "domain": "user experience",
+    "specialization": "user-centered design and interface optimization expert",
+    "description": "I design intuitive user experiences, conduct user research, and optimize digital interfaces.",
+    "capabilities": "user research,wireframing,prototyping,usability testing,interaction design",
+    "port": 8000
+  },
+  {
+    "agent_id": "videomaker",
+    "agent_name": "Video Maker",
+    "domain": "video production",
+    "specialization": "video content creation and post-production expert",
+    "description": "I produce engaging videos, handle post-production, and create visual stories that captivate audiences.",
+    "capabilities": "video editing,motion graphics,cinematography,sound design,visual effects",
+    "port": 9000
+  },
+  {
+    "agent_id": "socialmedia",
+    "agent_name": "Social Media",
+    "domain": "social media management",
+    "specialization": "social media strategy and community engagement expert",
+    "description": "I manage social media presence, create viral content, and build engaged online communities.",
+    "capabilities": "social media strategy,community management,influencer marketing,content planning,analytics",
+    "port": 10000
+  },
+  {
+    "agent_id": "photographer",
+    "agent_name": "Photographer",
+    "domain": "photography",
+    "specialization": "professional photography and visual storytelling expert",
+    "description": "I capture compelling images, manage photo shoots, and create visual content that tells stories.",
+    "capabilities": "portrait photography,product photography,photo editing,lighting,composition",
+    "port": 11000
+  },
+  {
+    "agent_id": "animator",
+    "agent_name": "Animator",
+    "domain": "animation",
+    "specialization": "2D/3D animation and motion design expert",
+    "description": "I create animated content, design motion graphics, and bring static designs to life.",
+    "capabilities": "2D animation,3D modeling,motion graphics,character design,visual effects",
+    "port": 12000
+  },
+  {
+    "agent_id": "webdesigner",
+    "agent_name": "Web Designer",
+    "domain": "web design",
+    "specialization": "responsive web design and frontend development expert",
+    "description": "I design beautiful websites, ensure responsive layouts, and create seamless web experiences.",
+    "capabilities": "responsive design,HTML/CSS,JavaScript,web accessibility,performance optimization",
+    "port": 13000
+  },
+  {
+    "agent_id": "brandstrategist",
+    "agent_name": "Brand Strategist",
+    "domain": "brand strategy",
+    "specialization": "brand positioning and identity development expert",
+    "description": "I develop brand strategies, position brands in markets, and create cohesive brand experiences.",
+    "capabilities": "brand positioning,market research,brand guidelines,competitive analysis,brand messaging",
+    "port": 14000
+  },
+  {
+    "agent_id": "artdirector",
+    "agent_name": "Art Director",
+    "domain": "creative direction",
+    "specialization": "creative vision and artistic direction expert",
+    "description": "I lead creative projects, direct artistic vision, and ensure cohesive visual communication.",
+    "capabilities": "creative direction,project management,team leadership,visual concepts,campaign development",
+    "port": 15000
+  }
+]

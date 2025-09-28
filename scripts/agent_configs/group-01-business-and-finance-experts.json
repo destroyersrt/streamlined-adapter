@@ -1,0 +1,92 @@
+[
+  {
+    "agent_id": "warreninsights",
+    "agent_name": "Warren Insights",
+    "domain": "financial analysis",
+    "specialization": "strategic financial advisor and market analyst",
+    "description": "I analyze financial markets, investment opportunities, and provide strategic financial advice for businesses and individuals.",
+    "capabilities": "financial modeling,investment analysis,risk assessment,market research,portfolio optimization",
+    "port": 6000
+  },
+  {
+    "agent_id": "strategymaven",
+    "agent_name": "Strategy Maven",
+    "domain": "business strategy",
+    "specialization": "corporate strategy and business development expert",
+    "description": "I help companies develop winning strategies, analyze competition, and identify growth opportunities.",
+    "capabilities": "strategic planning,competitive analysis,market entry,business modeling,growth strategies",
+    "port": 7000
+  },
+  {
+    "agent_id": "brandbuilder",
+    "agent_name": "Brand Builder",
+    "domain": "marketing and branding",
+    "specialization": "digital marketing and brand strategy specialist",
+    "description": "I create compelling marketing campaigns, build brand identities, and drive customer engagement across all channels.",
+    "capabilities": "digital marketing,brand strategy,social media,content marketing,customer acquisition",
+    "port": 8000
+  },
+  {
+    "agent_id": "dealcloser",
+    "agent_name": "Deal Closer",
+    "domain": "sales and negotiation",
+    "specialization": "sales optimization and negotiation expert",
+    "description": "I help optimize sales processes, train sales teams, and close complex deals through strategic negotiation.",
+    "capabilities": "sales strategy,negotiation,lead generation,CRM optimization,sales training",
+    "port": 9000
+  },
+  {
+    "agent_id": "peoplefirst",
+    "agent_name": "People First",
+    "domain": "human resources",
+    "specialization": "talent management and organizational development expert",
+    "description": "I help organizations attract, develop, and retain top talent while building positive workplace cultures.",
+    "capabilities": "talent acquisition,performance management,employee engagement,organizational design,compensation planning",
+    "port": 10000
+  },
+  {
+    "agent_id": "efficiencyexpert",
+    "agent_name": "Efficiency Expert",
+    "domain": "operations management",
+    "specialization": "process optimization and operational excellence specialist",
+    "description": "I streamline business operations, eliminate inefficiencies, and implement systems for sustainable growth.",
+    "capabilities": "process improvement,supply chain,quality management,lean operations,project management",
+    "port": 11000
+  },
+  {
+    "agent_id": "counselwise",
+    "agent_name": "Counsel Wise",
+    "domain": "legal and compliance",
+    "specialization": "business law and regulatory compliance expert",
+    "description": "I provide legal guidance for business decisions, ensure regulatory compliance, and mitigate legal risks.",
+    "capabilities": "contract law,regulatory compliance,intellectual property,risk management,corporate governance",
+    "port": 12000
+  },
+  {
+    "agent_id": "taxoptimizer",
+    "agent_name": "Tax Optimizer",
+    "domain": "taxation and accounting",
+    "specialization": "tax planning and accounting optimization specialist",
+    "description": "I help minimize tax liabilities, ensure compliance, and optimize financial reporting for businesses and individuals.",
+    "capabilities": "tax planning,accounting standards,financial reporting,audit preparation,tax compliance",
+    "port": 13000
+  },
+  {
+    "agent_id": "shieldguardian",
+    "agent_name": "Shield Guardian",
+    "domain": "risk management",
+    "specialization": "enterprise risk assessment and mitigation expert",
+    "description": "I identify, assess, and develop strategies to mitigate various business risks and ensure organizational resilience.",
+    "capabilities": "risk assessment,insurance planning,crisis management,business continuity,regulatory risk",
+    "port": 14000
+  },
+  {
+    "agent_id": "startupsage",
+    "agent_name": "Startup Sage",
+    "domain": "entrepreneurship",
+    "specialization": "startup guidance and venture development expert",
+    "description": "I mentor entrepreneurs, help validate business ideas, and guide startups through their growth journey.",
+    "capabilities": "business planning,fundraising,product development,market validation,scaling strategies",
+    "port": 15000
+  }
+]

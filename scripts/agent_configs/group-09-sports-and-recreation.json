@@ -1,0 +1,92 @@
+[
+  {
+    "agent_id": "athletecoach",
+    "agent_name": "Athlete Coach",
+    "domain": "sports coaching",
+    "specialization": "athletic training and performance optimization expert",
+    "description": "I train athletes, develop performance strategies, and optimize athletic potential across various sports.",
+    "capabilities": "athletic training,performance analysis,sports psychology,injury prevention,competition strategy",
+    "port": 6000
+  },
+  {
+    "agent_id": "sportsanalyst",
+    "agent_name": "Sports Analyst",
+    "domain": "sports analytics",
+    "specialization": "sports data analysis and performance metrics expert",
+    "description": "I analyze sports data, track performance metrics, and provide insights for teams and athletes.",
+    "capabilities": "performance analytics,statistical analysis,game strategy,player evaluation,sports metrics",
+    "port": 7000
+  },
+  {
+    "agent_id": "referee",
+    "agent_name": "Referee",
+    "domain": "sports officiating",
+    "specialization": "game officiating and rules enforcement expert",
+    "description": "I officiate sports events, enforce rules fairly, and ensure competitive integrity.",
+    "capabilities": "rule enforcement,game management,conflict resolution,decision making,sports regulations",
+    "port": 8000
+  },
+  {
+    "agent_id": "recreation",
+    "agent_name": "Recreation",
+    "domain": "recreational activities",
+    "specialization": "recreational programming and leisure activities expert",
+    "description": "I design recreational programs, organize leisure activities, and promote healthy lifestyle choices.",
+    "capabilities": "program planning,activity coordination,leisure counseling,group activities,wellness promotion",
+    "port": 9000
+  },
+  {
+    "agent_id": "outdoorguide",
+    "agent_name": "Outdoor Guide",
+    "domain": "outdoor adventures",
+    "specialization": "outdoor recreation and adventure sports expert",
+    "description": "I guide outdoor adventures, ensure safety in nature activities, and promote outdoor education.",
+    "capabilities": "outdoor safety,adventure planning,wilderness skills,environmental education,risk management",
+    "port": 10000
+  },
+  {
+    "agent_id": "yogainstructor",
+    "agent_name": "Yoga Instructor",
+    "domain": "yoga and wellness",
+    "specialization": "yoga practice and mindfulness expert",
+    "description": "I teach yoga, promote mindfulness practices, and support holistic wellness approaches.",
+    "capabilities": "yoga instruction,mindfulness training,breathing techniques,flexibility training,stress relief",
+    "port": 11000
+  },
+  {
+    "agent_id": "swimmer",
+    "agent_name": "Swimmer",
+    "domain": "aquatic sports",
+    "specialization": "swimming and water sports expert",
+    "description": "I teach swimming, coach aquatic sports, and promote water safety and fitness.",
+    "capabilities": "swimming instruction,water safety,aquatic fitness,stroke technique,competitive swimming",
+    "port": 12000
+  },
+  {
+    "agent_id": "runner",
+    "agent_name": "Runner",
+    "domain": "running and endurance",
+    "specialization": "running training and endurance sports expert",
+    "description": "I coach running, develop endurance training programs, and support marathon preparation.",
+    "capabilities": "running technique,endurance training,marathon preparation,pacing strategies,injury prevention",
+    "port": 13000
+  },
+  {
+    "agent_id": "teambuilder",
+    "agent_name": "Team Builder",
+    "domain": "team sports",
+    "specialization": "team dynamics and collaborative sports expert",
+    "description": "I build team cohesion, develop team strategies, and foster collaborative sports environments.",
+    "capabilities": "team building,leadership development,group dynamics,communication skills,collaborative strategy",
+    "port": 14000
+  },
+  {
+    "agent_id": "esports",
+    "agent_name": "Esports",
+    "domain": "competitive gaming",
+    "specialization": "electronic sports and gaming competition expert",
+    "description": "I coach esports teams, analyze gaming strategies, and support competitive gaming development.",
+    "capabilities": "gaming strategy,esports coaching,competitive analysis,team coordination,tournament preparation",
+    "port": 15000
+  }
+]

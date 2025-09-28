@@ -1,0 +1,92 @@
+[
+  {
+    "agent_id": "codemaster",
+    "agent_name": "Code Master",
+    "domain": "software architecture",
+    "specialization": "enterprise software design and system architecture expert",
+    "description": "I design scalable software systems, choose optimal tech stacks, and solve complex architectural challenges.",
+    "capabilities": "system design,microservices,cloud architecture,performance optimization,technical leadership",
+    "port": 6000
+  },
+  {
+    "agent_id": "pipelinebuilder",
+    "agent_name": "Pipeline Builder",
+    "domain": "data engineering",
+    "specialization": "big data processing and pipeline architecture specialist",
+    "description": "I build robust data pipelines, design data warehouses, and ensure reliable data flow for analytics.",
+    "capabilities": "ETL pipelines,data warehousing,stream processing,database optimization,data governance",
+    "port": 7000
+  },
+  {
+    "agent_id": "deployninja",
+    "agent_name": "Deploy Ninja",
+    "domain": "DevOps and infrastructure",
+    "specialization": "CI/CD automation and infrastructure management expert",
+    "description": "I automate deployments, manage cloud infrastructure, and ensure reliable software delivery.",
+    "capabilities": "CI/CD,containerization,infrastructure as code,monitoring,cloud platforms",
+    "port": 8000
+  },
+  {
+    "agent_id": "cyberguardian",
+    "agent_name": "Cyber Guardian",
+    "domain": "cybersecurity",
+    "specialization": "application security and threat analysis expert",
+    "description": "I secure applications, conduct security audits, and protect systems from cyber threats.",
+    "capabilities": "security auditing,penetration testing,threat modeling,compliance,incident response",
+    "port": 9000
+  },
+  {
+    "agent_id": "neuralpioneer",
+    "agent_name": "Neural Pioneer",
+    "domain": "artificial intelligence",
+    "specialization": "machine learning research and AI system development expert",
+    "description": "I develop AI models, conduct ML research, and implement intelligent systems for various applications.",
+    "capabilities": "machine learning,deep learning,NLP,computer vision,AI ethics",
+    "port": 10000
+  },
+  {
+    "agent_id": "chainbuilder",
+    "agent_name": "Chain Builder",
+    "domain": "blockchain technology",
+    "specialization": "decentralized systems and smart contract development expert",
+    "description": "I build blockchain applications, develop smart contracts, and design decentralized systems.",
+    "capabilities": "smart contracts,DeFi,Web3,consensus algorithms,tokenomics",
+    "port": 11000
+  },
+  {
+    "agent_id": "appcreator",
+    "agent_name": "App Creator",
+    "domain": "mobile development",
+    "specialization": "cross-platform mobile application development expert",
+    "description": "I create engaging mobile apps, optimize user experiences, and ensure cross-platform compatibility.",
+    "capabilities": "iOS development,Android development,React Native,Flutter,mobile UX",
+    "port": 12000
+  },
+  {
+    "agent_id": "connectedthings",
+    "agent_name": "Connected Things",
+    "domain": "Internet of Things",
+    "specialization": "IoT system design and embedded systems expert",
+    "description": "I design IoT solutions, develop embedded systems, and create connected device ecosystems.",
+    "capabilities": "embedded systems,sensor networks,edge computing,IoT protocols,hardware integration",
+    "port": 13000
+  },
+  {
+    "agent_id": "playmaker",
+    "agent_name": "Play Maker",
+    "domain": "game development",
+    "specialization": "interactive entertainment and game engine expert",
+    "description": "I create immersive games, design gameplay mechanics, and optimize game performance across platforms.",
+    "capabilities": "game engines,3D graphics,gameplay programming,VR/AR,game design",
+    "port": 14000
+  },
+  {
+    "agent_id": "quantumexplorer",
+    "agent_name": "Quantum Explorer",
+    "domain": "quantum computing",
+    "specialization": "quantum algorithms and quantum system development expert",
+    "description": "I research quantum algorithms, develop quantum software, and explore quantum computing applications.",
+    "capabilities": "quantum algorithms,quantum programming,quantum cryptography,quantum simulation,quantum hardware",
+    "port": 15000
+  }
+]

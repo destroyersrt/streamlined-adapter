@@ -1,0 +1,92 @@
+[
+  {
+    "agent_id": "travelagent",
+    "agent_name": "Travel Agent",
+    "domain": "travel planning",
+    "specialization": "travel coordination and destination expert",
+    "description": "I plan trips, coordinate travel arrangements, and provide destination expertise for memorable experiences.",
+    "capabilities": "trip planning,destination research,booking coordination,travel logistics,cultural guidance",
+    "port": 6000
+  },
+  {
+    "agent_id": "hotelmanager",
+    "agent_name": "Hotel Manager",
+    "domain": "hospitality management",
+    "specialization": "hotel operations and guest services expert",
+    "description": "I manage hotel operations, ensure guest satisfaction, and optimize hospitality experiences.",
+    "capabilities": "hotel management,guest services,operations optimization,staff coordination,quality assurance",
+    "port": 7000
+  },
+  {
+    "agent_id": "tourguide",
+    "agent_name": "Tour Guide",
+    "domain": "tourism",
+    "specialization": "cultural tours and local expertise expert",
+    "description": "I guide tours, share local knowledge, and create engaging cultural experiences for visitors.",
+    "capabilities": "cultural knowledge,tour planning,storytelling,group management,local expertise",
+    "port": 8000
+  },
+  {
+    "agent_id": "chef",
+    "agent_name": "Chef",
+    "domain": "culinary arts",
+    "specialization": "culinary creation and food service expert",
+    "description": "I create culinary experiences, design menus, and deliver exceptional food service.",
+    "capabilities": "menu design,culinary techniques,food safety,kitchen management,flavor pairing",
+    "port": 9000
+  },
+  {
+    "agent_id": "concierge",
+    "agent_name": "Concierge",
+    "domain": "guest services",
+    "specialization": "personalized service and local recommendations expert",
+    "description": "I provide personalized guest services, offer local recommendations, and ensure exceptional experiences.",
+    "capabilities": "guest services,local recommendations,event planning,problem solving,luxury service",
+    "port": 10000
+  },
+  {
+    "agent_id": "eventplanner",
+    "agent_name": "Event Planner",
+    "domain": "event management",
+    "specialization": "event coordination and celebration expert",
+    "description": "I plan events, coordinate celebrations, and create memorable experiences for special occasions.",
+    "capabilities": "event planning,vendor coordination,timeline management,budget planning,creative design",
+    "port": 11000
+  },
+  {
+    "agent_id": "airline",
+    "agent_name": "Airline",
+    "domain": "aviation services",
+    "specialization": "flight operations and passenger services expert",
+    "description": "I manage flight operations, ensure passenger safety, and optimize aviation experiences.",
+    "capabilities": "flight operations,passenger services,safety protocols,scheduling,customer service",
+    "port": 12000
+  },
+  {
+    "agent_id": "cruise",
+    "agent_name": "Cruise",
+    "domain": "cruise operations",
+    "specialization": "maritime hospitality and cruise experience expert",
+    "description": "I manage cruise operations, coordinate onboard activities, and ensure exceptional maritime experiences.",
+    "capabilities": "cruise operations,entertainment coordination,maritime safety,guest activities,itinerary planning",
+    "port": 13000
+  },
+  {
+    "agent_id": "adventure",
+    "agent_name": "Adventure",
+    "domain": "adventure travel",
+    "specialization": "extreme sports and adventure tourism expert",
+    "description": "I organize adventure trips, ensure safety in extreme activities, and create thrilling experiences.",
+    "capabilities": "adventure planning,risk assessment,extreme sports,safety protocols,equipment management",
+    "port": 14000
+  },
+  {
+    "agent_id": "cultural",
+    "agent_name": "Cultural",
+    "domain": "cultural experiences",
+    "specialization": "cultural immersion and heritage tourism expert",
+    "description": "I create cultural experiences, facilitate cultural exchange, and promote heritage tourism.",
+    "capabilities": "cultural education,heritage preservation,language support,cultural exchange,authentic experiences",
+    "port": 15000
+  }
+]

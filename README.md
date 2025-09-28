@@ -1,188 +1,198 @@
-# Streamlined NANDA Adapter
+# 🚀 NANDA Streamlined Adapter
 
-A streamlined, feature-rich adapter for the NANDA Agent Framework that maintains full functionality parity with the original while eliminating unnecessary query preprocessing and adding intelligent agent discovery and comprehensive monitoring capabilities.
+A production-ready framework for deploying and managing specialized AI agents with seamless agent-to-agent communication and intelligent discovery.
 
-## Key Features
+## ✨ Key Features
 
-### ✅ Core Functionality (Maintained)
-- **MCP Server Discovery**: Full support for MCP server discovery from directories and registries
-- **Google A2A Protocol**: Complete agent-to-agent communication protocol support
-- **Nanda Index Registry**: Full integration with the Nanda registry for agent discovery
+- **🤖 Intelligent Agents**: Deploy specialized AI agents powered by Claude LLM
+- **🔗 A2A Communication**: Agents can find and communicate with each other using `@agent-id` syntax  
+- **🌐 Cloud Deployment**: One-command deployment to AWS EC2 with automatic setup
+- **📊 Registry Integration**: Automatic registration with NANDA agent registry
+- **⚡ Scalable**: Deploy single agents or 10+ agents per instance
+- **🛡️ Production Ready**: Robust error handling, health checks, and monitoring
 
-### ❌ Removed Features
-- **Message Improvement Functions**: All `call_claude` functions that enhance/modify user queries have been removed
-- **Query Preprocessing**: No automatic modification of user messages before sending
+## 🚀 Quick Start
 
-### 🚀 New Features
-
-#### 1. Intelligent Agent Discovery
-- **Task Analysis**: NLP-powered analysis of user tasks to understand requirements
-- **Agent Ranking**: Sophisticated scoring algorithm that ranks agents by suitability
-- **Smart Recommendations**: Confidence-scored recommendations with explanations
-
-#### 2. Comprehensive Telemetry System
-- **Usage Monitoring**: Track message patterns, agent interactions, and system usage
-- **Performance Metrics**: Response times, error rates, throughput measurement
-- **System Health**: CPU, memory, disk monitoring with alerting
-- **Export Capabilities**: JSON/CSV export for external analysis
-
-## Quick Start
-
-### Installation
+### Deploy a Single Agent
 
 ```bash
-pip install streamlined-nanda-adapter
+bash scripts/aws-single-agent-deployment.sh \
+  "agent-id" \                    # Unique identifier
+  "your-api-key" \                # Anthropic Claude API key
+  "Agent Name" \                  # Display name
+  "domain" \                      # Field of expertise
+  "specialization" \              # Role description
+  "description" \                 # Detailed agent description
+  "capabilities" \                # Comma-separated capabilities
+  "registry-url" \                # Registry URL 
+  "port" \                        # Port number 
+  "region" \                      # AWS region 
+  "instance-type"                 # EC2 instance type 
 ```
 
-### Basic Usage
-
-```python
-from streamlined_adapter import StreamlinedAdapter
-
-# Create adapter instance
-adapter = StreamlinedAdapter(agent_id="my_agent")
-
-# Start server (blocking)
-adapter.start_server()
+**Example:**
+```bash
+bash scripts/aws-single-agent-deployment.sh \
+  "furniture-expert" \
+  "sk-ant-api03-..." \
+  "Furniture Expert" \
+  "furniture and interior design" \
+  "knowledgeable furniture specialist" \
+  "I help with furniture selection and interior design" \
+  "furniture,interior design,decor" \
+  "http://registry.chat39.com:6900" \
+  "6000" \
+  "us-east-1" \
+  "t3.micro"
 ```
 
-### Agent Discovery
+### Deploy Multiple Agents (10 per instance)
 
-```python
-# Discover agents for a specific task
-result = adapter.discover_agents("I need to analyze sales data and create visualizations")
-
-print(f"Found {len(result['recommended_agents'])} agents:")
-for agent in result['recommended_agents']:
-    print(f"- {agent['agent_id']}: {agent['score']:.2f} ({agent['confidence']:.2f})")
+```bash
+bash scripts/aws-multi-agent-deployment.sh \
+  "your-api-key" \
+  "scripts/agent_configs/group-01-business-and-finance-experts.json" \
+  "http://registry.chat39.com:6900" \
+  "us-east-1" \
+  "t3.xlarge"
 ```
 
-### Health Monitoring
-
-```python
-# Get health status
-health = adapter.get_health_status()
-print(f"Overall status: {health['overall_status']}")
-
-# Get metrics summary
-metrics = adapter.get_metrics_summary(hours=24)
-print(f"Total events: {metrics['total_events']}")
-```
-
-## Architecture
+## 🏗️ Architecture
 
 ```
 streamlined_adapter/
-├── nanda_core/
+├── 🧠 nanda_core/              # Core framework
 │   ├── core/
-│   │   ├── adapter.py           # Main adapter class
-│   │   ├── agent_bridge.py      # A2A protocol bridge
-│   │   ├── mcp_client.py        # MCP server client
-│   │   └── registry_client.py   # Registry integration
-│   ├── discovery/
-│   │   ├── agent_discovery.py   # Main discovery system
-│   │   ├── task_analyzer.py     # Task analysis engine
-│   │   └── agent_ranker.py      # Agent ranking system
-│   └── telemetry/
-│       ├── telemetry_system.py  # Main telemetry system
-│       ├── metrics_collector.py # System metrics collection
-│       └── health_monitor.py    # Health monitoring
+│   │   ├── adapter.py          # Main NANDA adapter
+│   │   ├── agent_bridge.py     # A2A communication
+│   │   └── registry_client.py  # Registry integration
+│   ├── discovery/              # Agent discovery system
+│   └── telemetry/              # Monitoring & metrics
+├── 🤖 examples/
+│   ├── nanda_agent.py          # Main agent implementation
+│   └── agent_configs.py        # Agent personalities
+├── 🚀 scripts/
+│   ├── aws-single-agent-deployment.sh     # Single agent deployment
+│   ├── aws-multi-agent-deployment.sh      # Multi-agent deployment
+│   ├── deploy-agent.sh                    # Deploy to existing server
+│   └── agent_configs/              # Agent configuration files
+│       ├── 100-agents-config.json      # 100 agent personalities
+│       └── group-*.json                # Agent group configs
+└── 📖 README.md
 ```
 
-## Functionality Comparison
+## 🤖 Agent Communication
 
-| Feature | Original Adapter | Streamlined Adapter |
-|---------|------------------|-------------------|
-| MCP Server Discovery | ✅ | ✅ |
-| Google A2A Protocol | ✅ | ✅ |
-| Registry Integration | ✅ | ✅ |
-| Message Improvement | ✅ | ❌ (Removed) |
-| Query Enhancement | ✅ | ❌ (Removed) |
-| Agent Discovery | ❌ | ✅ (New) |
-| Task Analysis | ❌ | ✅ (New) |
-| Agent Ranking | ❌ | ✅ (New) |
-| Telemetry System | ❌ | ✅ (New) |
-| Health Monitoring | ❌ | ✅ (New) |
-| Performance Metrics | ❌ | ✅ (New) |
-
-## Command Line Usage
-
-### Start Adapter Server
-```bash
-streamlined-adapter --agent-id my_agent --port 6000
-```
-
-### Discover Agents
-```bash
-nanda-discover "Create a dashboard for sales analytics"
-```
-
-## Environment Variables
+Agents can communicate with each other using the `@agent-id` syntax:
 
 ```bash
-# Required
-ANTHROPIC_API_KEY=your_anthropic_key
-AGENT_ID=your_agent_id
-
-# Optional
-PORT=6000
-PUBLIC_URL=http://your-server:6000
-API_URL=https://your-api.com
-REGISTRY_URL=https://chat.nanda-registry.com:6900
-SMITHERY_API_KEY=your_smithery_key
+# Test A2A communication
+curl -X POST http://agent-ip:{PORT}/a2a \
+  -H "Content-Type: application/json" \
+  -d '{
+    "content": {
+      "text": "@other-agent-id Can you help with this task?",
+      "type": "text"
+    },
+    "role": "user",
+    "conversation_id": "test123"
+  }'
 ```
 
-## Message Formats
+## 📋 Available Agent Groups
 
-### Agent Communication
+Pre-configured agent groups for quick deployment:
+
+- **Business & Finance**: Financial analysts, investment advisors, business strategists
+- **Technology & Engineering**: Software engineers, DevOps specialists, AI researchers  
+- **Creative & Design**: Graphic designers, content creators, brand strategists
+- **Healthcare & Life Sciences**: Medical researchers, health informatics specialists
+- **Education & Research**: Academic researchers, curriculum developers
+- **Media & Entertainment**: Journalists, content producers, social media managers
+- **Environmental & Sustainability**: Climate scientists, sustainability consultants
+- **Social Services**: Community organizers, social workers, policy analysts
+- **Sports & Recreation**: Fitness trainers, sports analysts, nutrition experts
+- **Travel & Hospitality**: Travel planners, hotel managers, tour guides
+
+## 🛠️ Prerequisites
+
+- AWS CLI configured with credentials
+- Anthropic API key
+- Python 3.8+ (for local development)
+
+## 📊 Monitoring
+
+Each deployed agent includes:
+- **Health checks** on startup
+- **Automatic registry registration**
+- **Process management** with supervisor
+- **Individual logs** for debugging
+- **Performance metrics** collection
+
+## 🔧 Configuration
+
+### Environment Variables
+
+- `ANTHROPIC_API_KEY`: Your Claude API key
+- `AGENT_ID`: Unique agent identifier  
+- `AGENT_NAME`: Display name for the agent
+- `REGISTRY_URL`: NANDA registry endpoint
+- `PUBLIC_URL`: Agent's public URL for A2A communication
+- `PORT`: Port number for the agent server
+
+### Agent Personality Configuration
+
+Agents are configured with:
+- **Domain**: Primary area of expertise
+- **Specialization**: Specific role and personality
+- **Description**: Detailed background for system prompt
+- **Capabilities**: List of specific skills and knowledge areas
+
+## 🧪 Testing
+
+### Test Single Agent
+```bash
+curl -X POST http://agent-ip:{PORT}/a2a \
+  -H "Content-Type: application/json" \
+  -d '{"content":{"text":"Hello! What can you help me with?","type":"text"},"role":"user","conversation_id":"test123"}'
 ```
-@target_agent Your message here
+
+### Test A2A Communication
+```bash
+curl -X POST http://agent-a-ip:{PORT}/a2a \
+  -H "Content-Type: application/json" \
+  -d '{"content":{"text":"@agent-b-id Please help with this task","type":"text"},"role":"user","conversation_id":"test123"}'
 ```
 
-### MCP Server Queries
-```
-#registry_provider:server_name Your query here
-```
+## 🚀 Production Deployment
 
-### System Commands
-```
-/help
-/quit
-```
+For production use:
 
-## Performance
+1. **Single Agent**: Use `t3.micro` for cost-effective single agent deployment
+2. **Multi-Agent**: Use `t3.xlarge` or larger for 10+ agents per instance  
+3. **High Availability**: Deploy across multiple AWS regions
+4. **Monitoring**: Enable CloudWatch logs and metrics
+5. **Security**: Use proper security groups and VPC configuration
 
-The streamlined adapter provides significant performance improvements:
+## 📝 License
 
-- **Reduced Latency**: No message preprocessing means faster response times
-- **Lower Resource Usage**: Eliminated Claude API calls for message improvement
-- **Better Monitoring**: Comprehensive telemetry provides visibility into performance
-- **Intelligent Routing**: Smart agent discovery reduces trial-and-error
+MIT License - see LICENSE file for details.
 
-## Telemetry Data
-
-The telemetry system collects:
-
-- **Message Events**: Sent/received messages, conversation tracking
-- **MCP Queries**: Server interactions, response times
-- **Agent Discovery**: Search operations, ranking performance
-- **System Metrics**: CPU, memory, disk usage
-- **Health Checks**: Registry connectivity, system status
-
-## Contributing
+## 🤝 Contributing
 
 1. Fork the repository
 2. Create a feature branch
 3. Make your changes
-4. Add tests for new functionality
+4. Test thoroughly
 5. Submit a pull request
 
-## License
+## 📞 Support
 
-MIT License - see LICENSE file for details.
+For issues and questions:
+- Create an issue in this repository
+- Check the documentation in `/scripts/README.md`
+- Review example configurations in `/scripts/`
 
-## Support
+---
 
-For support and questions:
-- Email: support@nanda.ai
-- GitHub Issues: [Create an issue](https://github.com/projnanda/streamlined-adapter/issues)
+**Built with ❤️ for the NANDA Agent Network**

@@ -1,0 +1,92 @@
+[
+  {
+    "agent_id": "educator",
+    "agent_name": "Educator",
+    "domain": "education",
+    "specialization": "curriculum development and instructional design expert",
+    "description": "I design learning experiences, develop curricula, and create engaging educational content.",
+    "capabilities": "curriculum design,instructional design,educational technology,assessment,learning analytics",
+    "port": 6000
+  },
+  {
+    "agent_id": "researcher",
+    "agent_name": "Researcher",
+    "domain": "academic research",
+    "specialization": "scientific research methodology and analysis expert",
+    "description": "I conduct research studies, analyze data, and contribute to scientific knowledge advancement.",
+    "capabilities": "research methodology,statistical analysis,literature review,grant writing,publication",
+    "port": 7000
+  },
+  {
+    "agent_id": "librarian",
+    "agent_name": "Librarian",
+    "domain": "information science",
+    "specialization": "information management and research support expert",
+    "description": "I organize information resources, support research activities, and manage knowledge systems.",
+    "capabilities": "information retrieval,database management,research support,cataloging,digital archives",
+    "port": 8000
+  },
+  {
+    "agent_id": "tutor",
+    "agent_name": "Tutor",
+    "domain": "personalized learning",
+    "specialization": "one-on-one instruction and learning support expert",
+    "description": "I provide personalized tutoring, adapt to learning styles, and help students achieve academic success.",
+    "capabilities": "personalized instruction,learning assessment,study strategies,academic coaching,skill development",
+    "port": 9000
+  },
+  {
+    "agent_id": "linguist",
+    "agent_name": "Linguist",
+    "domain": "linguistics",
+    "specialization": "language analysis and communication expert",
+    "description": "I analyze languages, study communication patterns, and develop language learning strategies.",
+    "capabilities": "language analysis,translation,phonetics,syntax,language acquisition",
+    "port": 10000
+  },
+  {
+    "agent_id": "historian",
+    "agent_name": "Historian",
+    "domain": "history",
+    "specialization": "historical analysis and cultural studies expert",
+    "description": "I research historical events, analyze cultural patterns, and provide historical context.",
+    "capabilities": "historical research,archival studies,cultural analysis,chronology,historical writing",
+    "port": 11000
+  },
+  {
+    "agent_id": "philosopher",
+    "agent_name": "Philosopher",
+    "domain": "philosophy",
+    "specialization": "critical thinking and ethical reasoning expert",
+    "description": "I explore philosophical questions, analyze ethical dilemmas, and develop logical arguments.",
+    "capabilities": "critical thinking,ethics,logic,philosophical analysis,moral reasoning",
+    "port": 12000
+  },
+  {
+    "agent_id": "scientist",
+    "agent_name": "Scientist",
+    "domain": "natural sciences",
+    "specialization": "scientific investigation and experimental design expert",
+    "description": "I conduct scientific experiments, analyze natural phenomena, and advance scientific understanding.",
+    "capabilities": "experimental design,hypothesis testing,data analysis,scientific writing,peer review",
+    "port": 13000
+  },
+  {
+    "agent_id": "mathematician",
+    "agent_name": "Mathematician",
+    "domain": "mathematics",
+    "specialization": "mathematical modeling and problem-solving expert",
+    "description": "I solve complex mathematical problems, develop models, and apply mathematical principles.",
+    "capabilities": "mathematical modeling,statistical analysis,algorithm development,proof writing,numerical methods",
+    "port": 14000
+  },
+  {
+    "agent_id": "archivist",
+    "agent_name": "Archivist",
+    "domain": "archival science",
+    "specialization": "document preservation and historical record expert",
+    "description": "I preserve historical documents, manage archives, and ensure long-term access to information.",
+    "capabilities": "document preservation,archival management,metadata,digitization,historical documentation",
+    "port": 15000
+  }
+]

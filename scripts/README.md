@@ -1,143 +1,187 @@
-# NANDA Agent Deployment Scripts
+# 🚀 NANDA Agent Deployment Scripts
 
-Simple deployment scripts for NANDA agents on cloud servers.
+Production-ready scripts for deploying NANDA agents to AWS EC2.
 
-## Deployment Options
+## 📋 Available Scripts
 
-### Option 1: Complete AWS EC2 Deployment 🆕
-**Creates EC2 instance + deploys agent in one command**
-
-```bash
-bash scripts/aws-ec2-deploy.sh <AGENT_TYPE> <AGENT_ID> <ANTHROPIC_API_KEY> [PORT] [REGION] [INSTANCE_TYPE]
-```
-
-**Prerequisites:** AWS CLI configured (`aws configure`)
-
-### Option 2: Deploy to Existing Server
-**Deploy agent on existing Ubuntu/Amazon Linux server**
+### 🤖 Single Agent Deployment
+**`aws-single-agent-deployment.sh`** - Deploy one specialized agent to one EC2 instance
 
 ```bash
-bash scripts/deploy-agent.sh <AGENT_TYPE> <AGENT_ID> <ANTHROPIC_API_KEY> [PORT] [REGISTRY_URL]
+bash aws-single-agent-deployment.sh <AGENT_ID> <API_KEY> <NAME> <DOMAIN> <SPECIALIZATION> <DESCRIPTION> <CAPABILITIES> [REGISTRY_URL] [PORT] [REGION] [INSTANCE_TYPE]
 ```
 
-### Examples
-
-**AWS EC2 Deployment:**
+**Example:**
 ```bash
-# Create EC2 instance + deploy helpful agent
-bash scripts/aws-ec2-deploy.sh helpful my_helper sk-ant-xxxxx
-
-# Custom region and instance type
-bash scripts/aws-ec2-deploy.sh analyst doc_analyzer sk-ant-xxxxx 6020 us-west-2 t3.small
+bash aws-single-agent-deployment.sh \
+  "data-scientist" \
+  "sk-ant-api03-..." \
+  "Data Scientist" \
+  "data analysis" \
+  "expert data analyst and machine learning specialist" \
+  "I help with statistical analysis, machine learning, and data visualization" \
+  "python,statistics,machine learning,data visualization" \
+  "http://registry.chat39.com:6900" \
+  "6000" \
+  "us-east-1" \
+  "t3.micro"
 ```
 
-**Existing Server Deployment:**
-```bash
-# Deploy helpful agent
-bash scripts/deploy-agent.sh helpful my_helper sk-ant-xxxxx
-
-# Deploy LangChain analyst agent on port 6020  
-bash scripts/deploy-agent.sh analyst doc_analyzer sk-ant-xxxxx 6020
-
-# Deploy with registry registration
-bash scripts/deploy-agent.sh pirate captain_jack sk-ant-xxxxx 6000 https://registry.example.com
-```
-
-## Agent Types
-
-| Type | Description | Dependencies |
-|------|-------------|--------------|
-| `helpful` | General helpful agent (default) | None |
-| `pirate` | Pirate personality agent | None |
-| `echo` | Simple echo agent | None |
-| `analyst` | LangChain + Anthropic document analyst | LangChain |
-
-## What the Script Does
-
-1. **System Setup** - Updates system, installs Python 3
-2. **Clone Adapter** - Downloads streamlined adapter from GitHub
-3. **Environment** - Creates Python virtual environment  
-4. **Dependencies** - Installs required packages (anthropic, python-a2a, etc.)
-5. **Agent Creation** - Generates custom agent script
-6. **Launch** - Starts agent in background
-
-## Output
-
-After successful deployment:
-
-```
-🎉 NANDA Agent Deployment Complete!
-====================================
-Agent ID: my_helper
-Type: helpful
-Port: 6000
-Directory: /home/user/nanda-agent-my_helper
-
-🚀 Agent started successfully (PID: 12345)
-
-📋 Useful commands:
-  • View logs: tail -f /home/user/nanda-agent-my_helper/agent.log
-  • Stop agent: kill 12345
-  • Test agent: curl -X POST http://localhost:6000/a2a ...
-
-🔗 Agent URL: http://your-server-ip:6000/a2a
-```
-
-## Server Requirements
-
-- **Ubuntu/Debian**: `sudo` access for package installation
-- **Amazon Linux/RHEL**: `sudo` access for package installation  
-- **Python**: 3.8+ (script installs if missing)
-- **Network**: Port access for agent communication
-
-## Testing Your Agent
-
-Once deployed, test your agent:
+### 🏭 Multi-Agent Deployment  
+**`aws-multi-agent-deployment.sh`** - Deploy 10 agents to one EC2 instance
 
 ```bash
-# Test basic functionality
-curl -X POST http://localhost:6000/a2a \
+bash aws-multi-agent-deployment.sh <API_KEY> <CONFIG_JSON> [REGISTRY_URL] [REGION] [INSTANCE_TYPE]
+```
+
+**Example:**
+```bash
+bash aws-multi-agent-deployment.sh \
+  "sk-ant-api03-..." \
+  "agent_configs/group-01-business-and-finance-experts.json" \
+  "http://registry.chat39.com:6900" \
+  "us-east-1" \
+  "t3.xlarge"
+```
+
+### 🖥️ Existing Server Deployment
+**`deploy-agent.sh`** - Deploy agent to existing Ubuntu/Amazon Linux server
+
+```bash
+bash deploy-agent.sh <AGENT_TYPE> <AGENT_ID> <API_KEY> [PORT] [REGISTRY_URL]
+```
+
+## 📦 Pre-configured Agent Groups
+
+Ready-to-deploy agent configurations:
+
+| File | Agents | Description |
+|------|--------|-------------|
+| `agent_configs/group-01-business-and-finance-experts.json` | 10 | Financial analysts, advisors, strategists |
+| `agent_configs/group-02-technology-and-engineering.json` | 10 | Software engineers, DevOps, AI researchers |
+| `agent_configs/group-03-creative-and-design.json` | 10 | Designers, content creators, brand experts |
+| `agent_configs/group-04-healthcare-and-life-sciences.json` | 10 | Medical researchers, health informatics |
+| `agent_configs/group-05-education-and-research.json` | 10 | Academic researchers, educators |
+| `agent_configs/group-06-media-and-entertainment.json` | 10 | Journalists, producers, social media |
+| `agent_configs/group-07-environmental-and-sustainability.json` | 10 | Climate scientists, sustainability experts |
+| `agent_configs/group-08-social-services-and-community.json` | 10 | Social workers, policy analysts |
+| `agent_configs/group-09-sports-and-recreation.json` | 10 | Fitness trainers, sports analysts |
+| `agent_configs/group-10-travel-and-hospitality.json` | 10 | Travel planners, hospitality managers |
+| `agent_configs/100-agents-config.json` | 100 | All agent personalities combined |
+
+## 🛠️ Prerequisites
+
+- **AWS CLI** configured with credentials (`aws configure`)
+- **Anthropic API Key** for Claude LLM
+- **SSH Key Pair** for EC2 access (automatically created)
+
+## 🎯 Recommended Instance Types
+
+| Deployment | Instance Type | Cost | Use Case |
+|------------|---------------|------|----------|
+| Single Agent | `t3.micro` | $8/month | Development, testing |
+| Multi-Agent (10) | `t3.xlarge` | $150/month | Production, high traffic |
+| High Performance | `t3.2xlarge` | $300/month | Enterprise, 20+ agents |
+
+## 🔧 What the Scripts Do
+
+1. **🔐 AWS Setup**: Create security groups, key pairs, open ports
+2. **🖥️ EC2 Launch**: Launch Ubuntu 22.04 instance with user-data script
+3. **📦 Dependencies**: Install Python, git, anthropic library
+4. **📂 Project Setup**: Clone repo, create virtual environment
+5. **🤖 Agent Start**: Configure and start agent(s) with supervisor
+6. **📋 Registry**: Register agent(s) with NANDA registry
+7. **✅ Health Check**: Verify agent(s) are responding
+
+## 🧪 Testing Deployed Agents
+
+### Test Single Agent
+```bash
+curl -X POST http://AGENT_IP:6000/a2a \
   -H "Content-Type: application/json" \
-  -d '{"content":{"text":"hello"}}'
-
-# View logs
-tail -f ~/nanda-agent-*/agent.log
-
-# Test agent-to-agent communication (if you have multiple agents)
-curl -X POST http://localhost:6000/a2a \
-  -H "Content-Type: application/json" \
-  -d '{"content":{"text":"@other_agent Hello there!"}}'
+  -d '{"content":{"text":"Hello! What are your capabilities?","type":"text"},"role":"user","conversation_id":"test123"}'
 ```
 
-## Troubleshooting
+### Test A2A Communication
+```bash
+curl -X POST http://AGENT_A_IP:6000/a2a \
+  -H "Content-Type: application/json" \
+  -d '{"content":{"text":"@agent-b-id Can you help with this task?","type":"text"},"role":"user","conversation_id":"test123"}'
+```
+
+## 🛑 Cleanup
+
+To terminate instances:
+```bash
+# Single agent
+aws ec2 terminate-instances --region us-east-1 --instance-ids i-xxxxx
+
+# Multiple instances
+aws ec2 describe-instances --filters "Name=tag:Project,Values=NANDA*" --query 'Reservations[*].Instances[*].InstanceId' --output text | xargs aws ec2 terminate-instances --region us-east-1 --instance-ids
+```
+
+## 🚨 Troubleshooting
 
 ### Common Issues
 
-1. **Port already in use**: Change port number
-2. **Permission denied**: Ensure sudo access
-3. **API key invalid**: Check ANTHROPIC_API_KEY
-4. **LangChain missing**: For analyst agent, ensure dependencies install correctly
+**Agent not responding:**
+- Check security group has port open
+- Verify agent process is running: `ps aux | grep python`
+- Check logs: `tail -f agent.log`
 
-### Log Files
+**SSH connection failed:**
+- Ensure using correct `.pem` key file
+- Check key permissions: `chmod 400 *.pem`
+- Verify instance is running: `aws ec2 describe-instances`
 
-- **Agent logs**: `~/nanda-agent-*/agent.log`
-- **Installation logs**: Check terminal output during deployment
+**Registration failed:**
+- Verify registry URL is accessible
+- Check public IP retrieval in user-data logs
+- Ensure ANTHROPIC_API_KEY is valid
 
-### Manual Management
+### Debug Commands
 
 ```bash
-# Find your agent process
-ps aux | grep python3 | grep run_agent
+# SSH into instance
+ssh -i nanda-agent-key.pem ubuntu@INSTANCE_IP
 
-# Stop agent
-kill <PID>
+# Check user-data logs
+sudo tail -f /var/log/cloud-init-output.log
 
-# Restart agent  
-cd ~/nanda-agent-*
-source env/bin/activate
-python3 run_agent.py &
+# Check agent logs
+cd nanda-agent-* && tail -f agent.log
+
+# Check running processes
+ps aux | grep python
 ```
 
-## Custom Agents
+## 📈 Scaling
 
-To create custom agents, see the template in `/templates/custom_agent_template.py` and modify the deployment script or create your own agent logic.
+### Deploy 100 Agents (10 instances)
+```bash
+for i in {1..10}; do
+  bash aws-multi-agent-deployment.sh \
+    "sk-ant-api03-..." \
+    "group-0${i}-*.json" \
+    "http://registry.chat39.com:6900" \
+    "us-east-1" \
+    "t3.xlarge" &
+done
+```
+
+### Cross-Region Deployment
+```bash
+# Deploy to multiple regions
+for region in us-east-1 us-west-2 eu-west-1; do
+  bash aws-multi-agent-deployment.sh \
+    "sk-ant-api03-..." \
+    "group-01-business-and-finance-experts.json" \
+    "http://registry.chat39.com:6900" \
+    "$region" \
+    "t3.xlarge" &
+done
+```
+
+---
+
+**🎯 Ready to deploy? Start with a single agent to test, then scale to multi-agent deployments!**

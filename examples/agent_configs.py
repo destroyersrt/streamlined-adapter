@@ -3,7 +3,7 @@
 Pre-configured Agent Examples
 
 This file contains ready-to-use agent configurations for different personalities and expertise areas.
-Simply import and use with the modular_agent.py template.
+Simply import and use with the nanda_agent.py template.
 """
 
 # =============================================================================

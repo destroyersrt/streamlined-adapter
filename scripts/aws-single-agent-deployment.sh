@@ -174,7 +174,8 @@ sudo -u ubuntu bash -c "
     export AGENT_CAPABILITIES='$CAPABILITIES'
     export REGISTRY_URL='$REGISTRY_URL'
     export PUBLIC_URL='http://\$PUBLIC_IP:$PORT'
-    nohup python3 examples/modular_agent.py > agent.log 2>&1 &
+    export PORT='$PORT'
+    nohup python3 examples/nanda_agent.py > agent.log 2>&1 &
 "
 
 echo "=== NANDA Agent Setup Complete: $AGENT_ID ==="
@@ -204,6 +205,7 @@ PUBLIC_IP=$(aws ec2 describe-instances --region "$REGION" --instance-ids "$INSTA
 echo "[6/6] Waiting for agent deployment (2-3 minutes)..."
 sleep 120
 
+
 # Cleanup
 rm "user_data_${AGENT_ID}.sh"
 
@@ -214,10 +216,23 @@ echo "Instance ID: $INSTANCE_ID"
 echo "Public IP: $PUBLIC_IP"
 echo "Agent URL: http://$PUBLIC_IP:$PORT/a2a"
 echo ""
-echo "🧪 Test your agent:"
+echo "🤖 Agent ID for A2A Communication: ${AGENT_ID}-[6-char-hex]"
+echo ""
+echo "📞 Use this agent in A2A messages:"
+echo "   @${AGENT_ID}-[hex] your message here"
+echo "   (The actual hex suffix is generated at runtime)"
+
+echo ""
+echo "🧪 Test your agent (direct communication):"
 echo "curl -X POST http://$PUBLIC_IP:$PORT/a2a \\"
 echo "  -H \"Content-Type: application/json\" \\"
-echo "  -d '{\"content\":{\"text\":\"hello\",\"type\":\"text\"},\"role\":\"user\",\"conversation_id\":\"test123\"}'"
+echo "  -d '{\"content\":{\"text\":\"Hello! What can you help me with?\",\"type\":\"text\"},\"role\":\"user\",\"conversation_id\":\"test123\"}'"
+
+echo ""
+echo "🧪 Test A2A communication (example with another agent):"
+echo "curl -X POST http://{IP_ADDRESS}:{PORT}/a2a \\"
+echo "  -H \"Content-Type: application/json\" \\"
+echo "  -d '{\"content\":{\"text\":\"@{AGENT_ID} What can you help me with?\",\"type\":\"text\"},\"role\":\"user\",\"conversation_id\":\"test123\"}'"
 echo ""
 echo "🔐 SSH Access:"
 echo "ssh -i ${KEY_NAME}.pem ubuntu@$PUBLIC_IP"

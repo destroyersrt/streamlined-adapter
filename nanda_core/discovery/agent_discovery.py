@@ -8,6 +8,7 @@ from dataclasses import dataclass
 from .task_analyzer import TaskAnalyzer, TaskAnalysis
 from .agent_ranker import AgentRanker, AgentScore
 from ..core.registry_client import RegistryClient
+from ..core.mongodb_agent_facts import MongoDBAgentFacts
 
 
 @dataclass
@@ -28,6 +29,16 @@ class AgentDiscovery:
         self.task_analyzer = TaskAnalyzer()
         self.agent_ranker = AgentRanker()
         self.performance_cache = {}
+        
+        # Initialize MongoDB agent facts for semantic search
+        try:
+            self.mongodb_facts = MongoDBAgentFacts()
+            self.use_mongodb = True
+            print("✅ MongoDB agent facts initialized for semantic search")
+        except Exception as e:
+            print(f"⚠️ MongoDB agent facts not available, falling back to registry: {e}")
+            self.mongodb_facts = None
+            self.use_mongodb = False
 
     def discover_agents(self, task_description: str, limit: int = 5,
                        min_score: float = 0.3, filters: Dict[str, Any] = None) -> DiscoveryResult:
@@ -112,8 +123,75 @@ class AgentDiscovery:
 
     def _get_relevant_agents(self, task_analysis: TaskAnalysis,
                             filters: Dict[str, Any] = None) -> List[Dict[str, Any]]:
-        """Get agents relevant to the task"""
+        """Get agents relevant to the task using MongoDB semantic search"""
 
+        # Use MongoDB semantic search if available
+        if self.use_mongodb and self.mongodb_facts:
+            return self._get_agents_from_mongodb(task_analysis, filters)
+        
+        # Fallback to registry search (original logic)
+        return self._get_agents_from_registry(task_analysis, filters)
+    
+    def _get_agents_from_mongodb(self, task_analysis: TaskAnalysis,
+                                filters: Dict[str, Any] = None) -> List[Dict[str, Any]]:
+        """Get agents from MongoDB using semantic search"""
+        try:
+            # Build search query from task analysis
+            search_terms = []
+            
+            # Add domain
+            if task_analysis.domain and task_analysis.domain != "general":
+                search_terms.append(task_analysis.domain)
+            
+            # Add keywords
+            if task_analysis.keywords:
+                search_terms.extend(task_analysis.keywords[:5])  # Top 5 keywords
+            
+            # Add required capabilities
+            if task_analysis.required_capabilities:
+                search_terms.extend(task_analysis.required_capabilities)
+            
+            # Create search query
+            search_query = " ".join(search_terms) if search_terms else task_analysis.description
+            
+            # Search MongoDB
+            mongo_results = self.mongodb_facts.search_agents_by_capabilities(
+                search_query, limit=20
+            )
+            
+            # Convert MongoDB results to standard format
+            agent_list = []
+            for mongo_agent in mongo_results:
+                # Convert MongoDB agent to registry-compatible format
+                agent = {
+                    "agent_id": mongo_agent.get("agent_id"),
+                    "name": mongo_agent.get("agent_name"),
+                    "description": mongo_agent.get("description", ""),
+                    "specialization": mongo_agent.get("specialization", ""),
+                    "capabilities": mongo_agent.get("capabilities", {}).get("technical_skills", []),
+                    "domains": mongo_agent.get("capabilities", {}).get("domains", []),
+                    "tags": mongo_agent.get("tags", []),
+                    "endpoints": mongo_agent.get("endpoints", {}),
+                    "relevance_score": mongo_agent.get("relevance_score", 0),
+                    "status": mongo_agent.get("status", "active")
+                }
+                agent_list.append(agent)
+            
+            # Apply additional filters
+            if filters:
+                agent_list = self._apply_filters(agent_list, filters)
+            
+            print(f"🔍 MongoDB search found {len(agent_list)} agents for: '{search_query}'")
+            return agent_list
+            
+        except Exception as e:
+            print(f"❌ MongoDB search failed: {e}")
+            # Fallback to registry search
+            return self._get_agents_from_registry(task_analysis, filters)
+    
+    def _get_agents_from_registry(self, task_analysis: TaskAnalysis,
+                                 filters: Dict[str, Any] = None) -> List[Dict[str, Any]]:
+        """Fallback: Get agents from registry (original logic)"""
         # Start with capability-based search
         agents = set()
 

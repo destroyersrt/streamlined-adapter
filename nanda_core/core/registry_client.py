@@ -126,28 +126,51 @@ class RegistryClient:
     def _filter_agents_locally(self, query: str = "", capabilities: List[str] = None, tags: List[str] = None) -> List[Dict[str, Any]]:
         """Fallback local filtering when server search is not available"""
         all_agents = self.list_agents()
-        filtered = []
+        scored_agents = []
 
         for agent in all_agents:
-            # Simple text matching for query
+            score = 0.0
+            
+            # Score based on query matching
             if query:
-                agent_text = f"{agent.get('agent_id', '')} {agent.get('description', '')}"
-                if query.lower() not in agent_text.lower():
-                    continue
+                query_words = query.lower().split()
+                agent_text = f"{agent.get('agent_id', '')} {agent.get('description', '')} {agent.get('specialization', '')} {' '.join(agent.get('expertise', []))}"
+                agent_text = agent_text.lower()
+                
+                # Score based on word matches
+                word_matches = sum(1 for word in query_words if word in agent_text)
+                if word_matches > 0:
+                    score += (word_matches / len(query_words)) * 0.8
+                
+                # Bonus for agent_id matches (e.g., "tech-expert" matches "tech expert")
+                agent_id_normalized = agent.get('agent_id', '').replace('-', ' ').replace('_', ' ').lower()
+                if any(word in agent_id_normalized for word in query_words):
+                    score += 0.5
 
-            # Capability matching
+            # Score based on capability matching
             if capabilities:
                 agent_caps = agent.get('capabilities', [])
-                if not any(cap in agent_caps for cap in capabilities):
-                    continue
+                cap_matches = sum(1 for cap in capabilities if cap in agent_caps)
+                if cap_matches > 0:
+                    score += (cap_matches / len(capabilities)) * 0.6
 
-            # Tag matching
+            # Score based on tag matching
             if tags:
                 agent_tags = agent.get('tags', [])
-                if not any(tag in agent_tags for tag in tags):
-                    continue
+                tag_matches = sum(1 for tag in tags if tag in agent_tags)
+                if tag_matches > 0:
+                    score += (tag_matches / len(tags)) * 0.4
 
-            filtered.append(agent)
+            # If no specific criteria, give small base score to all agents
+            if not query and not capabilities and not tags:
+                score = 0.1
+
+            if score > 0:
+                scored_agents.append((agent, score))
+
+        # Sort by score (highest first) and return top agents
+        scored_agents.sort(key=lambda x: x[1], reverse=True)
+        filtered = [agent for agent, score in scored_agents[:20]]  # Return top 20
 
         return filtered
 

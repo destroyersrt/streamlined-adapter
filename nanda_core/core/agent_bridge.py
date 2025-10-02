@@ -318,14 +318,23 @@ class SimpleAgentBridge(A2AServer):
                 response_text = f"🔍 Found {len(result.recommended_agents)} agents for: '{query}'\n\n"
                 
                 for i, agent_score in enumerate(result.recommended_agents, 1):
+                    response_text += f"{i}. @{agent_score.agent_id} (Score: {agent_score.score:.2f})\n"
+                    
+                    # Try to get detailed agent data
                     agent_data = self.discovery.get_agent_details(agent_score.agent_id)
                     if agent_data:
-                        response_text += f"{i}. @{agent_score.agent_id} (Score: {agent_score.score:.2f})\n"
                         response_text += f"   📋 {agent_data.get('description', 'No description')}\n"
-                        response_text += f"   🏷️ {', '.join(agent_data.get('capabilities', [])[:3])}\n"
-                        if agent_score.match_reasons:
-                            response_text += f"   ✅ {agent_score.match_reasons[0]}\n"
-                        response_text += "\n"
+                        capabilities = agent_data.get('capabilities', [])
+                        if capabilities:
+                            response_text += f"   🏷️ {', '.join(capabilities[:3])}\n"
+                    else:
+                        response_text += f"   📋 Agent available in registry\n"
+                    
+                    # Show match reasons if available
+                    if agent_score.match_reasons:
+                        response_text += f"   ✅ {agent_score.match_reasons[0]}\n"
+                    
+                    response_text += "\n"
                 
                 response_text += f"💬 To contact an agent, use: @agent-id your message\n"
                 response_text += f"⏱️ Search completed in {search_time:.2f}s"

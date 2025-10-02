@@ -1,4 +1,4 @@
-# 🚀 NANDA Streamlined Adapter
+# 🚀 NEST 
 
 A production-ready framework for deploying and managing specialized AI agents with seamless agent-to-agent communication and intelligent discovery.
 

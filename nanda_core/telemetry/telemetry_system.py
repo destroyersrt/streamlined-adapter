@@ -13,6 +13,7 @@ from dataclasses import dataclass, asdict
 from collections import defaultdict, deque
 from .metrics_collector import MetricsCollector
 from .health_monitor import HealthMonitor
+from .mongodb_telemetry import MongoDBTelemetryStorage, QueryTelemetry
 
 
 @dataclass
@@ -52,6 +53,16 @@ class TelemetrySystem:
 
         # Ensure log directory exists
         os.makedirs(log_dir, exist_ok=True)
+
+        # Initialize MongoDB telemetry storage
+        try:
+            self.mongodb_telemetry = MongoDBTelemetryStorage()
+            self.use_mongodb_telemetry = True
+            print("✅ MongoDB telemetry storage initialized")
+        except Exception as e:
+            print(f"⚠️ MongoDB telemetry not available, using file storage only: {e}")
+            self.mongodb_telemetry = None
+            self.use_mongodb_telemetry = False
 
         # Start background processing
         self.start()
@@ -124,6 +135,50 @@ class TelemetrySystem:
             "agents_found": agents_found,
             "search_time": search_time
         })
+
+    def log_structured_query(self, query_text: str, query_type: str, conversation_id: str,
+                           search_time: float, agents_found: int, search_method: str,
+                           top_agents: List[Dict[str, Any]], result_quality_score: float,
+                           response_time: float, success: bool = True, error_message: str = None):
+        """Log structured query telemetry to MongoDB"""
+        if not self.use_mongodb_telemetry:
+            return
+        
+        try:
+            import uuid
+            import psutil
+            
+            # Get system metrics
+            process = psutil.Process()
+            memory_usage = process.memory_info().rss / (1024 * 1024)  # MB
+            cpu_usage = process.cpu_percent()
+            
+            # Create structured telemetry
+            query_telemetry = QueryTelemetry(
+                query_id=str(uuid.uuid4()),
+                timestamp=datetime.now(),
+                agent_id=self.agent_id,
+                session_id=self.session_id,
+                query_text=query_text,
+                query_type=query_type,
+                conversation_id=conversation_id,
+                search_time=search_time,
+                agents_found=agents_found,
+                search_method=search_method,
+                top_agents=top_agents,
+                result_quality_score=result_quality_score,
+                memory_usage_mb=memory_usage,
+                cpu_usage_percent=cpu_usage,
+                response_time=response_time,
+                success=success,
+                error_message=error_message
+            )
+            
+            # Store in MongoDB
+            self.mongodb_telemetry.store_query_telemetry(query_telemetry)
+            
+        except Exception as e:
+            print(f"⚠️ Error logging structured query telemetry: {e}")
 
     def log_error(self, error_message: str, context: Dict[str, Any] = None):
         """Log errors and exceptions"""

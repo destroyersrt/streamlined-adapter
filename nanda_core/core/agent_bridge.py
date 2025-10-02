@@ -308,6 +308,30 @@ class SimpleAgentBridge(A2AServer):
             if self.telemetry:
                 self.telemetry.log_agent_discovery(query, len(result.recommended_agents), search_time)
             
+            # Prepare data for structured telemetry
+            top_agents = []
+            result_quality_score = 0.0
+            search_method = "mongodb"  # Default, will be updated based on discovery method
+            
+            if result.recommended_agents:
+                # Extract top agents for telemetry
+                for agent_score in result.recommended_agents[:5]:
+                    top_agents.append({
+                        "agent_id": agent_score.agent_id,
+                        "score": agent_score.score,
+                        "match_reasons": agent_score.match_reasons[:2] if agent_score.match_reasons else []
+                    })
+                
+                # Calculate result quality score (average of top 3 scores)
+                top_scores = [agent.score for agent in result.recommended_agents[:3]]
+                result_quality_score = sum(top_scores) / len(top_scores) if top_scores else 0.0
+                
+                # Determine search method (check if MongoDB was used)
+                if hasattr(self.discovery, 'use_mongodb') and self.discovery.use_mongodb:
+                    search_method = "mongodb"
+                else:
+                    search_method = "registry"
+            
             # Format response
             if not result.recommended_agents:
                 response_text = f"🔍 No agents found for: '{query}'\n\n"
@@ -339,12 +363,44 @@ class SimpleAgentBridge(A2AServer):
                 response_text += f"💬 To contact an agent, use: @agent-id your message\n"
                 response_text += f"⏱️ Search completed in {search_time:.2f}s"
             
+            # Log structured telemetry to MongoDB
+            if self.telemetry:
+                response_time = time.time() - search_start
+                self.telemetry.log_structured_query(
+                    query_text=query,
+                    query_type="search",
+                    conversation_id=conversation_id,
+                    search_time=search_time,
+                    agents_found=len(result.recommended_agents),
+                    search_method=search_method,
+                    top_agents=top_agents,
+                    result_quality_score=result_quality_score,
+                    response_time=response_time,
+                    success=True
+                )
+            
             return self._create_response(original_msg, conversation_id, response_text)
             
         except Exception as e:
             logger.error(f"Search error: {e}")
             if self.telemetry:
                 self.telemetry.log_error(f"Search query failed: {str(e)}", {"query": query})
+                
+                # Log failed search to structured telemetry
+                response_time = time.time() - search_start if 'search_start' in locals() else 0.0
+                self.telemetry.log_structured_query(
+                    query_text=query,
+                    query_type="search",
+                    conversation_id=conversation_id,
+                    search_time=0.0,
+                    agents_found=0,
+                    search_method="error",
+                    top_agents=[],
+                    result_quality_score=0.0,
+                    response_time=response_time,
+                    success=False,
+                    error_message=str(e)
+                )
             
             return self._create_response(
                 original_msg, conversation_id,

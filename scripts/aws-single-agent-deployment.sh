@@ -53,7 +53,7 @@ echo ""
 
 # Configuration
 SECURITY_GROUP_NAME="nanda-streamlined-agents"
-KEY_NAME="nanda-agent-key"
+KEY_NAME="nanda-agent-key-a1b2"
 AMI_ID="ami-0866a3c8686eaeeba"  # Ubuntu 22.04 LTS
 
 # Check AWS credentials
@@ -175,7 +175,7 @@ sudo -u ubuntu bash -c "
     export REGISTRY_URL='$REGISTRY_URL'
     export PUBLIC_URL='http://\$PUBLIC_IP:$PORT'
     export PORT='$PORT'
-    nohup python3 examples/nanda_agent.py > agent.log 2>&1 &
+    nohup python3 examples/enhanced_nanda_agent.py > agent.log 2>&1 &
 "
 
 echo "=== NANDA Agent Setup Complete: $AGENT_ID ==="

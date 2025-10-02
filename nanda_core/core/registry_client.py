@@ -63,7 +63,9 @@ class RegistryClient:
         try:
             response = self.session.get(f"{self.registry_url}/list")
             if response.status_code == 200:
-                return response.json()
+                result = response.json()
+                # Extract agents array from response
+                return result.get('agents', [])
             return []
         except Exception as e:
             print(f"Error listing agents: {e}")
@@ -111,7 +113,9 @@ class RegistryClient:
 
             response = self.session.get(f"{self.registry_url}/search", params=params)
             if response.status_code == 200:
-                return response.json()
+                result = response.json()
+                # Extract agents array from response
+                return result.get('agents', [])
 
             # Fallback to client-side filtering
             return self._filter_agents_locally(query, capabilities, tags)

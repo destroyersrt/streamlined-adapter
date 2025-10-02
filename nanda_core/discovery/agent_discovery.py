@@ -94,20 +94,41 @@ class AgentDiscovery:
             cap_agents = self.registry_client.search_agents(
                 capabilities=task_analysis.required_capabilities
             )
-            agents.update(tuple(sorted(agent.items())) for agent in cap_agents)
+            # Handle both dict and string responses
+            for agent in cap_agents:
+                if isinstance(agent, dict):
+                    agents.update([tuple(sorted(agent.items()))])
+                elif isinstance(agent, str):
+                    # Create a basic dict from string agent ID
+                    agent_dict = {"agent_id": agent, "description": "Agent from registry"}
+                    agents.update([tuple(sorted(agent_dict.items()))])
 
         # Search by domain
         if task_analysis.domain and task_analysis.domain != "general":
             domain_agents = self.registry_client.search_agents(
                 query=task_analysis.domain
             )
-            agents.update(tuple(sorted(agent.items())) for agent in domain_agents)
+            # Handle both dict and string responses
+            for agent in domain_agents:
+                if isinstance(agent, dict):
+                    agents.update([tuple(sorted(agent.items()))])
+                elif isinstance(agent, str):
+                    # Create a basic dict from string agent ID
+                    agent_dict = {"agent_id": agent, "description": "Agent from registry"}
+                    agents.update([tuple(sorted(agent_dict.items()))])
 
         # Search by keywords
         if task_analysis.keywords:
             keyword_query = " ".join(task_analysis.keywords[:3])  # Top 3 keywords
             keyword_agents = self.registry_client.search_agents(query=keyword_query)
-            agents.update(tuple(sorted(agent.items())) for agent in keyword_agents)
+            # Handle both dict and string responses
+            for agent in keyword_agents:
+                if isinstance(agent, dict):
+                    agents.update([tuple(sorted(agent.items()))])
+                elif isinstance(agent, str):
+                    # Create a basic dict from string agent ID
+                    agent_dict = {"agent_id": agent, "description": "Agent from registry"}
+                    agents.update([tuple(sorted(agent_dict.items()))])
 
         # Convert back to list of dictionaries
         agent_list = [dict(agent) for agent in agents]

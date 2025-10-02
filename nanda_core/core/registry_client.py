@@ -115,7 +115,11 @@ class RegistryClient:
             if response.status_code == 200:
                 result = response.json()
                 # Extract agents array from response
-                return result.get('agents', [])
+                agents = result.get('agents', [])
+                # If search endpoint returns empty results, fall back to local filtering
+                if not agents and query:
+                    return self._filter_agents_locally(query, capabilities, tags)
+                return agents
 
             # Fallback to client-side filtering
             return self._filter_agents_locally(query, capabilities, tags)

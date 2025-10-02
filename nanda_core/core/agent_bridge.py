@@ -295,15 +295,31 @@ class SimpleAgentBridge(A2AServer):
         if not query:
             return self._create_response(
                 original_msg, conversation_id,
-                "🔍 Usage: ? <search query>\nExample: ? Find me a data scientist\nExample: ? I need help with Python programming"
+                "🔍 Usage: ? <search query>\n"
+                "🔍 Structure-specific: ?keywords <query> | ?description <query> | ?embedding <query>\n"
+                "Example: ? Find me a data scientist\n"
+                "Example: ?keywords python expert\n"
+                "Example: ?description data analysis specialist"
             )
         
         try:
             # Log telemetry for search
             search_start = time.time()
             
-            # Perform agent discovery
-            result = self.discovery.discover_agents(query, limit=5, min_score=0.3)
+            # Check for structure-specific search
+            structure_type = None
+            if query.startswith("keywords "):
+                structure_type = "keywords"
+                query = query[9:].strip()
+            elif query.startswith("description "):
+                structure_type = "description"
+                query = query[12:].strip()
+            elif query.startswith("embedding "):
+                structure_type = "embedding"
+                query = query[10:].strip()
+            
+            # Perform agent discovery (with optional structure filtering)
+            result = self.discovery.discover_agents(query, limit=5, min_score=0.3, structure_type=structure_type)
             
             search_time = time.time() - search_start
             if self.telemetry:
@@ -329,7 +345,10 @@ class SimpleAgentBridge(A2AServer):
                 
                 # Determine search method (check if MongoDB was used)
                 if hasattr(self.discovery, 'use_mongodb') and self.discovery.use_mongodb:
-                    search_method = "mongodb"
+                    if structure_type:
+                        search_method = f"mongodb_{structure_type}"
+                    else:
+                        search_method = "mongodb"
                 else:
                     search_method = "registry"
             
@@ -340,7 +359,8 @@ class SimpleAgentBridge(A2AServer):
                 for suggestion in result.suggestions[:3]:
                     response_text += f"  • {suggestion}\n"
             else:
-                response_text = f"🔍 Found {len(result.recommended_agents)} agents for: '{query}'\n\n"
+                structure_info = f" ({structure_type} structure)" if structure_type else ""
+                response_text = f"🔍 Found {len(result.recommended_agents)} agents{structure_info} for: '{query}'\n\n"
                 
                 for i, agent_score in enumerate(result.recommended_agents, 1):
                     response_text += f"{i}. @{agent_score.agent_id} (Score: {agent_score.score:.2f})\n"

@@ -16,6 +16,14 @@ try:
 except ImportError:
     print("⚠️ python-dotenv not installed. Using system environment variables only.")
 
+# Import modular embedding system
+try:
+    from ..embeddings.embedding_manager import get_embedding_manager
+    EMBEDDINGS_AVAILABLE = True
+except ImportError:
+    print("⚠️ Modular embeddings not available - using fallback")
+    EMBEDDINGS_AVAILABLE = False
+
 
 class MongoDBAgentFacts:
     """MongoDB client for agent facts with semantic search capabilities"""
@@ -25,7 +33,9 @@ class MongoDBAgentFacts:
         self.client = None
         self.db = None
         self.collection = None
+        self.embedding_manager = None
         self._connect()
+        self._initialize_embeddings()
     
     def _connect(self):
         """Connect to MongoDB"""
@@ -39,6 +49,23 @@ class MongoDBAgentFacts:
         except Exception as e:
             print(f"❌ Failed to connect to MongoDB: {e}")
             raise
+    
+    def _initialize_embeddings(self):
+        """Initialize the modular embedding system"""
+        if EMBEDDINGS_AVAILABLE:
+            try:
+                # Look for embedding config in the same directory
+                config_path = os.path.join(os.path.dirname(__file__), '..', '..', 'embedding_config.json')
+                if os.path.exists(config_path):
+                    self.embedding_manager = get_embedding_manager(config_path)
+                else:
+                    self.embedding_manager = get_embedding_manager()
+                print("✅ Modular embedding system initialized")
+            except Exception as e:
+                print(f"⚠️ Failed to initialize embeddings: {e}")
+                self.embedding_manager = None
+        else:
+            self.embedding_manager = None
     
     def create_agent_fact(self, agent_id: str, agent_data: Dict[str, Any]) -> Dict[str, Any]:
         """Create a standardized agent fact document"""
@@ -262,12 +289,16 @@ class MongoDBAgentFacts:
         
         return agents
     
-    def search_agents_by_capabilities(self, query: str, limit: int = 10) -> List[Dict[str, Any]]:
-        """Search agents by capabilities using MongoDB text search and manual scoring"""
+    def search_agents_by_capabilities(self, query: str, limit: int = 10, structure_type: str = None) -> List[Dict[str, Any]]:
+        """Search agents by capabilities with optional structure type filtering"""
         try:
             query_words = query.lower().split()
             
-            # MongoDB text search
+            # If structure type is specified, use structure-specific search
+            if structure_type:
+                return self._search_by_structure_type(query, query_words, structure_type, limit)
+            
+            # Default: MongoDB text search across all agents
             text_results = list(self.collection.find(
                 {"$text": {"$search": query}},
                 {"score": {"$meta": "textScore"}}
@@ -296,6 +327,139 @@ class MongoDBAgentFacts:
         except Exception as e:
             print(f"❌ Error searching agents: {e}")
             return []
+    
+    def _search_by_structure_type(self, query: str, query_words: List[str], structure_type: str, limit: int) -> List[Dict[str, Any]]:
+        """Search agents by specific capability structure type"""
+        import time
+        start_time = time.time()
+        
+        print(f"🔍 Searching {structure_type} agents (100 agents) for: '{query}'")
+        
+        # Get agents with specific structure type
+        structure_filter = {"structure_type": structure_type}
+        
+        if structure_type == "keywords":
+            return self._search_keywords_structure(query_words, structure_filter, limit)
+        elif structure_type == "description":
+            return self._search_description_structure(query, structure_filter, limit)
+        elif structure_type == "embedding":
+            return self._search_embedding_structure(query, structure_filter, limit)
+        else:
+            print(f"❌ Unknown structure type: {structure_type}")
+            return []
+    
+    def _search_keywords_structure(self, query_words: List[str], structure_filter: Dict, limit: int) -> List[Dict[str, Any]]:
+        """Search through keyword-based capability structure (100 agents)"""
+        import time
+        start_time = time.time()
+        
+        # Get all keyword-structure agents
+        agents = list(self.collection.find(structure_filter))
+        scored_agents = []
+        
+        for agent in agents:
+            score = 0.0
+            keywords = agent.get('capabilities', {}).get('keywords', [])
+            
+            # Simple keyword matching
+            for word in query_words:
+                for keyword in keywords:
+                    if word.lower() in keyword.lower():
+                        score += 1.0
+            
+            if score > 0:
+                agent['relevance_score'] = score / len(query_words)  # Normalize
+                agent['search_method'] = 'keywords'
+                scored_agents.append(agent)
+        
+        # Sort by score and return top results
+        scored_agents.sort(key=lambda x: x['relevance_score'], reverse=True)
+        search_time = time.time() - start_time
+        print(f"⚡ Keywords search: {len(scored_agents)} results in {search_time:.3f}s")
+        
+        return scored_agents[:limit]
+    
+    def _search_description_structure(self, query: str, structure_filter: Dict, limit: int) -> List[Dict[str, Any]]:
+        """Search through description-based capability structure (100 agents)"""
+        import time
+        start_time = time.time()
+        
+        # MongoDB text search within description structure agents only
+        text_results = list(self.collection.find(
+            {**structure_filter, "$text": {"$search": query}},
+            {"score": {"$meta": "textScore"}}
+        ).sort([("score", {"$meta": "textScore"})]).limit(limit))
+        
+        # Add search metadata
+        for agent in text_results:
+            agent['search_method'] = 'description'
+            agent['relevance_score'] = agent.get('score', 0)
+        
+        search_time = time.time() - start_time
+        print(f"⚡ Description search: {len(text_results)} results in {search_time:.3f}s")
+        
+        return text_results
+    
+    def _search_embedding_structure(self, query: str, structure_filter: Dict, limit: int) -> List[Dict[str, Any]]:
+        """Search through embedding-based capability structure (100 agents)"""
+        import time
+        start_time = time.time()
+        
+        # Check if embeddings are available
+        if not self.embedding_manager:
+            print("⚠️ Embedding manager not available, falling back to text search")
+            return self._search_description_structure(query, structure_filter, limit)
+        
+        try:
+            # Create query embedding
+            query_embedding = self.embedding_manager.create_embedding(query)
+            
+            # Get all embedding-structure agents with embeddings
+            agents = list(self.collection.find({
+                **structure_filter,
+                "capabilities.description_embedding": {"$exists": True}
+            }))
+            
+            if not agents:
+                print("⚠️ No agents with embeddings found, falling back to text search")
+                return self._search_description_structure(query, structure_filter, limit)
+            
+            # Calculate cosine similarity
+            scored_agents = []
+            for agent in agents:
+                embedding = agent.get('capabilities', {}).get('description_embedding')
+                if embedding:
+                    similarity = self._cosine_similarity(query_embedding, embedding)
+                    agent['relevance_score'] = similarity
+                    agent['search_method'] = 'embedding'
+                    scored_agents.append(agent)
+            
+            # Sort by similarity and return top results
+            scored_agents.sort(key=lambda x: x['relevance_score'], reverse=True)
+            search_time = time.time() - start_time
+            print(f"⚡ Embedding search: {len(scored_agents)} results in {search_time:.3f}s")
+            
+            return scored_agents[:limit]
+            
+        except Exception as e:
+            print(f"❌ Embedding search failed: {e}")
+            return self._search_description_structure(query, structure_filter, limit)
+    
+    def _cosine_similarity(self, vec1: List[float], vec2: List[float]) -> float:
+        """Calculate cosine similarity between two vectors"""
+        import math
+        
+        if len(vec1) != len(vec2):
+            return 0.0
+        
+        dot_product = sum(a * b for a, b in zip(vec1, vec2))
+        magnitude1 = math.sqrt(sum(a * a for a in vec1))
+        magnitude2 = math.sqrt(sum(a * a for a in vec2))
+        
+        if magnitude1 == 0 or magnitude2 == 0:
+            return 0.0
+        
+        return dot_product / (magnitude1 * magnitude2)
     
     def _calculate_relevance_score(self, agent: Dict[str, Any], query_words: List[str]) -> float:
         """Calculate relevance score based on capability matching"""
@@ -342,6 +506,75 @@ class MongoDBAgentFacts:
     def get_sample_agents(self, limit: int = 5) -> List[Dict[str, Any]]:
         """Get a sample of agents for testing"""
         return list(self.collection.find().limit(limit))
+    
+    def update_agents_with_modular_embeddings(self, structure_type: str = "embedding") -> int:
+        """Update agents with embeddings from the modular embedding system"""
+        if not self.embedding_manager:
+            print("❌ Embedding manager not available")
+            return 0
+        
+        print(f"🔄 Updating {structure_type} agents with modular embeddings...")
+        
+        # Get agents that need embedding updates
+        agents = list(self.collection.find(
+            {"structure_type": structure_type},
+            {"agent_id": 1, "agent_name": 1, "capabilities.description_text": 1}
+        ))
+        
+        if not agents:
+            print(f"⚠️ No {structure_type} agents found")
+            return 0
+        
+        print(f"📋 Found {len(agents)} agents to update")
+        
+        # Extract texts for batch processing
+        texts = []
+        agent_ids = []
+        
+        for agent in agents:
+            description = agent.get("capabilities", {}).get("description_text", "")
+            if description:
+                texts.append(description)
+                agent_ids.append(agent["agent_id"])
+        
+        if not texts:
+            print("⚠️ No agent descriptions found")
+            return 0
+        
+        try:
+            # Create embeddings using modular system
+            embeddings = self.embedding_manager.create_batch_embeddings(texts)
+            
+            # Get active embedder info
+            embedder_info = self.embedding_manager.get_active_embedder_info()
+            
+            # Update each agent
+            updated_count = 0
+            for i, (agent_id, embedding) in enumerate(zip(agent_ids, embeddings)):
+                result = self.collection.update_one(
+                    {"agent_id": agent_id},
+                    {
+                        "$set": {
+                            "capabilities.description_embedding": embedding,
+                            "capabilities.embedding_model": embedder_info.get('model', 'unknown'),
+                            "capabilities.embedding_dimension": len(embedding),
+                            "capabilities.embedding_method": "modular_system",
+                            "updated_at": datetime.utcnow()
+                        }
+                    }
+                )
+                
+                if result.modified_count > 0:
+                    updated_count += 1
+                    if (i + 1) % 10 == 0:
+                        print(f"  ✅ Updated {i + 1}/{len(agent_ids)} agents")
+            
+            print(f"✅ Successfully updated {updated_count} agents with {embedder_info.get('name', 'unknown')} embeddings")
+            return updated_count
+            
+        except Exception as e:
+            print(f"❌ Failed to update agents with embeddings: {e}")
+            return 0
 
 
 if __name__ == "__main__":

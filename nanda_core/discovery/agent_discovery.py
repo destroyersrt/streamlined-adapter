@@ -34,14 +34,15 @@ class AgentDiscovery:
         try:
             self.mongodb_facts = MongoDBAgentFacts()
             self.use_mongodb = True
-            print("✅ MongoDB agent facts initialized for semantic search")
+            print("✅ MongoDB agent facts initialized for semantic search with capregistry.duckdns.org")
         except Exception as e:
             print(f"⚠️ MongoDB agent facts not available, falling back to registry: {e}")
             self.mongodb_facts = None
             self.use_mongodb = False
 
     def discover_agents(self, task_description: str, limit: int = 5,
-                       min_score: float = 0.3, filters: Dict[str, Any] = None) -> DiscoveryResult:
+                       min_score: float = 0.3, filters: Dict[str, Any] = None, 
+                       structure_type: str = None) -> DiscoveryResult:
         """Main entry point for agent discovery"""
         import time
         start_time = time.time()
@@ -49,8 +50,8 @@ class AgentDiscovery:
         # Analyze the task
         task_analysis = self.task_analyzer.analyze_task(task_description)
 
-        # Get available agents
-        agents = self._get_relevant_agents(task_analysis, filters)
+        # Get available agents (with optional structure type filtering)
+        agents = self._get_relevant_agents(task_analysis, filters, structure_type)
 
         # Get performance data
         performance_data = self._get_performance_data()
@@ -122,18 +123,18 @@ class AgentDiscovery:
         return agent_dict
 
     def _get_relevant_agents(self, task_analysis: TaskAnalysis,
-                            filters: Dict[str, Any] = None) -> List[Dict[str, Any]]:
+                            filters: Dict[str, Any] = None, structure_type: str = None) -> List[Dict[str, Any]]:
         """Get agents relevant to the task using MongoDB semantic search"""
 
         # Use MongoDB semantic search if available
         if self.use_mongodb and self.mongodb_facts:
-            return self._get_agents_from_mongodb(task_analysis, filters)
+            return self._get_agents_from_mongodb(task_analysis, filters, structure_type)
         
         # Fallback to registry search (original logic)
         return self._get_agents_from_registry(task_analysis, filters)
     
     def _get_agents_from_mongodb(self, task_analysis: TaskAnalysis,
-                                filters: Dict[str, Any] = None) -> List[Dict[str, Any]]:
+                                 filters: Dict[str, Any] = None, structure_type: str = None) -> List[Dict[str, Any]]:
         """Get agents from MongoDB using semantic search"""
         try:
             # Build search query from task analysis
@@ -154,9 +155,9 @@ class AgentDiscovery:
             # Create search query
             search_query = " ".join(search_terms) if search_terms else task_analysis.description
             
-            # Search MongoDB
+            # Search MongoDB (with optional structure type filtering)
             mongo_results = self.mongodb_facts.search_agents_by_capabilities(
-                search_query, limit=20
+                search_query, limit=20, structure_type=structure_type
             )
             
             # Convert MongoDB results to standard format

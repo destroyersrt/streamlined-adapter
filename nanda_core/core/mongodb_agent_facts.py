@@ -14,7 +14,7 @@ class MongoDBAgentFacts:
     """MongoDB client for agent facts with semantic search capabilities"""
     
     def __init__(self, mongodb_uri: str = None):
-        self.mongodb_uri = mongodb_uri or "mongodb+srv://adityasharmasrt_db_user:V4036f6X0xO4qJ0W@nanda.wui3ygq.mongodb.net/"
+        self.mongodb_uri = mongodb_uri or os.getenv("MONGODB_AGENTFACTS_URI", "mongodb://localhost:27017/")
         self.client = None
         self.db = None
         self.collection = None

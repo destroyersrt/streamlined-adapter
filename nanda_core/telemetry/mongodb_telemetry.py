@@ -81,7 +81,7 @@ class MongoDBTelemetryStorage:
     """MongoDB storage for structured telemetry data"""
     
     def __init__(self, mongodb_uri: str = None, database_name: str = "nanda_telemetry"):
-        self.mongodb_uri = mongodb_uri or "mongodb+srv://adityasharmasrt_db_user:V4036f6X0xO4qJ0W@nanda.wui3ygq.mongodb.net/"
+        self.mongodb_uri = mongodb_uri or os.getenv("MONGODB_TELEMETRY_URI", "mongodb://localhost:27017/")
         self.database_name = database_name
         self.client = None
         self.db = None

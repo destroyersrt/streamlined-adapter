@@ -33,12 +33,13 @@ class SimpleAgentBridge(A2AServer):
         
         # Initialize discovery system if registry is available
         self.discovery = None
+        self.registry_client = None
         if registry_url:
             try:
                 from ..discovery.agent_discovery import AgentDiscovery
                 from .registry_client import RegistryClient
-                registry_client = RegistryClient(registry_url)
-                self.discovery = AgentDiscovery(registry_client)
+                self.registry_client = RegistryClient(registry_url)
+                self.discovery = AgentDiscovery(self.registry_client)
                 print(f"🔍 Agent discovery enabled for {agent_id}")
             except ImportError as e:
                 print(f"⚠️ Discovery system not available: {e}")

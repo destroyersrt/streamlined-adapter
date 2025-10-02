@@ -127,7 +127,7 @@ def main():
     AGENT_SPECIALIZATION = os.getenv("AGENT_SPECIALIZATION", "AI-powered data scientist with telemetry")
     AGENT_DESCRIPTION = os.getenv("AGENT_DESCRIPTION", "Enhanced data scientist with semantic search and telemetry capabilities")
     AGENT_CAPABILITIES = os.getenv("AGENT_CAPABILITIES", "data analysis,machine learning,Python,statistics,telemetry,semantic search")
-    REGISTRY_URL = os.getenv("REGISTRY_URL", "http://registry.chat39.com:6900")
+    REGISTRY_URL = os.getenv("REGISTRY_URL", "http://capregistry.duckdns.org:6900")
     PUBLIC_URL = os.getenv("PUBLIC_URL", "http://localhost:6000")
     PORT = int(os.getenv("PORT", "6000"))
     

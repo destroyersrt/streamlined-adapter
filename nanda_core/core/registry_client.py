@@ -27,7 +27,7 @@ class RegistryClient:
                     return f.read().strip()
         except Exception:
             pass
-        return "https://registry.chat39.com"
+        return "http://capregistry.duckdns.org:6900"
 
     def register_agent(self, agent_id: str, agent_url: str, api_url: Optional[str] = None, agent_facts_url: Optional[str] = None) -> bool:
         """Register an agent with the registry"""

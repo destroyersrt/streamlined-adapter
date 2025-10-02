@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
 """
-Simple Agent Bridge for A2A Communication
+Enhanced Agent Bridge for A2A Communication with Semantic Search
 
-Clean, simple bridge focused on agent-to-agent communication.
+Clean bridge with telemetry, semantic search, and agent discovery.
 """
 
 import os
 import uuid
 import logging
 import requests
+import time
 from typing import Callable, Optional, Dict, Any
 from python_a2a import A2AServer, A2AClient, Message, TextContent, MessageRole, Metadata
 
@@ -17,7 +18,7 @@ logger = logging.getLogger(__name__)
 
 
 class SimpleAgentBridge(A2AServer):
-    """Simple Agent Bridge for A2A communication only"""
+    """Enhanced Agent Bridge with semantic search and telemetry"""
     
     def __init__(self, 
                  agent_id: str, 
@@ -30,9 +31,26 @@ class SimpleAgentBridge(A2AServer):
         self.registry_url = registry_url
         self.telemetry = telemetry
         
+        # Initialize discovery system if registry is available
+        self.discovery = None
+        if registry_url:
+            try:
+                from ..discovery.agent_discovery import AgentDiscovery
+                from .registry_client import RegistryClient
+                registry_client = RegistryClient(registry_url)
+                self.discovery = AgentDiscovery(registry_client)
+                print(f"🔍 Agent discovery enabled for {agent_id}")
+            except ImportError as e:
+                print(f"⚠️ Discovery system not available: {e}")
+        
     def handle_message(self, msg: Message) -> Message:
-        """Handle incoming messages"""
+        """Handle incoming messages with enhanced features"""
+        start_time = time.time()
         conversation_id = msg.conversation_id or str(uuid.uuid4())
+        
+        # Log telemetry
+        if self.telemetry:
+            self.telemetry.log_message_received(self.agent_id, conversation_id)
         
         # Only handle text content
         if not isinstance(msg.content, TextContent):
@@ -41,11 +59,19 @@ class SimpleAgentBridge(A2AServer):
                 "Only text messages supported"
             )
         
-        user_text = msg.content.text
+        user_text = msg.content.text.strip()
+        
+        # Handle semantic search queries with '?' command
+        if user_text.startswith('?'):
+            return self._handle_search_query(user_text[1:].strip(), msg, conversation_id)
         
         # Check if this is an agent-to-agent message in our simple format
         if user_text.startswith("FROM:") and "TO:" in user_text and "MESSAGE:" in user_text:
             return self._handle_incoming_agent_message(user_text, msg, conversation_id)
+        
+        # Check for @agent-id mentions for A2A communication
+        if user_text.startswith("@") and " " in user_text:
+            return self._handle_agent_mention(user_text, msg, conversation_id)
         
         logger.info(f"📨 [{self.agent_id}] Received: {user_text}")
         
@@ -256,3 +282,96 @@ class SimpleAgentBridge(A2AServer):
             parent_message_id=original_msg.message_id,
             conversation_id=conversation_id
         )
+    
+    def _handle_search_query(self, query: str, original_msg: Message, conversation_id: str) -> Message:
+        """Handle semantic search queries with '?' command"""
+        if not self.discovery:
+            return self._create_response(
+                original_msg, conversation_id,
+                "🔍 Agent discovery not available. Registry connection required."
+            )
+        
+        if not query:
+            return self._create_response(
+                original_msg, conversation_id,
+                "🔍 Usage: ? <search query>\nExample: ? Find me a data scientist\nExample: ? I need help with Python programming"
+            )
+        
+        try:
+            # Log telemetry for search
+            search_start = time.time()
+            
+            # Perform agent discovery
+            result = self.discovery.discover_agents(query, limit=5, min_score=0.3)
+            
+            search_time = time.time() - search_start
+            if self.telemetry:
+                self.telemetry.log_agent_discovery(query, len(result.recommended_agents), search_time)
+            
+            # Format response
+            if not result.recommended_agents:
+                response_text = f"🔍 No agents found for: '{query}'\n\n"
+                response_text += "💡 Suggestions:\n"
+                for suggestion in result.suggestions[:3]:
+                    response_text += f"  • {suggestion}\n"
+            else:
+                response_text = f"🔍 Found {len(result.recommended_agents)} agents for: '{query}'\n\n"
+                
+                for i, agent_score in enumerate(result.recommended_agents, 1):
+                    agent_data = self.discovery.get_agent_details(agent_score.agent_id)
+                    if agent_data:
+                        response_text += f"{i}. @{agent_score.agent_id} (Score: {agent_score.score:.2f})\n"
+                        response_text += f"   📋 {agent_data.get('description', 'No description')}\n"
+                        response_text += f"   🏷️ {', '.join(agent_data.get('capabilities', [])[:3])}\n"
+                        if agent_score.match_reasons:
+                            response_text += f"   ✅ {agent_score.match_reasons[0]}\n"
+                        response_text += "\n"
+                
+                response_text += f"💬 To contact an agent, use: @agent-id your message\n"
+                response_text += f"⏱️ Search completed in {search_time:.2f}s"
+            
+            return self._create_response(original_msg, conversation_id, response_text)
+            
+        except Exception as e:
+            logger.error(f"Search error: {e}")
+            if self.telemetry:
+                self.telemetry.log_error(f"Search query failed: {str(e)}", {"query": query})
+            
+            return self._create_response(
+                original_msg, conversation_id,
+                f"🔍 Search failed: {str(e)}"
+            )
+    
+    def _handle_agent_mention(self, user_text: str, original_msg: Message, conversation_id: str) -> Message:
+        """Handle @agent-id mentions for A2A communication"""
+        try:
+            # Parse @agent-id message format
+            parts = user_text.split(" ", 1)
+            if len(parts) < 2:
+                return self._create_response(
+                    original_msg, conversation_id,
+                    "💬 Usage: @agent-id your message\nExample: @data-scientist Can you analyze this data?"
+                )
+            
+            target_agent_id = parts[0][1:]  # Remove @ symbol
+            message_text = parts[1]
+            
+            # Send message to target agent
+            response = self._send_to_agent(target_agent_id, message_text, conversation_id)
+            
+            # Log response time for telemetry
+            if self.telemetry:
+                response_time = time.time() - time.time()  # This would be calculated properly in real implementation
+                self.telemetry.log_response_time(response_time, "agent_to_agent")
+            
+            return self._create_response(original_msg, conversation_id, response)
+            
+        except Exception as e:
+            logger.error(f"Agent mention error: {e}")
+            if self.telemetry:
+                self.telemetry.log_error(f"Agent mention failed: {str(e)}", {"message": user_text})
+            
+            return self._create_response(
+                original_msg, conversation_id,
+                f"💬 Failed to contact agent: {str(e)}"
+            )

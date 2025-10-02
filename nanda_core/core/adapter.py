@@ -23,7 +23,7 @@ class NANDA:
                  registry_url: Optional[str] = None,
                  public_url: Optional[str] = None,
                  host: str = "0.0.0.0",
-                 enable_telemetry: bool = False):
+                 enable_telemetry: bool = True):
         """
         Create a simple NANDA agent
         

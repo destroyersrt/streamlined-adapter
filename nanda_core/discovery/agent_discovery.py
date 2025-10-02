@@ -82,8 +82,36 @@ class AgentDiscovery:
         """Get detailed information about a specific agent"""
         return self.registry_client.get_agent_metadata(agent_id)
 
+    def _make_agent_hashable(self, agent: Dict[str, Any]) -> tuple:
+        """Convert agent dict to hashable tuple, handling lists properly"""
+        hashable_items = []
+        for key, value in sorted(agent.items()):
+            if isinstance(value, list):
+                # Convert lists to tuples to make them hashable
+                hashable_items.append((key, tuple(value)))
+            elif isinstance(value, dict):
+                # Convert nested dicts to sorted tuples
+                hashable_items.append((key, tuple(sorted(value.items()))))
+            else:
+                hashable_items.append((key, value))
+        return tuple(hashable_items)
+
+    def _convert_hashable_to_dict(self, hashable_agent: tuple) -> Dict[str, Any]:
+        """Convert hashable tuple back to agent dictionary"""
+        agent_dict = {}
+        for key, value in hashable_agent:
+            if isinstance(value, tuple) and key in ['capabilities', 'expertise', 'tags']:
+                # Convert tuples back to lists for known list fields
+                agent_dict[key] = list(value)
+            elif isinstance(value, tuple) and len(value) > 0 and isinstance(value[0], tuple):
+                # Convert nested tuples back to dicts
+                agent_dict[key] = dict(value)
+            else:
+                agent_dict[key] = value
+        return agent_dict
+
     def _get_relevant_agents(self, task_analysis: TaskAnalysis,
-                           filters: Dict[str, Any] = None) -> List[Dict[str, Any]]:
+                            filters: Dict[str, Any] = None) -> List[Dict[str, Any]]:
         """Get agents relevant to the task"""
 
         # Start with capability-based search
@@ -97,11 +125,11 @@ class AgentDiscovery:
             # Handle both dict and string responses
             for agent in cap_agents:
                 if isinstance(agent, dict):
-                    agents.update([tuple(sorted(agent.items()))])
+                    agents.update([self._make_agent_hashable(agent)])
                 elif isinstance(agent, str):
                     # Create a basic dict from string agent ID
                     agent_dict = {"agent_id": agent, "description": "Agent from registry"}
-                    agents.update([tuple(sorted(agent_dict.items()))])
+                    agents.update([self._make_agent_hashable(agent_dict)])
 
         # Search by domain
         if task_analysis.domain and task_analysis.domain != "general":
@@ -111,11 +139,11 @@ class AgentDiscovery:
             # Handle both dict and string responses
             for agent in domain_agents:
                 if isinstance(agent, dict):
-                    agents.update([tuple(sorted(agent.items()))])
+                    agents.update([self._make_agent_hashable(agent)])
                 elif isinstance(agent, str):
                     # Create a basic dict from string agent ID
                     agent_dict = {"agent_id": agent, "description": "Agent from registry"}
-                    agents.update([tuple(sorted(agent_dict.items()))])
+                    agents.update([self._make_agent_hashable(agent_dict)])
 
         # Search by keywords
         if task_analysis.keywords:
@@ -124,14 +152,14 @@ class AgentDiscovery:
             # Handle both dict and string responses
             for agent in keyword_agents:
                 if isinstance(agent, dict):
-                    agents.update([tuple(sorted(agent.items()))])
+                    agents.update([self._make_agent_hashable(agent)])
                 elif isinstance(agent, str):
                     # Create a basic dict from string agent ID
                     agent_dict = {"agent_id": agent, "description": "Agent from registry"}
-                    agents.update([tuple(sorted(agent_dict.items()))])
+                    agents.update([self._make_agent_hashable(agent_dict)])
 
         # Convert back to list of dictionaries
-        agent_list = [dict(agent) for agent in agents]
+        agent_list = [self._convert_hashable_to_dict(agent) for agent in agents]
 
         # Apply additional filters
         if filters:

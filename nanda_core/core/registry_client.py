@@ -146,6 +146,14 @@ class RegistryClient:
                 agent_id_normalized = agent.get('agent_id', '').replace('-', ' ').replace('_', ' ').lower()
                 if any(word in agent_id_normalized for word in query_words):
                     score += 0.5
+                
+                # Additional partial matching for better coverage
+                for word in query_words:
+                    if word in agent_text:
+                        score += 0.2  # Small bonus for each word found
+                    # Check for partial matches in agent_id (e.g., "tech" in "tech-expert")
+                    if word in agent.get('agent_id', '').lower():
+                        score += 0.3
 
             # Score based on capability matching
             if capabilities:

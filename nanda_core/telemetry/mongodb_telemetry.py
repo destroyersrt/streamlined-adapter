@@ -10,6 +10,13 @@ from datetime import datetime, timedelta
 import json
 from dataclasses import dataclass, asdict
 
+# Load environment variables from .env file
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    print("⚠️ python-dotenv not installed. Using system environment variables only.")
+
 
 @dataclass
 class QueryTelemetry:

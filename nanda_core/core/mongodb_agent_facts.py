@@ -9,6 +9,13 @@ from pymongo import MongoClient
 from datetime import datetime
 import json
 
+# Load environment variables from .env file
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    print("⚠️ python-dotenv not installed. Using system environment variables only.")
+
 
 class MongoDBAgentFacts:
     """MongoDB client for agent facts with semantic search capabilities"""

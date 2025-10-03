@@ -23,14 +23,14 @@ class AgentRanker:
     """Ranks agents based on their suitability for specific tasks"""
 
     def __init__(self):
-        # Scoring weights for different factors
+        # Simplified scoring - only capability matching matters
         self.weights = {
-            "capability_match": 0.35,
-            "domain_match": 0.25,
-            "keyword_match": 0.20,
-            "performance": 0.10,
-            "availability": 0.05,
-            "load": 0.05
+            "capability_match": 1.0,
+            "domain_match": 0.0,
+            "keyword_match": 0.0,
+            "performance": 0.0,
+            "availability": 0.0,
+            "load": 0.0
         }
 
     def rank_agents(self, agents: List[Dict[str, Any]], task_analysis: Any,
@@ -93,30 +93,69 @@ class AgentRanker:
 
     def _score_capabilities(self, agent: Dict[str, Any], task_analysis: Any,
                           match_reasons: List[str]) -> float:
-        """Score based on capability matching"""
-        agent_capabilities = set(agent.get("capabilities", []))
-        required_capabilities = set(task_analysis.required_capabilities)
-
-        if not required_capabilities:
-            return 0.7  # Neutral score when no specific requirements
-
-        if not agent_capabilities:
-            return 0.3  # Low score for agents with no declared capabilities
-
-        # Calculate overlap
-        matching_caps = agent_capabilities.intersection(required_capabilities)
-        match_ratio = len(matching_caps) / len(required_capabilities)
-
-        if matching_caps:
-            match_reasons.append(f"Matching capabilities: {', '.join(matching_caps)}")
-
-        # Bonus for having more relevant capabilities than required
-        if len(matching_caps) == len(required_capabilities):
-            extra_relevant = len(agent_capabilities) - len(required_capabilities)
-            bonus = min(0.2, extra_relevant * 0.05)
-            match_ratio += bonus
-
-        return min(1.0, match_ratio)
+        """Score based on capability matching - simplified and more aggressive"""
+        
+        # Get agent capabilities from different sources
+        agent_capabilities = set()
+        
+        # From capabilities field
+        if "capabilities" in agent:
+            caps = agent["capabilities"]
+            if isinstance(caps, dict) and "technical_skills" in caps:
+                agent_capabilities.update(caps["technical_skills"])
+            elif isinstance(caps, list):
+                agent_capabilities.update(caps)
+        
+        # From specialization and description (keyword matching)
+        specialization = agent.get("specialization", "").lower()
+        description = agent.get("description", "").lower()
+        
+        # Extract keywords from task
+        task_keywords = set()
+        if hasattr(task_analysis, 'keywords') and task_analysis.keywords:
+            task_keywords.update(word.lower() for word in task_analysis.keywords)
+        if hasattr(task_analysis, 'required_capabilities') and task_analysis.required_capabilities:
+            task_keywords.update(word.lower() for word in task_analysis.required_capabilities)
+        
+        if not task_keywords:
+            return 0.5  # Neutral score when no specific requirements
+            
+        # Calculate matches
+        capability_matches = set()
+        keyword_matches = set()
+        
+        # Direct capability matches
+        for cap in agent_capabilities:
+            cap_lower = cap.lower()
+            for keyword in task_keywords:
+                if keyword in cap_lower or cap_lower in keyword:
+                    capability_matches.add(keyword)
+        
+        # Keyword matches in specialization/description
+        for keyword in task_keywords:
+            if keyword in specialization or keyword in description:
+                keyword_matches.add(keyword)
+        
+        all_matches = capability_matches.union(keyword_matches)
+        
+        if all_matches:
+            match_reasons.append(f"Matching capabilities: {', '.join(all_matches)}")
+        
+        # Calculate score based on match ratio
+        if not task_keywords:
+            return 0.5
+            
+        match_ratio = len(all_matches) / len(task_keywords)
+        
+        # Boost score for good matches
+        if match_ratio >= 0.8:  # 80%+ match
+            return min(1.0, 0.8 + (match_ratio - 0.8) * 2)  # 0.8 to 1.0
+        elif match_ratio >= 0.5:  # 50%+ match  
+            return 0.5 + (match_ratio - 0.5) * 1.0  # 0.5 to 0.8
+        elif match_ratio >= 0.2:  # 20%+ match
+            return 0.2 + (match_ratio - 0.2) * 1.0  # 0.2 to 0.5
+        else:
+            return match_ratio  # 0.0 to 0.2
 
     def _score_domain(self, agent: Dict[str, Any], task_analysis: Any,
                      match_reasons: List[str]) -> float:

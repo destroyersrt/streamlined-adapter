@@ -48,6 +48,46 @@ class AgentRanker:
 
         return agent_scores
 
+    def _normalize_registry_score(self, registry_score: float, agent: Dict[str, Any], match_reasons: List[str]) -> float:
+        """Normalize registry scores to consistent 0-1 scale"""
+        
+        structure_type = agent.get('structure_type', 'unknown')
+        
+        if structure_type == 'embedding':
+            # Embedding scores are already 0-1 (cosine similarity)
+            normalized = min(1.0, max(0.0, registry_score))
+            match_reasons.append(f"Cosine similarity: {registry_score:.3f}")
+            
+        elif structure_type == 'keywords':
+            # Keywords scores are raw match counts (typically 0-5)
+            # Normalize to 0-1 scale with sigmoid-like curve
+            if registry_score <= 0:
+                normalized = 0.0
+            elif registry_score >= 4.0:
+                normalized = 0.95  # Cap at 0.95 for very high matches
+            else:
+                # Scale 0-4 to 0.0-0.95
+                normalized = (registry_score / 4.0) * 0.95
+            match_reasons.append(f"Keyword matches: {registry_score:.2f} → {normalized:.2f}")
+            
+        elif structure_type == 'description':
+            # Description scores are text similarity (typically 0-5)
+            # Similar normalization as keywords
+            if registry_score <= 0:
+                normalized = 0.0
+            elif registry_score >= 4.0:
+                normalized = 0.95
+            else:
+                normalized = (registry_score / 4.0) * 0.95
+            match_reasons.append(f"Text similarity: {registry_score:.2f} → {normalized:.2f}")
+            
+        else:
+            # Unknown structure type - conservative normalization
+            normalized = min(0.8, registry_score / 5.0) if registry_score > 0 else 0.0
+            match_reasons.append(f"Registry score: {registry_score:.2f} → {normalized:.2f}")
+        
+        return normalized
+
     def _score_agent(self, agent: Dict[str, Any], task_analysis: Any,
                     performance_data: Dict[str, Any] = None) -> AgentScore:
         """Calculate comprehensive score for a single agent"""
@@ -55,15 +95,25 @@ class AgentRanker:
         agent_id = agent.get("agent_id", "unknown")
         match_reasons = []
 
-        # Calculate individual scores
-        capability_score = self._score_capabilities(agent, task_analysis, match_reasons)
+        # Check if agent already has a score from registry search
+        registry_score = agent.get('score', None)
+        
+        if registry_score is not None:
+            # Use and normalize registry score for consistency
+            normalized_score = self._normalize_registry_score(registry_score, agent, match_reasons)
+            capability_score = normalized_score
+        else:
+            # Calculate our own capability score
+            capability_score = self._score_capabilities(agent, task_analysis, match_reasons)
+        
+        # Other scores (currently weighted to 0, but kept for future use)
         domain_score = self._score_domain(agent, task_analysis, match_reasons)
         keyword_score = self._score_keywords(agent, task_analysis, match_reasons)
         performance_score = self._score_performance(agent, performance_data)
         availability_score = self._score_availability(agent)
         load_score = self._score_load(agent)
 
-        # Calculate weighted total score
+        # Calculate weighted total score (currently only capability_score matters)
         total_score = (
             capability_score * self.weights["capability_match"] +
             domain_score * self.weights["domain_match"] +
@@ -87,7 +137,9 @@ class AgentRanker:
                 "keyword_score": keyword_score,
                 "performance_score": performance_score,
                 "availability_score": availability_score,
-                "load_score": load_score
+                "load_score": load_score,
+                "registry_score": registry_score,
+                "normalized_score": capability_score if registry_score else None
             }
         )
 
@@ -317,7 +369,7 @@ class AgentRanker:
         # Filter by minimum score and confidence
         filtered = [
             score for score in agent_scores
-            if score.score >= min_score and score.confidence >= 0.4
+            if score.score >= min_score and score.confidence >= 0.3
         ]
 
         return filtered[:limit]

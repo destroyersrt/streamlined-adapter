@@ -224,7 +224,7 @@ class SimpleAgentBridge(A2AServer):
             )
             
             if self.telemetry:
-                self.telemetry.log_agent_message_sent(self.agent_id, target_agent_id, conversation_id)
+                self.telemetry.log_message_sent(target_agent_id, conversation_id, success=True)
             
             # Extract the actual response content from the target agent
             logger.info(f"🔍 [{self.agent_id}] Response type: {type(response)}, has parts: {hasattr(response, 'parts') if response else 'None'}")

@@ -181,10 +181,13 @@ def create_domain_agent_logic() -> Callable[[str, str], str]:
 def main():
     """Main function to run the domain agent"""
     
-    # Get agent configuration from environment variables
-    agent_id = os.getenv("AGENT_ID", "domain-agent-001")
+    # Get agent configuration from environment variables with runtime hex
+    base_agent_id = os.getenv("AGENT_ID", "domain-agent-001")
+    runtime_hex = os.urandom(3).hex()
+    agent_id = f"{base_agent_id}-{runtime_hex}"
     port = int(os.getenv("PORT", "6000"))
     registry_url = os.getenv("REGISTRY_URL", "http://capregistry.duckdns.org:6900")
+    public_url = os.getenv("PUBLIC_URL")  # Get public URL from env
     
     # Get domain-specific configuration
     domain = os.getenv("AGENT_DOMAIN", "general")
@@ -198,6 +201,8 @@ def main():
     print(f"🏗️ Structure Type: {structure_type}")
     print(f"🔌 Port: {port}")
     print(f"🌐 Registry: {registry_url}")
+    if public_url:
+        print(f"🔗 Public URL: {public_url}")
     print("")
     
     # Create the domain agent logic
@@ -208,7 +213,8 @@ def main():
         agent_id=agent_id,
         agent_logic=agent_logic,
         port=port,
-        registry_url=registry_url
+        registry_url=registry_url,
+        public_url=public_url  # Pass public_url to NANDA constructor
     )
     
     # Add domain-specific metadata for registration
@@ -226,7 +232,7 @@ def main():
     }
     
     print(f"🎯 Agent ready to serve {domain.replace('_', ' ')} expertise using {structure_type} capabilities!")
-    nanda.run()
+    nanda.start()
 
 
 if __name__ == "__main__":

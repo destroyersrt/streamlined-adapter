@@ -42,7 +42,7 @@ class MongoDBAgentFacts:
         try:
             self.client = MongoClient(self.mongodb_uri, serverSelectionTimeoutMS=5000)
             self.db = self.client.nanda_test
-            self.collection = self.db.agentFacts
+            self.collection = self.db.agent_facts
             # Test connection
             self.client.admin.command('ping')
             print("✅ Connected to MongoDB test cluster")

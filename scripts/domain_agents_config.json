@@ -1,0 +1,1082 @@
+[
+  {
+    "agent_id": "data-science-kw-001",
+    "agent_name": "Data Science Keywords Agent 1",
+    "domain": "data_science",
+    "structure_type": "keywords",
+    "specialization": "Data Science and Machine Learning",
+    "description": "Expert in data science, machine learning, and statistical analysis using keyword-based capabilities.",
+    "capabilities": ["data science", "machine learning", "statistics", "python", "r", "analysis"],
+    "port": 6000,
+    "system_prompt": "You are a data science expert specializing in machine learning and statistical analysis. Focus on keyword-based matching for capabilities. Answer questions about anomaly detection, ML algorithms, data preprocessing, and AI ethics.",
+    "questions": [
+      "What is the best approach for anomaly detection in time series data?",
+      "Explain the difference between bagging and boosting in ensemble learning.",
+      "How do you handle missing values in a large dataset?",
+      "What are the ethical considerations in deploying AI models?",
+      "Describe a project where you used deep learning for natural language processing."
+    ]
+  },
+  {
+    "agent_id": "data-science-kw-002",
+    "agent_name": "Data Science Keywords Agent 2",
+    "domain": "data_science",
+    "structure_type": "keywords",
+    "specialization": "Data Science and Machine Learning",
+    "description": "Expert in data science, machine learning, and statistical analysis using keyword-based capabilities.",
+    "capabilities": ["data science", "machine learning", "statistics", "python", "r", "analysis"],
+    "port": 6001,
+    "system_prompt": "You are a data science expert specializing in machine learning and statistical analysis. Focus on keyword-based matching for capabilities. Answer questions about anomaly detection, ML algorithms, data preprocessing, and AI ethics.",
+    "questions": [
+      "What is the best approach for anomaly detection in time series data?",
+      "Explain the difference between bagging and boosting in ensemble learning.",
+      "How do you handle missing values in a large dataset?",
+      "What are the ethical considerations in deploying AI models?",
+      "Describe a project where you used deep learning for natural language processing."
+    ]
+  },
+  {
+    "agent_id": "data-science-kw-003",
+    "agent_name": "Data Science Keywords Agent 3",
+    "domain": "data_science",
+    "structure_type": "keywords",
+    "specialization": "Data Science and Machine Learning",
+    "description": "Expert in data science, machine learning, and statistical analysis using keyword-based capabilities.",
+    "capabilities": ["data science", "machine learning", "statistics", "python", "r", "analysis"],
+    "port": 6002,
+    "system_prompt": "You are a data science expert specializing in machine learning and statistical analysis. Focus on keyword-based matching for capabilities. Answer questions about anomaly detection, ML algorithms, data preprocessing, and AI ethics.",
+    "questions": [
+      "What is the best approach for anomaly detection in time series data?",
+      "Explain the difference between bagging and boosting in ensemble learning.",
+      "How do you handle missing values in a large dataset?",
+      "What are the ethical considerations in deploying AI models?",
+      "Describe a project where you used deep learning for natural language processing."
+    ]
+  },
+  {
+    "agent_id": "data-science-kw-004",
+    "agent_name": "Data Science Keywords Agent 4",
+    "domain": "data_science",
+    "structure_type": "keywords",
+    "specialization": "Data Science and Machine Learning",
+    "description": "Expert in data science, machine learning, and statistical analysis using keyword-based capabilities.",
+    "capabilities": ["data science", "machine learning", "statistics", "python", "r", "analysis"],
+    "port": 6003,
+    "system_prompt": "You are a data science expert specializing in machine learning and statistical analysis. Focus on keyword-based matching for capabilities. Answer questions about anomaly detection, ML algorithms, data preprocessing, and AI ethics.",
+    "questions": [
+      "What is the best approach for anomaly detection in time series data?",
+      "Explain the difference between bagging and boosting in ensemble learning.",
+      "How do you handle missing values in a large dataset?",
+      "What are the ethical considerations in deploying AI models?",
+      "Describe a project where you used deep learning for natural language processing."
+    ]
+  },
+  {
+    "agent_id": "data-science-kw-005",
+    "agent_name": "Data Science Keywords Agent 5",
+    "domain": "data_science",
+    "structure_type": "keywords",
+    "specialization": "Data Science and Machine Learning",
+    "description": "Expert in data science, machine learning, and statistical analysis using keyword-based capabilities.",
+    "capabilities": ["data science", "machine learning", "statistics", "python", "r", "analysis"],
+    "port": 6004,
+    "system_prompt": "You are a data science expert specializing in machine learning and statistical analysis. Focus on keyword-based matching for capabilities. Answer questions about anomaly detection, ML algorithms, data preprocessing, and AI ethics.",
+    "questions": [
+      "What is the best approach for anomaly detection in time series data?",
+      "Explain the difference between bagging and boosting in ensemble learning.",
+      "How do you handle missing values in a large dataset?",
+      "What are the ethical considerations in deploying AI models?",
+      "Describe a project where you used deep learning for natural language processing."
+    ]
+  },
+  {
+    "agent_id": "data-science-desc-001",
+    "agent_name": "Data Science Description Agent 1",
+    "domain": "data_science",
+    "structure_type": "description",
+    "specialization": "Data Science and Machine Learning",
+    "description": "Comprehensive data science expert with extensive experience in machine learning algorithms, statistical modeling, data preprocessing, feature engineering, model evaluation, and deployment of ML systems in production environments. Specializes in predictive analytics, deep learning, and AI ethics.",
+    "capabilities": ["data science", "machine learning", "statistics", "python", "r", "analysis"],
+    "port": 6005,
+    "system_prompt": "You are a comprehensive data science expert with deep knowledge in machine learning, statistical analysis, and AI systems. Use detailed descriptions to match capabilities. Answer questions about anomaly detection, ML algorithms, data preprocessing, and AI ethics.",
+    "questions": [
+      "What is the best approach for anomaly detection in time series data?",
+      "Explain the difference between bagging and boosting in ensemble learning.",
+      "How do you handle missing values in a large dataset?",
+      "What are the ethical considerations in deploying AI models?",
+      "Describe a project where you used deep learning for natural language processing."
+    ]
+  },
+  {
+    "agent_id": "data-science-desc-002",
+    "agent_name": "Data Science Description Agent 2",
+    "domain": "data_science",
+    "structure_type": "description",
+    "specialization": "Data Science and Machine Learning",
+    "description": "Comprehensive data science expert with extensive experience in machine learning algorithms, statistical modeling, data preprocessing, feature engineering, model evaluation, and deployment of ML systems in production environments. Specializes in predictive analytics, deep learning, and AI ethics.",
+    "capabilities": ["data science", "machine learning", "statistics", "python", "r", "analysis"],
+    "port": 6006,
+    "system_prompt": "You are a comprehensive data science expert with deep knowledge in machine learning, statistical analysis, and AI systems. Use detailed descriptions to match capabilities. Answer questions about anomaly detection, ML algorithms, data preprocessing, and AI ethics.",
+    "questions": [
+      "What is the best approach for anomaly detection in time series data?",
+      "Explain the difference between bagging and boosting in ensemble learning.",
+      "How do you handle missing values in a large dataset?",
+      "What are the ethical considerations in deploying AI models?",
+      "Describe a project where you used deep learning for natural language processing."
+    ]
+  },
+  {
+    "agent_id": "data-science-desc-003",
+    "agent_name": "Data Science Description Agent 3",
+    "domain": "data_science",
+    "structure_type": "description",
+    "specialization": "Data Science and Machine Learning",
+    "description": "Comprehensive data science expert with extensive experience in machine learning algorithms, statistical modeling, data preprocessing, feature engineering, model evaluation, and deployment of ML systems in production environments. Specializes in predictive analytics, deep learning, and AI ethics.",
+    "capabilities": ["data science", "machine learning", "statistics", "python", "r", "analysis"],
+    "port": 6007,
+    "system_prompt": "You are a comprehensive data science expert with deep knowledge in machine learning, statistical analysis, and AI systems. Use detailed descriptions to match capabilities. Answer questions about anomaly detection, ML algorithms, data preprocessing, and AI ethics.",
+    "questions": [
+      "What is the best approach for anomaly detection in time series data?",
+      "Explain the difference between bagging and boosting in ensemble learning.",
+      "How do you handle missing values in a large dataset?",
+      "What are the ethical considerations in deploying AI models?",
+      "Describe a project where you used deep learning for natural language processing."
+    ]
+  },
+  {
+    "agent_id": "data-science-desc-004",
+    "agent_name": "Data Science Description Agent 4",
+    "domain": "data_science",
+    "structure_type": "description",
+    "specialization": "Data Science and Machine Learning",
+    "description": "Comprehensive data science expert with extensive experience in machine learning algorithms, statistical modeling, data preprocessing, feature engineering, model evaluation, and deployment of ML systems in production environments. Specializes in predictive analytics, deep learning, and AI ethics.",
+    "capabilities": ["data science", "machine learning", "statistics", "python", "r", "analysis"],
+    "port": 6008,
+    "system_prompt": "You are a comprehensive data science expert with deep knowledge in machine learning, statistical analysis, and AI systems. Use detailed descriptions to match capabilities. Answer questions about anomaly detection, ML algorithms, data preprocessing, and AI ethics.",
+    "questions": [
+      "What is the best approach for anomaly detection in time series data?",
+      "Explain the difference between bagging and boosting in ensemble learning.",
+      "How do you handle missing values in a large dataset?",
+      "What are the ethical considerations in deploying AI models?",
+      "Describe a project where you used deep learning for natural language processing."
+    ]
+  },
+  {
+    "agent_id": "data-science-desc-005",
+    "agent_name": "Data Science Description Agent 5",
+    "domain": "data_science",
+    "structure_type": "description",
+    "specialization": "Data Science and Machine Learning",
+    "description": "Comprehensive data science expert with extensive experience in machine learning algorithms, statistical modeling, data preprocessing, feature engineering, model evaluation, and deployment of ML systems in production environments. Specializes in predictive analytics, deep learning, and AI ethics.",
+    "capabilities": ["data science", "machine learning", "statistics", "python", "r", "analysis"],
+    "port": 6009,
+    "system_prompt": "You are a comprehensive data science expert with deep knowledge in machine learning, statistical analysis, and AI systems. Use detailed descriptions to match capabilities. Answer questions about anomaly detection, ML algorithms, data preprocessing, and AI ethics.",
+    "questions": [
+      "What is the best approach for anomaly detection in time series data?",
+      "Explain the difference between bagging and boosting in ensemble learning.",
+      "How do you handle missing values in a large dataset?",
+      "What are the ethical considerations in deploying AI models?",
+      "Describe a project where you used deep learning for natural language processing."
+    ]
+  },
+  {
+    "agent_id": "data-science-embed-001",
+    "agent_name": "Data Science Embedding Agent 1",
+    "domain": "data_science",
+    "structure_type": "embedding",
+    "specialization": "Data Science and Machine Learning",
+    "description": "Advanced data science practitioner with comprehensive expertise in machine learning algorithms, statistical analysis, data visualization, predictive modeling, deep learning architectures, natural language processing, computer vision, and AI ethics. Experienced in end-to-end ML pipeline development from data collection and preprocessing to model deployment, monitoring, and maintenance in production environments.",
+    "capabilities": ["data science", "machine learning", "statistics", "python", "r", "analysis"],
+    "port": 6010,
+    "system_prompt": "You are an advanced data science expert with comprehensive knowledge in ML, statistics, and AI systems. Use semantic embedding-based matching for capabilities. Answer questions about anomaly detection, ML algorithms, data preprocessing, and AI ethics.",
+    "questions": [
+      "What is the best approach for anomaly detection in time series data?",
+      "Explain the difference between bagging and boosting in ensemble learning.",
+      "How do you handle missing values in a large dataset?",
+      "What are the ethical considerations in deploying AI models?",
+      "Describe a project where you used deep learning for natural language processing."
+    ]
+  },
+  {
+    "agent_id": "data-science-embed-002",
+    "agent_name": "Data Science Embedding Agent 2",
+    "domain": "data_science",
+    "structure_type": "embedding",
+    "specialization": "Data Science and Machine Learning",
+    "description": "Advanced data science practitioner with comprehensive expertise in machine learning algorithms, statistical analysis, data visualization, predictive modeling, deep learning architectures, natural language processing, computer vision, and AI ethics. Experienced in end-to-end ML pipeline development from data collection and preprocessing to model deployment, monitoring, and maintenance in production environments.",
+    "capabilities": ["data science", "machine learning", "statistics", "python", "r", "analysis"],
+    "port": 6011,
+    "system_prompt": "You are an advanced data science expert with comprehensive knowledge in ML, statistics, and AI systems. Use semantic embedding-based matching for capabilities. Answer questions about anomaly detection, ML algorithms, data preprocessing, and AI ethics.",
+    "questions": [
+      "What is the best approach for anomaly detection in time series data?",
+      "Explain the difference between bagging and boosting in ensemble learning.",
+      "How do you handle missing values in a large dataset?",
+      "What are the ethical considerations in deploying AI models?",
+      "Describe a project where you used deep learning for natural language processing."
+    ]
+  },
+  {
+    "agent_id": "data-science-embed-003",
+    "agent_name": "Data Science Embedding Agent 3",
+    "domain": "data_science",
+    "structure_type": "embedding",
+    "specialization": "Data Science and Machine Learning",
+    "description": "Advanced data science practitioner with comprehensive expertise in machine learning algorithms, statistical analysis, data visualization, predictive modeling, deep learning architectures, natural language processing, computer vision, and AI ethics. Experienced in end-to-end ML pipeline development from data collection and preprocessing to model deployment, monitoring, and maintenance in production environments.",
+    "capabilities": ["data science", "machine learning", "statistics", "python", "r", "analysis"],
+    "port": 6012,
+    "system_prompt": "You are an advanced data science expert with comprehensive knowledge in ML, statistics, and AI systems. Use semantic embedding-based matching for capabilities. Answer questions about anomaly detection, ML algorithms, data preprocessing, and AI ethics.",
+    "questions": [
+      "What is the best approach for anomaly detection in time series data?",
+      "Explain the difference between bagging and boosting in ensemble learning.",
+      "How do you handle missing values in a large dataset?",
+      "What are the ethical considerations in deploying AI models?",
+      "Describe a project where you used deep learning for natural language processing."
+    ]
+  },
+  {
+    "agent_id": "data-science-embed-004",
+    "agent_name": "Data Science Embedding Agent 4",
+    "domain": "data_science",
+    "structure_type": "embedding",
+    "specialization": "Data Science and Machine Learning",
+    "description": "Advanced data science practitioner with comprehensive expertise in machine learning algorithms, statistical analysis, data visualization, predictive modeling, deep learning architectures, natural language processing, computer vision, and AI ethics. Experienced in end-to-end ML pipeline development from data collection and preprocessing to model deployment, monitoring, and maintenance in production environments.",
+    "capabilities": ["data science", "machine learning", "statistics", "python", "r", "analysis"],
+    "port": 6013,
+    "system_prompt": "You are an advanced data science expert with comprehensive knowledge in ML, statistics, and AI systems. Use semantic embedding-based matching for capabilities. Answer questions about anomaly detection, ML algorithms, data preprocessing, and AI ethics.",
+    "questions": [
+      "What is the best approach for anomaly detection in time series data?",
+      "Explain the difference between bagging and boosting in ensemble learning.",
+      "How do you handle missing values in a large dataset?",
+      "What are the ethical considerations in deploying AI models?",
+      "Describe a project where you used deep learning for natural language processing."
+    ]
+  },
+  {
+    "agent_id": "data-science-embed-005",
+    "agent_name": "Data Science Embedding Agent 5",
+    "domain": "data_science",
+    "structure_type": "embedding",
+    "specialization": "Data Science and Machine Learning",
+    "description": "Advanced data science practitioner with comprehensive expertise in machine learning algorithms, statistical analysis, data visualization, predictive modeling, deep learning architectures, natural language processing, computer vision, and AI ethics. Experienced in end-to-end ML pipeline development from data collection and preprocessing to model deployment, monitoring, and maintenance in production environments.",
+    "capabilities": ["data science", "machine learning", "statistics", "python", "r", "analysis"],
+    "port": 6014,
+    "system_prompt": "You are an advanced data science expert with comprehensive knowledge in ML, statistics, and AI systems. Use semantic embedding-based matching for capabilities. Answer questions about anomaly detection, ML algorithms, data preprocessing, and AI ethics.",
+    "questions": [
+      "What is the best approach for anomaly detection in time series data?",
+      "Explain the difference between bagging and boosting in ensemble learning.",
+      "How do you handle missing values in a large dataset?",
+      "What are the ethical considerations in deploying AI models?",
+      "Describe a project where you used deep learning for natural language processing."
+    ]
+  },
+  {
+    "agent_id": "web-development-kw-001",
+    "agent_name": "Web Development Keywords Agent 1",
+    "domain": "web_development",
+    "structure_type": "keywords",
+    "specialization": "Full-Stack Web Development",
+    "description": "Skilled in front-end and back-end web development using keyword-based capabilities.",
+    "capabilities": ["web development", "full stack", "react", "node.js", "javascript", "api"],
+    "port": 6015,
+    "system_prompt": "You are a full-stack web development expert specializing in modern JavaScript frameworks. Focus on keyword-based matching for capabilities. Answer questions about React optimization, serverless architecture, API security, CI/CD, and state management.",
+    "questions": [
+      "How do you optimize a React application for performance?",
+      "Explain the concept of serverless architecture in web development.",
+      "What are the security best practices for a RESTful API?",
+      "Describe your experience with continuous integration/continuous deployment (CI/CD) for web apps.",
+      "How do you handle state management in a complex front-end application?"
+    ]
+  },
+  {
+    "agent_id": "web-development-kw-002",
+    "agent_name": "Web Development Keywords Agent 2",
+    "domain": "web_development",
+    "structure_type": "keywords",
+    "specialization": "Full-Stack Web Development",
+    "description": "Skilled in front-end and back-end web development using keyword-based capabilities.",
+    "capabilities": ["web development", "full stack", "react", "node.js", "javascript", "api"],
+    "port": 6016,
+    "system_prompt": "You are a full-stack web development expert specializing in modern JavaScript frameworks. Focus on keyword-based matching for capabilities. Answer questions about React optimization, serverless architecture, API security, CI/CD, and state management.",
+    "questions": [
+      "How do you optimize a React application for performance?",
+      "Explain the concept of serverless architecture in web development.",
+      "What are the security best practices for a RESTful API?",
+      "Describe your experience with continuous integration/continuous deployment (CI/CD) for web apps.",
+      "How do you handle state management in a complex front-end application?"
+    ]
+  },
+  {
+    "agent_id": "web-development-kw-003",
+    "agent_name": "Web Development Keywords Agent 3",
+    "domain": "web_development",
+    "structure_type": "keywords",
+    "specialization": "Full-Stack Web Development",
+    "description": "Skilled in front-end and back-end web development using keyword-based capabilities.",
+    "capabilities": ["web development", "full stack", "react", "node.js", "javascript", "api"],
+    "port": 6017,
+    "system_prompt": "You are a full-stack web development expert specializing in modern JavaScript frameworks. Focus on keyword-based matching for capabilities. Answer questions about React optimization, serverless architecture, API security, CI/CD, and state management.",
+    "questions": [
+      "How do you optimize a React application for performance?",
+      "Explain the concept of serverless architecture in web development.",
+      "What are the security best practices for a RESTful API?",
+      "Describe your experience with continuous integration/continuous deployment (CI/CD) for web apps.",
+      "How do you handle state management in a complex front-end application?"
+    ]
+  },
+  {
+    "agent_id": "web-development-kw-004",
+    "agent_name": "Web Development Keywords Agent 4",
+    "domain": "web_development",
+    "structure_type": "keywords",
+    "specialization": "Full-Stack Web Development",
+    "description": "Skilled in front-end and back-end web development using keyword-based capabilities.",
+    "capabilities": ["web development", "full stack", "react", "node.js", "javascript", "api"],
+    "port": 6018,
+    "system_prompt": "You are a full-stack web development expert specializing in modern JavaScript frameworks. Focus on keyword-based matching for capabilities. Answer questions about React optimization, serverless architecture, API security, CI/CD, and state management.",
+    "questions": [
+      "How do you optimize a React application for performance?",
+      "Explain the concept of serverless architecture in web development.",
+      "What are the security best practices for a RESTful API?",
+      "Describe your experience with continuous integration/continuous deployment (CI/CD) for web apps.",
+      "How do you handle state management in a complex front-end application?"
+    ]
+  },
+  {
+    "agent_id": "web-development-kw-005",
+    "agent_name": "Web Development Keywords Agent 5",
+    "domain": "web_development",
+    "structure_type": "keywords",
+    "specialization": "Full-Stack Web Development",
+    "description": "Skilled in front-end and back-end web development using keyword-based capabilities.",
+    "capabilities": ["web development", "full stack", "react", "node.js", "javascript", "api"],
+    "port": 6019,
+    "system_prompt": "You are a full-stack web development expert specializing in modern JavaScript frameworks. Focus on keyword-based matching for capabilities. Answer questions about React optimization, serverless architecture, API security, CI/CD, and state management.",
+    "questions": [
+      "How do you optimize a React application for performance?",
+      "Explain the concept of serverless architecture in web development.",
+      "What are the security best practices for a RESTful API?",
+      "Describe your experience with continuous integration/continuous deployment (CI/CD) for web apps.",
+      "How do you handle state management in a complex front-end application?"
+    ]
+  },
+  {
+    "agent_id": "web-development-desc-001",
+    "agent_name": "Web Development Description Agent 1",
+    "domain": "web_development",
+    "structure_type": "description",
+    "specialization": "Full-Stack Web Development",
+    "description": "Comprehensive full-stack web developer with extensive experience in modern JavaScript frameworks, server-side technologies, database integration, API development, performance optimization, security implementation, and deployment strategies. Expert in React, Node.js, Express, MongoDB, PostgreSQL, and cloud deployment platforms.",
+    "capabilities": ["web development", "full stack", "react", "node.js", "javascript", "api"],
+    "port": 6020,
+    "system_prompt": "You are a comprehensive full-stack web developer with deep knowledge in modern web technologies. Use detailed descriptions to match capabilities. Answer questions about React optimization, serverless architecture, API security, CI/CD, and state management.",
+    "questions": [
+      "How do you optimize a React application for performance?",
+      "Explain the concept of serverless architecture in web development.",
+      "What are the security best practices for a RESTful API?",
+      "Describe your experience with continuous integration/continuous deployment (CI/CD) for web apps.",
+      "How do you handle state management in a complex front-end application?"
+    ]
+  },
+  {
+    "agent_id": "web-development-desc-002",
+    "agent_name": "Web Development Description Agent 2",
+    "domain": "web_development",
+    "structure_type": "description",
+    "specialization": "Full-Stack Web Development",
+    "description": "Comprehensive full-stack web developer with extensive experience in modern JavaScript frameworks, server-side technologies, database integration, API development, performance optimization, security implementation, and deployment strategies. Expert in React, Node.js, Express, MongoDB, PostgreSQL, and cloud deployment platforms.",
+    "capabilities": ["web development", "full stack", "react", "node.js", "javascript", "api"],
+    "port": 6021,
+    "system_prompt": "You are a comprehensive full-stack web developer with deep knowledge in modern web technologies. Use detailed descriptions to match capabilities. Answer questions about React optimization, serverless architecture, API security, CI/CD, and state management.",
+    "questions": [
+      "How do you optimize a React application for performance?",
+      "Explain the concept of serverless architecture in web development.",
+      "What are the security best practices for a RESTful API?",
+      "Describe your experience with continuous integration/continuous deployment (CI/CD) for web apps.",
+      "How do you handle state management in a complex front-end application?"
+    ]
+  },
+  {
+    "agent_id": "web-development-desc-003",
+    "agent_name": "Web Development Description Agent 3",
+    "domain": "web_development",
+    "structure_type": "description",
+    "specialization": "Full-Stack Web Development",
+    "description": "Comprehensive full-stack web developer with extensive experience in modern JavaScript frameworks, server-side technologies, database integration, API development, performance optimization, security implementation, and deployment strategies. Expert in React, Node.js, Express, MongoDB, PostgreSQL, and cloud deployment platforms.",
+    "capabilities": ["web development", "full stack", "react", "node.js", "javascript", "api"],
+    "port": 6022,
+    "system_prompt": "You are a comprehensive full-stack web developer with deep knowledge in modern web technologies. Use detailed descriptions to match capabilities. Answer questions about React optimization, serverless architecture, API security, CI/CD, and state management.",
+    "questions": [
+      "How do you optimize a React application for performance?",
+      "Explain the concept of serverless architecture in web development.",
+      "What are the security best practices for a RESTful API?",
+      "Describe your experience with continuous integration/continuous deployment (CI/CD) for web apps.",
+      "How do you handle state management in a complex front-end application?"
+    ]
+  },
+  {
+    "agent_id": "web-development-desc-004",
+    "agent_name": "Web Development Description Agent 4",
+    "domain": "web_development",
+    "structure_type": "description",
+    "specialization": "Full-Stack Web Development",
+    "description": "Comprehensive full-stack web developer with extensive experience in modern JavaScript frameworks, server-side technologies, database integration, API development, performance optimization, security implementation, and deployment strategies. Expert in React, Node.js, Express, MongoDB, PostgreSQL, and cloud deployment platforms.",
+    "capabilities": ["web development", "full stack", "react", "node.js", "javascript", "api"],
+    "port": 6023,
+    "system_prompt": "You are a comprehensive full-stack web developer with deep knowledge in modern web technologies. Use detailed descriptions to match capabilities. Answer questions about React optimization, serverless architecture, API security, CI/CD, and state management.",
+    "questions": [
+      "How do you optimize a React application for performance?",
+      "Explain the concept of serverless architecture in web development.",
+      "What are the security best practices for a RESTful API?",
+      "Describe your experience with continuous integration/continuous deployment (CI/CD) for web apps.",
+      "How do you handle state management in a complex front-end application?"
+    ]
+  },
+  {
+    "agent_id": "web-development-desc-005",
+    "agent_name": "Web Development Description Agent 5",
+    "domain": "web_development",
+    "structure_type": "description",
+    "specialization": "Full-Stack Web Development",
+    "description": "Comprehensive full-stack web developer with extensive experience in modern JavaScript frameworks, server-side technologies, database integration, API development, performance optimization, security implementation, and deployment strategies. Expert in React, Node.js, Express, MongoDB, PostgreSQL, and cloud deployment platforms.",
+    "capabilities": ["web development", "full stack", "react", "node.js", "javascript", "api"],
+    "port": 6024,
+    "system_prompt": "You are a comprehensive full-stack web developer with deep knowledge in modern web technologies. Use detailed descriptions to match capabilities. Answer questions about React optimization, serverless architecture, API security, CI/CD, and state management.",
+    "questions": [
+      "How do you optimize a React application for performance?",
+      "Explain the concept of serverless architecture in web development.",
+      "What are the security best practices for a RESTful API?",
+      "Describe your experience with continuous integration/continuous deployment (CI/CD) for web apps.",
+      "How do you handle state management in a complex front-end application?"
+    ]
+  },
+  {
+    "agent_id": "web-development-embed-001",
+    "agent_name": "Web Development Embedding Agent 1",
+    "domain": "web_development",
+    "structure_type": "embedding",
+    "specialization": "Full-Stack Web Development",
+    "description": "Advanced full-stack web developer with comprehensive expertise in modern JavaScript ecosystems, including React, Vue, Angular for frontend development, Node.js, Express, FastAPI for backend services, database design and optimization, RESTful and GraphQL API architecture, microservices patterns, containerization with Docker, cloud deployment on AWS/GCP/Azure, CI/CD pipeline implementation, performance optimization, security best practices, and DevOps methodologies for scalable web applications.",
+    "capabilities": ["web development", "full stack", "react", "node.js", "javascript", "api"],
+    "port": 6025,
+    "system_prompt": "You are an advanced full-stack web developer with comprehensive knowledge in modern web technologies and architecture. Use semantic embedding-based matching for capabilities. Answer questions about React optimization, serverless architecture, API security, CI/CD, and state management.",
+    "questions": [
+      "How do you optimize a React application for performance?",
+      "Explain the concept of serverless architecture in web development.",
+      "What are the security best practices for a RESTful API?",
+      "Describe your experience with continuous integration/continuous deployment (CI/CD) for web apps.",
+      "How do you handle state management in a complex front-end application?"
+    ]
+  },
+  {
+    "agent_id": "web-development-embed-002",
+    "agent_name": "Web Development Embedding Agent 2",
+    "domain": "web_development",
+    "structure_type": "embedding",
+    "specialization": "Full-Stack Web Development",
+    "description": "Advanced full-stack web developer with comprehensive expertise in modern JavaScript ecosystems, including React, Vue, Angular for frontend development, Node.js, Express, FastAPI for backend services, database design and optimization, RESTful and GraphQL API architecture, microservices patterns, containerization with Docker, cloud deployment on AWS/GCP/Azure, CI/CD pipeline implementation, performance optimization, security best practices, and DevOps methodologies for scalable web applications.",
+    "capabilities": ["web development", "full stack", "react", "node.js", "javascript", "api"],
+    "port": 6026,
+    "system_prompt": "You are an advanced full-stack web developer with comprehensive knowledge in modern web technologies and architecture. Use semantic embedding-based matching for capabilities. Answer questions about React optimization, serverless architecture, API security, CI/CD, and state management.",
+    "questions": [
+      "How do you optimize a React application for performance?",
+      "Explain the concept of serverless architecture in web development.",
+      "What are the security best practices for a RESTful API?",
+      "Describe your experience with continuous integration/continuous deployment (CI/CD) for web apps.",
+      "How do you handle state management in a complex front-end application?"
+    ]
+  },
+  {
+    "agent_id": "web-development-embed-003",
+    "agent_name": "Web Development Embedding Agent 3",
+    "domain": "web_development",
+    "structure_type": "embedding",
+    "specialization": "Full-Stack Web Development",
+    "description": "Advanced full-stack web developer with comprehensive expertise in modern JavaScript ecosystems, including React, Vue, Angular for frontend development, Node.js, Express, FastAPI for backend services, database design and optimization, RESTful and GraphQL API architecture, microservices patterns, containerization with Docker, cloud deployment on AWS/GCP/Azure, CI/CD pipeline implementation, performance optimization, security best practices, and DevOps methodologies for scalable web applications.",
+    "capabilities": ["web development", "full stack", "react", "node.js", "javascript", "api"],
+    "port": 6027,
+    "system_prompt": "You are an advanced full-stack web developer with comprehensive knowledge in modern web technologies and architecture. Use semantic embedding-based matching for capabilities. Answer questions about React optimization, serverless architecture, API security, CI/CD, and state management.",
+    "questions": [
+      "How do you optimize a React application for performance?",
+      "Explain the concept of serverless architecture in web development.",
+      "What are the security best practices for a RESTful API?",
+      "Describe your experience with continuous integration/continuous deployment (CI/CD) for web apps.",
+      "How do you handle state management in a complex front-end application?"
+    ]
+  },
+  {
+    "agent_id": "web-development-embed-004",
+    "agent_name": "Web Development Embedding Agent 4",
+    "domain": "web_development",
+    "structure_type": "embedding",
+    "specialization": "Full-Stack Web Development",
+    "description": "Advanced full-stack web developer with comprehensive expertise in modern JavaScript ecosystems, including React, Vue, Angular for frontend development, Node.js, Express, FastAPI for backend services, database design and optimization, RESTful and GraphQL API architecture, microservices patterns, containerization with Docker, cloud deployment on AWS/GCP/Azure, CI/CD pipeline implementation, performance optimization, security best practices, and DevOps methodologies for scalable web applications.",
+    "capabilities": ["web development", "full stack", "react", "node.js", "javascript", "api"],
+    "port": 6028,
+    "system_prompt": "You are an advanced full-stack web developer with comprehensive knowledge in modern web technologies and architecture. Use semantic embedding-based matching for capabilities. Answer questions about React optimization, serverless architecture, API security, CI/CD, and state management.",
+    "questions": [
+      "How do you optimize a React application for performance?",
+      "Explain the concept of serverless architecture in web development.",
+      "What are the security best practices for a RESTful API?",
+      "Describe your experience with continuous integration/continuous deployment (CI/CD) for web apps.",
+      "How do you handle state management in a complex front-end application?"
+    ]
+  },
+  {
+    "agent_id": "web-development-embed-005",
+    "agent_name": "Web Development Embedding Agent 5",
+    "domain": "web_development",
+    "structure_type": "embedding",
+    "specialization": "Full-Stack Web Development",
+    "description": "Advanced full-stack web developer with comprehensive expertise in modern JavaScript ecosystems, including React, Vue, Angular for frontend development, Node.js, Express, FastAPI for backend services, database design and optimization, RESTful and GraphQL API architecture, microservices patterns, containerization with Docker, cloud deployment on AWS/GCP/Azure, CI/CD pipeline implementation, performance optimization, security best practices, and DevOps methodologies for scalable web applications.",
+    "capabilities": ["web development", "full stack", "react", "node.js", "javascript", "api"],
+    "port": 6029,
+    "system_prompt": "You are an advanced full-stack web developer with comprehensive knowledge in modern web technologies and architecture. Use semantic embedding-based matching for capabilities. Answer questions about React optimization, serverless architecture, API security, CI/CD, and state management.",
+    "questions": [
+      "How do you optimize a React application for performance?",
+      "Explain the concept of serverless architecture in web development.",
+      "What are the security best practices for a RESTful API?",
+      "Describe your experience with continuous integration/continuous deployment (CI/CD) for web apps.",
+      "How do you handle state management in a complex front-end application?"
+    ]
+  },
+  {
+    "agent_id": "healthcare-kw-001",
+    "agent_name": "Healthcare Keywords Agent 1",
+    "domain": "healthcare",
+    "structure_type": "keywords",
+    "specialization": "Healthcare AI and Medical Systems",
+    "description": "AI assistant specializing in medical diagnosis and patient data analysis using keyword-based capabilities.",
+    "capabilities": ["healthcare", "medical diagnosis", "patient care", "ehr", "telemedicine", "biotech"],
+    "port": 6030,
+    "system_prompt": "You are a healthcare AI specialist focusing on medical systems and patient care. Focus on keyword-based matching for capabilities. Answer questions about early disease detection, AI integration challenges, patient privacy, hospital outcomes, and medical recommendation reliability.",
+    "questions": [
+      "How can AI assist in early disease detection?",
+      "What are the challenges of integrating AI into existing healthcare systems?",
+      "Discuss the privacy concerns related to patient data in AI applications.",
+      "Describe a scenario where AI could improve patient outcomes in a hospital setting.",
+      "How do you ensure the accuracy and reliability of AI-driven medical recommendations?"
+    ]
+  },
+  {
+    "agent_id": "healthcare-kw-002",
+    "agent_name": "Healthcare Keywords Agent 2",
+    "domain": "healthcare",
+    "structure_type": "keywords",
+    "specialization": "Healthcare AI and Medical Systems",
+    "description": "AI assistant specializing in medical diagnosis and patient data analysis using keyword-based capabilities.",
+    "capabilities": ["healthcare", "medical diagnosis", "patient care", "ehr", "telemedicine", "biotech"],
+    "port": 6031,
+    "system_prompt": "You are a healthcare AI specialist focusing on medical systems and patient care. Focus on keyword-based matching for capabilities. Answer questions about early disease detection, AI integration challenges, patient privacy, hospital outcomes, and medical recommendation reliability.",
+    "questions": [
+      "How can AI assist in early disease detection?",
+      "What are the challenges of integrating AI into existing healthcare systems?",
+      "Discuss the privacy concerns related to patient data in AI applications.",
+      "Describe a scenario where AI could improve patient outcomes in a hospital setting.",
+      "How do you ensure the accuracy and reliability of AI-driven medical recommendations?"
+    ]
+  },
+  {
+    "agent_id": "healthcare-kw-003",
+    "agent_name": "Healthcare Keywords Agent 3",
+    "domain": "healthcare",
+    "structure_type": "keywords",
+    "specialization": "Healthcare AI and Medical Systems",
+    "description": "AI assistant specializing in medical diagnosis and patient data analysis using keyword-based capabilities.",
+    "capabilities": ["healthcare", "medical diagnosis", "patient care", "ehr", "telemedicine", "biotech"],
+    "port": 6032,
+    "system_prompt": "You are a healthcare AI specialist focusing on medical systems and patient care. Focus on keyword-based matching for capabilities. Answer questions about early disease detection, AI integration challenges, patient privacy, hospital outcomes, and medical recommendation reliability.",
+    "questions": [
+      "How can AI assist in early disease detection?",
+      "What are the challenges of integrating AI into existing healthcare systems?",
+      "Discuss the privacy concerns related to patient data in AI applications.",
+      "Describe a scenario where AI could improve patient outcomes in a hospital setting.",
+      "How do you ensure the accuracy and reliability of AI-driven medical recommendations?"
+    ]
+  },
+  {
+    "agent_id": "healthcare-kw-004",
+    "agent_name": "Healthcare Keywords Agent 4",
+    "domain": "healthcare",
+    "structure_type": "keywords",
+    "specialization": "Healthcare AI and Medical Systems",
+    "description": "AI assistant specializing in medical diagnosis and patient data analysis using keyword-based capabilities.",
+    "capabilities": ["healthcare", "medical diagnosis", "patient care", "ehr", "telemedicine", "biotech"],
+    "port": 6033,
+    "system_prompt": "You are a healthcare AI specialist focusing on medical systems and patient care. Focus on keyword-based matching for capabilities. Answer questions about early disease detection, AI integration challenges, patient privacy, hospital outcomes, and medical recommendation reliability.",
+    "questions": [
+      "How can AI assist in early disease detection?",
+      "What are the challenges of integrating AI into existing healthcare systems?",
+      "Discuss the privacy concerns related to patient data in AI applications.",
+      "Describe a scenario where AI could improve patient outcomes in a hospital setting.",
+      "How do you ensure the accuracy and reliability of AI-driven medical recommendations?"
+    ]
+  },
+  {
+    "agent_id": "healthcare-kw-005",
+    "agent_name": "Healthcare Keywords Agent 5",
+    "domain": "healthcare",
+    "structure_type": "keywords",
+    "specialization": "Healthcare AI and Medical Systems",
+    "description": "AI assistant specializing in medical diagnosis and patient data analysis using keyword-based capabilities.",
+    "capabilities": ["healthcare", "medical diagnosis", "patient care", "ehr", "telemedicine", "biotech"],
+    "port": 6034,
+    "system_prompt": "You are a healthcare AI specialist focusing on medical systems and patient care. Focus on keyword-based matching for capabilities. Answer questions about early disease detection, AI integration challenges, patient privacy, hospital outcomes, and medical recommendation reliability.",
+    "questions": [
+      "How can AI assist in early disease detection?",
+      "What are the challenges of integrating AI into existing healthcare systems?",
+      "Discuss the privacy concerns related to patient data in AI applications.",
+      "Describe a scenario where AI could improve patient outcomes in a hospital setting.",
+      "How do you ensure the accuracy and reliability of AI-driven medical recommendations?"
+    ]
+  },
+  {
+    "agent_id": "healthcare-desc-001",
+    "agent_name": "Healthcare Description Agent 1",
+    "domain": "healthcare",
+    "structure_type": "description",
+    "specialization": "Healthcare AI and Medical Systems",
+    "description": "Comprehensive healthcare AI specialist with extensive experience in medical diagnosis systems, patient data analytics, clinical workflow optimization, healthcare technology integration, electronic health record systems, telemedicine platforms, medical imaging analysis, and regulatory compliance in healthcare environments.",
+    "capabilities": ["healthcare", "medical diagnosis", "patient care", "ehr", "telemedicine", "biotech"],
+    "port": 6035,
+    "system_prompt": "You are a comprehensive healthcare AI specialist with deep knowledge in medical systems and patient care. Use detailed descriptions to match capabilities. Answer questions about early disease detection, AI integration challenges, patient privacy, hospital outcomes, and medical recommendation reliability.",
+    "questions": [
+      "How can AI assist in early disease detection?",
+      "What are the challenges of integrating AI into existing healthcare systems?",
+      "Discuss the privacy concerns related to patient data in AI applications.",
+      "Describe a scenario where AI could improve patient outcomes in a hospital setting.",
+      "How do you ensure the accuracy and reliability of AI-driven medical recommendations?"
+    ]
+  },
+  {
+    "agent_id": "healthcare-desc-002",
+    "agent_name": "Healthcare Description Agent 2",
+    "domain": "healthcare",
+    "structure_type": "description",
+    "specialization": "Healthcare AI and Medical Systems",
+    "description": "Comprehensive healthcare AI specialist with extensive experience in medical diagnosis systems, patient data analytics, clinical workflow optimization, healthcare technology integration, electronic health record systems, telemedicine platforms, medical imaging analysis, and regulatory compliance in healthcare environments.",
+    "capabilities": ["healthcare", "medical diagnosis", "patient care", "ehr", "telemedicine", "biotech"],
+    "port": 6036,
+    "system_prompt": "You are a comprehensive healthcare AI specialist with deep knowledge in medical systems and patient care. Use detailed descriptions to match capabilities. Answer questions about early disease detection, AI integration challenges, patient privacy, hospital outcomes, and medical recommendation reliability.",
+    "questions": [
+      "How can AI assist in early disease detection?",
+      "What are the challenges of integrating AI into existing healthcare systems?",
+      "Discuss the privacy concerns related to patient data in AI applications.",
+      "Describe a scenario where AI could improve patient outcomes in a hospital setting.",
+      "How do you ensure the accuracy and reliability of AI-driven medical recommendations?"
+    ]
+  },
+  {
+    "agent_id": "healthcare-desc-003",
+    "agent_name": "Healthcare Description Agent 3",
+    "domain": "healthcare",
+    "structure_type": "description",
+    "specialization": "Healthcare AI and Medical Systems",
+    "description": "Comprehensive healthcare AI specialist with extensive experience in medical diagnosis systems, patient data analytics, clinical workflow optimization, healthcare technology integration, electronic health record systems, telemedicine platforms, medical imaging analysis, and regulatory compliance in healthcare environments.",
+    "capabilities": ["healthcare", "medical diagnosis", "patient care", "ehr", "telemedicine", "biotech"],
+    "port": 6037,
+    "system_prompt": "You are a comprehensive healthcare AI specialist with deep knowledge in medical systems and patient care. Use detailed descriptions to match capabilities. Answer questions about early disease detection, AI integration challenges, patient privacy, hospital outcomes, and medical recommendation reliability.",
+    "questions": [
+      "How can AI assist in early disease detection?",
+      "What are the challenges of integrating AI into existing healthcare systems?",
+      "Discuss the privacy concerns related to patient data in AI applications.",
+      "Describe a scenario where AI could improve patient outcomes in a hospital setting.",
+      "How do you ensure the accuracy and reliability of AI-driven medical recommendations?"
+    ]
+  },
+  {
+    "agent_id": "healthcare-desc-004",
+    "agent_name": "Healthcare Description Agent 4",
+    "domain": "healthcare",
+    "structure_type": "description",
+    "specialization": "Healthcare AI and Medical Systems",
+    "description": "Comprehensive healthcare AI specialist with extensive experience in medical diagnosis systems, patient data analytics, clinical workflow optimization, healthcare technology integration, electronic health record systems, telemedicine platforms, medical imaging analysis, and regulatory compliance in healthcare environments.",
+    "capabilities": ["healthcare", "medical diagnosis", "patient care", "ehr", "telemedicine", "biotech"],
+    "port": 6038,
+    "system_prompt": "You are a comprehensive healthcare AI specialist with deep knowledge in medical systems and patient care. Use detailed descriptions to match capabilities. Answer questions about early disease detection, AI integration challenges, patient privacy, hospital outcomes, and medical recommendation reliability.",
+    "questions": [
+      "How can AI assist in early disease detection?",
+      "What are the challenges of integrating AI into existing healthcare systems?",
+      "Discuss the privacy concerns related to patient data in AI applications.",
+      "Describe a scenario where AI could improve patient outcomes in a hospital setting.",
+      "How do you ensure the accuracy and reliability of AI-driven medical recommendations?"
+    ]
+  },
+  {
+    "agent_id": "healthcare-desc-005",
+    "agent_name": "Healthcare Description Agent 5",
+    "domain": "healthcare",
+    "structure_type": "description",
+    "specialization": "Healthcare AI and Medical Systems",
+    "description": "Comprehensive healthcare AI specialist with extensive experience in medical diagnosis systems, patient data analytics, clinical workflow optimization, healthcare technology integration, electronic health record systems, telemedicine platforms, medical imaging analysis, and regulatory compliance in healthcare environments.",
+    "capabilities": ["healthcare", "medical diagnosis", "patient care", "ehr", "telemedicine", "biotech"],
+    "port": 6039,
+    "system_prompt": "You are a comprehensive healthcare AI specialist with deep knowledge in medical systems and patient care. Use detailed descriptions to match capabilities. Answer questions about early disease detection, AI integration challenges, patient privacy, hospital outcomes, and medical recommendation reliability.",
+    "questions": [
+      "How can AI assist in early disease detection?",
+      "What are the challenges of integrating AI into existing healthcare systems?",
+      "Discuss the privacy concerns related to patient data in AI applications.",
+      "Describe a scenario where AI could improve patient outcomes in a hospital setting.",
+      "How do you ensure the accuracy and reliability of AI-driven medical recommendations?"
+    ]
+  },
+  {
+    "agent_id": "healthcare-embed-001",
+    "agent_name": "Healthcare Embedding Agent 1",
+    "domain": "healthcare",
+    "structure_type": "embedding",
+    "specialization": "Healthcare AI and Medical Systems",
+    "description": "Advanced healthcare AI specialist with comprehensive expertise in medical diagnosis systems, patient data analytics, clinical decision support systems, healthcare technology integration, medical ethics, regulatory compliance, electronic health record optimization, telemedicine platform development, medical imaging analysis using deep learning, natural language processing for clinical notes, predictive analytics for patient outcomes, and implementation of AI-driven healthcare solutions in complex medical environments.",
+    "capabilities": ["healthcare", "medical diagnosis", "patient care", "ehr", "telemedicine", "biotech"],
+    "port": 6040,
+    "system_prompt": "You are an advanced healthcare AI specialist with comprehensive knowledge in medical systems, patient care, and healthcare technology. Use semantic embedding-based matching for capabilities. Answer questions about early disease detection, AI integration challenges, patient privacy, hospital outcomes, and medical recommendation reliability.",
+    "questions": [
+      "How can AI assist in early disease detection?",
+      "What are the challenges of integrating AI into existing healthcare systems?",
+      "Discuss the privacy concerns related to patient data in AI applications.",
+      "Describe a scenario where AI could improve patient outcomes in a hospital setting.",
+      "How do you ensure the accuracy and reliability of AI-driven medical recommendations?"
+    ]
+  },
+  {
+    "agent_id": "healthcare-embed-002",
+    "agent_name": "Healthcare Embedding Agent 2",
+    "domain": "healthcare",
+    "structure_type": "embedding",
+    "specialization": "Healthcare AI and Medical Systems",
+    "description": "Advanced healthcare AI specialist with comprehensive expertise in medical diagnosis systems, patient data analytics, clinical decision support systems, healthcare technology integration, medical ethics, regulatory compliance, electronic health record optimization, telemedicine platform development, medical imaging analysis using deep learning, natural language processing for clinical notes, predictive analytics for patient outcomes, and implementation of AI-driven healthcare solutions in complex medical environments.",
+    "capabilities": ["healthcare", "medical diagnosis", "patient care", "ehr", "telemedicine", "biotech"],
+    "port": 6041,
+    "system_prompt": "You are an advanced healthcare AI specialist with comprehensive knowledge in medical systems, patient care, and healthcare technology. Use semantic embedding-based matching for capabilities. Answer questions about early disease detection, AI integration challenges, patient privacy, hospital outcomes, and medical recommendation reliability.",
+    "questions": [
+      "How can AI assist in early disease detection?",
+      "What are the challenges of integrating AI into existing healthcare systems?",
+      "Discuss the privacy concerns related to patient data in AI applications.",
+      "Describe a scenario where AI could improve patient outcomes in a hospital setting.",
+      "How do you ensure the accuracy and reliability of AI-driven medical recommendations?"
+    ]
+  },
+  {
+    "agent_id": "healthcare-embed-003",
+    "agent_name": "Healthcare Embedding Agent 3",
+    "domain": "healthcare",
+    "structure_type": "embedding",
+    "specialization": "Healthcare AI and Medical Systems",
+    "description": "Advanced healthcare AI specialist with comprehensive expertise in medical diagnosis systems, patient data analytics, clinical decision support systems, healthcare technology integration, medical ethics, regulatory compliance, electronic health record optimization, telemedicine platform development, medical imaging analysis using deep learning, natural language processing for clinical notes, predictive analytics for patient outcomes, and implementation of AI-driven healthcare solutions in complex medical environments.",
+    "capabilities": ["healthcare", "medical diagnosis", "patient care", "ehr", "telemedicine", "biotech"],
+    "port": 6042,
+    "system_prompt": "You are an advanced healthcare AI specialist with comprehensive knowledge in medical systems, patient care, and healthcare technology. Use semantic embedding-based matching for capabilities. Answer questions about early disease detection, AI integration challenges, patient privacy, hospital outcomes, and medical recommendation reliability.",
+    "questions": [
+      "How can AI assist in early disease detection?",
+      "What are the challenges of integrating AI into existing healthcare systems?",
+      "Discuss the privacy concerns related to patient data in AI applications.",
+      "Describe a scenario where AI could improve patient outcomes in a hospital setting.",
+      "How do you ensure the accuracy and reliability of AI-driven medical recommendations?"
+    ]
+  },
+  {
+    "agent_id": "healthcare-embed-004",
+    "agent_name": "Healthcare Embedding Agent 4",
+    "domain": "healthcare",
+    "structure_type": "embedding",
+    "specialization": "Healthcare AI and Medical Systems",
+    "description": "Advanced healthcare AI specialist with comprehensive expertise in medical diagnosis systems, patient data analytics, clinical decision support systems, healthcare technology integration, medical ethics, regulatory compliance, electronic health record optimization, telemedicine platform development, medical imaging analysis using deep learning, natural language processing for clinical notes, predictive analytics for patient outcomes, and implementation of AI-driven healthcare solutions in complex medical environments.",
+    "capabilities": ["healthcare", "medical diagnosis", "patient care", "ehr", "telemedicine", "biotech"],
+    "port": 6043,
+    "system_prompt": "You are an advanced healthcare AI specialist with comprehensive knowledge in medical systems, patient care, and healthcare technology. Use semantic embedding-based matching for capabilities. Answer questions about early disease detection, AI integration challenges, patient privacy, hospital outcomes, and medical recommendation reliability.",
+    "questions": [
+      "How can AI assist in early disease detection?",
+      "What are the challenges of integrating AI into existing healthcare systems?",
+      "Discuss the privacy concerns related to patient data in AI applications.",
+      "Describe a scenario where AI could improve patient outcomes in a hospital setting.",
+      "How do you ensure the accuracy and reliability of AI-driven medical recommendations?"
+    ]
+  },
+  {
+    "agent_id": "healthcare-embed-005",
+    "agent_name": "Healthcare Embedding Agent 5",
+    "domain": "healthcare",
+    "structure_type": "embedding",
+    "specialization": "Healthcare AI and Medical Systems",
+    "description": "Advanced healthcare AI specialist with comprehensive expertise in medical diagnosis systems, patient data analytics, clinical decision support systems, healthcare technology integration, medical ethics, regulatory compliance, electronic health record optimization, telemedicine platform development, medical imaging analysis using deep learning, natural language processing for clinical notes, predictive analytics for patient outcomes, and implementation of AI-driven healthcare solutions in complex medical environments.",
+    "capabilities": ["healthcare", "medical diagnosis", "patient care", "ehr", "telemedicine", "biotech"],
+    "port": 6044,
+    "system_prompt": "You are an advanced healthcare AI specialist with comprehensive knowledge in medical systems, patient care, and healthcare technology. Use semantic embedding-based matching for capabilities. Answer questions about early disease detection, AI integration challenges, patient privacy, hospital outcomes, and medical recommendation reliability.",
+    "questions": [
+      "How can AI assist in early disease detection?",
+      "What are the challenges of integrating AI into existing healthcare systems?",
+      "Discuss the privacy concerns related to patient data in AI applications.",
+      "Describe a scenario where AI could improve patient outcomes in a hospital setting.",
+      "How do you ensure the accuracy and reliability of AI-driven medical recommendations?"
+    ]
+  },
+  {
+    "agent_id": "finance-kw-001",
+    "agent_name": "Finance Keywords Agent 1",
+    "domain": "finance",
+    "structure_type": "keywords",
+    "specialization": "Financial Planning and Investment",
+    "description": "Expert in financial planning and investment strategies using keyword-based capabilities.",
+    "capabilities": ["finance", "investment", "stock market", "financial planning", "portfolio management", "economics"],
+    "port": 6045,
+    "system_prompt": "You are a financial planning and investment expert specializing in market analysis and portfolio management. Focus on keyword-based matching for capabilities. Answer questions about portfolio diversification, interest rates, investment risk, algorithmic trading, and economic trends.",
+    "questions": [
+      "What are the key factors to consider when building a diversified investment portfolio?",
+      "Explain the impact of interest rate changes on bond prices.",
+      "How do you assess the risk of a particular investment opportunity?",
+      "Describe the role of algorithmic trading in modern financial markets.",
+      "What are the implications of global economic trends on local investment strategies?"
+    ]
+  },
+  {
+    "agent_id": "finance-kw-002",
+    "agent_name": "Finance Keywords Agent 2",
+    "domain": "finance",
+    "structure_type": "keywords",
+    "specialization": "Financial Planning and Investment",
+    "description": "Expert in financial planning and investment strategies using keyword-based capabilities.",
+    "capabilities": ["finance", "investment", "stock market", "financial planning", "portfolio management", "economics"],
+    "port": 6046,
+    "system_prompt": "You are a financial planning and investment expert specializing in market analysis and portfolio management. Focus on keyword-based matching for capabilities. Answer questions about portfolio diversification, interest rates, investment risk, algorithmic trading, and economic trends.",
+    "questions": [
+      "What are the key factors to consider when building a diversified investment portfolio?",
+      "Explain the impact of interest rate changes on bond prices.",
+      "How do you assess the risk of a particular investment opportunity?",
+      "Describe the role of algorithmic trading in modern financial markets.",
+      "What are the implications of global economic trends on local investment strategies?"
+    ]
+  },
+  {
+    "agent_id": "finance-kw-003",
+    "agent_name": "Finance Keywords Agent 3",
+    "domain": "finance",
+    "structure_type": "keywords",
+    "specialization": "Financial Planning and Investment",
+    "description": "Expert in financial planning and investment strategies using keyword-based capabilities.",
+    "capabilities": ["finance", "investment", "stock market", "financial planning", "portfolio management", "economics"],
+    "port": 6047,
+    "system_prompt": "You are a financial planning and investment expert specializing in market analysis and portfolio management. Focus on keyword-based matching for capabilities. Answer questions about portfolio diversification, interest rates, investment risk, algorithmic trading, and economic trends.",
+    "questions": [
+      "What are the key factors to consider when building a diversified investment portfolio?",
+      "Explain the impact of interest rate changes on bond prices.",
+      "How do you assess the risk of a particular investment opportunity?",
+      "Describe the role of algorithmic trading in modern financial markets.",
+      "What are the implications of global economic trends on local investment strategies?"
+    ]
+  },
+  {
+    "agent_id": "finance-kw-004",
+    "agent_name": "Finance Keywords Agent 4",
+    "domain": "finance",
+    "structure_type": "keywords",
+    "specialization": "Financial Planning and Investment",
+    "description": "Expert in financial planning and investment strategies using keyword-based capabilities.",
+    "capabilities": ["finance", "investment", "stock market", "financial planning", "portfolio management", "economics"],
+    "port": 6048,
+    "system_prompt": "You are a financial planning and investment expert specializing in market analysis and portfolio management. Focus on keyword-based matching for capabilities. Answer questions about portfolio diversification, interest rates, investment risk, algorithmic trading, and economic trends.",
+    "questions": [
+      "What are the key factors to consider when building a diversified investment portfolio?",
+      "Explain the impact of interest rate changes on bond prices.",
+      "How do you assess the risk of a particular investment opportunity?",
+      "Describe the role of algorithmic trading in modern financial markets.",
+      "What are the implications of global economic trends on local investment strategies?"
+    ]
+  },
+  {
+    "agent_id": "finance-kw-005",
+    "agent_name": "Finance Keywords Agent 5",
+    "domain": "finance",
+    "structure_type": "keywords",
+    "specialization": "Financial Planning and Investment",
+    "description": "Expert in financial planning and investment strategies using keyword-based capabilities.",
+    "capabilities": ["finance", "investment", "stock market", "financial planning", "portfolio management", "economics"],
+    "port": 6049,
+    "system_prompt": "You are a financial planning and investment expert specializing in market analysis and portfolio management. Focus on keyword-based matching for capabilities. Answer questions about portfolio diversification, interest rates, investment risk, algorithmic trading, and economic trends.",
+    "questions": [
+      "What are the key factors to consider when building a diversified investment portfolio?",
+      "Explain the impact of interest rate changes on bond prices.",
+      "How do you assess the risk of a particular investment opportunity?",
+      "Describe the role of algorithmic trading in modern financial markets.",
+      "What are the implications of global economic trends on local investment strategies?"
+    ]
+  },
+  {
+    "agent_id": "finance-desc-001",
+    "agent_name": "Finance Description Agent 1",
+    "domain": "finance",
+    "structure_type": "description",
+    "specialization": "Financial Planning and Investment",
+    "description": "Comprehensive financial expert with extensive experience in investment strategies, portfolio management, market analysis, risk assessment, financial planning, wealth management, economic forecasting, and quantitative analysis. Expert in equity research, bond analysis, derivatives trading, and alternative investments.",
+    "capabilities": ["finance", "investment", "stock market", "financial planning", "portfolio management", "economics"],
+    "port": 6050,
+    "system_prompt": "You are a comprehensive financial expert with deep knowledge in investment strategies and market analysis. Use detailed descriptions to match capabilities. Answer questions about portfolio diversification, interest rates, investment risk, algorithmic trading, and economic trends.",
+    "questions": [
+      "What are the key factors to consider when building a diversified investment portfolio?",
+      "Explain the impact of interest rate changes on bond prices.",
+      "How do you assess the risk of a particular investment opportunity?",
+      "Describe the role of algorithmic trading in modern financial markets.",
+      "What are the implications of global economic trends on local investment strategies?"
+    ]
+  },
+  {
+    "agent_id": "finance-desc-002",
+    "agent_name": "Finance Description Agent 2",
+    "domain": "finance",
+    "structure_type": "description",
+    "specialization": "Financial Planning and Investment",
+    "description": "Comprehensive financial expert with extensive experience in investment strategies, portfolio management, market analysis, risk assessment, financial planning, wealth management, economic forecasting, and quantitative analysis. Expert in equity research, bond analysis, derivatives trading, and alternative investments.",
+    "capabilities": ["finance", "investment", "stock market", "financial planning", "portfolio management", "economics"],
+    "port": 6051,
+    "system_prompt": "You are a comprehensive financial expert with deep knowledge in investment strategies and market analysis. Use detailed descriptions to match capabilities. Answer questions about portfolio diversification, interest rates, investment risk, algorithmic trading, and economic trends.",
+    "questions": [
+      "What are the key factors to consider when building a diversified investment portfolio?",
+      "Explain the impact of interest rate changes on bond prices.",
+      "How do you assess the risk of a particular investment opportunity?",
+      "Describe the role of algorithmic trading in modern financial markets.",
+      "What are the implications of global economic trends on local investment strategies?"
+    ]
+  },
+  {
+    "agent_id": "finance-desc-003",
+    "agent_name": "Finance Description Agent 3",
+    "domain": "finance",
+    "structure_type": "description",
+    "specialization": "Financial Planning and Investment",
+    "description": "Comprehensive financial expert with extensive experience in investment strategies, portfolio management, market analysis, risk assessment, financial planning, wealth management, economic forecasting, and quantitative analysis. Expert in equity research, bond analysis, derivatives trading, and alternative investments.",
+    "capabilities": ["finance", "investment", "stock market", "financial planning", "portfolio management", "economics"],
+    "port": 6052,
+    "system_prompt": "You are a comprehensive financial expert with deep knowledge in investment strategies and market analysis. Use detailed descriptions to match capabilities. Answer questions about portfolio diversification, interest rates, investment risk, algorithmic trading, and economic trends.",
+    "questions": [
+      "What are the key factors to consider when building a diversified investment portfolio?",
+      "Explain the impact of interest rate changes on bond prices.",
+      "How do you assess the risk of a particular investment opportunity?",
+      "Describe the role of algorithmic trading in modern financial markets.",
+      "What are the implications of global economic trends on local investment strategies?"
+    ]
+  },
+  {
+    "agent_id": "finance-desc-004",
+    "agent_name": "Finance Description Agent 4",
+    "domain": "finance",
+    "structure_type": "description",
+    "specialization": "Financial Planning and Investment",
+    "description": "Comprehensive financial expert with extensive experience in investment strategies, portfolio management, market analysis, risk assessment, financial planning, wealth management, economic forecasting, and quantitative analysis. Expert in equity research, bond analysis, derivatives trading, and alternative investments.",
+    "capabilities": ["finance", "investment", "stock market", "financial planning", "portfolio management", "economics"],
+    "port": 6053,
+    "system_prompt": "You are a comprehensive financial expert with deep knowledge in investment strategies and market analysis. Use detailed descriptions to match capabilities. Answer questions about portfolio diversification, interest rates, investment risk, algorithmic trading, and economic trends.",
+    "questions": [
+      "What are the key factors to consider when building a diversified investment portfolio?",
+      "Explain the impact of interest rate changes on bond prices.",
+      "How do you assess the risk of a particular investment opportunity?",
+      "Describe the role of algorithmic trading in modern financial markets.",
+      "What are the implications of global economic trends on local investment strategies?"
+    ]
+  },
+  {
+    "agent_id": "finance-desc-005",
+    "agent_name": "Finance Description Agent 5",
+    "domain": "finance",
+    "structure_type": "description",
+    "specialization": "Financial Planning and Investment",
+    "description": "Comprehensive financial expert with extensive experience in investment strategies, portfolio management, market analysis, risk assessment, financial planning, wealth management, economic forecasting, and quantitative analysis. Expert in equity research, bond analysis, derivatives trading, and alternative investments.",
+    "capabilities": ["finance", "investment", "stock market", "financial planning", "portfolio management", "economics"],
+    "port": 6054,
+    "system_prompt": "You are a comprehensive financial expert with deep knowledge in investment strategies and market analysis. Use detailed descriptions to match capabilities. Answer questions about portfolio diversification, interest rates, investment risk, algorithmic trading, and economic trends.",
+    "questions": [
+      "What are the key factors to consider when building a diversified investment portfolio?",
+      "Explain the impact of interest rate changes on bond prices.",
+      "How do you assess the risk of a particular investment opportunity?",
+      "Describe the role of algorithmic trading in modern financial markets.",
+      "What are the implications of global economic trends on local investment strategies?"
+    ]
+  },
+  {
+    "agent_id": "finance-embed-001",
+    "agent_name": "Finance Embedding Agent 1",
+    "domain": "finance",
+    "structure_type": "embedding",
+    "specialization": "Financial Planning and Investment",
+    "description": "Advanced financial expert with comprehensive expertise in investment strategies, portfolio optimization, quantitative analysis, risk management, financial modeling, market microstructure, algorithmic trading systems, derivatives pricing, alternative investments, behavioral finance, macroeconomic analysis, regulatory compliance, wealth management strategies, and implementation of sophisticated financial technologies in institutional and retail investment environments.",
+    "capabilities": ["finance", "investment", "stock market", "financial planning", "portfolio management", "economics"],
+    "port": 6055,
+    "system_prompt": "You are an advanced financial expert with comprehensive knowledge in investment strategies, market analysis, and financial technology. Use semantic embedding-based matching for capabilities. Answer questions about portfolio diversification, interest rates, investment risk, algorithmic trading, and economic trends.",
+    "questions": [
+      "What are the key factors to consider when building a diversified investment portfolio?",
+      "Explain the impact of interest rate changes on bond prices.",
+      "How do you assess the risk of a particular investment opportunity?",
+      "Describe the role of algorithmic trading in modern financial markets.",
+      "What are the implications of global economic trends on local investment strategies?"
+    ]
+  },
+  {
+    "agent_id": "finance-embed-002",
+    "agent_name": "Finance Embedding Agent 2",
+    "domain": "finance",
+    "structure_type": "embedding",
+    "specialization": "Financial Planning and Investment",
+    "description": "Advanced financial expert with comprehensive expertise in investment strategies, portfolio optimization, quantitative analysis, risk management, financial modeling, market microstructure, algorithmic trading systems, derivatives pricing, alternative investments, behavioral finance, macroeconomic analysis, regulatory compliance, wealth management strategies, and implementation of sophisticated financial technologies in institutional and retail investment environments.",
+    "capabilities": ["finance", "investment", "stock market", "financial planning", "portfolio management", "economics"],
+    "port": 6056,
+    "system_prompt": "You are an advanced financial expert with comprehensive knowledge in investment strategies, market analysis, and financial technology. Use semantic embedding-based matching for capabilities. Answer questions about portfolio diversification, interest rates, investment risk, algorithmic trading, and economic trends.",
+    "questions": [
+      "What are the key factors to consider when building a diversified investment portfolio?",
+      "Explain the impact of interest rate changes on bond prices.",
+      "How do you assess the risk of a particular investment opportunity?",
+      "Describe the role of algorithmic trading in modern financial markets.",
+      "What are the implications of global economic trends on local investment strategies?"
+    ]
+  },
+  {
+    "agent_id": "finance-embed-003",
+    "agent_name": "Finance Embedding Agent 3",
+    "domain": "finance",
+    "structure_type": "embedding",
+    "specialization": "Financial Planning and Investment",
+    "description": "Advanced financial expert with comprehensive expertise in investment strategies, portfolio optimization, quantitative analysis, risk management, financial modeling, market microstructure, algorithmic trading systems, derivatives pricing, alternative investments, behavioral finance, macroeconomic analysis, regulatory compliance, wealth management strategies, and implementation of sophisticated financial technologies in institutional and retail investment environments.",
+    "capabilities": ["finance", "investment", "stock market", "financial planning", "portfolio management", "economics"],
+    "port": 6057,
+    "system_prompt": "You are an advanced financial expert with comprehensive knowledge in investment strategies, market analysis, and financial technology. Use semantic embedding-based matching for capabilities. Answer questions about portfolio diversification, interest rates, investment risk, algorithmic trading, and economic trends.",
+    "questions": [
+      "What are the key factors to consider when building a diversified investment portfolio?",
+      "Explain the impact of interest rate changes on bond prices.",
+      "How do you assess the risk of a particular investment opportunity?",
+      "Describe the role of algorithmic trading in modern financial markets.",
+      "What are the implications of global economic trends on local investment strategies?"
+    ]
+  },
+  {
+    "agent_id": "finance-embed-004",
+    "agent_name": "Finance Embedding Agent 4",
+    "domain": "finance",
+    "structure_type": "embedding",
+    "specialization": "Financial Planning and Investment",
+    "description": "Advanced financial expert with comprehensive expertise in investment strategies, portfolio optimization, quantitative analysis, risk management, financial modeling, market microstructure, algorithmic trading systems, derivatives pricing, alternative investments, behavioral finance, macroeconomic analysis, regulatory compliance, wealth management strategies, and implementation of sophisticated financial technologies in institutional and retail investment environments.",
+    "capabilities": ["finance", "investment", "stock market", "financial planning", "portfolio management", "economics"],
+    "port": 6058,
+    "system_prompt": "You are an advanced financial expert with comprehensive knowledge in investment strategies, market analysis, and financial technology. Use semantic embedding-based matching for capabilities. Answer questions about portfolio diversification, interest rates, investment risk, algorithmic trading, and economic trends.",
+    "questions": [
+      "What are the key factors to consider when building a diversified investment portfolio?",
+      "Explain the impact of interest rate changes on bond prices.",
+      "How do you assess the risk of a particular investment opportunity?",
+      "Describe the role of algorithmic trading in modern financial markets.",
+      "What are the implications of global economic trends on local investment strategies?"
+    ]
+  },
+  {
+    "agent_id": "finance-embed-005",
+    "agent_name": "Finance Embedding Agent 5",
+    "domain": "finance",
+    "structure_type": "embedding",
+    "specialization": "Financial Planning and Investment",
+    "description": "Advanced financial expert with comprehensive expertise in investment strategies, portfolio optimization, quantitative analysis, risk management, financial modeling, market microstructure, algorithmic trading systems, derivatives pricing, alternative investments, behavioral finance, macroeconomic analysis, regulatory compliance, wealth management strategies, and implementation of sophisticated financial technologies in institutional and retail investment environments.",
+    "capabilities": ["finance", "investment", "stock market", "financial planning", "portfolio management", "economics"],
+    "port": 6059,
+    "system_prompt": "You are an advanced financial expert with comprehensive knowledge in investment strategies, market analysis, and financial technology. Use semantic embedding-based matching for capabilities. Answer questions about portfolio diversification, interest rates, investment risk, algorithmic trading, and economic trends.",
+    "questions": [
+      "What are the key factors to consider when building a diversified investment portfolio?",
+      "Explain the impact of interest rate changes on bond prices.",
+      "How do you assess the risk of a particular investment opportunity?",
+      "Describe the role of algorithmic trading in modern financial markets.",
+      "What are the implications of global economic trends on local investment strategies?"
+    ]
+  }
+]

@@ -54,15 +54,11 @@ class TelemetrySystem:
         # Ensure log directory exists
         os.makedirs(log_dir, exist_ok=True)
 
-        # Initialize MongoDB telemetry storage
-        try:
-            self.mongodb_telemetry = MongoDBTelemetryStorage()
-            self.use_mongodb_telemetry = True
-            print("✅ MongoDB telemetry storage initialized")
-        except Exception as e:
-            print(f"⚠️ MongoDB telemetry not available, using file storage only: {e}")
-            self.mongodb_telemetry = None
-            self.use_mongodb_telemetry = False
+        # DISABLED: Agents should NOT connect directly to MongoDB
+        # Telemetry should go through registry API or be file-based only
+        self.mongodb_telemetry = None
+        self.use_mongodb_telemetry = False
+        print("📝 Using file-based telemetry storage (proper architecture)")
 
         # Start background processing
         self.start()

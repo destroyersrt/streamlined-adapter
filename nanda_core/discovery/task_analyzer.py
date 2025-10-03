@@ -267,7 +267,8 @@ Respond with JSON format:
             return json.loads(response.content[0].text)
 
         except Exception as e:
-            print(f"Error in Claude enhancement: {e}")
+            # Claude enhancement failed, falling back to basic analysis
+            # (This is expected if ANTHROPIC_API_KEY is not set)
             return None
 
     def _calculate_confidence(self, text: str, task_type: str, complexity: str) -> float:

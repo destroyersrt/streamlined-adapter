@@ -1,0 +1,22 @@
+{
+  "preferred_order": ["clip", "voyage", "simulated"],
+  "embedders": {
+    "clip": {
+      "enabled": true,
+      "model_name": "openai/clip-vit-base-patch32"
+    },
+    "voyage": {
+      "enabled": false,
+      "model_name": "voyage-large-2",
+      "comment": "Disabled until API key is configured"
+    },
+    "simulated": {
+      "enabled": true,
+      "dimension": 384,
+      "comment": "Fallback embedder - always available"
+    }
+  },
+  "fallback_enabled": true,
+  "auto_fallback": true,
+  "comment": "Modular embedding configuration - easy to enable/disable embedders"
+}

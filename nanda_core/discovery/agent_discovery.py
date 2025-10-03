@@ -30,15 +30,11 @@ class AgentDiscovery:
         self.agent_ranker = AgentRanker()
         self.performance_cache = {}
         
-        # Initialize MongoDB agent facts for semantic search
-        try:
-            self.mongodb_facts = MongoDBAgentFacts()
-            self.use_mongodb = True
-            print("✅ MongoDB agent facts initialized for semantic search with capregistry.duckdns.org")
-        except Exception as e:
-            print(f"⚠️ MongoDB agent facts not available, falling back to registry: {e}")
-            self.mongodb_facts = None
-            self.use_mongodb = False
+        # DISABLED: Agents should NOT connect directly to MongoDB
+        # They should use registry API instead for proper architecture
+        self.mongodb_facts = None
+        self.use_mongodb = False
+        print("🏗️ Using registry API for agent discovery (proper architecture)")
 
     def discover_agents(self, task_description: str, limit: int = 5,
                        min_score: float = 0.3, filters: Dict[str, Any] = None, 
@@ -124,14 +120,53 @@ class AgentDiscovery:
 
     def _get_relevant_agents(self, task_analysis: TaskAnalysis,
                             filters: Dict[str, Any] = None, structure_type: str = None) -> List[Dict[str, Any]]:
-        """Get agents relevant to the task using MongoDB semantic search"""
+        """Get agents relevant to the task using registry API"""
 
-        # Use MongoDB semantic search if available
-        if self.use_mongodb and self.mongodb_facts:
-            return self._get_agents_from_mongodb(task_analysis, filters, structure_type)
+        # Use registry API for structure-specific search
+        if structure_type:
+            return self._get_agents_from_registry_structure(task_analysis, structure_type)
         
-        # Fallback to registry search (original logic)
+        # Fallback to general registry search
         return self._get_agents_from_registry(task_analysis, filters)
+    
+    def _get_agents_from_registry_structure(self, task_analysis: TaskAnalysis, structure_type: str) -> List[Dict[str, Any]]:
+        """Get agents from registry using structure-specific search"""
+        try:
+            # Build search query from task analysis
+            search_terms = []
+            if task_analysis.domain:
+                search_terms.append(task_analysis.domain)
+            if task_analysis.keywords:
+                search_terms.extend(task_analysis.keywords[:3])  # Limit to top 3 keywords
+            if task_analysis.required_capabilities:
+                search_terms.extend(task_analysis.required_capabilities[:2])  # Top 2 capabilities
+            
+            search_query = " ".join(search_terms)
+            
+            # Use registry client's structure-specific search
+            agents = self.registry_client.search_agents_by_structure(
+                query=search_query,
+                structure_type=structure_type,
+                limit=10
+            )
+            
+            # Convert to standard format for ranker
+            formatted_agents = []
+            for agent in agents:
+                formatted_agents.append({
+                    'agent_id': agent.get('agent_id'),
+                    'specialization': agent.get('specialization', ''),
+                    'domain': agent.get('domain', ''),
+                    'structure_type': agent.get('structure_type', ''),
+                    'capabilities': agent.get('capabilities', []),
+                    'score': agent.get('score', 0.0)
+                })
+            
+            return formatted_agents
+            
+        except Exception as e:
+            print(f"❌ Registry structure search error: {e}")
+            return []
     
     def _get_agents_from_mongodb(self, task_analysis: TaskAnalysis,
                                  filters: Dict[str, Any] = None, structure_type: str = None) -> List[Dict[str, Any]]:

@@ -1,0 +1,1082 @@
+[
+  {
+    "agent_id": "ml-engineer-kw-001",
+    "agent_name": "ML Engineer (Keywords)",
+    "domain": "data_science",
+    "structure_type": "keywords",
+    "specialization": "Machine Learning Engineering",
+    "description": "Expert in deep learning, neural networks, and production ML systems using keyword-based capabilities.",
+    "capabilities": ["deep learning", "neural networks", "tensorflow", "pytorch", "model deployment", "mlops"],
+    "port": 6000,
+    "system_prompt": "You are a machine learning engineer specializing in deep learning and production ML systems. Focus on neural architectures, model optimization, and deployment.",
+    "questions": [
+      "How do you optimize neural network architectures for production?",
+      "What are the best practices for model versioning in MLOps?",
+      "Explain the difference between batch and real-time inference.",
+      "How do you handle model drift in production systems?",
+      "Describe techniques for neural network compression."
+    ]
+  },
+  {
+    "agent_id": "data-analyst-kw-002",
+    "agent_name": "Data Analyst (Keywords)",
+    "domain": "data_science",
+    "structure_type": "keywords",
+    "specialization": "Data Analysis and Visualization",
+    "description": "Expert in statistical analysis, data visualization, and business intelligence using keyword-based capabilities.",
+    "capabilities": ["statistics", "visualization", "tableau", "sql", "business intelligence", "reporting"],
+    "port": 6001,
+    "system_prompt": "You are a data analyst specializing in statistical analysis and data visualization. Focus on extracting insights from data and creating compelling visualizations.",
+    "questions": [
+      "What statistical tests should I use for A/B testing?",
+      "How do you create effective dashboards for executives?",
+      "Explain the difference between correlation and causation.",
+      "What are the best practices for data storytelling?",
+      "How do you handle outliers in statistical analysis?"
+    ]
+  },
+  {
+    "agent_id": "research-scientist-kw-003",
+    "agent_name": "Research Scientist (Keywords)",
+    "domain": "data_science",
+    "structure_type": "keywords",
+    "specialization": "AI Research and Algorithm Development",
+    "description": "Expert in AI research, algorithm development, and cutting-edge machine learning techniques using keyword-based capabilities.",
+    "capabilities": ["research", "algorithms", "papers", "nlp", "computer vision", "reinforcement learning"],
+    "port": 6002,
+    "system_prompt": "You are an AI research scientist specializing in algorithm development and cutting-edge ML techniques. Focus on research methodologies and novel approaches.",
+    "questions": [
+      "What are the latest advances in transformer architectures?",
+      "How do you design experiments for AI research?",
+      "Explain the theoretical foundations of reinforcement learning.",
+      "What are the challenges in few-shot learning?",
+      "How do you evaluate the novelty of a research contribution?"
+    ]
+  },
+  {
+    "agent_id": "mlops-engineer-kw-004",
+    "agent_name": "MLOps Engineer (Keywords)",
+    "domain": "data_science",
+    "structure_type": "keywords",
+    "specialization": "MLOps and Model Deployment",
+    "description": "Expert in ML pipeline automation, model monitoring, and production infrastructure using keyword-based capabilities.",
+    "capabilities": ["mlops", "kubernetes", "docker", "ci/cd", "monitoring", "model serving"],
+    "port": 6003,
+    "system_prompt": "You are an MLOps engineer specializing in ML pipeline automation and production infrastructure. Focus on scalability, monitoring, and deployment best practices.",
+    "questions": [
+      "How do you set up automated ML pipelines?",
+      "What are the best practices for model monitoring in production?",
+      "Explain containerization strategies for ML models.",
+      "How do you implement A/B testing for ML models?",
+      "What tools do you use for feature store management?"
+    ]
+  },
+  {
+    "agent_id": "business-analyst-kw-005",
+    "agent_name": "Business Analyst (Keywords)",
+    "domain": "data_science",
+    "structure_type": "keywords",
+    "specialization": "Business Intelligence and Analytics",
+    "description": "Expert in business intelligence, KPI analysis, and data-driven decision making using keyword-based capabilities.",
+    "capabilities": ["business intelligence", "kpi", "analytics", "excel", "powerbi", "strategy"],
+    "port": 6004,
+    "system_prompt": "You are a business analyst specializing in business intelligence and data-driven strategy. Focus on translating data insights into business value.",
+    "questions": [
+      "How do you define and track key performance indicators?",
+      "What frameworks do you use for business case development?",
+      "Explain cohort analysis for customer retention.",
+      "How do you communicate data insights to stakeholders?",
+      "What are the best practices for requirements gathering?"
+    ]
+  },
+  {
+    "agent_id": "ml-engineer-desc-006",
+    "agent_name": "ML Engineer (Description)",
+    "domain": "data_science",
+    "structure_type": "description",
+    "specialization": "Machine Learning Engineering",
+    "description": "Experienced machine learning engineer with deep expertise in designing, implementing, and deploying scalable ML systems. Specializes in deep learning architectures, neural network optimization, and production ML infrastructure. Proficient in TensorFlow, PyTorch, and MLOps practices including model versioning, monitoring, and automated deployment pipelines.",
+    "capabilities": ["deep learning", "neural networks", "tensorflow", "pytorch", "model deployment", "mlops"],
+    "port": 6005,
+    "system_prompt": "You are a machine learning engineer specializing in deep learning and production ML systems. Focus on neural architectures, model optimization, and deployment.",
+    "questions": [
+      "How do you optimize neural network architectures for production?",
+      "What are the best practices for model versioning in MLOps?",
+      "Explain the difference between batch and real-time inference.",
+      "How do you handle model drift in production systems?",
+      "Describe techniques for neural network compression."
+    ]
+  },
+  {
+    "agent_id": "data-analyst-desc-007",
+    "agent_name": "Data Analyst (Description)",
+    "domain": "data_science",
+    "structure_type": "description",
+    "specialization": "Data Analysis and Visualization",
+    "description": "Skilled data analyst with extensive experience in statistical analysis, data visualization, and business intelligence. Expert in extracting actionable insights from complex datasets using advanced statistical methods. Proficient in SQL, Python, R, Tableau, and PowerBI for creating compelling data stories and executive dashboards.",
+    "capabilities": ["statistics", "visualization", "tableau", "sql", "business intelligence", "reporting"],
+    "port": 6006,
+    "system_prompt": "You are a data analyst specializing in statistical analysis and data visualization. Focus on extracting insights from data and creating compelling visualizations.",
+    "questions": [
+      "What statistical tests should I use for A/B testing?",
+      "How do you create effective dashboards for executives?",
+      "Explain the difference between correlation and causation.",
+      "What are the best practices for data storytelling?",
+      "How do you handle outliers in statistical analysis?"
+    ]
+  },
+  {
+    "agent_id": "research-scientist-desc-008",
+    "agent_name": "Research Scientist (Description)",
+    "domain": "data_science",
+    "structure_type": "description",
+    "specialization": "AI Research and Algorithm Development",
+    "description": "Distinguished AI research scientist with a strong background in algorithm development and cutting-edge machine learning research. Specializes in natural language processing, computer vision, and reinforcement learning. Published researcher with expertise in experimental design, theoretical foundations, and novel AI methodologies.",
+    "capabilities": ["research", "algorithms", "papers", "nlp", "computer vision", "reinforcement learning"],
+    "port": 6007,
+    "system_prompt": "You are an AI research scientist specializing in algorithm development and cutting-edge ML techniques. Focus on research methodologies and novel approaches.",
+    "questions": [
+      "What are the latest advances in transformer architectures?",
+      "How do you design experiments for AI research?",
+      "Explain the theoretical foundations of reinforcement learning.",
+      "What are the challenges in few-shot learning?",
+      "How do you evaluate the novelty of a research contribution?"
+    ]
+  },
+  {
+    "agent_id": "mlops-engineer-desc-009",
+    "agent_name": "MLOps Engineer (Description)",
+    "domain": "data_science",
+    "structure_type": "description",
+    "specialization": "MLOps and Model Deployment",
+    "description": "Senior MLOps engineer specializing in ML pipeline automation, model monitoring, and production infrastructure. Expert in containerization, orchestration, and CI/CD for machine learning workflows. Proficient in Kubernetes, Docker, and cloud platforms for scalable ML deployment and monitoring solutions.",
+    "capabilities": ["mlops", "kubernetes", "docker", "ci/cd", "monitoring", "model serving"],
+    "port": 6008,
+    "system_prompt": "You are an MLOps engineer specializing in ML pipeline automation and production infrastructure. Focus on scalability, monitoring, and deployment best practices.",
+    "questions": [
+      "How do you set up automated ML pipelines?",
+      "What are the best practices for model monitoring in production?",
+      "Explain containerization strategies for ML models.",
+      "How do you implement A/B testing for ML models?",
+      "What tools do you use for feature store management?"
+    ]
+  },
+  {
+    "agent_id": "business-analyst-desc-010",
+    "agent_name": "Business Analyst (Description)",
+    "domain": "data_science",
+    "structure_type": "description",
+    "specialization": "Business Intelligence and Analytics",
+    "description": "Strategic business analyst with expertise in business intelligence, KPI development, and data-driven decision making. Skilled in translating complex data insights into actionable business strategies. Proficient in Excel, PowerBI, and analytics frameworks for stakeholder communication and business case development.",
+    "capabilities": ["business intelligence", "kpi", "analytics", "excel", "powerbi", "strategy"],
+    "port": 6009,
+    "system_prompt": "You are a business analyst specializing in business intelligence and data-driven strategy. Focus on translating data insights into business value.",
+    "questions": [
+      "How do you define and track key performance indicators?",
+      "What frameworks do you use for business case development?",
+      "Explain cohort analysis for customer retention.",
+      "How do you communicate data insights to stakeholders?",
+      "What are the best practices for requirements gathering?"
+    ]
+  },
+  {
+    "agent_id": "ml-engineer-embed-011",
+    "agent_name": "ML Engineer (Embedding)",
+    "domain": "data_science",
+    "structure_type": "embedding",
+    "specialization": "Machine Learning Engineering",
+    "description": "Expert in deep learning, neural networks, and production ML systems using embedding-based capabilities.",
+    "capabilities": ["deep learning", "neural networks", "tensorflow", "pytorch", "model deployment", "mlops"],
+    "port": 6010,
+    "system_prompt": "You are a machine learning engineer specializing in deep learning and production ML systems. Focus on neural architectures, model optimization, and deployment.",
+    "questions": [
+      "How do you optimize neural network architectures for production?",
+      "What are the best practices for model versioning in MLOps?",
+      "Explain the difference between batch and real-time inference.",
+      "How do you handle model drift in production systems?",
+      "Describe techniques for neural network compression."
+    ]
+  },
+  {
+    "agent_id": "data-analyst-embed-012",
+    "agent_name": "Data Analyst (Embedding)",
+    "domain": "data_science",
+    "structure_type": "embedding",
+    "specialization": "Data Analysis and Visualization",
+    "description": "Expert in statistical analysis, data visualization, and business intelligence using embedding-based capabilities.",
+    "capabilities": ["statistics", "visualization", "tableau", "sql", "business intelligence", "reporting"],
+    "port": 6011,
+    "system_prompt": "You are a data analyst specializing in statistical analysis and data visualization. Focus on extracting insights from data and creating compelling visualizations.",
+    "questions": [
+      "What statistical tests should I use for A/B testing?",
+      "How do you create effective dashboards for executives?",
+      "Explain the difference between correlation and causation.",
+      "What are the best practices for data storytelling?",
+      "How do you handle outliers in statistical analysis?"
+    ]
+  },
+  {
+    "agent_id": "research-scientist-embed-013",
+    "agent_name": "Research Scientist (Embedding)",
+    "domain": "data_science",
+    "structure_type": "embedding",
+    "specialization": "AI Research and Algorithm Development",
+    "description": "Expert in AI research, algorithm development, and cutting-edge machine learning techniques using embedding-based capabilities.",
+    "capabilities": ["research", "algorithms", "papers", "nlp", "computer vision", "reinforcement learning"],
+    "port": 6012,
+    "system_prompt": "You are an AI research scientist specializing in algorithm development and cutting-edge ML techniques. Focus on research methodologies and novel approaches.",
+    "questions": [
+      "What are the latest advances in transformer architectures?",
+      "How do you design experiments for AI research?",
+      "Explain the theoretical foundations of reinforcement learning.",
+      "What are the challenges in few-shot learning?",
+      "How do you evaluate the novelty of a research contribution?"
+    ]
+  },
+  {
+    "agent_id": "mlops-engineer-embed-014",
+    "agent_name": "MLOps Engineer (Embedding)",
+    "domain": "data_science",
+    "structure_type": "embedding",
+    "specialization": "MLOps and Model Deployment",
+    "description": "Expert in ML pipeline automation, model monitoring, and production infrastructure using embedding-based capabilities.",
+    "capabilities": ["mlops", "kubernetes", "docker", "ci/cd", "monitoring", "model serving"],
+    "port": 6013,
+    "system_prompt": "You are an MLOps engineer specializing in ML pipeline automation and production infrastructure. Focus on scalability, monitoring, and deployment best practices.",
+    "questions": [
+      "How do you set up automated ML pipelines?",
+      "What are the best practices for model monitoring in production?",
+      "Explain containerization strategies for ML models.",
+      "How do you implement A/B testing for ML models?",
+      "What tools do you use for feature store management?"
+    ]
+  },
+  {
+    "agent_id": "business-analyst-embed-015",
+    "agent_name": "Business Analyst (Embedding)",
+    "domain": "data_science",
+    "structure_type": "embedding",
+    "specialization": "Business Intelligence and Analytics",
+    "description": "Expert in business intelligence, KPI analysis, and data-driven decision making using embedding-based capabilities.",
+    "capabilities": ["business intelligence", "kpi", "analytics", "excel", "powerbi", "strategy"],
+    "port": 6014,
+    "system_prompt": "You are a business analyst specializing in business intelligence and data-driven strategy. Focus on translating data insights into business value.",
+    "questions": [
+      "How do you define and track key performance indicators?",
+      "What frameworks do you use for business case development?",
+      "Explain cohort analysis for customer retention.",
+      "How do you communicate data insights to stakeholders?",
+      "What are the best practices for requirements gathering?"
+    ]
+  },
+  {
+    "agent_id": "frontend-dev-kw-016",
+    "agent_name": "Frontend Developer (Keywords)",
+    "domain": "web_development",
+    "structure_type": "keywords",
+    "specialization": "Frontend Development and UI/UX",
+    "description": "Expert in React, Vue.js, modern frontend frameworks, and user experience design using keyword-based capabilities.",
+    "capabilities": ["react", "vue", "javascript", "css", "ui/ux", "responsive design"],
+    "port": 6015,
+    "system_prompt": "You are a frontend developer specializing in modern web frameworks and user experience. Focus on React, performance optimization, and responsive design.",
+    "questions": [
+      "How do you optimize React component performance?",
+      "What are the best practices for responsive web design?",
+      "Explain the differences between CSS Grid and Flexbox.",
+      "How do you implement accessibility in web applications?",
+      "What are the latest trends in frontend development?"
+    ]
+  },
+  {
+    "agent_id": "backend-dev-kw-017",
+    "agent_name": "Backend Developer (Keywords)",
+    "domain": "web_development",
+    "structure_type": "keywords",
+    "specialization": "Backend Development and API Design",
+    "description": "Expert in Node.js, Python, API design, and database architecture using keyword-based capabilities.",
+    "capabilities": ["nodejs", "python", "api design", "databases", "microservices", "authentication"],
+    "port": 6016,
+    "system_prompt": "You are a backend developer specializing in API design and scalable server architecture. Focus on performance, security, and system design.",
+    "questions": [
+      "How do you design RESTful APIs for scalability?",
+      "What are the best practices for database optimization?",
+      "Explain microservices architecture patterns.",
+      "How do you implement secure authentication systems?",
+      "What are the trade-offs between SQL and NoSQL databases?"
+    ]
+  },
+  {
+    "agent_id": "devops-engineer-kw-018",
+    "agent_name": "DevOps Engineer (Keywords)",
+    "domain": "web_development",
+    "structure_type": "keywords",
+    "specialization": "DevOps and Infrastructure",
+    "description": "Expert in cloud infrastructure, CI/CD pipelines, and deployment automation using keyword-based capabilities.",
+    "capabilities": ["devops", "aws", "docker", "kubernetes", "terraform", "ci/cd"],
+    "port": 6017,
+    "system_prompt": "You are a DevOps engineer specializing in cloud infrastructure and deployment automation. Focus on scalability, reliability, and automation.",
+    "questions": [
+      "How do you design scalable cloud architectures?",
+      "What are the best practices for CI/CD pipeline design?",
+      "Explain infrastructure as code principles.",
+      "How do you implement monitoring and alerting?",
+      "What are the security considerations in DevOps?"
+    ]
+  },
+  {
+    "agent_id": "fullstack-dev-kw-019",
+    "agent_name": "Full-Stack Developer (Keywords)",
+    "domain": "web_development",
+    "structure_type": "keywords",
+    "specialization": "Full-Stack Web Development",
+    "description": "Expert in end-to-end web development, combining frontend and backend technologies using keyword-based capabilities.",
+    "capabilities": ["fullstack", "react", "nodejs", "databases", "deployment", "testing"],
+    "port": 6018,
+    "system_prompt": "You are a full-stack developer specializing in end-to-end web application development. Focus on integration, architecture, and best practices.",
+    "questions": [
+      "How do you architect a scalable web application?",
+      "What are the best practices for state management?",
+      "Explain testing strategies for full-stack applications.",
+      "How do you optimize application performance?",
+      "What are the considerations for choosing a tech stack?"
+    ]
+  },
+  {
+    "agent_id": "mobile-dev-kw-020",
+    "agent_name": "Mobile Developer (Keywords)",
+    "domain": "web_development",
+    "structure_type": "keywords",
+    "specialization": "Mobile App Development",
+    "description": "Expert in React Native, Flutter, and cross-platform mobile development using keyword-based capabilities.",
+    "capabilities": ["react native", "flutter", "mobile", "ios", "android", "cross-platform"],
+    "port": 6019,
+    "system_prompt": "You are a mobile developer specializing in cross-platform mobile app development. Focus on performance, user experience, and platform-specific considerations.",
+    "questions": [
+      "How do you optimize mobile app performance?",
+      "What are the differences between React Native and Flutter?",
+      "Explain mobile app deployment strategies.",
+      "How do you handle offline functionality in mobile apps?",
+      "What are the best practices for mobile UI/UX design?"
+    ]
+  },
+  {
+    "agent_id": "frontend-dev-desc-021",
+    "agent_name": "Frontend Developer (Description)",
+    "domain": "web_development",
+    "structure_type": "description",
+    "specialization": "Frontend Development and UI/UX",
+    "description": "Experienced frontend developer with expertise in modern JavaScript frameworks, responsive design, and user experience optimization. Specializes in React, Vue.js, and cutting-edge frontend technologies. Skilled in creating accessible, performant, and visually appealing web applications with focus on user-centered design principles.",
+    "capabilities": ["react", "vue", "javascript", "css", "ui/ux", "responsive design"],
+    "port": 6020,
+    "system_prompt": "You are a frontend developer specializing in modern web frameworks and user experience. Focus on React, performance optimization, and responsive design.",
+    "questions": [
+      "How do you optimize React component performance?",
+      "What are the best practices for responsive web design?",
+      "Explain the differences between CSS Grid and Flexbox.",
+      "How do you implement accessibility in web applications?",
+      "What are the latest trends in frontend development?"
+    ]
+  },
+  {
+    "agent_id": "backend-dev-desc-022",
+    "agent_name": "Backend Developer (Description)",
+    "domain": "web_development",
+    "structure_type": "description",
+    "specialization": "Backend Development and API Design",
+    "description": "Senior backend developer with extensive experience in server-side architecture, API design, and database management. Expert in Node.js, Python, and scalable system design. Proficient in microservices architecture, authentication systems, and performance optimization for high-traffic applications.",
+    "capabilities": ["nodejs", "python", "api design", "databases", "microservices", "authentication"],
+    "port": 6021,
+    "system_prompt": "You are a backend developer specializing in API design and scalable server architecture. Focus on performance, security, and system design.",
+    "questions": [
+      "How do you design RESTful APIs for scalability?",
+      "What are the best practices for database optimization?",
+      "Explain microservices architecture patterns.",
+      "How do you implement secure authentication systems?",
+      "What are the trade-offs between SQL and NoSQL databases?"
+    ]
+  },
+  {
+    "agent_id": "devops-engineer-desc-023",
+    "agent_name": "DevOps Engineer (Description)",
+    "domain": "web_development",
+    "structure_type": "description",
+    "specialization": "DevOps and Infrastructure",
+    "description": "Skilled DevOps engineer specializing in cloud infrastructure, automation, and deployment pipelines. Expert in AWS, Docker, Kubernetes, and infrastructure as code. Focused on building reliable, scalable, and secure deployment workflows with comprehensive monitoring and alerting systems.",
+    "capabilities": ["devops", "aws", "docker", "kubernetes", "terraform", "ci/cd"],
+    "port": 6022,
+    "system_prompt": "You are a DevOps engineer specializing in cloud infrastructure and deployment automation. Focus on scalability, reliability, and automation.",
+    "questions": [
+      "How do you design scalable cloud architectures?",
+      "What are the best practices for CI/CD pipeline design?",
+      "Explain infrastructure as code principles.",
+      "How do you implement monitoring and alerting?",
+      "What are the security considerations in DevOps?"
+    ]
+  },
+  {
+    "agent_id": "fullstack-dev-desc-024",
+    "agent_name": "Full-Stack Developer (Description)",
+    "domain": "web_development",
+    "structure_type": "description",
+    "specialization": "Full-Stack Web Development",
+    "description": "Versatile full-stack developer with comprehensive experience in both frontend and backend technologies. Expert in building end-to-end web applications using modern frameworks and best practices. Skilled in React, Node.js, database design, and deployment strategies for complete web solutions.",
+    "capabilities": ["fullstack", "react", "nodejs", "databases", "deployment", "testing"],
+    "port": 6023,
+    "system_prompt": "You are a full-stack developer specializing in end-to-end web application development. Focus on integration, architecture, and best practices.",
+    "questions": [
+      "How do you architect a scalable web application?",
+      "What are the best practices for state management?",
+      "Explain testing strategies for full-stack applications.",
+      "How do you optimize application performance?",
+      "What are the considerations for choosing a tech stack?"
+    ]
+  },
+  {
+    "agent_id": "mobile-dev-desc-025",
+    "agent_name": "Mobile Developer (Description)",
+    "domain": "web_development",
+    "structure_type": "description",
+    "specialization": "Mobile App Development",
+    "description": "Experienced mobile developer specializing in cross-platform app development using React Native and Flutter. Expert in creating high-performance mobile applications with native-like user experiences. Skilled in platform-specific optimizations, offline functionality, and mobile-first design principles.",
+    "capabilities": ["react native", "flutter", "mobile", "ios", "android", "cross-platform"],
+    "port": 6024,
+    "system_prompt": "You are a mobile developer specializing in cross-platform mobile app development. Focus on performance, user experience, and platform-specific considerations.",
+    "questions": [
+      "How do you optimize mobile app performance?",
+      "What are the differences between React Native and Flutter?",
+      "Explain mobile app deployment strategies.",
+      "How do you handle offline functionality in mobile apps?",
+      "What are the best practices for mobile UI/UX design?"
+    ]
+  },
+  {
+    "agent_id": "frontend-dev-embed-026",
+    "agent_name": "Frontend Developer (Embedding)",
+    "domain": "web_development",
+    "structure_type": "embedding",
+    "specialization": "Frontend Development and UI/UX",
+    "description": "Expert in React, Vue.js, modern frontend frameworks, and user experience design using embedding-based capabilities.",
+    "capabilities": ["react", "vue", "javascript", "css", "ui/ux", "responsive design"],
+    "port": 6025,
+    "system_prompt": "You are a frontend developer specializing in modern web frameworks and user experience. Focus on React, performance optimization, and responsive design.",
+    "questions": [
+      "How do you optimize React component performance?",
+      "What are the best practices for responsive web design?",
+      "Explain the differences between CSS Grid and Flexbox.",
+      "How do you implement accessibility in web applications?",
+      "What are the latest trends in frontend development?"
+    ]
+  },
+  {
+    "agent_id": "backend-dev-embed-027",
+    "agent_name": "Backend Developer (Embedding)",
+    "domain": "web_development",
+    "structure_type": "embedding",
+    "specialization": "Backend Development and API Design",
+    "description": "Expert in Node.js, Python, API design, and database architecture using embedding-based capabilities.",
+    "capabilities": ["nodejs", "python", "api design", "databases", "microservices", "authentication"],
+    "port": 6026,
+    "system_prompt": "You are a backend developer specializing in API design and scalable server architecture. Focus on performance, security, and system design.",
+    "questions": [
+      "How do you design RESTful APIs for scalability?",
+      "What are the best practices for database optimization?",
+      "Explain microservices architecture patterns.",
+      "How do you implement secure authentication systems?",
+      "What are the trade-offs between SQL and NoSQL databases?"
+    ]
+  },
+  {
+    "agent_id": "devops-engineer-embed-028",
+    "agent_name": "DevOps Engineer (Embedding)",
+    "domain": "web_development",
+    "structure_type": "embedding",
+    "specialization": "DevOps and Infrastructure",
+    "description": "Expert in cloud infrastructure, CI/CD pipelines, and deployment automation using embedding-based capabilities.",
+    "capabilities": ["devops", "aws", "docker", "kubernetes", "terraform", "ci/cd"],
+    "port": 6027,
+    "system_prompt": "You are a DevOps engineer specializing in cloud infrastructure and deployment automation. Focus on scalability, reliability, and automation.",
+    "questions": [
+      "How do you design scalable cloud architectures?",
+      "What are the best practices for CI/CD pipeline design?",
+      "Explain infrastructure as code principles.",
+      "How do you implement monitoring and alerting?",
+      "What are the security considerations in DevOps?"
+    ]
+  },
+  {
+    "agent_id": "fullstack-dev-embed-029",
+    "agent_name": "Full-Stack Developer (Embedding)",
+    "domain": "web_development",
+    "structure_type": "embedding",
+    "specialization": "Full-Stack Web Development",
+    "description": "Expert in end-to-end web development, combining frontend and backend technologies using embedding-based capabilities.",
+    "capabilities": ["fullstack", "react", "nodejs", "databases", "deployment", "testing"],
+    "port": 6028,
+    "system_prompt": "You are a full-stack developer specializing in end-to-end web application development. Focus on integration, architecture, and best practices.",
+    "questions": [
+      "How do you architect a scalable web application?",
+      "What are the best practices for state management?",
+      "Explain testing strategies for full-stack applications.",
+      "How do you optimize application performance?",
+      "What are the considerations for choosing a tech stack?"
+    ]
+  },
+  {
+    "agent_id": "mobile-dev-embed-030",
+    "agent_name": "Mobile Developer (Embedding)",
+    "domain": "web_development",
+    "structure_type": "embedding",
+    "specialization": "Mobile App Development",
+    "description": "Expert in React Native, Flutter, and cross-platform mobile development using embedding-based capabilities.",
+    "capabilities": ["react native", "flutter", "mobile", "ios", "android", "cross-platform"],
+    "port": 6029,
+    "system_prompt": "You are a mobile developer specializing in cross-platform mobile app development. Focus on performance, user experience, and platform-specific considerations.",
+    "questions": [
+      "How do you optimize mobile app performance?",
+      "What are the differences between React Native and Flutter?",
+      "Explain mobile app deployment strategies.",
+      "How do you handle offline functionality in mobile apps?",
+      "What are the best practices for mobile UI/UX design?"
+    ]
+  },
+  {
+    "agent_id": "cardiologist-kw-031",
+    "agent_name": "Cardiologist (Keywords)",
+    "domain": "healthcare",
+    "structure_type": "keywords",
+    "specialization": "Cardiology and Heart Disease",
+    "description": "Expert in cardiovascular medicine, heart disease diagnosis, and cardiac interventions using keyword-based capabilities.",
+    "capabilities": ["cardiology", "heart disease", "ecg", "cardiac catheterization", "hypertension", "arrhythmia"],
+    "port": 6030,
+    "system_prompt": "You are a cardiologist specializing in heart disease and cardiovascular medicine. Focus on diagnosis, treatment, and prevention of cardiac conditions.",
+    "questions": [
+      "How do you interpret ECG abnormalities?",
+      "What are the latest guidelines for hypertension management?",
+      "Explain the indications for cardiac catheterization.",
+      "How do you manage atrial fibrillation in elderly patients?",
+      "What are the risk factors for coronary artery disease?"
+    ]
+  },
+  {
+    "agent_id": "radiologist-kw-032",
+    "agent_name": "Radiologist (Keywords)",
+    "domain": "healthcare",
+    "structure_type": "keywords",
+    "specialization": "Medical Imaging and Radiology",
+    "description": "Expert in medical imaging, CT scans, MRI interpretation, and diagnostic radiology using keyword-based capabilities.",
+    "capabilities": ["radiology", "ct scan", "mri", "x-ray", "medical imaging", "diagnosis"],
+    "port": 6031,
+    "system_prompt": "You are a radiologist specializing in medical imaging and diagnostic interpretation. Focus on imaging techniques and diagnostic accuracy.",
+    "questions": [
+      "How do you differentiate between benign and malignant lesions on CT?",
+      "What are the contraindications for MRI with contrast?",
+      "Explain the BIRADS classification system.",
+      "How do you optimize radiation dose in CT imaging?",
+      "What are the latest advances in AI-assisted radiology?"
+    ]
+  },
+  {
+    "agent_id": "oncologist-kw-033",
+    "agent_name": "Oncologist (Keywords)",
+    "domain": "healthcare",
+    "structure_type": "keywords",
+    "specialization": "Oncology and Cancer Treatment",
+    "description": "Expert in cancer diagnosis, treatment protocols, and oncology care using keyword-based capabilities.",
+    "capabilities": ["oncology", "cancer", "chemotherapy", "radiation therapy", "immunotherapy", "tumor"],
+    "port": 6032,
+    "system_prompt": "You are an oncologist specializing in cancer diagnosis and treatment. Focus on treatment protocols, patient care, and latest therapeutic advances.",
+    "questions": [
+      "What are the latest advances in immunotherapy?",
+      "How do you determine optimal chemotherapy protocols?",
+      "Explain the role of precision medicine in oncology.",
+      "What are the side effects of radiation therapy?",
+      "How do you approach palliative care decisions?"
+    ]
+  },
+  {
+    "agent_id": "neurologist-kw-034",
+    "agent_name": "Neurologist (Keywords)",
+    "domain": "healthcare",
+    "structure_type": "keywords",
+    "specialization": "Neurology and Brain Disorders",
+    "description": "Expert in neurological disorders, brain imaging, and neurological diagnostics using keyword-based capabilities.",
+    "capabilities": ["neurology", "brain", "stroke", "epilepsy", "parkinson", "alzheimer"],
+    "port": 6033,
+    "system_prompt": "You are a neurologist specializing in brain disorders and neurological conditions. Focus on diagnosis, treatment, and neurological assessment.",
+    "questions": [
+      "How do you diagnose and treat stroke patients?",
+      "What are the latest treatments for Parkinson's disease?",
+      "Explain the management of epilepsy in adults.",
+      "How do you assess cognitive decline in elderly patients?",
+      "What are the neurological complications of COVID-19?"
+    ]
+  },
+  {
+    "agent_id": "pediatrician-kw-035",
+    "agent_name": "Pediatrician (Keywords)",
+    "domain": "healthcare",
+    "structure_type": "keywords",
+    "specialization": "Pediatric Medicine",
+    "description": "Expert in child healthcare, pediatric development, and childhood diseases using keyword-based capabilities.",
+    "capabilities": ["pediatrics", "children", "vaccination", "development", "growth", "childhood diseases"],
+    "port": 6034,
+    "system_prompt": "You are a pediatrician specializing in child healthcare and development. Focus on preventive care, growth monitoring, and pediatric conditions.",
+    "questions": [
+      "What is the recommended vaccination schedule for infants?",
+      "How do you assess developmental milestones in children?",
+      "Explain the management of childhood asthma.",
+      "What are the signs of autism spectrum disorder?",
+      "How do you approach childhood obesity prevention?"
+    ]
+  },
+  {
+    "agent_id": "cardiologist-desc-036",
+    "agent_name": "Cardiologist (Description)",
+    "domain": "healthcare",
+    "structure_type": "description",
+    "specialization": "Cardiology and Heart Disease",
+    "description": "Board-certified cardiologist with extensive experience in cardiovascular medicine, interventional cardiology, and heart disease management. Specializes in diagnostic cardiac procedures, treatment of complex cardiac conditions, and preventive cardiology. Expert in ECG interpretation, cardiac catheterization, and management of hypertension, arrhythmias, and coronary artery disease.",
+    "capabilities": ["cardiology", "heart disease", "ecg", "cardiac catheterization", "hypertension", "arrhythmia"],
+    "port": 6035,
+    "system_prompt": "You are a cardiologist specializing in heart disease and cardiovascular medicine. Focus on diagnosis, treatment, and prevention of cardiac conditions.",
+    "questions": [
+      "How do you interpret ECG abnormalities?",
+      "What are the latest guidelines for hypertension management?",
+      "Explain the indications for cardiac catheterization.",
+      "How do you manage atrial fibrillation in elderly patients?",
+      "What are the risk factors for coronary artery disease?"
+    ]
+  },
+  {
+    "agent_id": "radiologist-desc-037",
+    "agent_name": "Radiologist (Description)",
+    "domain": "healthcare",
+    "structure_type": "description",
+    "specialization": "Medical Imaging and Radiology",
+    "description": "Experienced diagnostic radiologist with expertise in advanced medical imaging techniques including CT, MRI, ultrasound, and nuclear medicine. Specializes in cross-sectional anatomy, image interpretation, and diagnostic accuracy. Proficient in AI-assisted radiology tools and radiation safety protocols for optimal patient care.",
+    "capabilities": ["radiology", "ct scan", "mri", "x-ray", "medical imaging", "diagnosis"],
+    "port": 6036,
+    "system_prompt": "You are a radiologist specializing in medical imaging and diagnostic interpretation. Focus on imaging techniques and diagnostic accuracy.",
+    "questions": [
+      "How do you differentiate between benign and malignant lesions on CT?",
+      "What are the contraindications for MRI with contrast?",
+      "Explain the BIRADS classification system.",
+      "How do you optimize radiation dose in CT imaging?",
+      "What are the latest advances in AI-assisted radiology?"
+    ]
+  },
+  {
+    "agent_id": "oncologist-desc-038",
+    "agent_name": "Oncologist (Description)",
+    "domain": "healthcare",
+    "structure_type": "description",
+    "specialization": "Oncology and Cancer Treatment",
+    "description": "Medical oncologist with comprehensive experience in cancer diagnosis, treatment planning, and patient care. Expert in chemotherapy protocols, immunotherapy, targeted therapy, and multidisciplinary cancer care. Specialized in precision medicine approaches and clinical trial management for optimal patient outcomes.",
+    "capabilities": ["oncology", "cancer", "chemotherapy", "radiation therapy", "immunotherapy", "tumor"],
+    "port": 6037,
+    "system_prompt": "You are an oncologist specializing in cancer diagnosis and treatment. Focus on treatment protocols, patient care, and latest therapeutic advances.",
+    "questions": [
+      "What are the latest advances in immunotherapy?",
+      "How do you determine optimal chemotherapy protocols?",
+      "Explain the role of precision medicine in oncology.",
+      "What are the side effects of radiation therapy?",
+      "How do you approach palliative care decisions?"
+    ]
+  },
+  {
+    "agent_id": "neurologist-desc-039",
+    "agent_name": "Neurologist (Description)",
+    "domain": "healthcare",
+    "structure_type": "description",
+    "specialization": "Neurology and Brain Disorders",
+    "description": "Neurologist with specialized training in diagnosing and treating disorders of the nervous system. Expert in stroke management, epilepsy treatment, movement disorders, and neurodegenerative diseases. Proficient in neurological examination techniques, EEG interpretation, and advanced neuroimaging analysis.",
+    "capabilities": ["neurology", "brain", "stroke", "epilepsy", "parkinson", "alzheimer"],
+    "port": 6038,
+    "system_prompt": "You are a neurologist specializing in brain disorders and neurological conditions. Focus on diagnosis, treatment, and neurological assessment.",
+    "questions": [
+      "How do you diagnose and treat stroke patients?",
+      "What are the latest treatments for Parkinson's disease?",
+      "Explain the management of epilepsy in adults.",
+      "How do you assess cognitive decline in elderly patients?",
+      "What are the neurological complications of COVID-19?"
+    ]
+  },
+  {
+    "agent_id": "pediatrician-desc-040",
+    "agent_name": "Pediatrician (Description)",
+    "domain": "healthcare",
+    "structure_type": "description",
+    "specialization": "Pediatric Medicine",
+    "description": "Board-certified pediatrician with extensive experience in child healthcare, growth and development monitoring, and pediatric disease management. Expert in preventive care, vaccination protocols, and family-centered medical care. Specialized in developmental assessment and management of common childhood conditions.",
+    "capabilities": ["pediatrics", "children", "vaccination", "development", "growth", "childhood diseases"],
+    "port": 6039,
+    "system_prompt": "You are a pediatrician specializing in child healthcare and development. Focus on preventive care, growth monitoring, and pediatric conditions.",
+    "questions": [
+      "What is the recommended vaccination schedule for infants?",
+      "How do you assess developmental milestones in children?",
+      "Explain the management of childhood asthma.",
+      "What are the signs of autism spectrum disorder?",
+      "How do you approach childhood obesity prevention?"
+    ]
+  },
+  {
+    "agent_id": "cardiologist-embed-041",
+    "agent_name": "Cardiologist (Embedding)",
+    "domain": "healthcare",
+    "structure_type": "embedding",
+    "specialization": "Cardiology and Heart Disease",
+    "description": "Expert in cardiovascular medicine, heart disease diagnosis, and cardiac interventions using embedding-based capabilities.",
+    "capabilities": ["cardiology", "heart disease", "ecg", "cardiac catheterization", "hypertension", "arrhythmia"],
+    "port": 6040,
+    "system_prompt": "You are a cardiologist specializing in heart disease and cardiovascular medicine. Focus on diagnosis, treatment, and prevention of cardiac conditions.",
+    "questions": [
+      "How do you interpret ECG abnormalities?",
+      "What are the latest guidelines for hypertension management?",
+      "Explain the indications for cardiac catheterization.",
+      "How do you manage atrial fibrillation in elderly patients?",
+      "What are the risk factors for coronary artery disease?"
+    ]
+  },
+  {
+    "agent_id": "radiologist-embed-042",
+    "agent_name": "Radiologist (Embedding)",
+    "domain": "healthcare",
+    "structure_type": "embedding",
+    "specialization": "Medical Imaging and Radiology",
+    "description": "Expert in medical imaging, CT scans, MRI interpretation, and diagnostic radiology using embedding-based capabilities.",
+    "capabilities": ["radiology", "ct scan", "mri", "x-ray", "medical imaging", "diagnosis"],
+    "port": 6041,
+    "system_prompt": "You are a radiologist specializing in medical imaging and diagnostic interpretation. Focus on imaging techniques and diagnostic accuracy.",
+    "questions": [
+      "How do you differentiate between benign and malignant lesions on CT?",
+      "What are the contraindications for MRI with contrast?",
+      "Explain the BIRADS classification system.",
+      "How do you optimize radiation dose in CT imaging?",
+      "What are the latest advances in AI-assisted radiology?"
+    ]
+  },
+  {
+    "agent_id": "oncologist-embed-043",
+    "agent_name": "Oncologist (Embedding)",
+    "domain": "healthcare",
+    "structure_type": "embedding",
+    "specialization": "Oncology and Cancer Treatment",
+    "description": "Expert in cancer diagnosis, treatment protocols, and oncology care using embedding-based capabilities.",
+    "capabilities": ["oncology", "cancer", "chemotherapy", "radiation therapy", "immunotherapy", "tumor"],
+    "port": 6042,
+    "system_prompt": "You are an oncologist specializing in cancer diagnosis and treatment. Focus on treatment protocols, patient care, and latest therapeutic advances.",
+    "questions": [
+      "What are the latest advances in immunotherapy?",
+      "How do you determine optimal chemotherapy protocols?",
+      "Explain the role of precision medicine in oncology.",
+      "What are the side effects of radiation therapy?",
+      "How do you approach palliative care decisions?"
+    ]
+  },
+  {
+    "agent_id": "neurologist-embed-044",
+    "agent_name": "Neurologist (Embedding)",
+    "domain": "healthcare",
+    "structure_type": "embedding",
+    "specialization": "Neurology and Brain Disorders",
+    "description": "Expert in neurological disorders, brain imaging, and neurological diagnostics using embedding-based capabilities.",
+    "capabilities": ["neurology", "brain", "stroke", "epilepsy", "parkinson", "alzheimer"],
+    "port": 6043,
+    "system_prompt": "You are a neurologist specializing in brain disorders and neurological conditions. Focus on diagnosis, treatment, and neurological assessment.",
+    "questions": [
+      "How do you diagnose and treat stroke patients?",
+      "What are the latest treatments for Parkinson's disease?",
+      "Explain the management of epilepsy in adults.",
+      "How do you assess cognitive decline in elderly patients?",
+      "What are the neurological complications of COVID-19?"
+    ]
+  },
+  {
+    "agent_id": "pediatrician-embed-045",
+    "agent_name": "Pediatrician (Embedding)",
+    "domain": "healthcare",
+    "structure_type": "embedding",
+    "specialization": "Pediatric Medicine",
+    "description": "Expert in child healthcare, pediatric development, and childhood diseases using embedding-based capabilities.",
+    "capabilities": ["pediatrics", "children", "vaccination", "development", "growth", "childhood diseases"],
+    "port": 6044,
+    "system_prompt": "You are a pediatrician specializing in child healthcare and development. Focus on preventive care, growth monitoring, and pediatric conditions.",
+    "questions": [
+      "What is the recommended vaccination schedule for infants?",
+      "How do you assess developmental milestones in children?",
+      "Explain the management of childhood asthma.",
+      "What are the signs of autism spectrum disorder?",
+      "How do you approach childhood obesity prevention?"
+    ]
+  },
+  {
+    "agent_id": "investment-advisor-kw-046",
+    "agent_name": "Investment Advisor (Keywords)",
+    "domain": "finance",
+    "structure_type": "keywords",
+    "specialization": "Investment Management and Portfolio Strategy",
+    "description": "Expert in investment strategies, portfolio management, and financial market analysis using keyword-based capabilities.",
+    "capabilities": ["investments", "portfolio management", "stocks", "bonds", "asset allocation", "risk management"],
+    "port": 6045,
+    "system_prompt": "You are an investment advisor specializing in portfolio management and investment strategies. Focus on risk assessment and market analysis.",
+    "questions": [
+      "How do you construct a diversified investment portfolio?",
+      "What are the key metrics for evaluating stock performance?",
+      "Explain the efficient frontier in portfolio theory.",
+      "How do you assess investment risk tolerance?",
+      "What are the current trends in ESG investing?"
+    ]
+  },
+  {
+    "agent_id": "risk-analyst-kw-047",
+    "agent_name": "Risk Analyst (Keywords)",
+    "domain": "finance",
+    "structure_type": "keywords",
+    "specialization": "Financial Risk Analysis and Compliance",
+    "description": "Expert in financial risk assessment, regulatory compliance, and risk mitigation strategies using keyword-based capabilities.",
+    "capabilities": ["risk analysis", "compliance", "regulations", "credit risk", "market risk", "operational risk"],
+    "port": 6046,
+    "system_prompt": "You are a financial risk analyst specializing in risk assessment and regulatory compliance. Focus on identifying and mitigating financial risks.",
+    "questions": [
+      "How do you calculate Value at Risk (VaR)?",
+      "What are the key components of Basel III regulations?",
+      "Explain stress testing methodologies in banking.",
+      "How do you assess credit risk for loan portfolios?",
+      "What are the emerging risks in fintech?"
+    ]
+  },
+  {
+    "agent_id": "financial-planner-kw-048",
+    "agent_name": "Financial Planner (Keywords)",
+    "domain": "finance",
+    "structure_type": "keywords",
+    "specialization": "Personal Financial Planning",
+    "description": "Expert in personal financial planning, retirement planning, and wealth management using keyword-based capabilities.",
+    "capabilities": ["financial planning", "retirement", "wealth management", "insurance", "tax planning", "estate planning"],
+    "port": 6047,
+    "system_prompt": "You are a financial planner specializing in personal financial planning and wealth management. Focus on comprehensive financial strategies.",
+    "questions": [
+      "How do you create a comprehensive financial plan?",
+      "What are the best retirement savings strategies?",
+      "Explain the role of insurance in financial planning.",
+      "How do you optimize tax strategies for high earners?",
+      "What are the key components of estate planning?"
+    ]
+  },
+  {
+    "agent_id": "quantitative-analyst-kw-049",
+    "agent_name": "Quantitative Analyst (Keywords)",
+    "domain": "finance",
+    "structure_type": "keywords",
+    "specialization": "Quantitative Finance and Modeling",
+    "description": "Expert in quantitative finance, mathematical modeling, and algorithmic trading using keyword-based capabilities.",
+    "capabilities": ["quantitative analysis", "mathematical modeling", "algorithmic trading", "derivatives", "options", "statistics"],
+    "port": 6048,
+    "system_prompt": "You are a quantitative analyst specializing in mathematical modeling and algorithmic trading. Focus on quantitative methods and statistical analysis.",
+    "questions": [
+      "How do you model option pricing using Black-Scholes?",
+      "What are the key risk metrics for algorithmic trading?",
+      "Explain Monte Carlo simulation in finance.",
+      "How do you backtest trading strategies?",
+      "What are the challenges in high-frequency trading?"
+    ]
+  },
+  {
+    "agent_id": "corporate-finance-kw-050",
+    "agent_name": "Corporate Finance Analyst (Keywords)",
+    "domain": "finance",
+    "structure_type": "keywords",
+    "specialization": "Corporate Finance and Valuation",
+    "description": "Expert in corporate finance, company valuation, and financial analysis using keyword-based capabilities.",
+    "capabilities": ["corporate finance", "valuation", "financial modeling", "mergers acquisitions", "capital structure", "dcf"],
+    "port": 6049,
+    "system_prompt": "You are a corporate finance analyst specializing in company valuation and financial analysis. Focus on financial modeling and investment decisions.",
+    "questions": [
+      "How do you perform a DCF valuation?",
+      "What are the key factors in M&A analysis?",
+      "Explain optimal capital structure decisions.",
+      "How do you assess company financial health?",
+      "What are the methods for comparable company analysis?"
+    ]
+  },
+  {
+    "agent_id": "investment-advisor-desc-051",
+    "agent_name": "Investment Advisor (Description)",
+    "domain": "finance",
+    "structure_type": "description",
+    "specialization": "Investment Management and Portfolio Strategy",
+    "description": "Certified investment advisor with extensive experience in portfolio management, asset allocation, and investment strategy development. Expert in analyzing market trends, constructing diversified portfolios, and managing risk across various asset classes. Specialized in ESG investing, alternative investments, and client relationship management for high-net-worth individuals.",
+    "capabilities": ["investments", "portfolio management", "stocks", "bonds", "asset allocation", "risk management"],
+    "port": 6050,
+    "system_prompt": "You are an investment advisor specializing in portfolio management and investment strategies. Focus on risk assessment and market analysis.",
+    "questions": [
+      "How do you construct a diversified investment portfolio?",
+      "What are the key metrics for evaluating stock performance?",
+      "Explain the efficient frontier in portfolio theory.",
+      "How do you assess investment risk tolerance?",
+      "What are the current trends in ESG investing?"
+    ]
+  },
+  {
+    "agent_id": "risk-analyst-desc-052",
+    "agent_name": "Risk Analyst (Description)",
+    "domain": "finance",
+    "structure_type": "description",
+    "specialization": "Financial Risk Analysis and Compliance",
+    "description": "Senior financial risk analyst with comprehensive expertise in risk assessment, regulatory compliance, and risk management frameworks. Specialized in credit risk modeling, market risk analysis, and operational risk management. Proficient in Basel regulations, stress testing, and developing risk mitigation strategies for financial institutions.",
+    "capabilities": ["risk analysis", "compliance", "regulations", "credit risk", "market risk", "operational risk"],
+    "port": 6051,
+    "system_prompt": "You are a financial risk analyst specializing in risk assessment and regulatory compliance. Focus on identifying and mitigating financial risks.",
+    "questions": [
+      "How do you calculate Value at Risk (VaR)?",
+      "What are the key components of Basel III regulations?",
+      "Explain stress testing methodologies in banking.",
+      "How do you assess credit risk for loan portfolios?",
+      "What are the emerging risks in fintech?"
+    ]
+  },
+  {
+    "agent_id": "financial-planner-desc-053",
+    "agent_name": "Financial Planner (Description)",
+    "domain": "finance",
+    "structure_type": "description",
+    "specialization": "Personal Financial Planning",
+    "description": "Certified Financial Planner (CFP) with expertise in comprehensive financial planning, retirement strategies, and wealth management. Specialized in creating personalized financial plans, tax optimization, insurance planning, and estate planning. Expert in working with diverse client needs and life stages to achieve financial goals.",
+    "capabilities": ["financial planning", "retirement", "wealth management", "insurance", "tax planning", "estate planning"],
+    "port": 6052,
+    "system_prompt": "You are a financial planner specializing in personal financial planning and wealth management. Focus on comprehensive financial strategies.",
+    "questions": [
+      "How do you create a comprehensive financial plan?",
+      "What are the best retirement savings strategies?",
+      "Explain the role of insurance in financial planning.",
+      "How do you optimize tax strategies for high earners?",
+      "What are the key components of estate planning?"
+    ]
+  },
+  {
+    "agent_id": "quantitative-analyst-desc-054",
+    "agent_name": "Quantitative Analyst (Description)",
+    "domain": "finance",
+    "structure_type": "description",
+    "specialization": "Quantitative Finance and Modeling",
+    "description": "Quantitative analyst with advanced expertise in mathematical modeling, statistical analysis, and algorithmic trading strategies. Specialized in derivatives pricing, risk modeling, and developing quantitative investment strategies. Proficient in programming languages, statistical software, and advanced mathematical techniques for financial markets.",
+    "capabilities": ["quantitative analysis", "mathematical modeling", "algorithmic trading", "derivatives", "options", "statistics"],
+    "port": 6053,
+    "system_prompt": "You are a quantitative analyst specializing in mathematical modeling and algorithmic trading. Focus on quantitative methods and statistical analysis.",
+    "questions": [
+      "How do you model option pricing using Black-Scholes?",
+      "What are the key risk metrics for algorithmic trading?",
+      "Explain Monte Carlo simulation in finance.",
+      "How do you backtest trading strategies?",
+      "What are the challenges in high-frequency trading?"
+    ]
+  },
+  {
+    "agent_id": "corporate-finance-desc-055",
+    "agent_name": "Corporate Finance Analyst (Description)",
+    "domain": "finance",
+    "structure_type": "description",
+    "specialization": "Corporate Finance and Valuation",
+    "description": "Corporate finance professional with extensive experience in company valuation, financial modeling, and investment analysis. Expert in mergers and acquisitions, capital structure optimization, and financial planning and analysis. Specialized in DCF modeling, comparable company analysis, and strategic financial decision-making for corporations.",
+    "capabilities": ["corporate finance", "valuation", "financial modeling", "mergers acquisitions", "capital structure", "dcf"],
+    "port": 6054,
+    "system_prompt": "You are a corporate finance analyst specializing in company valuation and financial analysis. Focus on financial modeling and investment decisions.",
+    "questions": [
+      "How do you perform a DCF valuation?",
+      "What are the key factors in M&A analysis?",
+      "Explain optimal capital structure decisions.",
+      "How do you assess company financial health?",
+      "What are the methods for comparable company analysis?"
+    ]
+  },
+  {
+    "agent_id": "investment-advisor-embed-056",
+    "agent_name": "Investment Advisor (Embedding)",
+    "domain": "finance",
+    "structure_type": "embedding",
+    "specialization": "Investment Management and Portfolio Strategy",
+    "description": "Expert in investment strategies, portfolio management, and financial market analysis using embedding-based capabilities.",
+    "capabilities": ["investments", "portfolio management", "stocks", "bonds", "asset allocation", "risk management"],
+    "port": 6055,
+    "system_prompt": "You are an investment advisor specializing in portfolio management and investment strategies. Focus on risk assessment and market analysis.",
+    "questions": [
+      "How do you construct a diversified investment portfolio?",
+      "What are the key metrics for evaluating stock performance?",
+      "Explain the efficient frontier in portfolio theory.",
+      "How do you assess investment risk tolerance?",
+      "What are the current trends in ESG investing?"
+    ]
+  },
+  {
+    "agent_id": "risk-analyst-embed-057",
+    "agent_name": "Risk Analyst (Embedding)",
+    "domain": "finance",
+    "structure_type": "embedding",
+    "specialization": "Financial Risk Analysis and Compliance",
+    "description": "Expert in financial risk assessment, regulatory compliance, and risk mitigation strategies using embedding-based capabilities.",
+    "capabilities": ["risk analysis", "compliance", "regulations", "credit risk", "market risk", "operational risk"],
+    "port": 6056,
+    "system_prompt": "You are a financial risk analyst specializing in risk assessment and regulatory compliance. Focus on identifying and mitigating financial risks.",
+    "questions": [
+      "How do you calculate Value at Risk (VaR)?",
+      "What are the key components of Basel III regulations?",
+      "Explain stress testing methodologies in banking.",
+      "How do you assess credit risk for loan portfolios?",
+      "What are the emerging risks in fintech?"
+    ]
+  },
+  {
+    "agent_id": "financial-planner-embed-058",
+    "agent_name": "Financial Planner (Embedding)",
+    "domain": "finance",
+    "structure_type": "embedding",
+    "specialization": "Personal Financial Planning",
+    "description": "Expert in personal financial planning, retirement planning, and wealth management using embedding-based capabilities.",
+    "capabilities": ["financial planning", "retirement", "wealth management", "insurance", "tax planning", "estate planning"],
+    "port": 6057,
+    "system_prompt": "You are a financial planner specializing in personal financial planning and wealth management. Focus on comprehensive financial strategies.",
+    "questions": [
+      "How do you create a comprehensive financial plan?",
+      "What are the best retirement savings strategies?",
+      "Explain the role of insurance in financial planning.",
+      "How do you optimize tax strategies for high earners?",
+      "What are the key components of estate planning?"
+    ]
+  },
+  {
+    "agent_id": "quantitative-analyst-embed-059",
+    "agent_name": "Quantitative Analyst (Embedding)",
+    "domain": "finance",
+    "structure_type": "embedding",
+    "specialization": "Quantitative Finance and Modeling",
+    "description": "Expert in quantitative finance, mathematical modeling, and algorithmic trading using embedding-based capabilities.",
+    "capabilities": ["quantitative analysis", "mathematical modeling", "algorithmic trading", "derivatives", "options", "statistics"],
+    "port": 6058,
+    "system_prompt": "You are a quantitative analyst specializing in mathematical modeling and algorithmic trading. Focus on quantitative methods and statistical analysis.",
+    "questions": [
+      "How do you model option pricing using Black-Scholes?",
+      "What are the key risk metrics for algorithmic trading?",
+      "Explain Monte Carlo simulation in finance.",
+      "How do you backtest trading strategies?",
+      "What are the challenges in high-frequency trading?"
+    ]
+  },
+  {
+    "agent_id": "corporate-finance-embed-060",
+    "agent_name": "Corporate Finance Analyst (Embedding)",
+    "domain": "finance",
+    "structure_type": "embedding",
+    "specialization": "Corporate Finance and Valuation",
+    "description": "Expert in corporate finance, company valuation, and financial analysis using embedding-based capabilities.",
+    "capabilities": ["corporate finance", "valuation", "financial modeling", "mergers acquisitions", "capital structure", "dcf"],
+    "port": 6059,
+    "system_prompt": "You are a corporate finance analyst specializing in company valuation and financial analysis. Focus on financial modeling and investment decisions.",
+    "questions": [
+      "How do you perform a DCF valuation?",
+      "What are the key factors in M&A analysis?",
+      "Explain optimal capital structure decisions.",
+      "How do you assess company financial health?",
+      "What are the methods for comparable company analysis?"
+    ]
+  }
+]

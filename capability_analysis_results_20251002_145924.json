@@ -1,0 +1,745 @@
+{
+  "timestamp": "20251002_145924",
+  "summary": [
+    {
+      "Structure": "Keywords",
+      "Accuracy": "0.653",
+      "Precision": "0.650",
+      "Recall": "0.600",
+      "Avg Speed": "0.361s",
+      "Speed StdDev": "0.407s"
+    },
+    {
+      "Structure": "Description",
+      "Accuracy": "0.900",
+      "Precision": "0.650",
+      "Recall": "0.850",
+      "Avg Speed": "0.470s",
+      "Speed StdDev": "0.137s"
+    },
+    {
+      "Structure": "Embedding",
+      "Accuracy": "0.116",
+      "Precision": "0.129",
+      "Recall": "0.850",
+      "Avg Speed": "0.854s",
+      "Speed StdDev": "0.548s"
+    }
+  ],
+  "detailed_results": {
+    "keywords": {
+      "accuracy_scores": [
+        0.5272727272727273,
+        0.0,
+        1.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "speed_scores": [
+        0.20465612411499023,
+        0.2409200668334961,
+        0.2052898406982422,
+        0.20199203491210938,
+        0.20314598083496094,
+        0.20528817176818848,
+        1.507000207901001,
+        0.4003162384033203,
+        0.2433490753173828,
+        0.20071005821228027
+      ],
+      "precision_scores": [
+        0.5,
+        0,
+        1.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0
+      ],
+      "recall_scores": [
+        1.0,
+        0.0,
+        0.5,
+        1.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.5,
+        0.0
+      ],
+      "scenario_results": [
+        {
+          "query": "python web development",
+          "accuracy": 0.5272727272727273,
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1_score": 0.6666666666666666,
+          "speed": 0.20465612411499023,
+          "results_count": 20,
+          "found_specializations": [
+            "Data Scientist",
+            "Python Developer"
+          ],
+          "expected_specializations": [
+            "Python Developer"
+          ]
+        },
+        {
+          "query": "machine learning artificial intelligence",
+          "accuracy": 0.0,
+          "precision": 0,
+          "recall": 0.0,
+          "f1_score": 0,
+          "speed": 0.2409200668334961,
+          "results_count": 0,
+          "found_specializations": [],
+          "expected_specializations": [
+            "Data Scientist",
+            "AI Engineer"
+          ]
+        },
+        {
+          "query": "kubernetes docker containers",
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1_score": 0.6666666666666666,
+          "speed": 0.2052898406982422,
+          "results_count": 10,
+          "found_specializations": [
+            "DevOps Engineer"
+          ],
+          "expected_specializations": [
+            "DevOps Engineer",
+            "Cloud Architect"
+          ]
+        },
+        {
+          "query": "react frontend javascript",
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0,
+          "speed": 0.20199203491210938,
+          "results_count": 10,
+          "found_specializations": [
+            "Frontend Developer"
+          ],
+          "expected_specializations": [
+            "Frontend Developer"
+          ]
+        },
+        {
+          "query": "security penetration testing",
+          "accuracy": 0.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1_score": 0,
+          "speed": 0.20314598083496094,
+          "results_count": 10,
+          "found_specializations": [
+            "QA Engineer"
+          ],
+          "expected_specializations": [
+            "Security Expert"
+          ]
+        },
+        {
+          "query": "mobile app development",
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0,
+          "speed": 0.20528817176818848,
+          "results_count": 10,
+          "found_specializations": [
+            "Mobile Developer"
+          ],
+          "expected_specializations": [
+            "Mobile Developer"
+          ]
+        },
+        {
+          "query": "database optimization sql",
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0,
+          "speed": 1.507000207901001,
+          "results_count": 10,
+          "found_specializations": [
+            "Database Expert"
+          ],
+          "expected_specializations": [
+            "Database Expert"
+          ]
+        },
+        {
+          "query": "quality assurance testing",
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0,
+          "speed": 0.4003162384033203,
+          "results_count": 10,
+          "found_specializations": [
+            "QA Engineer"
+          ],
+          "expected_specializations": [
+            "QA Engineer"
+          ]
+        },
+        {
+          "query": "web development backend",
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1_score": 0.6666666666666666,
+          "speed": 0.2433490753173828,
+          "results_count": 10,
+          "found_specializations": [
+            "Python Developer"
+          ],
+          "expected_specializations": [
+            "Python Developer",
+            "Frontend Developer"
+          ]
+        },
+        {
+          "query": "cloud computing infrastructure",
+          "accuracy": 0.0,
+          "precision": 0,
+          "recall": 0.0,
+          "f1_score": 0,
+          "speed": 0.20071005821228027,
+          "results_count": 0,
+          "found_specializations": [],
+          "expected_specializations": [
+            "DevOps Engineer",
+            "Cloud Architect"
+          ]
+        }
+      ]
+    },
+    "description": {
+      "accuracy_scores": [
+        1.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "speed_scores": [
+        0.6056609153747559,
+        0.6542742252349854,
+        0.3592240810394287,
+        0.2119770050048828,
+        0.5281491279602051,
+        0.5278918743133545,
+        0.3099958896636963,
+        0.4620480537414551,
+        0.5166499614715576,
+        0.5249099731445312
+      ],
+      "precision_scores": [
+        0.5,
+        1.0,
+        0,
+        1.0,
+        0.5,
+        0.5,
+        1.0,
+        0.5,
+        0.5,
+        1.0
+      ],
+      "recall_scores": [
+        1.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.5,
+        1.0
+      ],
+      "scenario_results": [
+        {
+          "query": "python web development",
+          "accuracy": 1.0,
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1_score": 0.6666666666666666,
+          "speed": 0.6056609153747559,
+          "results_count": 20,
+          "found_specializations": [
+            "Python Developer",
+            "Mobile Developer"
+          ],
+          "expected_specializations": [
+            "Python Developer"
+          ]
+        },
+        {
+          "query": "machine learning artificial intelligence",
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0,
+          "speed": 0.6542742252349854,
+          "results_count": 20,
+          "found_specializations": [
+            "AI Engineer",
+            "Data Scientist"
+          ],
+          "expected_specializations": [
+            "Data Scientist",
+            "AI Engineer"
+          ]
+        },
+        {
+          "query": "kubernetes docker containers",
+          "accuracy": 0.0,
+          "precision": 0,
+          "recall": 0.0,
+          "f1_score": 0,
+          "speed": 0.3592240810394287,
+          "results_count": 0,
+          "found_specializations": [],
+          "expected_specializations": [
+            "DevOps Engineer",
+            "Cloud Architect"
+          ]
+        },
+        {
+          "query": "react frontend javascript",
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0,
+          "speed": 0.2119770050048828,
+          "results_count": 10,
+          "found_specializations": [
+            "Frontend Developer"
+          ],
+          "expected_specializations": [
+            "Frontend Developer"
+          ]
+        },
+        {
+          "query": "security penetration testing",
+          "accuracy": 1.0,
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1_score": 0.6666666666666666,
+          "speed": 0.5281491279602051,
+          "results_count": 20,
+          "found_specializations": [
+            "Security Expert",
+            "QA Engineer"
+          ],
+          "expected_specializations": [
+            "Security Expert"
+          ]
+        },
+        {
+          "query": "mobile app development",
+          "accuracy": 1.0,
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1_score": 0.6666666666666666,
+          "speed": 0.5278918743133545,
+          "results_count": 20,
+          "found_specializations": [
+            "Mobile Developer",
+            "Frontend Developer"
+          ],
+          "expected_specializations": [
+            "Mobile Developer"
+          ]
+        },
+        {
+          "query": "database optimization sql",
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0,
+          "speed": 0.3099958896636963,
+          "results_count": 10,
+          "found_specializations": [
+            "Database Expert"
+          ],
+          "expected_specializations": [
+            "Database Expert"
+          ]
+        },
+        {
+          "query": "quality assurance testing",
+          "accuracy": 1.0,
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1_score": 0.6666666666666666,
+          "speed": 0.4620480537414551,
+          "results_count": 20,
+          "found_specializations": [
+            "QA Engineer",
+            "Security Expert"
+          ],
+          "expected_specializations": [
+            "QA Engineer"
+          ]
+        },
+        {
+          "query": "web development backend",
+          "accuracy": 1.0,
+          "precision": 0.5,
+          "recall": 0.5,
+          "f1_score": 0.5,
+          "speed": 0.5166499614715576,
+          "results_count": 20,
+          "found_specializations": [
+            "Python Developer",
+            "Mobile Developer"
+          ],
+          "expected_specializations": [
+            "Python Developer",
+            "Frontend Developer"
+          ]
+        },
+        {
+          "query": "cloud computing infrastructure",
+          "accuracy": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1_score": 1.0,
+          "speed": 0.5249099731445312,
+          "results_count": 20,
+          "found_specializations": [
+            "Cloud Architect",
+            "DevOps Engineer"
+          ],
+          "expected_specializations": [
+            "DevOps Engineer",
+            "Cloud Architect"
+          ]
+        }
+      ]
+    },
+    "embedding": {
+      "accuracy_scores": [
+        0.036363636363636355,
+        0.07272727272727271,
+        0.45454545454545453,
+        0.12727272727272726,
+        0.054545454545454536,
+        0.036363636363636355,
+        0.0,
+        0.07272727272727271,
+        0.18181818181818182,
+        0.12727272727272723
+      ],
+      "speed_scores": [
+        1.05308198928833,
+        1.0501708984375,
+        0.7502448558807373,
+        0.708590030670166,
+        0.7131760120391846,
+        0.5708630084991455,
+        0.4671189785003662,
+        0.505558967590332,
+        2.2832448482513428,
+        0.4352569580078125
+      ],
+      "precision_scores": [
+        0.1,
+        0.125,
+        0.2222222222222222,
+        0.1,
+        0.1,
+        0.1,
+        0.0,
+        0.1,
+        0.2222222222222222,
+        0.2222222222222222
+      ],
+      "recall_scores": [
+        1.0,
+        0.5,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "scenario_results": [
+        {
+          "query": "python web development",
+          "accuracy": 0.036363636363636355,
+          "precision": 0.1,
+          "recall": 1.0,
+          "f1_score": 0.18181818181818182,
+          "speed": 1.05308198928833,
+          "results_count": 20,
+          "found_specializations": [
+            "Frontend Developer",
+            "Cloud Architect",
+            "Mobile Developer",
+            "Python Developer",
+            "AI Engineer",
+            "DevOps Engineer",
+            "Database Expert",
+            "Data Scientist",
+            "Security Expert",
+            "QA Engineer"
+          ],
+          "expected_specializations": [
+            "Python Developer"
+          ]
+        },
+        {
+          "query": "machine learning artificial intelligence",
+          "accuracy": 0.07272727272727271,
+          "precision": 0.125,
+          "recall": 0.5,
+          "f1_score": 0.2,
+          "speed": 1.0501708984375,
+          "results_count": 20,
+          "found_specializations": [
+            "Frontend Developer",
+            "Python Developer",
+            "DevOps Engineer",
+            "Cloud Architect",
+            "Mobile Developer",
+            "AI Engineer",
+            "QA Engineer",
+            "Database Expert"
+          ],
+          "expected_specializations": [
+            "Data Scientist",
+            "AI Engineer"
+          ]
+        },
+        {
+          "query": "kubernetes docker containers",
+          "accuracy": 0.45454545454545453,
+          "precision": 0.2222222222222222,
+          "recall": 1.0,
+          "f1_score": 0.3636363636363636,
+          "speed": 0.7502448558807373,
+          "results_count": 20,
+          "found_specializations": [
+            "Frontend Developer",
+            "DevOps Engineer",
+            "Data Scientist",
+            "QA Engineer",
+            "Cloud Architect",
+            "AI Engineer",
+            "Database Expert",
+            "Mobile Developer",
+            "Python Developer"
+          ],
+          "expected_specializations": [
+            "DevOps Engineer",
+            "Cloud Architect"
+          ]
+        },
+        {
+          "query": "react frontend javascript",
+          "accuracy": 0.12727272727272726,
+          "precision": 0.1,
+          "recall": 1.0,
+          "f1_score": 0.18181818181818182,
+          "speed": 0.708590030670166,
+          "results_count": 20,
+          "found_specializations": [
+            "Cloud Architect",
+            "Python Developer",
+            "Frontend Developer",
+            "DevOps Engineer",
+            "QA Engineer",
+            "Security Expert",
+            "Data Scientist",
+            "Mobile Developer",
+            "AI Engineer",
+            "Database Expert"
+          ],
+          "expected_specializations": [
+            "Frontend Developer"
+          ]
+        },
+        {
+          "query": "security penetration testing",
+          "accuracy": 0.054545454545454536,
+          "precision": 0.1,
+          "recall": 1.0,
+          "f1_score": 0.18181818181818182,
+          "speed": 0.7131760120391846,
+          "results_count": 20,
+          "found_specializations": [
+            "Frontend Developer",
+            "Mobile Developer",
+            "DevOps Engineer",
+            "AI Engineer",
+            "Cloud Architect",
+            "Data Scientist",
+            "Security Expert",
+            "Python Developer",
+            "Database Expert",
+            "QA Engineer"
+          ],
+          "expected_specializations": [
+            "Security Expert"
+          ]
+        },
+        {
+          "query": "mobile app development",
+          "accuracy": 0.036363636363636355,
+          "precision": 0.1,
+          "recall": 1.0,
+          "f1_score": 0.18181818181818182,
+          "speed": 0.5708630084991455,
+          "results_count": 20,
+          "found_specializations": [
+            "Frontend Developer",
+            "DevOps Engineer",
+            "Database Expert",
+            "QA Engineer",
+            "Python Developer",
+            "Cloud Architect",
+            "Mobile Developer",
+            "AI Engineer",
+            "Security Expert",
+            "Data Scientist"
+          ],
+          "expected_specializations": [
+            "Mobile Developer"
+          ]
+        },
+        {
+          "query": "database optimization sql",
+          "accuracy": 0.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1_score": 0,
+          "speed": 0.4671189785003662,
+          "results_count": 20,
+          "found_specializations": [
+            "Frontend Developer",
+            "AI Engineer",
+            "Cloud Architect",
+            "DevOps Engineer",
+            "QA Engineer",
+            "Data Scientist",
+            "Python Developer",
+            "Mobile Developer"
+          ],
+          "expected_specializations": [
+            "Database Expert"
+          ]
+        },
+        {
+          "query": "quality assurance testing",
+          "accuracy": 0.07272727272727271,
+          "precision": 0.1,
+          "recall": 1.0,
+          "f1_score": 0.18181818181818182,
+          "speed": 0.505558967590332,
+          "results_count": 20,
+          "found_specializations": [
+            "DevOps Engineer",
+            "Frontend Developer",
+            "Security Expert",
+            "AI Engineer",
+            "Cloud Architect",
+            "QA Engineer",
+            "Python Developer",
+            "Data Scientist",
+            "Mobile Developer",
+            "Database Expert"
+          ],
+          "expected_specializations": [
+            "QA Engineer"
+          ]
+        },
+        {
+          "query": "web development backend",
+          "accuracy": 0.18181818181818182,
+          "precision": 0.2222222222222222,
+          "recall": 1.0,
+          "f1_score": 0.3636363636363636,
+          "speed": 2.2832448482513428,
+          "results_count": 20,
+          "found_specializations": [
+            "Frontend Developer",
+            "AI Engineer",
+            "Mobile Developer",
+            "Cloud Architect",
+            "DevOps Engineer",
+            "QA Engineer",
+            "Python Developer",
+            "Database Expert",
+            "Data Scientist"
+          ],
+          "expected_specializations": [
+            "Python Developer",
+            "Frontend Developer"
+          ]
+        },
+        {
+          "query": "cloud computing infrastructure",
+          "accuracy": 0.12727272727272723,
+          "precision": 0.2222222222222222,
+          "recall": 1.0,
+          "f1_score": 0.3636363636363636,
+          "speed": 0.4352569580078125,
+          "results_count": 20,
+          "found_specializations": [
+            "Frontend Developer",
+            "Security Expert",
+            "Data Scientist",
+            "Mobile Developer",
+            "Python Developer",
+            "Cloud Architect",
+            "AI Engineer",
+            "DevOps Engineer",
+            "QA Engineer"
+          ],
+          "expected_specializations": [
+            "DevOps Engineer",
+            "Cloud Architect"
+          ]
+        }
+      ]
+    }
+  },
+  "composite_scores": {
+    "keywords": 1.2867748911249395,
+    "description": 1.218191809349578,
+    "embedding": 0.43541403633043846
+  },
+  "recommendations": {
+    "best_accuracy": "description",
+    "best_speed": "keywords",
+    "best_precision": "keywords",
+    "best_overall": "keywords"
+  }
+}

@@ -127,6 +127,29 @@ class RegistryClient:
             print(f"Error searching agents: {e}")
             return self._filter_agents_locally(query, capabilities, tags)
 
+    def search_agents_by_structure(self, query: str, structure_type: str = None, limit: int = 10) -> List[Dict[str, Any]]:
+        """Search for agents with structure-specific filtering via registry API"""
+        try:
+            params = {
+                "q": query,
+                "limit": limit
+            }
+            if structure_type:
+                params["structure_type"] = structure_type
+
+            response = self.session.get(f"{self.registry_url}/search/structure", params=params)
+            if response.status_code == 200:
+                result = response.json()
+                agents = result.get('agents', [])
+                print(f"🔍 Registry structure search ({structure_type}): {len(agents)} results")
+                return agents
+            else:
+                print(f"⚠️ Registry structure search failed: HTTP {response.status_code}")
+                return []
+        except Exception as e:
+            print(f"❌ Error in structure search: {e}")
+            return []
+
     def _filter_agents_locally(self, query: str = "", capabilities: List[str] = None, tags: List[str] = None) -> List[Dict[str, Any]]:
         """Fallback local filtering when server search is not available"""
         all_agents = self.list_agents()

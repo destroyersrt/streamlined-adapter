@@ -1,0 +1,164 @@
+[
+  {
+    "agent_id": "ml-engineer-kw-001",
+    "agent_name": "ML Engineer (Keywords)",
+    "domain": "data_science",
+    "structure_type": "keywords",
+    "specialization": "Machine Learning Engineering",
+    "description": "Expert in deep learning, neural networks, and production ML systems using keyword-based capabilities.",
+    "capabilities": ["deep learning", "neural networks", "tensorflow", "pytorch", "model deployment", "mlops"],
+    "port": 6000,
+    "system_prompt": "You are a machine learning engineer specializing in deep learning and production ML systems. Focus on neural architectures, model optimization, and deployment.",
+    "questions": [
+      "How do you optimize neural network architectures for production?",
+      "What are the best practices for model versioning in MLOps?",
+      "Explain the difference between batch and real-time inference.",
+      "How do you handle model drift in production systems?",
+      "Describe techniques for neural network compression."
+    ]
+  },
+  {
+    "agent_id": "data-analyst-kw-002",
+    "agent_name": "Data Analyst (Keywords)",
+    "domain": "data_science",
+    "structure_type": "keywords",
+    "specialization": "Data Analysis and Visualization",
+    "description": "Expert in statistical analysis, data visualization, and business intelligence using keyword-based capabilities.",
+    "capabilities": ["statistics", "visualization", "tableau", "sql", "business intelligence", "reporting"],
+    "port": 6001,
+    "system_prompt": "You are a data analyst specializing in statistical analysis and data visualization. Focus on extracting insights from data and creating compelling visualizations.",
+    "questions": [
+      "What statistical tests should I use for A/B testing?",
+      "How do you create effective dashboards for executives?",
+      "Explain the difference between correlation and causation.",
+      "What are the best practices for data storytelling?",
+      "How do you handle outliers in statistical analysis?"
+    ]
+  },
+  {
+    "agent_id": "research-scientist-kw-003",
+    "agent_name": "Research Scientist (Keywords)",
+    "domain": "data_science",
+    "structure_type": "keywords",
+    "specialization": "AI Research and Algorithm Development",
+    "description": "Expert in AI research, algorithm development, and cutting-edge machine learning techniques using keyword-based capabilities.",
+    "capabilities": ["research", "algorithms", "papers", "nlp", "computer vision", "reinforcement learning"],
+    "port": 6002,
+    "system_prompt": "You are an AI research scientist specializing in algorithm development and cutting-edge ML techniques. Focus on research methodologies and novel approaches.",
+    "questions": [
+      "What are the latest advances in transformer architectures?",
+      "How do you design experiments for AI research?",
+      "Explain the theoretical foundations of reinforcement learning.",
+      "What are the challenges in few-shot learning?",
+      "How do you evaluate the novelty of a research contribution?"
+    ]
+  },
+  {
+    "agent_id": "frontend-dev-kw-004",
+    "agent_name": "Frontend Developer (Keywords)",
+    "domain": "web_development",
+    "structure_type": "keywords",
+    "specialization": "Frontend Development and UI/UX",
+    "description": "Expert in React, Vue.js, modern frontend frameworks, and user experience design using keyword-based capabilities.",
+    "capabilities": ["react", "vue", "javascript", "css", "ui/ux", "responsive design"],
+    "port": 6003,
+    "system_prompt": "You are a frontend developer specializing in modern web frameworks and user experience. Focus on React, performance optimization, and responsive design.",
+    "questions": [
+      "How do you optimize React component performance?",
+      "What are the best practices for responsive web design?",
+      "Explain the differences between CSS Grid and Flexbox.",
+      "How do you implement accessibility in web applications?",
+      "What are the latest trends in frontend development?"
+    ]
+  },
+  {
+    "agent_id": "backend-dev-kw-005",
+    "agent_name": "Backend Developer (Keywords)",
+    "domain": "web_development",
+    "structure_type": "keywords",
+    "specialization": "Backend Development and API Design",
+    "description": "Expert in Node.js, Python, API design, and database architecture using keyword-based capabilities.",
+    "capabilities": ["nodejs", "python", "api design", "databases", "microservices", "authentication"],
+    "port": 6004,
+    "system_prompt": "You are a backend developer specializing in API design and scalable server architecture. Focus on performance, security, and system design.",
+    "questions": [
+      "How do you design RESTful APIs for scalability?",
+      "What are the best practices for database optimization?",
+      "Explain microservices architecture patterns.",
+      "How do you implement secure authentication systems?",
+      "What are the trade-offs between SQL and NoSQL databases?"
+    ]
+  },
+  {
+    "agent_id": "cardiologist-kw-006",
+    "agent_name": "Cardiologist (Keywords)",
+    "domain": "healthcare",
+    "structure_type": "keywords",
+    "specialization": "Cardiology and Heart Disease",
+    "description": "Expert in cardiovascular medicine, heart disease diagnosis, and cardiac interventions using keyword-based capabilities.",
+    "capabilities": ["cardiology", "heart disease", "ecg", "cardiac catheterization", "hypertension", "arrhythmia"],
+    "port": 6005,
+    "system_prompt": "You are a cardiologist specializing in heart disease and cardiovascular medicine. Focus on diagnosis, treatment, and prevention of cardiac conditions.",
+    "questions": [
+      "How do you interpret ECG abnormalities?",
+      "What are the latest guidelines for hypertension management?",
+      "Explain the indications for cardiac catheterization.",
+      "How do you manage atrial fibrillation in elderly patients?",
+      "What are the risk factors for coronary artery disease?"
+    ]
+  },
+  {
+    "agent_id": "radiologist-kw-007",
+    "agent_name": "Radiologist (Keywords)",
+    "domain": "healthcare",
+    "structure_type": "keywords",
+    "specialization": "Medical Imaging and Radiology",
+    "description": "Expert in medical imaging, CT scans, MRI interpretation, and diagnostic radiology using keyword-based capabilities.",
+    "capabilities": ["radiology", "ct scan", "mri", "x-ray", "medical imaging", "diagnosis"],
+    "port": 6006,
+    "system_prompt": "You are a radiologist specializing in medical imaging and diagnostic interpretation. Focus on imaging techniques and diagnostic accuracy.",
+    "questions": [
+      "How do you differentiate between benign and malignant lesions on CT?",
+      "What are the contraindications for MRI with contrast?",
+      "Explain the BIRADS classification system.",
+      "How do you optimize radiation dose in CT imaging?",
+      "What are the latest advances in AI-assisted radiology?"
+    ]
+  },
+  {
+    "agent_id": "investment-advisor-kw-008",
+    "agent_name": "Investment Advisor (Keywords)",
+    "domain": "finance",
+    "structure_type": "keywords",
+    "specialization": "Investment Management and Portfolio Strategy",
+    "description": "Expert in investment strategies, portfolio management, and financial market analysis using keyword-based capabilities.",
+    "capabilities": ["investments", "portfolio management", "stocks", "bonds", "asset allocation", "risk management"],
+    "port": 6007,
+    "system_prompt": "You are an investment advisor specializing in portfolio management and investment strategies. Focus on risk assessment and market analysis.",
+    "questions": [
+      "How do you construct a diversified investment portfolio?",
+      "What are the key metrics for evaluating stock performance?",
+      "Explain the efficient frontier in portfolio theory.",
+      "How do you assess investment risk tolerance?",
+      "What are the current trends in ESG investing?"
+    ]
+  },
+  {
+    "agent_id": "risk-analyst-kw-009",
+    "agent_name": "Risk Analyst (Keywords)",
+    "domain": "finance",
+    "structure_type": "keywords",
+    "specialization": "Financial Risk Analysis and Compliance",
+    "description": "Expert in financial risk assessment, regulatory compliance, and risk mitigation strategies using keyword-based capabilities.",
+    "capabilities": ["risk analysis", "compliance", "regulations", "credit risk", "market risk", "operational risk"],
+    "port": 6008,
+    "system_prompt": "You are a financial risk analyst specializing in risk assessment and regulatory compliance. Focus on identifying and mitigating financial risks.",
+    "questions": [
+      "How do you calculate Value at Risk (VaR)?",
+      "What are the key components of Basel III regulations?",
+      "Explain stress testing methodologies in banking.",
+      "How do you assess credit risk for loan portfolios?",
+      "What are the emerging risks in fintech?"
+    ]
+  }
+]

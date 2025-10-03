@@ -103,26 +103,48 @@ class RegistryClient:
     def search_agents(self, query: str = "", capabilities: List[str] = None, tags: List[str] = None) -> List[Dict[str, Any]]:
         """Search for agents based on criteria"""
         try:
-            params = {}
+            # FIX: Use working structure-based searches instead of broken /search endpoint
             if query:
-                params["q"] = query
+                print(f"🔍 Using structure-based search fallback for query: {query}")
+                all_agents = []
+                
+                # Search across all structures and combine results
+                for structure_type in ["keywords", "description", "embedding"]:
+                    try:
+                        structure_agents = self.search_agents_by_structure(query, structure_type, limit=10)
+                        all_agents.extend(structure_agents)
+                    except Exception as e:
+                        print(f"Structure search failed for {structure_type}: {e}")
+                        continue
+                
+                # Remove duplicates based on agent_id
+                seen_ids = set()
+                unique_agents = []
+                for agent in all_agents:
+                    agent_id = agent.get('agent_id')
+                    if agent_id and agent_id not in seen_ids:
+                        seen_ids.add(agent_id)
+                        unique_agents.append(agent)
+                
+                print(f"🔍 Found {len(unique_agents)} unique agents across all structures")
+                return unique_agents
+            
+            # Original logic for capabilities/tags (fallback)
+            params = {}
             if capabilities:
                 params["capabilities"] = ",".join(capabilities)
             if tags:
                 params["tags"] = ",".join(tags)
-
-            response = self.session.get(f"{self.registry_url}/search", params=params)
-            if response.status_code == 200:
-                result = response.json()
-                # Extract agents array from response
-                agents = result.get('agents', [])
-                # If search endpoint returns empty results, fall back to local filtering
-                if not agents and query:
-                    return self._filter_agents_locally(query, capabilities, tags)
-                return agents
-
-            # Fallback to client-side filtering
+            
+            if params:
+                response = self.session.get(f"{self.registry_url}/search", params=params)
+                if response.status_code == 200:
+                    result = response.json()
+                    return result.get('agents', [])
+            
+            # Final fallback to local filtering
             return self._filter_agents_locally(query, capabilities, tags)
+            
         except Exception as e:
             print(f"Error searching agents: {e}")
             return self._filter_agents_locally(query, capabilities, tags)

@@ -363,13 +363,13 @@ class AgentRanker:
         return min(1.0, confidence)
 
     def get_top_recommendations(self, agent_scores: List[AgentScore],
-                              limit: int = 5, min_score: float = 0.3) -> List[AgentScore]:
+                               limit: int = 5, min_score: float = 0.3) -> List[AgentScore]:
         """Get top agent recommendations with filtering"""
 
-        # Filter by minimum score and confidence
+        # Filter by minimum score only (removed confidence requirement)
         filtered = [
             score for score in agent_scores
-            if score.score >= min_score and score.confidence >= 0.3
+            if score.score >= min_score
         ]
 
         return filtered[:limit]

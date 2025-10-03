@@ -130,6 +130,11 @@ class RegistryClient:
     def search_agents_by_structure(self, query: str, structure_type: str = None, limit: int = 10) -> List[Dict[str, Any]]:
         """Search for agents with structure-specific filtering via registry API"""
         try:
+            # Use embedding-specific endpoint for embedding searches
+            if structure_type == "embedding":
+                return self._search_agents_by_embedding(query, limit)
+            
+            # Use regular structure search for keywords/description
             params = {
                 "q": query,
                 "limit": limit
@@ -148,6 +153,29 @@ class RegistryClient:
                 return []
         except Exception as e:
             print(f"❌ Error in structure search: {e}")
+            return []
+
+    def _search_agents_by_embedding(self, query: str, limit: int = 10) -> List[Dict[str, Any]]:
+        """Search agents using embedding-based cosine similarity"""
+        try:
+            params = {
+                "q": query,
+                "limit": limit
+            }
+
+            response = self.session.get(f"{self.registry_url}/search/embedding", params=params)
+            if response.status_code == 200:
+                result = response.json()
+                agents = result.get('agents', [])
+                search_method = result.get('search_method', 'unknown')
+                total_searched = result.get('total_agents_searched', 0)
+                print(f"🎯 Registry embedding search: {len(agents)} results from {total_searched} agents using {search_method}")
+                return agents
+            else:
+                print(f"⚠️ Registry embedding search failed: HTTP {response.status_code}")
+                return []
+        except Exception as e:
+            print(f"❌ Error in embedding search: {e}")
             return []
 
     def _filter_agents_locally(self, query: str = "", capabilities: List[str] = None, tags: List[str] = None) -> List[Dict[str, Any]]:

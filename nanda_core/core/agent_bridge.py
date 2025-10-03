@@ -526,6 +526,13 @@ Keywords:"""
     
     def _handle_direct_question(self, query: str, original_msg: Message, conversation_id: str, search_start: float) -> Message:
         """Handle direct questions with new flow: 1 question → 15 interactions"""
+        # Check if discovery system is available
+        if not self.discovery:
+            return self._create_response(
+                original_msg, conversation_id,
+                "🔍 Agent discovery not available. Registry connection required."
+            )
+        
         try:
             logger.info(f"🎯 [{self.agent_id}] Processing direct question: {query}")
             

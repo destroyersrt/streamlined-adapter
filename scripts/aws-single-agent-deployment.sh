@@ -136,7 +136,7 @@ sudo -u ubuntu python3 -m venv env
 sudo -u ubuntu bash -c "source env/bin/activate && pip install --upgrade pip && pip install -e . && pip install anthropic"
 
 # Configure the modular agent with all environment variables
-sudo -u ubuntu sed -i "s/PORT = 6000/PORT = $PORT/" examples/modular_agent.py
+sudo -u ubuntu sed -i "s/PORT = 6000/PORT = $PORT/" examples/nanda_agent.py
 
 # Get public IP using IMDSv2 (AWS metadata service v2)
 echo "Getting public IP address using IMDSv2..."

@@ -10,7 +10,8 @@ import uuid
 import logging
 import requests
 import time
-from typing import Callable, Optional, Dict, Any
+import json
+from typing import Callable, Optional, Dict, Any, List
 from python_a2a import A2AServer, A2AClient, Message, TextContent, MessageRole, Metadata
 
 # Configure logger to capture conversation logs
@@ -462,3 +463,54 @@ class SimpleAgentBridge(A2AServer):
                 original_msg, conversation_id,
                 f"💬 Failed to contact agent: {str(e)}"
             )
+    
+    def _extract_keywords_with_llm(self, query: str) -> List[str]:
+        """Extract 5 keywords from query using LLM"""
+        try:
+            # Use the same agent logic (Claude API) that the agent already has
+            keyword_prompt = f"""Extract exactly 5 keywords from this query that best represent the core concepts and requirements. Return only the keywords separated by commas, no other text.
+
+Query: {query}
+
+Keywords:"""
+            
+            # Call the agent's own LLM logic for keyword extraction
+            response = self.agent_logic(keyword_prompt, "keyword_extraction")
+            
+            # Parse the response to extract keywords
+            keywords = []
+            if response:
+                # Clean and split the response
+                clean_response = response.strip()
+                # Remove any agent ID prefix if present
+                if ']' in clean_response:
+                    clean_response = clean_response.split(']', 1)[-1].strip()
+                
+                # Split by commas and clean each keyword
+                raw_keywords = clean_response.split(',')
+                for keyword in raw_keywords:
+                    clean_keyword = keyword.strip().lower()
+                    if clean_keyword and len(clean_keyword) > 1:
+                        keywords.append(clean_keyword)
+                
+                # Ensure we have exactly 5 keywords
+                keywords = keywords[:5]
+                
+                # If we don't have enough, pad with query words
+                if len(keywords) < 5:
+                    query_words = [word.lower().strip() for word in query.split() if len(word) > 2]
+                    for word in query_words:
+                        if word not in keywords and len(keywords) < 5:
+                            keywords.append(word)
+            
+            # Fallback: use query words if LLM extraction failed
+            if not keywords:
+                keywords = [word.lower().strip() for word in query.split() if len(word) > 2][:5]
+            
+            logger.info(f"🔑 [{self.agent_id}] Extracted keywords: {keywords}")
+            return keywords
+            
+        except Exception as e:
+            logger.error(f"❌ [{self.agent_id}] Keyword extraction failed: {e}")
+            # Fallback to simple word splitting
+            return [word.lower().strip() for word in query.split() if len(word) > 2][:5]

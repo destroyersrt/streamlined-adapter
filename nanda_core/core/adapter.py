@@ -86,11 +86,28 @@ class NANDA:
                 "agent_id": self.agent_id,
                 "agent_url": self.public_url
             }
+            
+            # Include metadata if available
+            if hasattr(self, 'metadata') and self.metadata:
+                # Add metadata fields that the registry expects
+                if 'description' in self.metadata:
+                    data['description'] = self.metadata['description']
+                if 'domain' in self.metadata:
+                    data['domain'] = self.metadata['domain']
+                if 'specialization' in self.metadata:
+                    data['specialization'] = self.metadata['specialization']
+                if 'structure_type' in self.metadata:
+                    data['structure_type'] = self.metadata['structure_type']
+                if 'capabilities' in self.metadata:
+                    data['capabilities'] = self.metadata['capabilities'].get('technical_skills', [])                                                                                                  
+                if 'tags' in self.metadata:
+                    data['tags'] = self.metadata['tags']
+                    
             response = requests.post(f"{self.registry_url}/register", json=data, timeout=10)
             if response.status_code == 200:
-                print(f"✅ Agent '{self.agent_id}' registered successfully")
+                print(f"✅ Agent '{self.agent_id}' registered successfully with metadata")
             else:
-                print(f"⚠️ Failed to register agent: HTTP {response.status_code}")
+                print(f"⚠️ Failed to register agent: HTTP {response.status_code} - {response.text}")
         except Exception as e:
             print(f"⚠️ Registration error: {e}")
 

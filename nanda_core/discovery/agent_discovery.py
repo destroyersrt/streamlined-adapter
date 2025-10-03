@@ -122,9 +122,17 @@ class AgentDiscovery:
     def _get_relevant_agents(self, task_analysis, filters: Dict[str, Any] = None, structure_type: str = None) -> List[Dict[str, Any]]:
         """Get agents relevant to the task using registry API"""
         
+        # Simple mock TaskAnalysis for string inputs
+        class SimpleTaskAnalysis:
+            def __init__(self, query):
+                self.domain = query
+                self.keywords = [query]
+                self.required_capabilities = []
+        
         # Handle case where task_analysis is a string (simple query)
         if isinstance(task_analysis, str):
             search_query = task_analysis
+            task_analysis = SimpleTaskAnalysis(task_analysis)
         else:
             # Build search query from TaskAnalysis object
             search_terms = []
@@ -136,10 +144,10 @@ class AgentDiscovery:
 
         # Use registry API for structure-specific search
         if structure_type:
-            return self._get_agents_from_registry_structure(search_query, structure_type)
+            return self._get_agents_from_registry_structure(task_analysis, structure_type)
         
-        # Use general registry search (our fixed method)
-        return self._get_agents_from_registry_general(search_query, filters)
+        # Use general registry search
+        return self._get_agents_from_registry(task_analysis, filters)
     
     def _get_agents_from_registry_structure(self, task_analysis: TaskAnalysis, structure_type: str) -> List[Dict[str, Any]]:
         """Get agents from registry using structure-specific search"""

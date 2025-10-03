@@ -308,17 +308,26 @@ class SimpleAgentBridge(A2AServer):
             # Log telemetry for search
             search_start = time.time()
             
-            # Check for structure-specific search
+            # Check for structure-specific search vs direct question
             structure_type = None
+            is_direct_question = True
+            
             if query.startswith("keywords "):
                 structure_type = "keywords"
                 query = query[9:].strip()
+                is_direct_question = False
             elif query.startswith("description "):
                 structure_type = "description"
                 query = query[12:].strip()
+                is_direct_question = False
             elif query.startswith("embedding "):
                 structure_type = "embedding"
                 query = query[10:].strip()
+                is_direct_question = False
+            
+            # Handle direct questions with new flow (1 question → 15 interactions)
+            if is_direct_question:
+                return self._handle_direct_question(query, original_msg, conversation_id, search_start)
             
             # Perform agent discovery (with optional structure filtering)
             result = self.discovery.discover_agents(query, limit=5, min_score=0.3, structure_type=structure_type)
@@ -514,3 +523,154 @@ Keywords:"""
             logger.error(f"❌ [{self.agent_id}] Keyword extraction failed: {e}")
             # Fallback to simple word splitting
             return [word.lower().strip() for word in query.split() if len(word) > 2][:5]
+    
+    def _handle_direct_question(self, query: str, original_msg: Message, conversation_id: str, search_start: float) -> Message:
+        """Handle direct questions with new flow: 1 question → 15 interactions"""
+        try:
+            logger.info(f"🎯 [{self.agent_id}] Processing direct question: {query}")
+            
+            # Step 1: Search across all 3 capability structures
+            all_agents = []
+            search_results = {}
+            
+            # Keywords structure: Extract keywords with LLM
+            logger.info(f"🔑 [{self.agent_id}] Searching keywords structure...")
+            keywords = self._extract_keywords_with_llm(query)
+            keywords_query = " ".join(keywords)
+            keywords_result = self.discovery.discover_agents(keywords_query, limit=5, min_score=0.3, structure_type="keywords")
+            search_results["keywords"] = {
+                "agents": keywords_result.recommended_agents,
+                "method": f"LLM keywords: {keywords}"
+            }
+            all_agents.extend([(agent, "keywords") for agent in keywords_result.recommended_agents])
+            
+            # Description structure: Direct text matching
+            logger.info(f"📝 [{self.agent_id}] Searching description structure...")
+            description_result = self.discovery.discover_agents(query, limit=5, min_score=0.3, structure_type="description")
+            search_results["description"] = {
+                "agents": description_result.recommended_agents,
+                "method": "Direct text matching"
+            }
+            all_agents.extend([(agent, "description") for agent in description_result.recommended_agents])
+            
+            # Embedding structure: Cosine similarity
+            logger.info(f"🔗 [{self.agent_id}] Searching embedding structure...")
+            embedding_result = self.discovery.discover_agents(query, limit=5, min_score=0.3, structure_type="embedding")
+            search_results["embedding"] = {
+                "agents": embedding_result.recommended_agents,
+                "method": "Cosine similarity"
+            }
+            all_agents.extend([(agent, "embedding") for agent in embedding_result.recommended_agents])
+            
+            search_time = time.time() - search_start
+            total_agents_found = len(all_agents)
+            
+            logger.info(f"📊 [{self.agent_id}] Found {total_agents_found} agents total across all structures")
+            
+            # Step 2: Ask the original question to all found agents
+            qa_interactions = []
+            if all_agents:
+                logger.info(f"❓ [{self.agent_id}] Asking question to {total_agents_found} agents...")
+                
+                for agent_score, structure_type in all_agents:
+                    try:
+                        # Look up agent URL
+                        agent_url = self._lookup_agent(agent_score.agent_id)
+                        if not agent_url:
+                            continue
+                        
+                        # Ensure URL has /a2a endpoint
+                        if not agent_url.endswith('/a2a'):
+                            agent_url = f"{agent_url}/a2a"
+                        
+                        # Ask the original question
+                        client = A2AClient(agent_url, timeout=30)
+                        start_time = time.time()
+                        response = client.send_message(
+                            Message(
+                                role=MessageRole.USER,
+                                content=TextContent(text=query),
+                                conversation_id=conversation_id
+                            )
+                        )
+                        response_time = time.time() - start_time
+                        
+                        # Extract response
+                        answer = "No response"
+                        if response and hasattr(response, 'parts') and response.parts:
+                            answer = response.parts[0].text
+                        
+                        qa_interactions.append({
+                            "agent_id": agent_score.agent_id,
+                            "structure_type": structure_type,
+                            "score": agent_score.score,
+                            "question": query,
+                            "answer": answer,
+                            "response_time": response_time,
+                            "success": True
+                        })
+                        
+                        logger.info(f"✅ [{self.agent_id}] Got response from {agent_score.agent_id} ({structure_type})")
+                        
+                    except Exception as e:
+                        logger.error(f"❌ [{self.agent_id}] Failed to get response from {agent_score.agent_id}: {e}")
+                        qa_interactions.append({
+                            "agent_id": agent_score.agent_id,
+                            "structure_type": structure_type,
+                            "score": agent_score.score,
+                            "question": query,
+                            "answer": f"Error: {str(e)}",
+                            "response_time": 0,
+                            "success": False
+                        })
+            
+            # Step 3: Format response showing all Q&A pairs
+            response_text = self._format_direct_question_response(query, search_results, qa_interactions, search_time)
+            
+            # Step 4: Log telemetry
+            if self.telemetry:
+                self.telemetry.log_agent_discovery(query, total_agents_found, search_time)
+                # TODO: Add structured telemetry for Q&A interactions
+            
+            return self._create_response(original_msg, conversation_id, response_text)
+            
+        except Exception as e:
+            logger.error(f"❌ [{self.agent_id}] Direct question handling failed: {e}")
+            return self._create_response(
+                original_msg, conversation_id,
+                f"❌ Error processing question: {str(e)}"
+            )
+    
+    def _format_direct_question_response(self, query: str, search_results: Dict, qa_interactions: List[Dict], search_time: float) -> str:
+        """Format the response for direct questions showing all Q&A pairs"""
+        response_text = f"🎯 Question: '{query}'\n"
+        response_text += f"⏱️ Search completed in {search_time:.2f}s\n\n"
+        
+        # Show search summary
+        total_found = sum(len(result["agents"]) for result in search_results.values())
+        response_text += f"📊 Found {total_found} agents across {len(search_results)} structures:\n"
+        
+        for structure, result in search_results.items():
+            agent_count = len(result["agents"])
+            method = result["method"]
+            response_text += f"  • {structure.capitalize()}: {agent_count} agents ({method})\n"
+        
+        response_text += f"\n💬 Responses from {len(qa_interactions)} agents:\n"
+        response_text += "=" * 50 + "\n\n"
+        
+        # Group by structure type for better organization
+        for structure in ["keywords", "description", "embedding"]:
+            structure_interactions = [qa for qa in qa_interactions if qa["structure_type"] == structure]
+            if structure_interactions:
+                response_text += f"🔍 {structure.upper()} STRUCTURE:\n"
+                response_text += "-" * 30 + "\n"
+                
+                for i, qa in enumerate(structure_interactions, 1):
+                    response_text += f"{i}. @{qa['agent_id']} (Score: {qa['score']:.2f})\n"
+                    response_text += f"   Q: {qa['question']}\n"
+                    response_text += f"   A: {qa['answer'][:200]}{'...' if len(qa['answer']) > 200 else ''}\n"
+                    response_text += f"   ⏱️ {qa['response_time']:.2f}s\n\n"
+                
+                response_text += "\n"
+        
+        return response_text

@@ -59,7 +59,8 @@ class NANDA:
             agent_id=agent_id,
             agent_logic=agent_logic,
             registry_url=registry_url,
-            telemetry=self.telemetry
+            telemetry=self.telemetry,
+            url=public_url  # Pass the public URL for A2A configuration
         )
         
         print(f"🤖 NANDA Agent '{agent_id}' created")

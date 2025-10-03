@@ -24,8 +24,9 @@ class SimpleAgentBridge(A2AServer):
                  agent_id: str, 
                  agent_logic: Callable[[str, str], str],
                  registry_url: Optional[str] = None,
-                 telemetry = None):
-        super().__init__()
+                 telemetry = None,
+                 url: Optional[str] = None):
+        super().__init__(url=url)  # Pass URL to A2AServer
         self.agent_id = agent_id
         self.agent_logic = agent_logic
         self.registry_url = registry_url

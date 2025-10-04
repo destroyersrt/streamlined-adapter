@@ -1,92 +1,92 @@
 [
   {
-    "agent_id": "visualartist",
-    "agent_name": "Visual Artist",
-    "domain": "graphic design",
-    "specialization": "visual communication and brand identity expert",
-    "description": "I create stunning visual designs, develop brand identities, and craft compelling visual narratives.",
-    "capabilities": "graphic design,brand identity,typography,color theory,visual storytelling",
-    "port": 6000
+    "agent_id": "graphic-designer-001",
+    "agent_name": "Graphic Designer",
+    "domain": "design",
+    "specialization": "Visual Design",
+    "description": "Creative graphic designer specializing in visual branding and digital design",
+    "capabilities": "graphic design,branding,visual identity,digital art",
+    "port": 6021
   },
   {
-    "agent_id": "contentcreator",
+    "agent_id": "content-creator-002",
     "agent_name": "Content Creator",
-    "domain": "content writing",
-    "specialization": "engaging content and copywriting specialist",
-    "description": "I craft compelling content, write persuasive copy, and develop content strategies that engage audiences.",
-    "capabilities": "copywriting,content strategy,SEO writing,storytelling,editorial planning",
-    "port": 7000
+    "domain": "content",
+    "specialization": "Content Strategy",
+    "description": "Content creator developing engaging content strategies and multimedia content",
+    "capabilities": "content creation,social media,copywriting,video production",
+    "port": 6022
   },
   {
-    "agent_id": "uxdesigner",
+    "agent_id": "ux-designer-003",
     "agent_name": "UX Designer",
     "domain": "user experience",
-    "specialization": "user-centered design and interface optimization expert",
-    "description": "I design intuitive user experiences, conduct user research, and optimize digital interfaces.",
-    "capabilities": "user research,wireframing,prototyping,usability testing,interaction design",
-    "port": 8000
+    "specialization": "User Experience Design",
+    "description": "UX designer focused on creating intuitive and user-centered design experiences",
+    "capabilities": "UX design,user research,prototyping,usability testing",
+    "port": 6023
   },
   {
-    "agent_id": "videomaker",
-    "agent_name": "Video Maker",
+    "agent_id": "brand-strategist-004",
+    "agent_name": "Brand Strategist",
+    "domain": "branding",
+    "specialization": "Brand Development",
+    "description": "Brand strategist developing comprehensive brand strategies and positioning",
+    "capabilities": "brand strategy,market positioning,brand identity,competitive analysis",
+    "port": 6024
+  },
+  {
+    "agent_id": "video-producer-005",
+    "agent_name": "Video Producer",
     "domain": "video production",
-    "specialization": "video content creation and post-production expert",
-    "description": "I produce engaging videos, handle post-production, and create visual stories that captivate audiences.",
-    "capabilities": "video editing,motion graphics,cinematography,sound design,visual effects",
-    "port": 9000
+    "specialization": "Video Content",
+    "description": "Video producer creating compelling video content for various platforms",
+    "capabilities": "video production,editing,storytelling,post-production",
+    "port": 6025
   },
   {
-    "agent_id": "socialmedia",
-    "agent_name": "Social Media",
-    "domain": "social media management",
-    "specialization": "social media strategy and community engagement expert",
-    "description": "I manage social media presence, create viral content, and build engaged online communities.",
-    "capabilities": "social media strategy,community management,influencer marketing,content planning,analytics",
-    "port": 10000
-  },
-  {
-    "agent_id": "photographer",
-    "agent_name": "Photographer",
-    "domain": "photography",
-    "specialization": "professional photography and visual storytelling expert",
-    "description": "I capture compelling images, manage photo shoots, and create visual content that tells stories.",
-    "capabilities": "portrait photography,product photography,photo editing,lighting,composition",
-    "port": 11000
-  },
-  {
-    "agent_id": "animator",
-    "agent_name": "Animator",
-    "domain": "animation",
-    "specialization": "2D/3D animation and motion design expert",
-    "description": "I create animated content, design motion graphics, and bring static designs to life.",
-    "capabilities": "2D animation,3D modeling,motion graphics,character design,visual effects",
-    "port": 12000
-  },
-  {
-    "agent_id": "webdesigner",
+    "agent_id": "web-designer-006",
     "agent_name": "Web Designer",
     "domain": "web design",
-    "specialization": "responsive web design and frontend development expert",
-    "description": "I design beautiful websites, ensure responsive layouts, and create seamless web experiences.",
-    "capabilities": "responsive design,HTML/CSS,JavaScript,web accessibility,performance optimization",
-    "port": 13000
+    "specialization": "Web Interface Design",
+    "description": "Web designer creating beautiful and functional web interfaces",
+    "capabilities": "web design,HTML/CSS,responsive design,UI design",
+    "port": 6026
   },
   {
-    "agent_id": "brandstrategist",
-    "agent_name": "Brand Strategist",
-    "domain": "brand strategy",
-    "specialization": "brand positioning and identity development expert",
-    "description": "I develop brand strategies, position brands in markets, and create cohesive brand experiences.",
-    "capabilities": "brand positioning,market research,brand guidelines,competitive analysis,brand messaging",
-    "port": 14000
+    "agent_id": "marketing-creative-007",
+    "agent_name": "Marketing Creative",
+    "domain": "marketing",
+    "specialization": "Creative Marketing",
+    "description": "Marketing creative developing innovative marketing campaigns and materials",
+    "capabilities": "creative marketing,campaign development,advertising,visual communication",
+    "port": 6027
   },
   {
-    "agent_id": "artdirector",
-    "agent_name": "Art Director",
+    "agent_id": "photographer-008",
+    "agent_name": "Photographer",
+    "domain": "photography",
+    "specialization": "Commercial Photography",
+    "description": "Professional photographer specializing in commercial and creative photography",
+    "capabilities": "photography,photo editing,lighting,composition",
+    "port": 6028
+  },
+  {
+    "agent_id": "illustrator-009",
+    "agent_name": "Illustrator",
+    "domain": "illustration",
+    "specialization": "Digital Illustration",
+    "description": "Digital illustrator creating custom illustrations and artwork",
+    "capabilities": "digital illustration,concept art,character design,vector graphics",
+    "port": 6029
+  },
+  {
+    "agent_id": "creative-director-010",
+    "agent_name": "Creative Director",
     "domain": "creative direction",
-    "specialization": "creative vision and artistic direction expert",
-    "description": "I lead creative projects, direct artistic vision, and ensure cohesive visual communication.",
-    "capabilities": "creative direction,project management,team leadership,visual concepts,campaign development",
-    "port": 15000
+    "specialization": "Creative Leadership",
+    "description": "Creative director leading creative teams and overseeing creative projects",
+    "capabilities": "creative direction,team leadership,project management,creative strategy",
+    "port": 6030
   }
 ]

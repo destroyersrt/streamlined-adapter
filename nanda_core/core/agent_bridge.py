@@ -287,11 +287,19 @@ class SimpleAgentBridge(A2AServer):
         )
     
     def _handle_search_query(self, query: str, original_msg: Message, conversation_id: str) -> Message:
-        """Handle semantic search queries with '?' command"""
-        if not self.discovery:
+        """
+        Handle semantic search queries with '?' command using new decoupled architecture.
+        
+        NEW FLOW:
+        1. Format input based on search type (keywords/description/embedding)
+        2. Call registry API endpoints for search logic
+        3. Process results and execute A2A communication
+        4. Log telemetry via registry
+        """
+        if not self.registry_client:
             return self._create_response(
                 original_msg, conversation_id,
-                "🔍 Agent discovery not available. Registry connection required."
+                "🔍 Registry client not available. Registry connection required."
             )
         
         if not query:
@@ -473,6 +481,171 @@ class SimpleAgentBridge(A2AServer):
                 f"💬 Failed to contact agent: {str(e)}"
             )
     
+    # ================================
+    # SEPARATE FORMATTING FUNCTIONS FOR DECOUPLED ARCHITECTURE
+    # ================================
+    
+    def _format_keyword_search_input(self, query: str) -> Dict:
+        """
+        Extract keywords from query using LLM for keyword-based agent matching.
+        
+        Args:
+            query: Original user question
+            
+        Returns:
+            {"keywords": ["keyword1", "keyword2", ...], "original_query": query}
+            
+        Process:
+            1. Send query to LLM with keyword extraction prompt
+            2. Parse LLM response to extract 5 keywords
+            3. Clean and validate keywords
+            4. Return formatted input for registry keyword search
+        """
+        try:
+            logger.info(f"🔑 [{self.agent_id}] Formatting keyword search input for: {query}")
+            
+            # Extract keywords using LLM
+            keywords = self._extract_keywords_with_llm(query)
+            
+            formatted_input = {
+                "keywords": keywords,
+                "original_query": query,
+                "limit": 5
+            }
+            
+            logger.info(f"🔑 [{self.agent_id}] Keyword search input formatted: {keywords}")
+            return formatted_input
+            
+        except Exception as e:
+            logger.error(f"❌ [{self.agent_id}] Keyword search input formatting failed: {e}")
+            # Fallback formatting
+            fallback_keywords = [word.lower().strip() for word in query.split() if len(word) > 2][:5]
+            return {
+                "keywords": fallback_keywords,
+                "original_query": query,
+                "limit": 5
+            }
+    
+    def _format_description_search_input(self, query: str) -> Dict:
+        """
+        Create keyword array from query for description-based text matching.
+        
+        Args:
+            query: Original user question
+            
+        Returns:
+            {"keywords": ["word1", "word2", ...], "original_query": query}
+            
+        Process:
+            1. Tokenize query into meaningful words
+            2. Remove stop words and short words
+            3. Extract domain-relevant terms
+            4. Return formatted input for registry description search
+        """
+        try:
+            logger.info(f"📝 [{self.agent_id}] Formatting description search input for: {query}")
+            
+            # Simple tokenization and filtering
+            stop_words = {'the', 'a', 'an', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for', 'of', 'with', 'by', 'is', 'are', 'was', 'were', 'be', 'been', 'being', 'have', 'has', 'had', 'do', 'does', 'did', 'will', 'would', 'could', 'should', 'may', 'might', 'can', 'i', 'you', 'he', 'she', 'it', 'we', 'they', 'me', 'him', 'her', 'us', 'them'}
+            
+            # Extract meaningful words
+            words = []
+            for word in query.lower().split():
+                clean_word = word.strip('.,!?;:"()[]{}')
+                if len(clean_word) > 2 and clean_word not in stop_words:
+                    words.append(clean_word)
+            
+            formatted_input = {
+                "keywords": words,
+                "original_query": query,
+                "limit": 5
+            }
+            
+            logger.info(f"📝 [{self.agent_id}] Description search input formatted: {words}")
+            return formatted_input
+            
+        except Exception as e:
+            logger.error(f"❌ [{self.agent_id}] Description search input formatting failed: {e}")
+            # Fallback formatting
+            fallback_words = [word.lower().strip() for word in query.split() if len(word) > 2]
+            return {
+                "keywords": fallback_words,
+                "original_query": query,
+                "limit": 5
+            }
+    
+    def _format_embedding_search_input(self, query: str) -> Dict:
+        """
+        Generate CLIP embeddings from query for semantic similarity matching.
+        
+        Args:
+            query: Original user question
+            
+        Returns:
+            {"embedding": [0.1, 0.2, ...], "original_query": query}
+            
+        Process:
+            1. Load CLIP model (cached)
+            2. Generate text embedding for query
+            3. Normalize embedding vector
+            4. Return formatted input for registry embedding search
+        """
+        try:
+            logger.info(f"🔗 [{self.agent_id}] Formatting embedding search input for: {query}")
+            
+            # Try to use the existing embedding system if available
+            if hasattr(self, 'embedding_manager') and self.embedding_manager:
+                try:
+                    # Use the agent's embedding manager
+                    embedding = self.embedding_manager.create_embedding(query)
+                    
+                    formatted_input = {
+                        "embedding": embedding.tolist() if hasattr(embedding, 'tolist') else embedding,
+                        "original_query": query,
+                        "limit": 5
+                    }
+                    
+                    logger.info(f"🔗 [{self.agent_id}] Embedding search input formatted: {len(embedding)} dimensions")
+                    return formatted_input
+                    
+                except Exception as e:
+                    logger.warning(f"⚠️ [{self.agent_id}] Embedding manager failed: {e}")
+            
+            # Fallback: Try to create a simple CLIP embedding
+            try:
+                from nanda_core.embeddings.clip_embedder import CLIPEmbedder
+                embedder = CLIPEmbedder()
+                embedding = embedder.create_embedding(query)
+                
+                formatted_input = {
+                    "embedding": embedding.tolist() if hasattr(embedding, 'tolist') else embedding,
+                    "original_query": query,
+                    "limit": 5
+                }
+                
+                logger.info(f"🔗 [{self.agent_id}] Embedding search input formatted (fallback): {len(embedding)} dimensions")
+                return formatted_input
+                
+            except Exception as e:
+                logger.warning(f"⚠️ [{self.agent_id}] CLIP embedder fallback failed: {e}")
+                
+                # Final fallback: return empty embedding (will be handled by registry)
+                return {
+                    "embedding": [],
+                    "original_query": query,
+                    "limit": 5,
+                    "error": "Embedding generation failed"
+                }
+            
+        except Exception as e:
+            logger.error(f"❌ [{self.agent_id}] Embedding search input formatting failed: {e}")
+            return {
+                "embedding": [],
+                "original_query": query,
+                "limit": 5,
+                "error": str(e)
+            }
+
     def _extract_keywords_with_llm(self, query: str) -> List[str]:
         """Extract 5 keywords from query using LLM"""
         try:

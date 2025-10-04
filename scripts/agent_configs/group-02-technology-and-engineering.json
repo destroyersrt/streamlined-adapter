@@ -1,92 +1,92 @@
 [
   {
-    "agent_id": "codemaster",
-    "agent_name": "Code Master",
-    "domain": "software architecture",
-    "specialization": "enterprise software design and system architecture expert",
-    "description": "I design scalable software systems, choose optimal tech stacks, and solve complex architectural challenges.",
-    "capabilities": "system design,microservices,cloud architecture,performance optimization,technical leadership",
-    "port": 6000
+    "agent_id": "software-engineer-001",
+    "agent_name": "Software Engineer",
+    "domain": "software development",
+    "specialization": "Full Stack Development",
+    "description": "Full stack software engineer with expertise in web and mobile applications",
+    "capabilities": "web development,mobile apps,database design,API development",
+    "port": 6011
   },
   {
-    "agent_id": "pipelinebuilder",
-    "agent_name": "Pipeline Builder",
-    "domain": "data engineering",
-    "specialization": "big data processing and pipeline architecture specialist",
-    "description": "I build robust data pipelines, design data warehouses, and ensure reliable data flow for analytics.",
-    "capabilities": "ETL pipelines,data warehousing,stream processing,database optimization,data governance",
-    "port": 7000
+    "agent_id": "devops-engineer-002",
+    "agent_name": "DevOps Engineer",
+    "domain": "infrastructure",
+    "specialization": "Cloud Infrastructure",
+    "description": "DevOps engineer specializing in cloud infrastructure and deployment automation",
+    "capabilities": "cloud infrastructure,CI/CD,containerization,monitoring",
+    "port": 6012
   },
   {
-    "agent_id": "deployninja",
-    "agent_name": "Deploy Ninja",
-    "domain": "DevOps and infrastructure",
-    "specialization": "CI/CD automation and infrastructure management expert",
-    "description": "I automate deployments, manage cloud infrastructure, and ensure reliable software delivery.",
-    "capabilities": "CI/CD,containerization,infrastructure as code,monitoring,cloud platforms",
-    "port": 8000
+    "agent_id": "data-scientist-003",
+    "agent_name": "Data Scientist",
+    "domain": "data science",
+    "specialization": "Machine Learning",
+    "description": "Data scientist with expertise in machine learning and statistical analysis",
+    "capabilities": "machine learning,data analysis,statistical modeling,Python",
+    "port": 6013
   },
   {
-    "agent_id": "cyberguardian",
-    "agent_name": "Cyber Guardian",
-    "domain": "cybersecurity",
-    "specialization": "application security and threat analysis expert",
-    "description": "I secure applications, conduct security audits, and protect systems from cyber threats.",
-    "capabilities": "security auditing,penetration testing,threat modeling,compliance,incident response",
-    "port": 9000
+    "agent_id": "cybersecurity-expert-004",
+    "agent_name": "Cybersecurity Expert",
+    "domain": "security",
+    "specialization": "Information Security",
+    "description": "Cybersecurity expert focusing on threat analysis and security architecture",
+    "capabilities": "threat analysis,security architecture,penetration testing,compliance",
+    "port": 6014
   },
   {
-    "agent_id": "neuralpioneer",
-    "agent_name": "Neural Pioneer",
+    "agent_id": "ai-researcher-005",
+    "agent_name": "AI Researcher",
     "domain": "artificial intelligence",
-    "specialization": "machine learning research and AI system development expert",
-    "description": "I develop AI models, conduct ML research, and implement intelligent systems for various applications.",
-    "capabilities": "machine learning,deep learning,NLP,computer vision,AI ethics",
-    "port": 10000
+    "specialization": "AI Research",
+    "description": "AI researcher working on advanced machine learning and neural networks",
+    "capabilities": "AI research,neural networks,deep learning,NLP",
+    "port": 6015
   },
   {
-    "agent_id": "chainbuilder",
-    "agent_name": "Chain Builder",
-    "domain": "blockchain technology",
-    "specialization": "decentralized systems and smart contract development expert",
-    "description": "I build blockchain applications, develop smart contracts, and design decentralized systems.",
-    "capabilities": "smart contracts,DeFi,Web3,consensus algorithms,tokenomics",
-    "port": 11000
+    "agent_id": "systems-architect-006",
+    "agent_name": "Systems Architect",
+    "domain": "architecture",
+    "specialization": "System Design",
+    "description": "Systems architect designing scalable and robust software architectures",
+    "capabilities": "system design,scalability,microservices,distributed systems",
+    "port": 6016
   },
   {
-    "agent_id": "appcreator",
-    "agent_name": "App Creator",
+    "agent_id": "database-administrator-007",
+    "agent_name": "Database Administrator",
+    "domain": "databases",
+    "specialization": "Database Management",
+    "description": "Database administrator with expertise in database optimization and management",
+    "capabilities": "database optimization,SQL,NoSQL,data modeling",
+    "port": 6017
+  },
+  {
+    "agent_id": "mobile-developer-008",
+    "agent_name": "Mobile Developer",
     "domain": "mobile development",
-    "specialization": "cross-platform mobile application development expert",
-    "description": "I create engaging mobile apps, optimize user experiences, and ensure cross-platform compatibility.",
-    "capabilities": "iOS development,Android development,React Native,Flutter,mobile UX",
-    "port": 12000
+    "specialization": "Mobile Applications",
+    "description": "Mobile developer creating native and cross-platform mobile applications",
+    "capabilities": "iOS development,Android development,React Native,Flutter",
+    "port": 6018
   },
   {
-    "agent_id": "connectedthings",
-    "agent_name": "Connected Things",
-    "domain": "Internet of Things",
-    "specialization": "IoT system design and embedded systems expert",
-    "description": "I design IoT solutions, develop embedded systems, and create connected device ecosystems.",
-    "capabilities": "embedded systems,sensor networks,edge computing,IoT protocols,hardware integration",
-    "port": 13000
+    "agent_id": "blockchain-developer-009",
+    "agent_name": "Blockchain Developer",
+    "domain": "blockchain",
+    "specialization": "Blockchain Technology",
+    "description": "Blockchain developer working on decentralized applications and smart contracts",
+    "capabilities": "smart contracts,DApps,cryptocurrency,blockchain architecture",
+    "port": 6019
   },
   {
-    "agent_id": "playmaker",
-    "agent_name": "Play Maker",
-    "domain": "game development",
-    "specialization": "interactive entertainment and game engine expert",
-    "description": "I create immersive games, design gameplay mechanics, and optimize game performance across platforms.",
-    "capabilities": "game engines,3D graphics,gameplay programming,VR/AR,game design",
-    "port": 14000
-  },
-  {
-    "agent_id": "quantumexplorer",
-    "agent_name": "Quantum Explorer",
-    "domain": "quantum computing",
-    "specialization": "quantum algorithms and quantum system development expert",
-    "description": "I research quantum algorithms, develop quantum software, and explore quantum computing applications.",
-    "capabilities": "quantum algorithms,quantum programming,quantum cryptography,quantum simulation,quantum hardware",
-    "port": 15000
+    "agent_id": "qa-engineer-010",
+    "agent_name": "QA Engineer",
+    "domain": "quality assurance",
+    "specialization": "Software Testing",
+    "description": "Quality assurance engineer ensuring software quality through comprehensive testing",
+    "capabilities": "automated testing,test frameworks,quality assurance,bug tracking",
+    "port": 6020
   }
 ]

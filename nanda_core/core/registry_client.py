@@ -164,15 +164,9 @@ class RegistryClient:
             if structure_type:
                 params["structure_type"] = structure_type
 
-            response = self.session.get(f"{self.registry_url}/search/structure", params=params)
-            if response.status_code == 200:
-                result = response.json()
-                agents = result.get('agents', [])
-                print(f"🔍 Registry structure search ({structure_type}): {len(agents)} results")
-                return agents
-            else:
-                print(f"⚠️ Registry structure search failed: HTTP {response.status_code}")
-                return []
+            # REMOVED: /search/structure endpoint - will be replaced by specific POST endpoints
+            print(f"⚠️ Structure search temporarily disabled - will be replaced by POST endpoints")
+            return []
         except Exception as e:
             print(f"❌ Error in structure search: {e}")
             return []
@@ -341,3 +335,141 @@ class RegistryClient:
         except Exception as e:
             print(f"Error getting registry stats: {e}")
             return None
+
+    # ================================
+    # NEW METHODS FOR DECOUPLED SEARCH ARCHITECTURE
+    # ================================
+
+    def search_keyword(self, formatted_input: Dict) -> List[Dict]:
+        """
+        Call registry POST /search/keyword endpoint for LLM-based keyword matching.
+        
+        Args:
+            formatted_input: {"keywords": ["keyword1", "keyword2", ...], "original_query": "..."}
+            
+        Returns:
+            List of agent dictionaries with scores and metadata
+        """
+        try:
+            response = self.session.post(f"{self.registry_url}/search/keyword", json=formatted_input)
+            if response.status_code == 200:
+                result = response.json()
+                agents = result.get('agents', [])
+                print(f"🔑 Registry keyword search: {len(agents)} results from {result.get('total_agents_searched', 0)} agents")
+                return agents
+            else:
+                print(f"⚠️ Registry keyword search failed: HTTP {response.status_code}")
+                return []
+        except Exception as e:
+            print(f"❌ Error in keyword search: {e}")
+            return []
+
+    def search_description(self, formatted_input: Dict) -> List[Dict]:
+        """
+        Call registry POST /search/description endpoint for text similarity search.
+        
+        Args:
+            formatted_input: {"keywords": ["word1", "word2", ...], "original_query": "..."}
+            
+        Returns:
+            List of agent dictionaries with scores and metadata
+        """
+        try:
+            response = self.session.post(f"{self.registry_url}/search/description", json=formatted_input)
+            if response.status_code == 200:
+                result = response.json()
+                agents = result.get('agents', [])
+                print(f"📝 Registry description search: {len(agents)} results from {result.get('total_agents_searched', 0)} agents")
+                return agents
+            else:
+                print(f"⚠️ Registry description search failed: HTTP {response.status_code}")
+                return []
+        except Exception as e:
+            print(f"❌ Error in description search: {e}")
+            return []
+
+    def search_embedding(self, formatted_input: Dict) -> List[Dict]:
+        """
+        Call registry POST /search/embedding endpoint for cosine similarity search.
+        
+        Args:
+            formatted_input: {"embedding": [0.1, 0.2, ...], "original_query": "..."}
+            
+        Returns:
+            List of agent dictionaries with scores and metadata
+        """
+        try:
+            response = self.session.post(f"{self.registry_url}/search/embedding", json=formatted_input)
+            if response.status_code == 200:
+                result = response.json()
+                agents = result.get('agents', [])
+                search_method = result.get('search_method', 'unknown')
+                total_searched = result.get('total_agents_searched', 0)
+                print(f"🎯 Registry embedding search: {len(agents)} results from {total_searched} agents using {search_method}")
+                return agents
+            else:
+                print(f"⚠️ Registry embedding search failed: HTTP {response.status_code}")
+                return []
+        except Exception as e:
+            print(f"❌ Error in embedding search: {e}")
+            return []
+
+    def log_qa_interaction(self, interaction_data: Dict) -> bool:
+        """
+        Call registry POST /logger endpoint to log Q&A interactions.
+        
+        Args:
+            interaction_data: {"query": "...", "agents": [...], "interactions": [...], "metadata": {...}}
+            
+        Returns:
+            True if logging was successful, False otherwise
+        """
+        try:
+            response = self.session.post(f"{self.registry_url}/logger", json=interaction_data)
+            if response.status_code == 200:
+                result = response.json()
+                if result.get('status') == 'success':
+                    print(f"📊 Q&A interaction logged successfully: {result.get('log_id', 'unknown')}")
+                    return True
+                else:
+                    print(f"⚠️ Logging failed: {result.get('message', 'unknown error')}")
+                    return False
+            else:
+                print(f"⚠️ Registry logging failed: HTTP {response.status_code}")
+                return False
+        except Exception as e:
+            print(f"❌ Error in logging Q&A interaction: {e}")
+            return False
+
+    def cleanup_registry(self, collections: List[str] = None, confirm: bool = False) -> Dict:
+        """
+        Call registry POST /cleanup endpoint to clean up registry collections.
+        
+        Args:
+            collections: List of collections to clean (default: ["agent_index", "agent_facts"])
+            confirm: Safety confirmation flag
+            
+        Returns:
+            Dictionary with cleanup results
+        """
+        try:
+            cleanup_request = {
+                "confirm": confirm
+            }
+            if collections:
+                cleanup_request["collections"] = collections
+                
+            response = self.session.post(f"{self.registry_url}/cleanup", json=cleanup_request)
+            if response.status_code == 200:
+                result = response.json()
+                if result.get('status') == 'success':
+                    print(f"🧹 Registry cleanup successful: {result.get('counts', {})}")
+                elif result.get('status') == 'confirmation_required':
+                    print(f"⚠️ Cleanup requires confirmation: {result.get('message', '')}")
+                return result
+            else:
+                print(f"⚠️ Registry cleanup failed: HTTP {response.status_code}")
+                return {"status": "error", "message": f"HTTP {response.status_code}"}
+        except Exception as e:
+            print(f"❌ Error in registry cleanup: {e}")
+            return {"status": "error", "message": str(e)}
